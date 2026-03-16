@@ -1,0 +1,5 @@
+▲ Next.js 16.1.6 (Turbopack)
+
+  Creating an optimized production build ...
+Deseja finalizar o arquivo em lotes (S/N)? Deseja finalizar o arquivo em lotes (S/N)? 
+^C

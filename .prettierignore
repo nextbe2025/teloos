@@ -1,0 +1,23 @@
+# Build outputs
+.next/
+out/
+dist/
+build/
+
+# Dependencies
+node_modules/
+
+# Environment
+.env*
+!.env.example
+
+# Generated
+*.lock
+package-lock.json
+
+# Assets
+public/
+
+# Config files (already formatted by other tools)
+*.config.mjs
+eslint.config.mjs
