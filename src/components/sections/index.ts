@@ -1,0 +1,8 @@
+export { HeroSection } from './hero'
+export { MetricsSection } from './metrics'
+export { SolutionsSection } from './solutions'
+export { BenefitsSection } from './benefits'
+export { DashboardPreviewSection } from './dashboard-preview'
+export { IntegrationsSection } from './integrations'
+export { TestimonialsSection } from './testimonials'
+export { CtaSection } from './cta-section'

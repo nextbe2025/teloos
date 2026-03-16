@@ -40,10 +40,15 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 
   /* ─── Tokens de Marca Teloos ─────────────────────────────────────────────── */
-  /* Substitua pelos valores reais da identidade visual */
-  --color-brand-primary: oklch(0.45 0.25 260);   /* Azul primário */
-  --color-brand-accent: oklch(0.70 0.20 150);    /* Verde destaque */
-  --color-brand-dark: oklch(0.18 0.02 260);      /* Dark brand */
+  --color-brand-blue: #3F63E6;     /* Azul principal */
+  --color-brand-dark: #11245F;     /* Azul escuro */
+  --color-brand-light: #8FA5D8;    /* Azul claro */
+  --color-brand-orange: #FF7A00;   /* Laranja destaque */
+  --color-brand-ice: #EEF2FF;      /* Azul gelo */
+
+  /* Aliases semânticos — usados em .text-gradient e utilitários herdados */
+  --color-brand-primary: #3F63E6;
+  --color-brand-accent: #FF7A00;
 }
 
 /* ─── Light Mode ──────────────────────────────────────────────────────────── */
@@ -54,8 +59,8 @@
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.52 0.21 264);   /* #3F63E6 Azul Teloos */
+  --primary-foreground: oklch(1 0 0); /* branco */
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
   --muted: oklch(0.97 0 0);
@@ -139,7 +144,16 @@
 
   /* Gradiente de texto para headlines de destaque */
   .text-gradient {
-    @apply bg-gradient-to-r from-brand-primary to-brand-accent bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-brand-blue to-brand-orange bg-clip-text text-transparent;
+  }
+
+  /* Gradiente sutil de fundo — hero e seções de destaque */
+  .bg-gradient-brand {
+    background: linear-gradient(135deg, #11245F 0%, #3F63E6 60%, #FF7A00 100%);
+  }
+
+  .bg-gradient-hero {
+    background: radial-gradient(ellipse 80% 60% at 70% 40%, #EEF2FF 0%, transparent 70%);
   }
 }
 
