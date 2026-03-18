@@ -97,7 +97,7 @@ function SolutionCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="group flex flex-col overflow-hidden rounded-[2.5rem] border border-gray-300 bg-white transition-all duration-300 hover:-translate-y-2 hover:scale-[1.01] hover:shadow-2xl"
+      className="group flex flex-col overflow-hidden rounded-[2.5rem] border-[0.5px] border-gray-200 bg-white transition-all duration-300 hover:-translate-y-2 hover:scale-[1.01] hover:border-transparent hover:shadow-2xl"
     >
       {/* Imagem no Topo */}
       <div className="group-hover:bg-brand-blue/10 relative flex aspect-[16/10] w-full items-center justify-center overflow-hidden bg-[#F8FAFF] p-8 transition-all duration-500">
