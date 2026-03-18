@@ -1,96 +1,190 @@
-import { Tablet, ChefHat, Truck, BarChart3, ArrowRight } from 'lucide-react'
-import Link from 'next/link'
-import { Container, Section } from '@/components/shared'
+'use client'
 
-const SOLUTIONS = [
+import React from 'react'
+import Image from 'next/image'
+import Link from 'next/link'
+import { motion } from 'framer-motion'
+import {
+  ArrowRight,
+  UtensilsCrossed,
+  Bike,
+  Smartphone,
+  PackageSearch,
+  TrendingUp,
+  Puzzle,
+} from 'lucide-react'
+import { cn } from '@/lib/utils'
+
+interface Solution {
+  title: string
+  description: string
+  image: string
+  cta: string
+  href: string
+  highlight?: boolean
+  icon: React.ElementType
+}
+
+const SOLUTIONS: Solution[] = [
   {
-    icon: Tablet,
-    title: 'Pedidos & Cardápio Digital',
+    title: 'Operação & Atendimento',
     description:
-      'Cardápio digital via QR Code, autoatendimento em totens e gestão unificada de pedidos em todos os canais de venda.',
-    features: ['Cardápio digital', 'QR Code mesa', 'Autoatendimento'],
-    accent: 'bg-brand-blue/10 text-brand-blue',
-    border: 'hover:border-brand-blue/40',
+      'Controle pedidos, mesas, atendimento e fluxo do seu restaurante com mais agilidade e menos erros no dia a dia.',
+    image: '/images/Sistema PDV_image.png',
+    icon: UtensilsCrossed,
+    cta: 'Ver mais soluções',
+    href: '/solucoes/pdv',
   },
   {
-    icon: ChefHat,
-    title: 'Gestão Operacional',
+    title: 'Delivery & Vendas',
     description:
-      'KDS para cozinha, controle de fluxo de produção, gestão de mesas e reservas com visibilidade em tempo real.',
-    features: ['KDS Cozinha', 'Gestão de mesas', 'Reservas online'],
-    accent: 'bg-brand-orange/10 text-brand-orange',
-    border: 'hover:border-brand-orange/40',
+      'Gerencie pedidos, integrações com iFood e entregas em tempo real, tudo centralizado em um só sistema.',
+    image: '/images/Delivery próprio_image.png',
+    icon: Bike,
+    cta: 'Ver mais soluções',
+    href: '/solucoes/delivery',
   },
   {
-    icon: Truck,
-    title: 'Delivery & Marketplace',
+    title: 'Autoatendimento',
     description:
-      'Integração nativa com iFood, Rappi e Uber Eats. Roteamento inteligente de entregadores próprios.',
-    features: ['iFood', 'Rappi', 'Uber Eats'],
-    accent: 'bg-purple-500/10 text-purple-600',
-    border: 'hover:border-purple-400/40',
+      'Permita que seus clientes façam pedidos direto da mesa, reduzindo filas e aumentando a eficiência do atendimento.',
+    image: '/images/Cardápio par tablet_image.png',
+    icon: Smartphone,
+    cta: 'Demonstração gratuita',
+    href: '/demo',
   },
   {
-    icon: BarChart3,
-    title: 'BI & Relatórios',
+    title: 'Gestão & Controle',
     description:
-      'Dashboards em tempo real, DRE automático e análise de performance por período, turno ou centro de custo.',
-    features: ['Dashboards', 'DRE automático', 'Alertas inteligentes'],
-    accent: 'bg-green-500/10 text-green-600',
-    border: 'hover:border-green-400/40',
+      'Acompanhe estoque, vendas e operação com mais organização e controle total do seu negócio.',
+    image: '/images/Gestão de clientes_image.png',
+    icon: PackageSearch,
+    cta: 'Ver mais soluções',
+    href: '/solucoes/crm',
+  },
+  {
+    title: 'Financeiro & Resultados',
+    description:
+      'Tenha visão clara do faturamento, despesas e desempenho para tomar decisões com mais segurança.',
+    image: '/images/__elementos 112.png',
+    icon: TrendingUp,
+    cta: 'Ver mais soluções',
+    href: '/solucoes/financeiro',
+  },
+  {
+    title: 'Integrações & Expansão',
+    description:
+      'Conecte seu restaurante com marketplaces, sistemas e soluções para crescer sem limitações.',
+    image: '/images/Integração com maquininhas_image.png',
+    icon: Puzzle,
+    cta: 'Ver mais soluções',
+    href: '/solucoes/pagamentos',
   },
 ]
 
+function SolutionCard({
+  solution,
+  index,
+}: {
+  solution: Solution
+  index: number
+}) {
+  const Icon = solution.icon
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      className="group flex flex-col overflow-hidden rounded-[2.5rem] border border-gray-300 bg-white transition-all duration-300 hover:-translate-y-2 hover:scale-[1.01] hover:shadow-2xl"
+    >
+      {/* Imagem no Topo */}
+      <div className="group-hover:bg-brand-blue/10 relative flex aspect-[16/10] w-full items-center justify-center overflow-hidden bg-[#F8FAFF] p-8 transition-all duration-500">
+        {/* Ícone flutuante de fundo para dar textura */}
+        <div className="text-brand-blue/5 group-hover:text-brand-blue/10 absolute top-6 left-6 transition-colors duration-500">
+          <Icon size={120} strokeWidth={1} />
+        </div>
+
+        <div className="relative flex h-full w-full items-center justify-center transition-transform duration-500 group-hover:scale-105">
+          <Image
+            src={solution.image}
+            alt={solution.title}
+            width={400}
+            height={250}
+            className="z-10 object-contain drop-shadow-2xl"
+            onError={(e) => {
+              const target = e.target as HTMLImageElement
+              target.style.display = 'none'
+            }}
+          />
+          {/* Fallback label visual caso a imagem não carregue */}
+          <div className="absolute inset-0 -z-10 flex items-center justify-center rounded-2xl bg-gray-100/30">
+            <span className="text-[10px] font-bold tracking-[0.2em] text-gray-300 uppercase">
+              {solution.title}
+            </span>
+          </div>
+        </div>
+      </div>
+
+      {/* Área de Conteúdo */}
+      <div className="flex flex-1 flex-col p-8 lg:p-10">
+        <div className="mb-4 flex items-center gap-3">
+          <div className="bg-brand-blue/10 text-brand-blue flex h-10 w-10 items-center justify-center rounded-xl">
+            <Icon size={20} strokeWidth={2.5} />
+          </div>
+          <h3 className="text-brand-dark group-hover:text-brand-blue text-2xl font-extrabold tracking-tight transition-colors">
+            {solution.title}
+          </h3>
+        </div>
+
+        <p className="text-brand-dark/60 mb-8 flex-1 text-[15px] leading-relaxed">
+          {solution.description}
+        </p>
+
+        <div className="mt-auto">
+          <Link
+            href={solution.href}
+            className="text-brand-dark/70 hover:text-brand-blue group-hover:text-brand-blue inline-flex items-center gap-2 text-[15px] font-bold transition-all group-hover:gap-3"
+          >
+            {solution.cta}
+            <ArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
+      </div>
+    </motion.div>
+  )
+}
+
 export function SolutionsSection() {
   return (
-    <Section id="solucoes" className="bg-gray-50/80">
-      <Container>
-        {/* Header */}
-        <div className="mb-12 max-w-2xl">
-          <span className="mb-3 inline-block text-sm font-semibold uppercase tracking-widest text-brand-orange">
-            Plataforma
-          </span>
-          <h2 className="mb-4 text-3xl font-bold tracking-tight text-brand-dark md:text-4xl">
-            Um sistema completo para toda sua operação
-          </h2>
-          <p className="text-lg text-gray-500">
-            Módulos integrados que se complementam — do pedido ao financeiro, sem sistemas paralelos ou integrações quebradas.
+    <section className="relative bg-[#F4F6FB] pt-0 pb-24 lg:pt-0 lg:pb-40">
+      <div className="mx-auto max-w-7xl px-6 lg:px-10">
+        {/* Cabeçalho */}
+        <div className="mb-16 flex flex-col gap-6 lg:mb-24 lg:flex-row lg:items-end lg:justify-between">
+          <div className="max-w-[800px]">
+            <h2 className="text-brand-dark text-[34px] leading-[1.1] font-extrabold sm:text-[42px] lg:text-[52px]">
+              Plataforma completa para o{' '}
+              <span className="text-brand-blue">seu restaurante crescer.</span>
+            </h2>
+          </div>
+          <p className="text-brand-dark/50 max-w-[440px] text-[17px] leading-relaxed lg:pb-2">
+            Módulos integrados que se complementam — do pedido ao financeiro,
+            sem sistemas paralelos ou integrações quebradas.
           </p>
         </div>
 
-        {/* Cards grid */}
-        <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
-          {SOLUTIONS.map((s) => {
-            const Icon = s.icon
-            return (
-              <div
-                key={s.title}
-                className={`group flex flex-col rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md ${s.border}`}
-              >
-                <div className={`mb-4 flex h-12 w-12 items-center justify-center rounded-xl ${s.accent}`}>
-                  <Icon className="h-6 w-6" />
-                </div>
-                <h3 className="mb-2 text-base font-semibold text-brand-dark">{s.title}</h3>
-                <p className="mb-4 flex-1 text-sm leading-relaxed text-gray-500">{s.description}</p>
-                <ul className="mb-5 space-y-1">
-                  {s.features.map((f) => (
-                    <li key={f} className="flex items-center gap-2 text-xs text-gray-500">
-                      <span className="h-1.5 w-1.5 rounded-full bg-brand-blue/60" />
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-                <Link
-                  href="/solucoes"
-                  className="flex items-center gap-1 text-sm font-medium text-brand-blue hover:gap-2 transition-all"
-                >
-                  Saiba mais <ArrowRight className="h-3.5 w-3.5" />
-                </Link>
-              </div>
-            )
-          })}
+        {/* Grid de Cards - Estilo Goomer (2 colunas) */}
+        <div className="grid gap-8 md:grid-cols-2">
+          {SOLUTIONS.map((solution, idx) => (
+            <SolutionCard
+              key={solution.title}
+              solution={solution}
+              index={idx}
+            />
+          ))}
         </div>
-      </Container>
-    </Section>
+      </div>
+    </section>
   )
 }
