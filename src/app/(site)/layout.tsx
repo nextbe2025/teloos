@@ -1,14 +1,17 @@
-import { Header } from '@/components/layout/header'
 import { Footer } from '@/components/layout/footer'
 
 /**
  * Layout do grupo de rotas do site público.
- * Envolve todas as páginas com Header e Footer.
+ * O Header está integrado dentro da HeroSection na home page.
+ * Para páginas internas, adicione um Header específico dentro de cada page.tsx.
  */
-export default function SiteLayout({ children }: { children: React.ReactNode }) {
+export default function SiteLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
   return (
     <>
-      <Header />
       <main>{children}</main>
       <Footer />
     </>

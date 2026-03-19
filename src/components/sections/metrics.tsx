@@ -1,21 +1,23 @@
-import { Store, ShoppingBag, ShieldCheck, Headphones } from 'lucide-react'
-import { Container } from '@/components/shared'
+'use client'
+
+import { motion } from 'framer-motion'
+import { Rocket, ShieldCheck, Zap, Headphones } from 'lucide-react'
 
 const METRICS = [
   {
-    icon: Store,
+    icon: Rocket,
     value: '500+',
     label: 'Restaurantes ativos',
     description: 'clientes confiam na plataforma',
   },
   {
-    icon: ShoppingBag,
+    icon: ShieldCheck,
     value: '10M+',
     label: 'Pedidos processados',
     description: 'transações processadas com segurança',
   },
   {
-    icon: ShieldCheck,
+    icon: Zap,
     value: '99.9%',
     label: 'Uptime garantido',
     description: 'disponibilidade da plataforma',
@@ -30,26 +32,41 @@ const METRICS = [
 
 export function MetricsSection() {
   return (
-    <section className="border-y border-gray-100 bg-white py-12">
-      <Container>
-        <div className="grid grid-cols-2 gap-6 lg:grid-cols-4">
-          {METRICS.map((m) => {
-            const Icon = m.icon
-            return (
-              <div key={m.label} className="flex flex-col items-start gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-blue/10">
-                  <Icon className="h-5 w-5 text-brand-blue" />
+    <section className="relative bg-[#F4F6FB] pb-32 lg:pb-52">
+      <div className="mx-auto max-w-7xl px-6 lg:px-10">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {METRICS.map((metric, idx) => (
+            <motion.div
+              key={metric.label}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: idx * 0.1 }}
+              className="group bg-brand-blue shadow-brand-blue/20 hover:shadow-brand-blue/30 relative overflow-hidden rounded-[2.5rem] p-8 text-white shadow-xl transition-all hover:scale-[1.05] hover:shadow-2xl"
+            >
+              <div className="relative z-10">
+                <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10 text-white backdrop-blur-sm">
+                  <metric.icon className="h-6 w-6" />
                 </div>
-                <div>
-                  <p className="text-3xl font-bold text-brand-dark">{m.value}</p>
-                  <p className="text-sm font-semibold text-gray-700">{m.label}</p>
-                  <p className="mt-0.5 text-xs text-gray-400">{m.description}</p>
-                </div>
+
+                <h3 className="mb-1 text-4xl font-extrabold tracking-tight">
+                  {metric.value}
+                </h3>
+
+                <p className="mb-1 text-sm font-bold tracking-wider text-white uppercase">
+                  {metric.label}
+                </p>
+                <p className="text-xs leading-relaxed font-medium text-white/50">
+                  {metric.description}
+                </p>
               </div>
-            )
-          })}
+
+              {/* Decorative detail */}
+              <div className="absolute -right-6 -bottom-6 h-24 w-24 rounded-full bg-white/5 transition-transform group-hover:scale-150" />
+            </motion.div>
+          ))}
         </div>
-      </Container>
+      </div>
     </section>
   )
 }

@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
@@ -90,6 +90,7 @@ function SolutionCard({
   index: number
 }) {
   const Icon = solution.icon
+  const [isPressed, setIsPressed] = useState(false)
 
   return (
     <motion.div
@@ -97,16 +98,42 @@ function SolutionCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="group flex flex-col overflow-hidden rounded-[2.5rem] border-[0.5px] border-gray-200 bg-white transition-all duration-300 hover:-translate-y-2 hover:scale-[1.01] hover:border-transparent hover:shadow-2xl"
+      whileTap={{ scale: 0.99, y: -6 }}
+      whileHover={{ y: -8, scale: 1.01 }}
+      onPointerDown={() => setIsPressed(true)}
+      onPointerUp={() => setIsPressed(false)}
+      onPointerCancel={() => setIsPressed(false)}
+      onPointerLeave={() => setIsPressed(false)}
+      className={cn(
+        'group flex flex-col overflow-hidden rounded-[2.5rem] border-[0.5px] border-gray-200 bg-white transition-all duration-300',
+        'hover:-translate-y-2 hover:scale-[1.01] hover:border-transparent hover:shadow-2xl',
+        'active:-translate-y-1 active:scale-[1.01] active:border-transparent active:shadow-2xl',
+        isPressed && '-translate-y-2 scale-[1.01] border-transparent shadow-2xl'
+      )}
     >
       {/* Imagem no Topo */}
-      <div className="group-hover:bg-brand-blue/10 relative flex aspect-[16/10] w-full items-center justify-center overflow-hidden bg-[#F8FAFF] p-8 transition-all duration-500">
+      <div
+        className={cn(
+          'group-hover:bg-brand-blue/10 group-active:bg-brand-blue/10 relative flex aspect-[16/10] w-full items-center justify-center overflow-hidden bg-[#F8FAFF] p-8 transition-all duration-500',
+          isPressed && 'bg-brand-blue/10'
+        )}
+      >
         {/* Ícone flutuante de fundo para dar textura */}
-        <div className="text-brand-blue/5 group-hover:text-brand-blue/10 absolute top-6 left-6 transition-colors duration-500">
+        <div
+          className={cn(
+            'text-brand-blue/5 group-hover:text-brand-blue/10 group-active:text-brand-blue/10 absolute top-6 left-6 transition-colors duration-500',
+            isPressed && 'text-brand-blue/10'
+          )}
+        >
           <Icon size={120} strokeWidth={1} />
         </div>
 
-        <div className="relative flex h-full w-full items-center justify-center transition-transform duration-500 group-hover:scale-105">
+        <div
+          className={cn(
+            'relative flex h-full w-full items-center justify-center transition-transform duration-500 group-hover:scale-105 group-active:scale-105',
+            isPressed && 'scale-105'
+          )}
+        >
           <Image
             src={solution.image}
             alt={solution.title}
@@ -133,7 +160,12 @@ function SolutionCard({
           <div className="bg-brand-blue/10 text-brand-blue flex h-10 w-10 items-center justify-center rounded-xl">
             <Icon size={20} strokeWidth={2.5} />
           </div>
-          <h3 className="text-brand-dark group-hover:text-brand-blue text-2xl font-extrabold tracking-tight transition-colors">
+          <h3
+            className={cn(
+              'text-brand-dark group-hover:text-brand-blue group-active:text-brand-blue text-2xl font-extrabold tracking-tight transition-colors',
+              isPressed && 'text-brand-blue'
+            )}
+          >
             {solution.title}
           </h3>
         </div>
@@ -145,7 +177,10 @@ function SolutionCard({
         <div className="mt-auto">
           <Link
             href={solution.href}
-            className="text-brand-dark/70 hover:text-brand-blue group-hover:text-brand-blue inline-flex items-center gap-2 text-[15px] font-bold transition-all group-hover:gap-3"
+            className={cn(
+              'text-brand-dark/70 hover:text-brand-blue group-hover:text-brand-blue group-active:text-brand-blue inline-flex items-center gap-2 text-[15px] font-bold transition-all group-hover:gap-3 group-active:gap-3',
+              isPressed && 'text-brand-blue gap-3'
+            )}
           >
             {solution.cta}
             <ArrowRight className="h-4 w-4" />

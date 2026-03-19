@@ -1,12 +1,12 @@
 import { generateMetadata } from '@/lib/metadata'
+import { SiteHeader } from '@/components/layout/site-header'
+import { HeroHome } from '@/components/sections/hero-home'
 import {
-  HeroSection,
   MetricsSection,
   SolutionsSection,
-  BenefitsSection,
-  DashboardPreviewSection,
+  WhyTeloosSection,
+  AnalyticsSection,
   IntegrationsSection,
-  TestimonialsSection,
   CtaSection,
 } from '@/components/sections'
 
@@ -15,15 +15,14 @@ export const metadata = generateMetadata()
 export default function HomePage() {
   return (
     <>
-      <HeroSection />
+      <SiteHeader />
+      <HeroHome />
       <MetricsSection />
       <SolutionsSection />
-      <BenefitsSection />
-      <DashboardPreviewSection />
+      <WhyTeloosSection />
+      <AnalyticsSection />
       <IntegrationsSection />
-      <TestimonialsSection />
       <CtaSection />
     </>
   )
 }
-

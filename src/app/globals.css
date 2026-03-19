@@ -1,6 +1,6 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
-@plugin "tailwindcss-animate";
+@plugin 'tailwindcss-animate';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -40,15 +40,15 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 
   /* ─── Tokens de Marca Teloos ─────────────────────────────────────────────── */
-  --color-brand-blue: #3F63E6;     /* Azul principal */
-  --color-brand-dark: #11245F;     /* Azul escuro */
-  --color-brand-light: #8FA5D8;    /* Azul claro */
-  --color-brand-orange: #FF7A00;   /* Laranja destaque */
-  --color-brand-ice: #EEF2FF;      /* Azul gelo */
+  --color-brand-blue: #3f63e6; /* Azul principal */
+  --color-brand-dark: #11245f; /* Azul escuro */
+  --color-brand-light: #8fa5d8; /* Azul claro */
+  --color-brand-orange: #ff7a00; /* Laranja destaque */
+  --color-brand-ice: #eef2ff; /* Azul gelo */
 
   /* Aliases semânticos — usados em .text-gradient e utilitários herdados */
-  --color-brand-primary: #3F63E6;
-  --color-brand-accent: #FF7A00;
+  --color-brand-primary: #3f63e6;
+  --color-brand-accent: #ff7a00;
 }
 
 /* ─── Light Mode ──────────────────────────────────────────────────────────── */
@@ -59,7 +59,7 @@
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.52 0.21 264);   /* #3F63E6 Azul Teloos */
+  --primary: oklch(0.52 0.21 264); /* #3F63E6 Azul Teloos */
   --primary-foreground: oklch(1 0 0); /* branco */
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
@@ -126,7 +126,7 @@
 
   /* Foco acessível global */
   :focus-visible {
-    @apply outline-2 outline-offset-2 outline-ring;
+    @apply outline-ring outline-2 outline-offset-2;
   }
 }
 
@@ -144,16 +144,89 @@
 
   /* Gradiente de texto para headlines de destaque */
   .text-gradient {
-    @apply bg-gradient-to-r from-brand-blue to-brand-orange bg-clip-text text-transparent;
+    @apply from-brand-blue to-brand-orange bg-gradient-to-r bg-clip-text text-transparent;
   }
 
   /* Gradiente sutil de fundo — hero e seções de destaque */
   .bg-gradient-brand {
-    background: linear-gradient(135deg, #11245F 0%, #3F63E6 60%, #FF7A00 100%);
+    background: linear-gradient(135deg, #11245f 0%, #3f63e6 60%, #ff7a00 100%);
   }
 
   .bg-gradient-hero {
-    background: radial-gradient(ellipse 80% 60% at 70% 40%, #EEF2FF 0%, transparent 70%);
+    background: radial-gradient(
+      ellipse 80% 60% at 70% 40%,
+      #eef2ff 0%,
+      transparent 70%
+    );
+  }
+
+  /* ─── Premium Animations ────────────────────────────────────────────────── */
+
+  @keyframes gradientMove {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  .animate-gradient-slow {
+    background-size: 200% 200%;
+    animation: gradientMove 15s ease infinite;
+  }
+
+  @keyframes shine {
+    from {
+      left: -100%;
+    }
+    to {
+      left: 100%;
+    }
+  }
+
+  .animate-shine {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .animate-shine::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -100%;
+    width: 60%;
+    height: 200%;
+    background: linear-gradient(
+      to right,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+    transform: rotate(35deg);
+    transition: none;
+  }
+
+  .animate-shine:hover::after {
+    animation: shine 0.8s ease-in-out forwards;
+  }
+
+  @keyframes breathe {
+    0%,
+    100% {
+      transform: scale(1);
+      opacity: 0.15;
+    }
+    50% {
+      transform: scale(1.1);
+      opacity: 0.25;
+    }
+  }
+
+  .animate-breathe {
+    animation: breathe 8s ease-in-out infinite;
   }
 }
-

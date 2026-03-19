@@ -1,8 +1,9 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { siteConfig } from '@/config/site'
 import { Container } from '@/components/shared'
 import { Button } from '@/components/ui/button'
-import { Zap } from 'lucide-react'
+import { UserRound } from 'lucide-react'
 
 const NAV_LINKS = [
   { label: 'Soluções', href: '/solucoes' },
@@ -13,28 +14,30 @@ const NAV_LINKS = [
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-brand-blue/10 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80 shadow-sm">
+    <header className="border-brand-blue/10 sticky top-0 z-50 w-full border-b bg-white/95 shadow-sm backdrop-blur supports-[backdrop-filter]:bg-white/80">
       <Container className="flex h-16 items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-brand-blue">
-            <Zap className="h-4 w-4 text-white fill-white" />
-          </div>
-          <span className="text-xl font-bold text-brand-dark tracking-tight">
-            {siteConfig.name}
-          </span>
+          <Image
+            src="/brand/Logo Teloos Principal.png"
+            alt={siteConfig.name}
+            width={220}
+            height={64}
+            className="h-14 w-auto"
+            priority
+          />
         </Link>
 
         {/* Desktop Nav */}
         <nav
-          className="hidden md:flex items-center gap-8"
+          className="hidden items-center gap-8 md:flex"
           aria-label="Navegação principal"
         >
           {NAV_LINKS.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="text-sm font-medium text-gray-500 transition-colors hover:text-brand-blue"
+              className="hover:text-brand-blue text-sm font-medium text-gray-500 transition-colors"
             >
               {item.label}
             </Link>
@@ -45,13 +48,16 @@ export function Header() {
         <div className="flex items-center gap-3">
           <Link
             href="/entrar"
-            className="hidden md:block text-sm font-medium text-gray-500 hover:text-brand-blue transition-colors"
+            className="hover:text-brand-blue hidden text-sm font-medium text-gray-500 transition-colors md:block"
           >
-            Entrar
+            <span className="inline-flex items-center gap-2">
+              <UserRound className="h-4 w-4" strokeWidth={2.5} />
+              Entrar
+            </span>
           </Link>
           <Button
             asChild
-            className="bg-brand-orange hover:bg-brand-orange/90 text-white shadow-md shadow-brand-orange/20 h-9 px-5"
+            className="bg-brand-orange hover:bg-brand-orange/90 shadow-brand-orange/20 h-9 px-5 text-white shadow-md"
           >
             <Link href="/demo">Solicitar demo</Link>
           </Button>

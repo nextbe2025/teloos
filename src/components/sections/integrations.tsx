@@ -1,72 +1,147 @@
-import { Container, Section } from '@/components/shared'
+'use client'
 
-const INTEGRATIONS = [
-  { name: 'iFood', category: 'Delivery' },
-  { name: 'Rappi', category: 'Delivery' },
-  { name: 'Uber Eats', category: 'Delivery' },
-  { name: '99Food', category: 'Delivery' },
-  { name: 'Stone', category: 'Pagamentos' },
-  { name: 'SumUp', category: 'Pagamentos' },
-  { name: 'Cielo', category: 'Pagamentos' },
-  { name: 'PagSeguro', category: 'Pagamentos' },
-  { name: 'NFC-e / SAT', category: 'Fiscal' },
-  { name: 'NF-e', category: 'Fiscal' },
-  { name: 'Bematech', category: 'Hardware' },
-  { name: 'Epson', category: 'Hardware' },
-  { name: 'Elgin', category: 'Hardware' },
-  { name: 'Getnet', category: 'Pagamentos' },
-  { name: 'Linx', category: 'ERP' },
-  { name: 'Totvs', category: 'ERP' },
+import React from 'react'
+import { motion } from 'framer-motion'
+
+interface Integration {
+  name: string
+}
+
+const INTEGRATIONS: Integration[] = [
+  { name: 'iFood' },
+  { name: 'Rappi' },
+  { name: 'Uber Eats' },
+  { name: '99Food' },
+  { name: 'Stone' },
+  { name: 'SumUp' },
+  { name: 'Cielo' },
+  { name: 'PagSeguro' },
+  { name: 'NFC-e / SAT' },
+  { name: 'NF-e' },
+  { name: 'Bematech' },
+  { name: 'Epson' },
+  { name: 'Elgin' },
+  { name: 'Getnet' },
+  { name: 'Linx' },
+  { name: 'Totvs' },
 ]
 
-const CATEGORY_COLORS: Record<string, string> = {
-  Delivery: 'bg-orange-50 text-orange-600 border-orange-100',
-  Pagamentos: 'bg-green-50 text-green-600 border-green-100',
-  Fiscal: 'bg-blue-50 text-blue-600 border-blue-100',
-  Hardware: 'bg-purple-50 text-purple-600 border-purple-100',
-  ERP: 'bg-gray-50 text-gray-600 border-gray-200',
+function LogoItem({ name }: { name: string }) {
+  return (
+    <div className="flex shrink-0 items-center justify-center px-6 lg:px-10">
+      <div className="group relative">
+        {/* Logo Placeholder - Estilo Glassmorphism neutro */}
+        <div className="group-hover:border-brand-blue/30 group-hover:shadow-brand-blue/5 flex h-14 w-28 items-center justify-center rounded-2xl border border-gray-100 bg-white/50 px-4 transition-all duration-300 group-hover:bg-white group-hover:shadow-lg">
+          <span className="text-brand-dark/20 group-hover:text-brand-blue text-[13px] font-black tracking-tighter grayscale transition-all group-hover:grayscale-0">
+            {name}
+          </span>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function InfiniteMarquee({
+  items,
+  reverse = false,
+}: {
+  items: Integration[]
+  reverse?: boolean
+}) {
+  // Triplicamos a lista para garantir continuidade no loop infinito
+  const displayItems = [...items, ...items, ...items]
+
+  return (
+    <div className="relative flex overflow-hidden py-2">
+      <motion.div
+        animate={{
+          x: reverse ? [0, -100 * items.length] : [-100 * items.length, 0],
+        }}
+        transition={{
+          duration: 30, // Velocidade elegante
+          repeat: Infinity,
+          ease: 'linear',
+        }}
+        className="flex whitespace-nowrap"
+      >
+        {displayItems.map((item, idx) => (
+          <LogoItem key={`${item.name}-${idx}`} name={item.name} />
+        ))}
+      </motion.div>
+    </div>
+  )
 }
 
 export function IntegrationsSection() {
   return (
-    <Section id="integracoes" className="bg-white">
-      <Container>
-        <div className="mb-12 text-center">
-          <span className="mb-3 inline-block text-sm font-semibold uppercase tracking-widest text-brand-orange">
-            Ecossistema
-          </span>
-          <h2 className="mb-4 text-3xl font-bold tracking-tight text-brand-dark md:text-4xl">
-            Integrado com as principais plataformas do mercado
-          </h2>
-          <p className="mx-auto max-w-xl text-lg text-gray-500">
-            Conectamos seu restaurante aos maiores marketplaces, meios de pagamento, hardwares e sistemas de gestão do Brasil.
-          </p>
+    <section className="relative overflow-hidden bg-white py-24 lg:py-40">
+      <div className="mx-auto max-w-7xl px-6 lg:px-10">
+        {/* 1. TOPO DA SEÇÃO */}
+        <div className="mb-20 text-center">
+          <motion.span
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-brand-blue mb-4 inline-block text-[13px] font-bold tracking-[0.2em] uppercase"
+          >
+            ECOSSISTEMA
+          </motion.span>
+
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-brand-dark mb-6 text-[34px] leading-[1.1] font-extrabold sm:text-[42px] lg:text-[52px]"
+          >
+            Integrado com as principais <br className="hidden lg:block" />
+            <span className="text-brand-blue">plataformas do mercado</span>
+          </motion.h2>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="text-brand-dark/50 mx-auto max-w-2xl text-[17px] leading-relaxed"
+          >
+            Conectamos seu restaurante aos maiores marketplaces, meios de
+            pagamento, hardwares e sistemas de gestão do Brasil.
+          </motion.p>
         </div>
 
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-8">
-          {INTEGRATIONS.map((integration) => (
-            <div
-              key={integration.name}
-              className="group flex flex-col items-center justify-center gap-2 rounded-xl border border-gray-100 bg-gray-50/60 p-4 transition-all duration-150 hover:border-brand-blue/30 hover:bg-brand-ice/40 hover:shadow-sm"
-            >
-              {/* Logo placeholder — initials */}
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-white shadow-sm border border-gray-100 text-sm font-bold text-brand-dark group-hover:border-brand-blue/20">
-                {integration.name.slice(0, 2).toUpperCase()}
-              </div>
-              <p className="text-center text-xs font-semibold text-gray-700">{integration.name}</p>
-              <span
-                className={`rounded-full border px-2 py-0.5 text-[9px] font-medium ${CATEGORY_COLORS[integration.category]}`}
-              >
-                {integration.category}
-              </span>
-            </div>
-          ))}
+        {/* 2. BLOCO DO CARROSSEL (MARQUEE) */}
+        <div className="relative mt-8 w-full max-w-full">
+          {/* Fade Masks Lateral - Essencial para o efeito premium */}
+          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-white to-transparent lg:w-64" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-white to-transparent lg:w-64" />
+
+          {/* Marquee infinito */}
+          <div className="flex flex-col gap-6">
+            <InfiniteMarquee items={INTEGRATIONS} />
+            <InfiniteMarquee items={INTEGRATIONS} reverse />
+          </div>
         </div>
 
-        <p className="mt-8 text-center text-sm text-gray-400">
-          + 50 integrações disponíveis via API aberta
-        </p>
-      </Container>
-    </Section>
+        {/* 3. RODAPÉ DA SEÇÃO */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.5 }}
+          className="mt-20 text-center"
+        >
+          <div className="inline-flex items-center gap-3 rounded-full bg-gray-50/50 px-6 py-2.5 ring-1 ring-gray-100">
+            <span className="relative flex h-2 w-2">
+              <span className="bg-brand-blue absolute inline-flex h-full w-full animate-ping rounded-full opacity-30"></span>
+              <span className="bg-brand-blue relative inline-flex h-2 w-2 rounded-full"></span>
+            </span>
+            <span className="text-brand-dark/40 text-[12px] font-bold tracking-[0.15em] uppercase">
+              + 50 integrações disponíveis via API aberta
+            </span>
+          </div>
+        </motion.div>
+      </div>
+    </section>
   )
 }
