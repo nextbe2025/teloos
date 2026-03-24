@@ -47,7 +47,7 @@ export function generateMetadata({
       ? { index: false, follow: false }
       : { index: true, follow: true },
     alternates: {
-      canonical: siteConfig.url,
+      canonical: './',
     },
   }
 }

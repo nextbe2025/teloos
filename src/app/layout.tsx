@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
 import { ThemeProvider } from '@/components/theme-provider'
+import { ScrollToTop } from '@/components/ui/scroll-to-top'
 import { siteConfig } from '@/config/site'
 import './globals.css'
 
@@ -82,6 +83,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           {children}
+          <ScrollToTop />
         </ThemeProvider>
       </body>
     </html>

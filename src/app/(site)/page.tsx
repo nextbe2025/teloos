@@ -10,7 +10,11 @@ import {
   CtaSection,
 } from '@/components/sections'
 
-export const metadata = generateMetadata()
+export const metadata = generateMetadata({
+  title: 'Teloos | Sistemas para Food Service',
+  description:
+    'Sistemas modernos e eficientes para gestão de bares, restaurantes e delivery. Tecnologia de ponta, automação e controle total da sua operação.',
+})
 
 export default function HomePage() {
   return (

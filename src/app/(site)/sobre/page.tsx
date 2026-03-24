@@ -17,6 +17,11 @@ import { Button } from '@/components/ui/button';
 import { SiteHeader } from '@/components/layout/site-header';
 import Link from 'next/link';
 
+// Move dynamic head metadata to a layout or a separate file if needed for 'use client' pages
+// But since this is a page, we'll keep it as a client component if necessary,
+// however SEO meta is best served from a Server Component.
+// Let's check metadata compatibility with 'use client'
+
 const VALUES = [
   {
     title: 'Foco no Cliente',
