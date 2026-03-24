@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
@@ -24,46 +24,56 @@ import { cn } from '@/lib/utils'
 const FEATURES = [
   {
     title: 'PDV Ultra-Rápido',
-    description: 'Interface intuitiva desenhada para máxima agilidade no fechamento de contas e lançamento de pedidos.',
+    description:
+      'Interface intuitiva desenhada para máxima agilidade no fechamento de contas e lançamento de pedidos.',
     icon: Zap,
   },
   {
     title: 'Gestão de Mesas e Comandas',
-    description: 'Mapa de mesas em tempo real com status de ocupação, tempo de permanência e alertas de inatividade.',
+    description:
+      'Mapa de mesas em tempo real com status de ocupação, tempo de permanência e alertas de inatividade.',
     icon: LayoutDashboard,
   },
   {
     title: 'KDS (Cozinha Digital)',
-    description: 'Elimine papéis e ruídos. Organize a produção da cozinha por ordem de chegada e tempo de preparo.',
+    description:
+      'Elimine papéis e ruídos. Organize a produção da cozinha por ordem de chegada e tempo de preparo.',
     icon: UtensilsCrossed,
   },
   {
     title: 'Cardápio Digital Integrado',
-    description: 'Atualização em tempo real de preços e disponibilidade direto do seu painel administrativo.',
+    description:
+      'Atualização em tempo real de preços e disponibilidade direto do seu painel administrativo.',
     icon: Smartphone,
   },
   {
     title: 'Atendimento via Tablet',
-    description: 'Garçons mais produtivos com lançamentos direto da mesa, reduzindo idas e vindas desnecessárias.',
+    description:
+      'Garçons mais produtivos com lançamentos direto da mesa, reduzindo idas e vindas desnecessárias.',
     icon: Users,
   },
   {
     title: 'Controle de Sangria e Caixa',
-    description: 'Segurança total no fechamento do dia com rastreabilidade completa de todas as movimentações.',
+    description:
+      'Segurança total no fechamento do dia com rastreabilidade completa de todas as movimentações.',
     icon: ShieldCheck,
   },
 ]
 
 export default function OperacaoAtendimentoPage() {
+  useEffect(() => {
+    document.title = 'Operação & Atendimento | PDV e KDS | Teloos'
+  }, [])
+
   return (
     <div className="relative flex flex-col">
       <SiteHeader />
-      
+
       {/* Background Decorative Elements - Global for Page */}
-      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        <div className="absolute -top-24 -right-24 h-[600px] w-[600px] rounded-full bg-brand-blue/5 blur-[120px]" />
-        <div className="absolute top-1/2 -left-48 h-[500px] w-[500px] rounded-full bg-brand-orange/5 blur-[100px]" />
-        <div className="absolute -bottom-24 right-1/4 h-[400px] w-[400px] rounded-full bg-brand-blue/5 blur-[80px]" />
+      <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
+        <div className="bg-brand-blue/5 absolute -top-24 -right-24 h-[600px] w-[600px] rounded-full blur-[120px]" />
+        <div className="bg-brand-orange/5 absolute top-1/2 -left-48 h-[500px] w-[500px] rounded-full blur-[100px]" />
+        <div className="bg-brand-blue/5 absolute right-1/4 -bottom-24 h-[400px] w-[400px] rounded-full blur-[80px]" />
       </div>
 
       {/* Hero Section */}
@@ -84,18 +94,31 @@ export default function OperacaoAtendimentoPage() {
 
               <h1 className="text-brand-dark mt-8 text-[40px] leading-[1.1] font-extrabold tracking-tight sm:text-5xl lg:text-[56px]">
                 Agilidade no salão, <br />
-                <span className="text-brand-blue text-glow-blue">precisão na cozinha.</span>
+                <span className="text-brand-blue text-glow-blue">
+                  precisão na cozinha.
+                </span>
               </h1>
 
               <p className="text-brand-dark/60 mt-8 max-w-[540px] text-lg leading-relaxed">
-                Transforme a experiência do seu cliente com um ecossistema completo de atendimento. Reduza filas, elimine erros de pedido e tenha controle total do seu restaurante.
+                Transforme a experiência do seu cliente com um ecossistema
+                completo de atendimento. Reduza filas, elimine erros de pedido e
+                tenha controle total do seu restaurante.
               </p>
 
-              <div className="mt-10 flex flex-col sm:flex-row gap-4">
-                <Button asChild size="lg" className="w-full sm:w-auto bg-brand-orange hover:bg-brand-orange/90 h-14 rounded-full px-10 text-white shadow-xl shadow-brand-orange/20 transition-all hover:scale-105 active:scale-95">
+              <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+                <Button
+                  asChild
+                  size="lg"
+                  className="bg-brand-orange hover:bg-brand-orange/90 shadow-brand-orange/20 h-14 w-full rounded-full px-10 text-white shadow-xl transition-all hover:scale-105 active:scale-95 sm:w-auto"
+                >
                   <Link href="/contato">Solicitar Demonstração</Link>
                 </Button>
-                <Button asChild variant="outline" size="lg" className="w-full sm:w-auto h-14 rounded-full border-brand-blue/20 text-brand-blue px-10 font-bold hover:bg-brand-blue/5 transition-all hover:scale-105 active:scale-95">
+                <Button
+                  asChild
+                  variant="outline"
+                  size="lg"
+                  className="border-brand-blue/20 text-brand-blue hover:bg-brand-blue/5 h-14 w-full rounded-full px-10 font-bold transition-all hover:scale-105 active:scale-95 sm:w-auto"
+                >
                   <Link href="#recursos">Conhecer Recursos</Link>
                 </Button>
               </div>
@@ -107,7 +130,7 @@ export default function OperacaoAtendimentoPage() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="relative"
             >
-              <div className="relative overflow-hidden rounded-[2.5rem] border-8 border-white bg-slate-200 shadow-2xl shadow-brand-blue/10">
+              <div className="shadow-brand-blue/10 relative overflow-hidden rounded-[2.5rem] border-8 border-white bg-slate-200 shadow-2xl">
                 <Image
                   src="/images/Sistema PDV_image.png"
                   alt="Sistema PDV Teloos"
@@ -129,10 +152,16 @@ export default function OperacaoAtendimentoPage() {
                     <UtensilsCrossed className="h-4 w-4" />
                   </div>
                   <div className="flex-1">
-                    <p className="text-brand-dark text-xs font-black">Pedido Confirmado</p>
-                    <p className="text-brand-dark/50 text-[10px] font-bold">Mesa 12 • 3 itens</p>
+                    <p className="text-brand-dark text-xs font-black">
+                      Pedido Confirmado
+                    </p>
+                    <p className="text-brand-dark/50 text-[10px] font-bold">
+                      Mesa 12 • 3 itens
+                    </p>
                   </div>
-                  <span className="text-brand-dark/30 text-[10px] font-bold">agora</span>
+                  <span className="text-brand-dark/30 text-[10px] font-bold">
+                    agora
+                  </span>
                 </div>
               </motion.div>
 
@@ -143,14 +172,20 @@ export default function OperacaoAtendimentoPage() {
                 className="absolute -bottom-8 -left-6 z-20 hidden w-72 rounded-2xl border border-blue-100 bg-white/95 p-4 shadow-xl backdrop-blur-sm sm:block"
               >
                 <div className="flex items-center gap-3">
-                  <div className="bg-emerald-500 flex h-8 w-8 items-center justify-center rounded-full text-white">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-emerald-500 text-white">
                     <Zap className="h-4 w-4" />
                   </div>
                   <div className="flex-1">
-                    <p className="text-brand-dark text-xs font-black">Conta Fechada!</p>
-                    <p className="text-brand-dark/50 text-[10px] font-bold">Mesa 05 • Checkout rápido</p>
+                    <p className="text-brand-dark text-xs font-black">
+                      Conta Fechada!
+                    </p>
+                    <p className="text-brand-dark/50 text-[10px] font-bold">
+                      Mesa 05 • Checkout rápido
+                    </p>
                   </div>
-                  <span className="text-brand-dark/30 text-[10px] font-bold">1min</span>
+                  <span className="text-brand-dark/30 text-[10px] font-bold">
+                    1min
+                  </span>
                 </div>
               </motion.div>
 
@@ -159,28 +194,34 @@ export default function OperacaoAtendimentoPage() {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 1.4, duration: 0.5 }}
-                className="absolute top-1/2 -left-12 z-10 hidden rounded-full bg-brand-blue px-4 py-2 shadow-lg sm:flex items-center gap-2"
+                className="bg-brand-blue absolute top-1/2 -left-12 z-10 hidden items-center gap-2 rounded-full px-4 py-2 shadow-lg sm:flex"
               >
-                <span className="text-[11px] font-black text-white uppercase tracking-wider">Garçons: 4 ON</span>
+                <span className="text-[11px] font-black tracking-wider text-white uppercase">
+                  Garçons: 4 ON
+                </span>
               </motion.div>
 
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 1.6, duration: 0.5 }}
-                className="absolute top-1/4 -right-12 z-10 hidden rounded-full bg-white px-4 py-2 shadow-lg sm:flex items-center gap-2 border border-slate-100"
+                className="absolute top-1/4 -right-12 z-10 hidden items-center gap-2 rounded-full border border-slate-100 bg-white px-4 py-2 shadow-lg sm:flex"
               >
-                <div className="h-2 w-2 rounded-full bg-blue-500 animate-pulse" />
-                <span className="text-[11px] font-black text-brand-dark uppercase tracking-wider">Cozinha a Mil</span>
+                <div className="h-2 w-2 animate-pulse rounded-full bg-blue-500" />
+                <span className="text-brand-dark text-[11px] font-black tracking-wider uppercase">
+                  Cozinha a Mil
+                </span>
               </motion.div>
 
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 1.8, duration: 0.5 }}
-                className="absolute bottom-1/3 -right-8 z-10 hidden rounded-full bg-brand-dark px-4 py-2 shadow-lg sm:flex items-center gap-2"
+                className="bg-brand-dark absolute -right-8 bottom-1/3 z-10 hidden items-center gap-2 rounded-full px-4 py-2 shadow-lg sm:flex"
               >
-                <span className="text-[11px] font-black text-white uppercase tracking-wider">32 Mesas Ocupadas</span>
+                <span className="text-[11px] font-black tracking-wider text-white uppercase">
+                  32 Mesas Ocupadas
+                </span>
               </motion.div>
             </motion.div>
           </div>
@@ -188,30 +229,43 @@ export default function OperacaoAtendimentoPage() {
       </section>
 
       {/* Stats/Benefits Section */}
-      <Section className="relative z-10 bg-white/40 py-20 backdrop-blur-[2px] border-y border-slate-50">
+      <Section className="relative z-10 border-y border-slate-50 bg-white/40 py-20 backdrop-blur-[2px]">
         <Container>
           <div className="grid gap-10 md:grid-cols-3">
             {[
-              { label: 'Zero Erros', desc: 'Sincronização instantânea entre salão e cozinha.' },
-              { label: 'Controle Total', desc: 'Acompanhe cada pedido em tempo real pelo dashboard.' },
-              { label: 'Escalabilidade', desc: 'Pronto para atender desde pequenos bistrôs a grandes redes.' },
+              {
+                label: 'Zero Erros',
+                desc: 'Sincronização instantânea entre salão e cozinha.',
+              },
+              {
+                label: 'Controle Total',
+                desc: 'Acompanhe cada pedido em tempo real pelo dashboard.',
+              },
+              {
+                label: 'Escalabilidade',
+                desc: 'Pronto para atender desde pequenos bistrôs a grandes redes.',
+              },
             ].map((item, i) => (
-              <motion.div 
-                key={i} 
+              <motion.div
+                key={i}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.6, delay: i * 0.2, ease: "easeOut" }}
-                className="flex flex-col items-center text-center group"
+                viewport={{ once: true, margin: '-100px' }}
+                transition={{ duration: 0.6, delay: i * 0.2, ease: 'easeOut' }}
+                className="group flex flex-col items-center text-center"
               >
-                <motion.div 
+                <motion.div
                   whileHover={{ scale: 1.1, rotate: -5 }}
-                  className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-blue/10 text-brand-blue transition-colors group-hover:bg-brand-blue group-hover:text-white"
+                  className="bg-brand-blue/10 text-brand-blue group-hover:bg-brand-blue mb-4 flex h-12 w-12 items-center justify-center rounded-2xl transition-colors group-hover:text-white"
                 >
                   <CheckCircle2 className="h-6 w-6" />
                 </motion.div>
-                <h3 className="text-brand-dark text-xl font-black">{item.label}</h3>
-                <p className="text-brand-dark/60 mt-2 font-medium">{item.desc}</p>
+                <h3 className="text-brand-dark text-xl font-black">
+                  {item.label}
+                </h3>
+                <p className="text-brand-dark/60 mt-2 font-medium">
+                  {item.desc}
+                </p>
               </motion.div>
             ))}
           </div>
@@ -219,9 +273,12 @@ export default function OperacaoAtendimentoPage() {
       </Section>
 
       {/* Main Content/Features grid */}
-      <Section id="recursos" className="bg-[#F8FAFC] relative z-10 border-b border-slate-100">
+      <Section
+        id="recursos"
+        className="relative z-10 border-b border-slate-100 bg-[#F8FAFC]"
+      >
         <Container>
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -239,15 +296,15 @@ export default function OperacaoAtendimentoPage() {
                 key={i}
                 initial={{ opacity: 0, y: 20, scale: 0.95 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                viewport={{ once: true, margin: "-50px" }}
+                viewport={{ once: true, margin: '-50px' }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 whileHover={{ y: -8, transition: { duration: 0.2 } }}
-                className="group rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm transition-all hover:border-brand-blue/30 hover:shadow-xl"
+                className="group hover:border-brand-blue/30 rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm transition-all hover:shadow-xl"
               >
-                <div className="bg-brand-blue/10 group-hover:bg-brand-blue group-hover:text-white mb-6 flex h-14 w-14 items-center justify-center rounded-2xl text-brand-blue transition-colors">
+                <div className="bg-brand-blue/10 group-hover:bg-brand-blue text-brand-blue mb-6 flex h-14 w-14 items-center justify-center rounded-2xl transition-colors group-hover:text-white">
                   <feature.icon className="h-7 w-7" />
                 </div>
-                <h3 className="text-brand-dark text-xl font-black group-hover:text-brand-blue transition-colors">
+                <h3 className="text-brand-dark group-hover:text-brand-blue text-xl font-black transition-colors">
                   {feature.title}
                 </h3>
                 <p className="text-brand-dark/60 mt-4 leading-relaxed font-medium">
@@ -278,19 +335,26 @@ export default function OperacaoAtendimentoPage() {
                   height={500}
                   className="rounded-[2.5rem] shadow-2xl"
                 />
-                <motion.div 
+                <motion.div
                   initial={{ scale: 0, rotate: -20 }}
                   whileInView={{ scale: 1, rotate: 0 }}
                   viewport={{ once: true }}
-                  transition={{ type: "spring", stiffness: 260, damping: 20, delay: 0.5 }}
+                  transition={{
+                    type: 'spring',
+                    stiffness: 260,
+                    damping: 20,
+                    delay: 0.5,
+                  }}
                   className="bg-brand-blue absolute -top-8 -right-8 flex h-32 w-32 flex-col items-center justify-center rounded-full text-white shadow-xl"
                 >
                   <span className="text-2xl font-black">Zero</span>
-                  <span className="text-[10px] font-bold uppercase tracking-widest">Papel na Cozinha</span>
+                  <span className="text-[10px] font-bold tracking-widest uppercase">
+                    Papel na Cozinha
+                  </span>
                 </motion.div>
               </div>
             </motion.div>
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -298,11 +362,12 @@ export default function OperacaoAtendimentoPage() {
               className="order-1 lg:order-2"
             >
               <h2 className="text-brand-dark text-3xl font-black sm:text-4xl">
-                Cozinha Digital (KDS): <br />
-                A evolução do seu preparo.
+                Cozinha Digital (KDS): <br />A evolução do seu preparo.
               </h2>
               <p className="text-brand-dark/60 mt-6 text-lg leading-relaxed">
-                Diga adeus à confusão dos cupons de papel. Com o KDS da Teloos, sua equipe visualiza os pedidos por ordem de chegada, tempo de espera e status de preparo.
+                Diga adeus à confusão dos cupons de papel. Com o KDS da Teloos,
+                sua equipe visualiza os pedidos por ordem de chegada, tempo de
+                espera e status de preparo.
               </p>
               <ul className="mt-8 space-y-4">
                 {[
@@ -311,12 +376,12 @@ export default function OperacaoAtendimentoPage() {
                   'Métricas reais de tempo de produção',
                   'Comunicação direta com o garçom',
                 ].map((item, i) => (
-                  <motion.li 
-                    key={i} 
+                  <motion.li
+                    key={i}
                     initial={{ opacity: 0, x: 20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    transition={{ delay: 0.8 + (i * 0.1) }}
+                    transition={{ delay: 0.8 + i * 0.1 }}
                     className="flex items-center gap-3"
                   >
                     <CheckCircle2 className="text-brand-blue h-5 w-5" />
@@ -339,22 +404,32 @@ export default function OperacaoAtendimentoPage() {
                 Sua casa sob controle.
               </h2>
               <p className="text-brand-dark/60 mt-6 text-lg leading-relaxed">
-                Saiba exatamente o que está acontecendo em cada mesa. Tempo de permanência, ticket médio parcial e status de atendimento de forma visual e intuitiva.
+                Saiba exatamente o que está acontecendo em cada mesa. Tempo de
+                permanência, ticket médio parcial e status de atendimento de
+                forma visual e intuitiva.
               </p>
               <div className="mt-10 grid gap-6 sm:grid-cols-2">
                 <div className="rounded-2xl bg-white p-6 shadow-sm">
-                  <div className="mb-4 text-brand-blue">
+                  <div className="text-brand-blue mb-4">
                     <LayoutDashboard className="h-8 w-8" />
                   </div>
-                  <h4 className="text-brand-dark font-black">Layout Personalizado</h4>
-                  <p className="text-brand-dark/50 mt-2 text-sm font-medium">Configure o mapa conforme o salão físico.</p>
+                  <h4 className="text-brand-dark font-black">
+                    Layout Personalizado
+                  </h4>
+                  <p className="text-brand-dark/50 mt-2 text-sm font-medium">
+                    Configure o mapa conforme o salão físico.
+                  </p>
                 </div>
                 <div className="rounded-2xl bg-white p-6 shadow-sm">
-                  <div className="mb-4 text-brand-orange">
+                  <div className="text-brand-orange mb-4">
                     <Zap className="h-8 w-8" />
                   </div>
-                  <h4 className="text-brand-dark font-black">Fechamento Ágil</h4>
-                  <p className="text-brand-dark/50 mt-2 text-sm font-medium">Divisão de conta e pagamento no PDV em segundos.</p>
+                  <h4 className="text-brand-dark font-black">
+                    Fechamento Ágil
+                  </h4>
+                  <p className="text-brand-dark/50 mt-2 text-sm font-medium">
+                    Divisão de conta e pagamento no PDV em segundos.
+                  </p>
                 </div>
               </div>
             </div>
@@ -372,12 +447,12 @@ export default function OperacaoAtendimentoPage() {
       </Section>
 
       {/* Final CTA */}
-      <Section className="relative z-10 py-32 bg-white">
+      <Section className="relative z-10 bg-white py-32">
         <Container>
-          <div className="relative overflow-hidden rounded-[4rem] bg-brand-dark px-8 py-20 text-center shadow-2xl sm:px-16">
-            <div className="absolute top-0 right-0 h-[400px] w-[400px] translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-blue/20 blur-[100px]" />
-            <div className="absolute bottom-0 left-0 h-[400px] w-[400px] -translate-x-1/2 translate-y-1/2 rounded-full bg-brand-orange/20 blur-[100px]" />
-            
+          <div className="bg-brand-dark relative overflow-hidden rounded-[4rem] px-8 py-20 text-center shadow-2xl sm:px-16">
+            <div className="bg-brand-blue/20 absolute top-0 right-0 h-[400px] w-[400px] translate-x-1/2 -translate-y-1/2 rounded-full blur-[100px]" />
+            <div className="bg-brand-orange/20 absolute bottom-0 left-0 h-[400px] w-[400px] -translate-x-1/2 translate-y-1/2 rounded-full blur-[100px]" />
+
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -389,15 +464,24 @@ export default function OperacaoAtendimentoPage() {
                 <span className="text-brand-blue">sua operação?</span>
               </h2>
               <p className="mx-auto mt-8 max-w-2xl text-xl font-medium text-white/70">
-                Junte-se a centenas de restaurantes que já otimizaram seus processos com o Teloos.
+                Junte-se a centenas de restaurantes que já otimizaram seus
+                processos com o Teloos.
               </p>
-              
-              <div className="mt-12 flex flex-col sm:flex-row justify-center items-center gap-6">
-                <Button asChild size="lg" className="w-full sm:w-auto bg-brand-orange hover:bg-brand-orange/90 text-white rounded-full px-12 h-16 text-lg font-bold shadow-lg shadow-brand-orange/20 transition-all hover:scale-105 active:scale-95">
+
+              <div className="mt-12 flex flex-col items-center justify-center gap-6 sm:flex-row">
+                <Button
+                  asChild
+                  size="lg"
+                  className="bg-brand-orange hover:bg-brand-orange/90 shadow-brand-orange/20 h-16 w-full rounded-full px-12 text-lg font-bold text-white shadow-lg transition-all hover:scale-105 active:scale-95 sm:w-auto"
+                >
                   <Link href="/contato">Começar agora</Link>
                 </Button>
                 <Link href="/contato" className="w-full sm:w-auto">
-                  <Button size="lg" variant="outline" className="w-full sm:w-auto rounded-full px-12 h-16 text-lg font-bold border-white text-white bg-transparent hover:bg-white hover:text-brand-dark transition-all hover:scale-105 active:scale-95">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="hover:text-brand-dark h-16 w-full rounded-full border-white bg-transparent px-12 text-lg font-bold text-white transition-all hover:scale-105 hover:bg-white active:scale-95 sm:w-auto"
+                  >
                     Falar com consultor
                   </Button>
                 </Link>
