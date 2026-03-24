@@ -18,9 +18,7 @@ export function generateMetadata({
   image,
   noIndex = false,
 }: MetadataProps = {}): Metadata {
-  const pageTitle = title
-    ? `${title} | ${siteConfig.name}`
-    : `${siteConfig.name} | ${siteConfig.tagline}`
+  const pageTitle = title ?? `${siteConfig.name} | ${siteConfig.tagline}`
 
   const pageDescription = description ?? siteConfig.description
   const ogImage = image ?? siteConfig.ogImage
