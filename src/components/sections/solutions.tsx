@@ -33,7 +33,7 @@ const SOLUTIONS: Solution[] = [
     image: '/images/Sistema PDV_image.png',
     icon: UtensilsCrossed,
     cta: 'Ver mais soluções',
-    href: '/solucoes/pdv',
+    href: '/solucoes/operacao-e-atendimento',
   },
   {
     title: 'Delivery & Vendas',
@@ -50,8 +50,8 @@ const SOLUTIONS: Solution[] = [
       'Permita que seus clientes façam pedidos direto da mesa, reduzindo filas e aumentando a eficiência do atendimento.',
     image: '/images/Cardápio par tablet_image.png',
     icon: Smartphone,
-    cta: 'Demonstração gratuita',
-    href: '/demo',
+    cta: 'Ver mais soluções',
+    href: '/solucoes/autoatendimento',
   },
   {
     title: 'Gestão & Controle',
@@ -60,7 +60,7 @@ const SOLUTIONS: Solution[] = [
     image: '/images/Gestão de clientes_image.png',
     icon: PackageSearch,
     cta: 'Ver mais soluções',
-    href: '/solucoes/crm',
+    href: '/solucoes/gestao-e-financeiro',
   },
   {
     title: 'Financeiro & Resultados',

@@ -93,7 +93,7 @@ export function CtaSection() {
               size="lg"
               className="group text-brand-dark animate-shine relative h-14 overflow-hidden rounded-full bg-white px-10 text-lg font-bold shadow-[0_20px_50px_rgba(0,0,0,0.3)] transition-all duration-300 hover:scale-105 hover:bg-white hover:shadow-[0_25px_60px_rgba(0,0,0,0.4)] active:scale-95"
             >
-              <Link href="/demo" className="flex items-center">
+              <Link href="/contato" className="flex items-center">
                 <span className="relative z-10">Solicitar demonstração</span>
                 <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>

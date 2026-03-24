@@ -226,7 +226,7 @@ function PlanCard({ plan, isAnnual }: { plan: Plan; isAnnual: boolean }) {
                 : 'bg-brand-dark hover:bg-brand-dark/95 shadow-brand-dark/10 text-white shadow-md'
             )}
           >
-            <Link href="/demo">{plan.ctaLabel}</Link>
+            <Link href="/contato">{plan.ctaLabel}</Link>
           </Button>
         </div>
 
@@ -307,7 +307,7 @@ export function PlansSection() {
                 size="lg"
                 className="bg-brand-orange hover:bg-brand-orange/90 shadow-brand-orange/20 rounded-full text-white shadow-lg"
               >
-                <Link href="/demo">Solicitar demonstração</Link>
+                <Link href="/contato">Solicitar demonstração</Link>
               </Button>
             </div>
           </div>
@@ -667,21 +667,21 @@ export function PlansSection() {
                 </p>
               </div>
 
-              <div className="flex flex-wrap items-center gap-5">
+              <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
+                <Button
+                  asChild
+                  size="lg"
+                  className="bg-brand-orange hover:bg-brand-orange/90 shadow-brand-orange/20 h-14 rounded-full px-10 font-black text-white shadow-xl transition-all hover:scale-[1.05]"
+                >
+                  <Link href="/contato">Começar agora</Link>
+                </Button>
                 <Button
                   asChild
                   variant="outline"
                   size="lg"
-                  className="hover:text-brand-blue h-15 rounded-full border-white px-8 font-black text-white shadow-lg backdrop-blur-md transition-all hover:bg-white"
+                  className="bg-white/10 hover:bg-white/20 border-white/20 h-14 rounded-full px-8 font-black text-white backdrop-blur-md transition-all sm:border-white"
                 >
                   <Link href="/contato">Falar com consultor</Link>
-                </Button>
-                <Button
-                  asChild
-                  size="lg"
-                  className="text-brand-blue h-15 rounded-full bg-white px-10 font-black shadow-2xl shadow-black/20 transition-all hover:scale-[1.05] hover:bg-white/90"
-                >
-                  <Link href="/demo">Começar agora</Link>
                 </Button>
               </div>
             </div>

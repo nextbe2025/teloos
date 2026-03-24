@@ -3,21 +3,49 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { useState, useEffect } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import { siteConfig } from '@/config/site'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
-import { Menu, UserRound, X } from 'lucide-react'
+import { Menu, UserRound, X, ChevronDown, UtensilsCrossed, Bike, Smartphone, PieChart } from 'lucide-react'
+
+const PRODUCT_SUBMENU = [
+  {
+    label: 'Operação & Atendimento',
+    description: 'PDV, Mesas e Cozinha (KDS)',
+    href: '/solucoes/operacao-e-atendimento',
+    icon: UtensilsCrossed
+  },
+  {
+    label: 'Delivery & Vendas',
+    description: 'App próprio e Integrador iFood',
+    href: '/solucoes/delivery',
+    icon: Bike
+  },
+  {
+    label: 'Autoatendimento',
+    description: 'Cardápio Digital e Totens',
+    href: '/solucoes/autoatendimento',
+    icon: Smartphone
+  },
+  {
+    label: 'Gestão & Financeiro',
+    description: 'Controle de estoque e relatórios',
+    href: '/solucoes/gestao-e-financeiro',
+    icon: PieChart
+  }
+]
 
 const NAV_LINKS = [
-  { label: 'Produtos', href: '/solucoes' },
   { label: 'Planos', href: '/precos' },
   { label: 'Sobre nós', href: '/sobre' },
-  { label: 'Blog', href: '/blog' },
+  { label: 'Contato', href: '/contato' },
 ]
 
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [isProductsOpen, setIsProductsOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -67,6 +95,53 @@ export function SiteHeader() {
 
             {/* Nav Central */}
             <nav className="hidden items-center gap-10 lg:flex">
+              {/* Menu Produtos com Dropdown */}
+              <div 
+                className="relative"
+                onMouseEnter={() => setIsProductsOpen(true)}
+                onMouseLeave={() => setIsProductsOpen(false)}
+              >
+                <button
+                  className="text-brand-dark/70 hover:text-brand-blue flex items-center gap-1 text-[15px] font-medium transition-colors duration-200 focus:outline-none"
+                >
+                  Produtos
+                  <ChevronDown className={cn("h-4 w-4 transition-transform duration-200", isProductsOpen && "rotate-180")} />
+                </button>
+
+                <AnimatePresence>
+                  {isProductsOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                      transition={{ duration: 0.2 }}
+                      className="absolute -left-4 top-full pt-6"
+                    >
+                      <div className="w-[450px] overflow-hidden rounded-2xl border border-gray-100 bg-white p-2 shadow-2xl">
+                        <div className="grid grid-cols-1 gap-1">
+                          {PRODUCT_SUBMENU.map((item) => (
+                            <Link
+                              key={item.href}
+                              href={item.href}
+                              className="group flex items-center gap-4 rounded-xl p-3 transition-colors hover:bg-slate-50"
+                              onClick={() => setIsProductsOpen(false)}
+                            >
+                              <div className="bg-brand-blue/5 text-brand-blue flex h-10 w-10 shrink-0 items-center justify-center rounded-lg transition-colors group-hover:bg-brand-blue group-hover:text-white">
+                                <item.icon className="h-5 w-5" />
+                              </div>
+                              <div className="flex flex-col text-left">
+                                <span className="text-brand-dark text-[14px] font-bold">{item.label}</span>
+                                <span className="text-brand-dark/40 text-[12px] font-medium">{item.description}</span>
+                              </div>
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
               {NAV_LINKS.map((item) => (
                 <Link
                   key={item.href}
@@ -94,7 +169,7 @@ export function SiteHeader() {
                 asChild
                 className="bg-brand-blue hover:bg-brand-blue/90 shadow-brand-blue/20 h-11 rounded-full px-7 text-sm font-bold text-white shadow-lg transition-all hover:scale-[1.02] active:scale-[0.98]"
               >
-                <Link href="/demo">Solicitar demo</Link>
+                <Link href="/contato">Solicitar demo</Link>
               </Button>
 
               {/* Mobile menu button */}

@@ -15,7 +15,7 @@ const FOOTER_LINKS = {
     { label: 'Sobre nós', href: '/sobre' },
     { label: 'Parceiros', href: '/parceiros' },
     { label: 'Carreiras', href: '/carreiras' },
-    { label: 'Blog', href: '/blog' },
+    { label: 'Contato', href: '/contato' },
   ],
   segmentos: [
     { label: 'Restaurantes', href: '/segmentos/restaurantes' },
@@ -91,10 +91,27 @@ export function Footer() {
           ))}
         </div>
 
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-sm text-white/40 sm:flex-row">
-          <p>
-            © {year} {siteConfig.name}. Todos os direitos reservados.
-          </p>
+        <div className="mt-12 flex flex-col items-center justify-between gap-6 border-t border-white/10 pt-8 text-sm text-white/40 sm:flex-row">
+          <div className="flex flex-col items-center gap-4 sm:flex-row sm:gap-8">
+            <p>
+              © {year} {siteConfig.name}. Todos os direitos reservados.
+            </p>
+            <a 
+              href="https://updo.com.br/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="group flex items-center gap-2 transition-colors hover:text-white"
+            >
+              <span>Desenvolvido por</span>
+              <Image 
+                src="/brand/Logo UPDO 2024 Branca.svg" 
+                alt="UPDO" 
+                width={100} 
+                height={30} 
+                className="h-8 w-auto transition-all hover:scale-105"
+              />
+            </a>
+          </div>
           <div className="flex gap-6">
             <Link
               href="/privacidade"

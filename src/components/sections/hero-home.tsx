@@ -47,7 +47,7 @@ export function HeroHome() {
                 size="lg"
                 className="bg-brand-orange hover:bg-brand-orange/90 shadow-brand-orange/20 h-12 rounded-full px-8 text-sm font-semibold text-white shadow-lg transition-all hover:scale-105"
               >
-                <Link href="/demo">
+                <Link href="/contato">
                   Solicitar demonstração
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
