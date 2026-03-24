@@ -19,7 +19,7 @@ function MetricCard({
   isPositive = true,
 }: MetricCardProps) {
   return (
-    <div className="rounded-2xl border border-gray-100 bg-white p-4 shadow-sm transition-all hover:shadow-md">
+    <div className="cursor-default rounded-2xl border border-gray-100 bg-white p-4 shadow-sm transition-all hover:shadow-md">
       <p className="text-brand-dark/40 text-[12px] font-medium tracking-wider uppercase">
         {label}
       </p>
@@ -137,7 +137,7 @@ export function AnalyticsSection() {
               transition={{ delay: 0.6 }}
               className="mt-12"
             >
-              <button className="group text-brand-blue flex items-center gap-2 text-[15px] font-bold transition-all hover:gap-3">
+              <button className="group text-brand-blue flex cursor-pointer items-center gap-2 text-[15px] font-bold transition-all hover:gap-3">
                 Ver dashboard em funcionamento
                 <ArrowUpRight size={18} />
               </button>

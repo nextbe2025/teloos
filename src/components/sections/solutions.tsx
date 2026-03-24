@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
@@ -86,15 +86,15 @@ function SolutionCard({
   solution,
   index,
 }: {
-  solution: Solution
+  solution: (typeof SOLUTIONS)[0]
   index: number
 }) {
+  const [isPressed, setIsPressed] = React.useState(false)
   const Icon = solution.icon
-  const [isPressed, setIsPressed] = useState(false)
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -105,7 +105,7 @@ function SolutionCard({
       onPointerCancel={() => setIsPressed(false)}
       onPointerLeave={() => setIsPressed(false)}
       className={cn(
-        'group flex flex-col overflow-hidden rounded-[2.5rem] border-[0.5px] border-gray-200 bg-white transition-all duration-300',
+        'group flex cursor-pointer flex-col overflow-hidden rounded-[2.5rem] border-[0.5px] border-gray-200 bg-white transition-all duration-300',
         'hover:-translate-y-2 hover:scale-[1.01] hover:border-transparent hover:shadow-2xl',
         'active:-translate-y-1 active:scale-[1.01] active:border-transparent active:shadow-2xl',
         isPressed && '-translate-y-2 scale-[1.01] border-transparent shadow-2xl'

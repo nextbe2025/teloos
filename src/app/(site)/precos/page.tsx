@@ -12,7 +12,10 @@ export default function PrecosPage() {
   return (
     <>
       <SiteHeader />
-      <PlansSection />
+      <main>
+        <h1 className="sr-only">Planos e Preços do Sistema Teloos</h1>
+        <PlansSection />
+      </main>
     </>
   )
 }

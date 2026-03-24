@@ -22,7 +22,7 @@ export function HeroHome() {
             <h1 className="text-brand-dark mb-7 text-[40px] leading-[1.15] font-extrabold tracking-tight sm:text-5xl lg:text-[52px] xl:text-[58px]">
               O ecossistema completo para a <br className="hidden xl:block" />
               <span className="text-brand-blue">
-                gestão do seu food service.
+                gestão do seu restaurante e food service.
               </span>
             </h1>
 

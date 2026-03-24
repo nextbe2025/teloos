@@ -24,7 +24,7 @@ export function generateMetadata({
   const ogImage = image ?? siteConfig.ogImage
 
   return {
-    title: pageTitle,
+    title: { absolute: pageTitle },
     description: pageDescription,
     openGraph: {
       title: pageTitle,

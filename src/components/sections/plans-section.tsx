@@ -120,7 +120,7 @@ function BenefitCard({ benefit, index }: { benefit: Benefit; index: number }) {
   return (
     <div
       className={cn(
-        'group isolation-isolate relative overflow-hidden rounded-[2.5rem] border bg-white p-10 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_32px_64px_-16px_rgba(0,0,0,0.12)]',
+        'group isolation-isolate relative cursor-default overflow-hidden rounded-[2.5rem] border bg-white p-10 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_32px_64px_-16px_rgba(0,0,0,0.12)]',
         isFirst
           ? 'border-brand-blue/20 z-20 scale-[1.02] shadow-[0_20px_40px_-12px_rgba(40,86,183,0.08)]'
           : 'border-brand-blue/10 z-10 shadow-sm'
@@ -168,7 +168,7 @@ function PlanCard({ plan, isAnnual }: { plan: Plan; isAnnual: boolean }) {
       whileTap={{ scale: 0.99 }}
       whileHover={{ y: -8, scale: plan.recommended ? 1.05 : 1.02 }}
       className={cn(
-        'group relative flex flex-col rounded-[2.5rem] border bg-white transition-all duration-500 will-change-transform',
+        'group relative flex cursor-default flex-col rounded-[2.5rem] border bg-white transition-all duration-500 will-change-transform',
         plan.recommended
           ? 'border-brand-blue z-20 scale-[1.05] shadow-[0_40px_80px_-15px_rgba(40,86,183,0.2)]'
           : 'hover:border-brand-blue/30 z-10 border-gray-200 shadow-sm hover:shadow-xl'
@@ -268,7 +268,7 @@ function PlanCard({ plan, isAnnual }: { plan: Plan; isAnnual: boolean }) {
 }
 
 export function PlansSection() {
-  const [isAnnual, setIsAnnual] = useState(true)
+  const [isAnnual, setIsAnnual] = useState(false)
 
   return (
     <section className="relative overflow-hidden bg-[#F4F6FB] pt-32 pb-24 lg:pt-52">
@@ -288,13 +288,13 @@ export function PlansSection() {
               </span>
             </div>
 
-            <h1 className="text-brand-dark mt-8 text-[40px] leading-[1.15] font-extrabold tracking-tight sm:text-5xl lg:text-[52px] xl:text-[58px]">
+            <h2 className="text-brand-dark mt-8 text-[40px] leading-[1.15] font-extrabold tracking-tight sm:text-5xl lg:text-[52px] xl:text-[58px]">
               Escolha o plano ideal para crescer com{' '}
               <br className="hidden xl:block" />
               <span className="text-brand-blue">
                 controle e previsibilidade.
               </span>
-            </h1>
+            </h2>
 
             <p className="text-brand-dark/60 mt-7 max-w-[560px] text-[17px] leading-relaxed">
               Escolha o plano ideal para digitalizar e otimizar sua operação com
@@ -679,7 +679,7 @@ export function PlansSection() {
                   asChild
                   variant="outline"
                   size="lg"
-                  className="bg-white/10 hover:bg-white/20 border-white/20 h-14 rounded-full px-8 font-black text-white backdrop-blur-md transition-all sm:border-white"
+                  className="h-14 rounded-full border-white/20 bg-white/10 px-8 font-black text-white backdrop-blur-md transition-all hover:bg-white/20 sm:border-white"
                 >
                   <Link href="/contato">Falar com consultor</Link>
                 </Button>

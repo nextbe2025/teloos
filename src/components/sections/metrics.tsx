@@ -49,9 +49,9 @@ export function MetricsSection() {
                   <metric.icon className="h-6 w-6" />
                 </div>
 
-                <h3 className="mb-1 text-4xl font-extrabold tracking-tight">
+                <h2 className="mb-1 text-4xl font-extrabold tracking-tight">
                   {metric.value}
-                </h3>
+                </h2>
 
                 <p className="mb-1 text-sm font-bold tracking-wider text-white uppercase">
                   {metric.label}
