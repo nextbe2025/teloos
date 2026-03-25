@@ -58,7 +58,7 @@ export function HeroHome() {
                 variant="outline"
                 className="border-brand-blue/25 text-brand-blue hover:bg-brand-blue/5 h-12 rounded-full px-8 text-sm transition-all hover:scale-105"
               >
-                <Link href="/sobre">Ver como funciona</Link>
+                <Link href="#solucoes">Ver soluções</Link>
               </Button>
             </motion.div>
           </motion.div>

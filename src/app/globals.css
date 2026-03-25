@@ -130,6 +130,17 @@
   }
 }
 
+/* ─── Custom scrollbar removal ─────────────────────────────────────────────── */
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+}
+
 /* ─── Utilities customizadas ──────────────────────────────────────────────── */
 @layer utilities {
   /* Container padronizado para seções do site */
@@ -145,6 +156,23 @@
   /* Gradiente de texto para headlines de destaque */
   .text-gradient {
     @apply from-brand-blue to-brand-orange bg-gradient-to-r bg-clip-text text-transparent;
+  }
+
+  @keyframes scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-scroll {
+    animation: scroll 40s linear infinite;
+  }
+
+  .pause-on-hover:hover {
+    animation-play-state: paused;
   }
 
   /* Gradiente sutil de fundo — hero e seções de destaque */

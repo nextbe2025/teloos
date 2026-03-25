@@ -23,15 +23,15 @@ export const siteConfig = {
 
   /** Redes sociais */
   social: {
-    instagram: '',
-    linkedin: '',
-    whatsapp: '',
+    instagram: 'https://instagram.com/teloossistemas',
+    linkedin: 'https://linkedin.com/company/teloos',
+    whatsapp: 'https://wa.me/5511999999999',
   },
 
   /** Informações de contato */
   contact: {
-    email: '',
-    phone: '',
+    email: 'contato@teloos.com.br',
+    phone: '(11) 99999-9999',
   },
 } as const
 

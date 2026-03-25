@@ -4,6 +4,7 @@ import { HeroHome } from '@/components/sections/hero-home'
 import {
   MetricsSection,
   SolutionsSection,
+  SegmentsSection,
   WhyTeloosSection,
   AnalyticsSection,
   IntegrationsSection,
@@ -23,6 +24,7 @@ export default function HomePage() {
       <HeroHome />
       <MetricsSection />
       <SolutionsSection />
+      <SegmentsSection />
       <WhyTeloosSection />
       <AnalyticsSection />
       <IntegrationsSection />

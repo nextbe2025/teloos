@@ -109,17 +109,9 @@ export default function OperacaoAtendimentoPage() {
                 <Button
                   asChild
                   size="lg"
-                  className="bg-brand-orange hover:bg-brand-orange/90 shadow-brand-orange/20 h-14 w-full rounded-full px-10 text-white shadow-xl transition-all hover:scale-105 active:scale-95 sm:w-auto"
+                  className="bg-brand-blue hover:bg-brand-blue/90 shadow-brand-blue/20 h-14 w-full rounded-full px-10 text-white shadow-xl transition-all hover:scale-105 active:scale-95 sm:w-auto"
                 >
-                  <Link href="/contato">Solicitar Demonstração</Link>
-                </Button>
-                <Button
-                  asChild
-                  variant="outline"
-                  size="lg"
-                  className="border-brand-blue/20 text-brand-blue hover:bg-brand-blue/5 h-14 w-full rounded-full px-10 font-bold transition-all hover:scale-105 active:scale-95 sm:w-auto"
-                >
-                  <Link href="#recursos">Conhecer Recursos</Link>
+                  <Link href="/contato">Falar com especialista</Link>
                 </Button>
               </div>
             </motion.div>

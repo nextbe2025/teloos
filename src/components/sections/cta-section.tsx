@@ -98,15 +98,6 @@ export function CtaSection() {
                 <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
             </Button>
-
-            <Button
-              asChild
-              size="lg"
-              variant="outline"
-              className="h-14 rounded-full border-2 border-white/40 bg-transparent px-10 text-lg font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:border-white/80 hover:bg-white/10"
-            >
-              <Link href="/contato">Falar com especialista</Link>
-            </Button>
           </div>
 
           <div className="mt-12 flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-sm font-medium text-white/60">

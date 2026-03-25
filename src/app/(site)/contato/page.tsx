@@ -12,6 +12,7 @@ import {
   Send,
   Loader2,
   CheckCircle2,
+  ArrowRight,
 } from 'lucide-react'
 import { Container } from '@/components/shared/container'
 import { Section } from '@/components/shared/section'
@@ -233,15 +234,31 @@ export default function ContatoPage() {
                             htmlFor="restaurant"
                             className="text-brand-dark/60 ml-1 text-sm font-bold"
                           >
-                            Nome do Restaurante
+                            Área de atuação
                           </label>
-                          <input
+                          <select
                             required
                             id="restaurant"
-                            type="text"
-                            placeholder="Sua empresa"
-                            className="focus:border-brand-blue w-full rounded-2xl border-2 border-slate-100 px-6 py-4 font-medium transition-colors focus:outline-none"
-                          />
+                            defaultValue=""
+                            className="focus:border-brand-blue w-full rounded-2xl border-2 border-slate-100 bg-white px-6 py-4 font-medium transition-colors focus:outline-none"
+                          >
+                            <option value="" disabled>
+                              Selecione seu tipo de negócio
+                            </option>
+                            <option value="restaurante">Restaurante</option>
+                            <option value="padaria">Padaria</option>
+                            <option value="cafeteria">
+                              Cafeteria / Doceria
+                            </option>
+                            <option value="hamburgueria">Hamburgueria</option>
+                            <option value="pizzaria">Pizzaria</option>
+                            <option value="bar">Bar / Pub</option>
+                            <option value="buffet">Buffet / Eventos</option>
+                            <option value="delivery-only">
+                              Apenas Delivery (Dark Kitchen)
+                            </option>
+                            <option value="outro">Outro</option>
+                          </select>
                         </div>
                       </div>
 
@@ -263,7 +280,7 @@ export default function ContatoPage() {
                       <Button
                         type="submit"
                         disabled={isSubmitting}
-                        className="bg-brand-blue hover:bg-brand-blue/90 shadow-brand-blue/20 w-full rounded-2xl py-8 text-xl font-bold shadow-lg transition-all hover:-translate-y-1 active:scale-[0.98]"
+                        className="bg-brand-blue hover:bg-brand-blue/90 shadow-brand-blue/20 h-14 w-full rounded-full text-lg font-bold shadow-lg transition-all hover:scale-[1.02] active:scale-[0.98]"
                       >
                         {isSubmitting ? (
                           <span className="flex items-center gap-2">
@@ -272,8 +289,8 @@ export default function ContatoPage() {
                           </span>
                         ) : (
                           <span className="flex items-center gap-2">
-                            <Send size={20} />
-                            Enviar Mensagem
+                            Solicitar contato
+                            <ArrowRight className="ml-2 h-5 w-5" />
                           </span>
                         )}
                       </Button>

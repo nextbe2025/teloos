@@ -5,23 +5,24 @@ import { Container } from '@/components/shared'
 import { Instagram, Linkedin } from 'lucide-react'
 
 const FOOTER_LINKS = {
-  produto: [
-    { label: 'Plataforma', href: '/solucoes' },
-    { label: 'Integrações', href: '/integracoes' },
-    { label: 'Preços', href: '/precos' },
-    { label: 'Changelog', href: '/changelog' },
+  solucoes: [
+    { label: 'Autoatendimento', href: '/solucoes/autoatendimento' },
+    { label: 'Delivery Integrado', href: '/solucoes/delivery' },
+    {
+      label: 'Operação e Atendimento',
+      href: '/solucoes/operacao-e-atendimento',
+    },
+    { label: 'Gestão e Financeiro', href: '/solucoes/gestao-e-financeiro' },
   ],
   empresa: [
     { label: 'Sobre nós', href: '/sobre' },
-    { label: 'Parceiros', href: '/parceiros' },
-    { label: 'Carreiras', href: '/carreiras' },
+    { label: 'Preços', href: '/precos' },
     { label: 'Contato', href: '/contato' },
   ],
-  segmentos: [
-    { label: 'Restaurantes', href: '/segmentos/restaurantes' },
-    { label: 'Pizzarias', href: '/segmentos/pizzarias' },
-    { label: 'Dark Kitchens', href: '/segmentos/dark-kitchens' },
-    { label: 'Redes & Franquias', href: '/segmentos/redes' },
+  suporte: [
+    { label: 'Central de Ajuda', href: '#' },
+    { label: 'WhatsApp', href: siteConfig.social.whatsapp },
+    { label: 'Status do Sistema', href: '#' },
   ],
 }
 
@@ -49,14 +50,18 @@ export function Footer() {
             </p>
             <div className="flex items-center gap-3">
               <a
-                href="#"
+                href={siteConfig.social.instagram}
+                target="_blank"
+                rel="noreferrer"
                 aria-label="Instagram"
                 className="hover:bg-brand-blue flex h-9 w-9 items-center justify-center rounded-lg bg-white/10 transition-colors"
               >
                 <Instagram className="h-4 w-4" />
               </a>
               <a
-                href="#"
+                href={siteConfig.social.linkedin}
+                target="_blank"
+                rel="noreferrer"
                 aria-label="LinkedIn"
                 className="hover:bg-brand-blue flex h-9 w-9 items-center justify-center rounded-lg bg-white/10 transition-colors"
               >
@@ -67,9 +72,9 @@ export function Footer() {
 
           {/* Links cols */}
           {[
-            { title: 'Produto', links: FOOTER_LINKS.produto },
+            { title: 'Soluções', links: FOOTER_LINKS.solucoes },
             { title: 'Empresa', links: FOOTER_LINKS.empresa },
-            { title: 'Segmentos', links: FOOTER_LINKS.segmentos },
+            { title: 'Suporte', links: FOOTER_LINKS.suporte },
           ].map((col) => (
             <div key={col.title}>
               <p className="mb-4 text-sm font-semibold text-white">
@@ -77,7 +82,7 @@ export function Footer() {
               </p>
               <ul className="space-y-3">
                 {col.links.map((link) => (
-                  <li key={link.href}>
+                  <li key={`${col.title}-${link.label}`}>
                     <Link
                       href={link.href}
                       className="text-sm text-white/50 transition-colors hover:text-white"
@@ -96,18 +101,18 @@ export function Footer() {
             <p>
               © {year} {siteConfig.name}. Todos os direitos reservados.
             </p>
-            <a 
-              href="https://updo.com.br/" 
-              target="_blank" 
+            <a
+              href="https://updo.com.br/"
+              target="_blank"
               rel="noopener noreferrer"
               className="group flex items-center gap-2 transition-colors hover:text-white"
             >
               <span>Desenvolvido por</span>
-              <Image 
-                src="/brand/Logo UPDO 2024 Branca.svg" 
-                alt="UPDO" 
-                width={100} 
-                height={30} 
+              <Image
+                src="/brand/Logo UPDO 2024 Branca.svg"
+                alt="UPDO"
+                width={100}
+                height={30}
                 className="h-8 w-auto transition-all hover:scale-105"
               />
             </a>

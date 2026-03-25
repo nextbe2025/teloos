@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import React, { useEffect } from 'react'
 import Image from 'next/image'
@@ -71,7 +71,7 @@ export default function DeliveryVendasPage() {
 
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-[#F4F6FB] pt-32 pb-20 lg:pt-48">
-        <div className="bg-brand-orange/5 pointer-events-none absolute -top-24 left-1/2 z-0 h-[520px] w-[520px] -translate-x-1/2 rounded-full blur-3xl" />
+        <div className="bg-brand-blue/5 pointer-events-none absolute -top-24 left-1/2 z-0 h-[520px] w-[520px] -translate-x-1/2 rounded-full blur-3xl" />
         <Container className="relative z-10">
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <motion.div
@@ -79,16 +79,16 @@ export default function DeliveryVendasPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <div className="border-brand-orange/10 inline-flex items-center gap-3 rounded-full border bg-white/70 px-4 py-2 backdrop-blur">
-                <Bike className="text-brand-orange h-4 w-4" />
-                <span className="text-brand-orange text-[13px] font-bold tracking-[0.2em] uppercase">
+              <div className="border-brand-blue/10 inline-flex items-center gap-3 rounded-full border bg-white/70 px-4 py-2 backdrop-blur">
+                <Bike className="text-brand-blue h-4 w-4" />
+                <span className="text-brand-blue text-[13px] font-bold tracking-[0.2em] uppercase">
                   Delivery & Vendas
                 </span>
               </div>
 
               <h1 className="text-brand-dark mt-8 text-[40px] leading-[1.1] font-extrabold tracking-tight sm:text-5xl lg:text-[56px]">
-                Seu delivery sem taxas, <br className="hidden sm:block" />
-                <span className="text-brand-orange text-glow-orange">
+                Seu delivery sem taxas, <br />
+                <span className="text-brand-blue">
                   mais lucro no seu bolso.
                 </span>
               </h1>
@@ -103,17 +103,9 @@ export default function DeliveryVendasPage() {
                 <Button
                   asChild
                   size="lg"
-                  className="bg-brand-orange hover:bg-brand-orange/90 shadow-brand-orange/20 h-14 w-full rounded-full px-10 text-white shadow-xl transition-all hover:scale-105 active:scale-95 sm:w-auto"
+                  className="bg-brand-blue hover:bg-brand-blue/90 shadow-brand-blue/20 h-14 w-full rounded-full px-10 text-white shadow-xl transition-all hover:scale-105 active:scale-95 sm:w-auto"
                 >
-                  <Link href="/contato">Começar Vendendo</Link>
-                </Button>
-                <Button
-                  asChild
-                  variant="outline"
-                  size="lg"
-                  className="border-brand-orange/20 text-brand-orange hover:bg-brand-orange/5 h-14 w-full rounded-full px-10 font-bold transition-all hover:scale-105 active:scale-95 sm:w-auto"
-                >
-                  <Link href="#solucoes">Conhecer Soluções</Link>
+                  <Link href="/contato">Falar com especialista</Link>
                 </Button>
               </div>
             </motion.div>
@@ -124,7 +116,7 @@ export default function DeliveryVendasPage() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="relative"
             >
-              <div className="shadow-brand-orange/10 relative overflow-hidden rounded-[2.5rem] border-8 border-white bg-slate-200 shadow-2xl">
+              <div className="shadow-brand-blue/10 relative overflow-hidden rounded-[2.5rem] border-8 border-white bg-slate-200 shadow-2xl">
                 <Image
                   src="/images/Delivery próprio_image.png"
                   alt="Interface Delivery Teloos"
@@ -163,10 +155,10 @@ export default function DeliveryVendasPage() {
                 initial={{ opacity: 0, x: -20, y: 20 }}
                 animate={{ opacity: 1, x: 0, y: 0 }}
                 transition={{ delay: 1.2, duration: 0.6 }}
-                className="border-brand-orange/10 absolute -bottom-8 -left-6 z-20 hidden w-72 rounded-2xl border bg-white/95 p-4 shadow-xl backdrop-blur-sm sm:block"
+                className="border-brand-blue/10 absolute -bottom-8 -left-6 z-20 hidden w-72 rounded-2xl border bg-white/95 p-4 shadow-xl backdrop-blur-sm sm:block"
               >
                 <div className="flex items-center gap-3">
-                  <div className="bg-brand-orange flex h-8 w-8 items-center justify-center rounded-full text-white">
+                  <div className="bg-brand-blue flex h-8 w-8 items-center justify-center rounded-full text-white">
                     <Bike className="h-4 w-4" />
                   </div>
                   <div className="flex-1">
@@ -190,7 +182,7 @@ export default function DeliveryVendasPage() {
                 transition={{ delay: 1.4, duration: 0.5 }}
                 className="absolute top-1/2 -right-12 z-10 hidden items-center gap-2 rounded-full border border-slate-100 bg-white px-4 py-2 shadow-lg sm:flex"
               >
-                <div className="bg-brand-orange h-2 w-2 animate-pulse rounded-full" />
+                <div className="bg-brand-blue h-2 w-2 animate-pulse rounded-full" />
                 <span className="text-brand-dark text-[11px] font-black tracking-wider uppercase">
                   Loja Aberta
                 </span>
@@ -250,7 +242,7 @@ export default function DeliveryVendasPage() {
               >
                 <motion.div
                   whileHover={{ scale: 1.1, rotate: 5 }}
-                  className="bg-brand-orange/10 text-brand-orange group-hover:bg-brand-orange mb-4 flex h-12 w-12 items-center justify-center rounded-2xl transition-colors group-hover:text-white"
+                  className="bg-brand-blue/10 text-brand-blue group-hover:bg-brand-blue mb-4 flex h-12 w-12 items-center justify-center rounded-2xl transition-colors group-hover:text-white"
                 >
                   <CheckCircle2 className="h-6 w-6" />
                 </motion.div>
@@ -280,7 +272,7 @@ export default function DeliveryVendasPage() {
           >
             <h2 className="text-brand-dark text-3xl font-black sm:text-4xl lg:text-5xl">
               Venda onde seu cliente <br className="hidden md:block" />
-              <span className="text-brand-orange">está presente.</span>
+              <span className="text-brand-blue">está presente.</span>
             </h2>
           </motion.div>
 
@@ -293,12 +285,12 @@ export default function DeliveryVendasPage() {
                 viewport={{ once: true, margin: '-50px' }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 whileHover={{ y: -8, transition: { duration: 0.2 } }}
-                className="group hover:border-brand-orange/30 rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm transition-all hover:shadow-xl"
+                className="group hover:border-brand-blue/30 rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm transition-all hover:shadow-xl"
               >
-                <div className="bg-brand-orange/10 group-hover:bg-brand-orange text-brand-orange mb-6 flex h-14 w-14 items-center justify-center rounded-2xl transition-colors group-hover:text-white">
+                <div className="bg-brand-blue/10 group-hover:bg-brand-blue text-brand-blue mb-6 flex h-14 w-14 items-center justify-center rounded-2xl transition-colors group-hover:text-white">
                   <feature.icon className="h-7 w-7" />
                 </div>
-                <h3 className="text-brand-dark group-hover:text-brand-orange text-xl font-black transition-colors">
+                <h3 className="text-brand-dark group-hover:text-brand-blue text-xl font-black transition-colors">
                   {feature.title}
                 </h3>
                 <p className="text-brand-dark/60 mt-4 leading-relaxed font-medium">
@@ -339,7 +331,7 @@ export default function DeliveryVendasPage() {
                     damping: 20,
                     delay: 0.5,
                   }}
-                  className="bg-brand-orange absolute -bottom-8 -left-8 flex h-32 w-32 flex-col items-center justify-center rounded-full text-white shadow-xl"
+                  className="bg-brand-blue absolute -bottom-8 -left-8 flex h-32 w-32 flex-col items-center justify-center rounded-full text-white shadow-xl"
                 >
                   <span className="text-2xl font-black">Full</span>
                   <span className="text-center text-[10px] font-bold tracking-widest uppercase">
@@ -379,7 +371,7 @@ export default function DeliveryVendasPage() {
                     transition={{ delay: 0.8 + i * 0.1 }}
                     className="flex items-center gap-3"
                   >
-                    <CheckCircle2 className="text-brand-orange h-5 w-5" />
+                    <CheckCircle2 className="text-brand-blue h-5 w-5" />
                     <span className="text-brand-dark font-bold">{item}</span>
                   </motion.li>
                 ))}
@@ -393,7 +385,7 @@ export default function DeliveryVendasPage() {
       <Section className="relative z-10 border-t border-slate-100 bg-white py-32">
         <Container>
           <div className="bg-brand-dark relative overflow-hidden rounded-[4rem] px-8 py-20 text-center shadow-2xl sm:px-16">
-            <div className="bg-brand-orange/20 absolute top-0 right-0 h-[400px] w-[400px] translate-x-1/2 -translate-y-1/2 rounded-full blur-[100px]" />
+            <div className="bg-brand-blue/20 absolute top-0 right-0 h-[400px] w-[400px] translate-x-1/2 -translate-y-1/2 rounded-full blur-[100px]" />
             <div className="bg-brand-blue/20 absolute bottom-0 left-0 h-[400px] w-[400px] -translate-x-1/2 translate-y-1/2 rounded-full blur-[100px]" />
 
             <motion.div
@@ -404,7 +396,7 @@ export default function DeliveryVendasPage() {
             >
               <h2 className="text-4xl font-black text-white sm:text-5xl lg:text-6xl">
                 Sua vitrine online <br className="hidden md:block" />
-                <span className="text-brand-orange">espera por você.</span>
+                <span className="text-brand-blue">espera por você.</span>
               </h2>
               <p className="mx-auto mt-8 max-w-2xl text-xl font-medium text-white/70">
                 Comece a vender agora pelo seu canal oficial e aumente a
@@ -415,7 +407,7 @@ export default function DeliveryVendasPage() {
                 <Button
                   asChild
                   size="lg"
-                  className="bg-brand-orange hover:bg-brand-orange/90 shadow-brand-orange/20 h-16 w-full rounded-full px-12 text-lg font-bold text-white shadow-lg transition-all hover:scale-105 active:scale-95 sm:w-auto"
+                  className="bg-brand-blue hover:bg-brand-blue/90 shadow-brand-blue/20 h-16 w-full rounded-full px-12 text-lg font-bold text-white shadow-lg transition-all hover:scale-105 active:scale-95 sm:w-auto"
                 >
                   <Link href="/contato">Solicitar Demonstração</Link>
                 </Button>

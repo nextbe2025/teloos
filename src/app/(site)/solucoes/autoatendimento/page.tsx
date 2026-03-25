@@ -101,18 +101,14 @@ export default function AutoatendimentoPage() {
               </p>
               <div className="mt-10 flex flex-col gap-4 sm:flex-row">
                 <Button
+                  asChild
                   size="lg"
-                  className="bg-brand-orange hover:bg-brand-orange/90 shadow-brand-orange/20 w-full rounded-full px-10 text-base font-bold text-white shadow-lg transition-all hover:scale-105 active:scale-95 sm:w-auto"
+                  className="bg-brand-blue hover:bg-brand-blue/90 shadow-brand-blue/20 h-14 w-full rounded-full px-10 font-bold text-white shadow-lg transition-all hover:scale-105 active:scale-95 sm:w-auto"
                 >
-                  Falar com especialista
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-brand-blue text-brand-blue hover:bg-brand-blue/5 w-full rounded-full px-10 text-base font-bold transition-all hover:scale-105 active:scale-95 sm:w-auto"
-                >
-                  Ver demonstração
+                  <Link href="/contato">
+                    Falar com especialista
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Link>
                 </Button>
               </div>
             </motion.div>
@@ -260,6 +256,87 @@ export default function AutoatendimentoPage() {
                 </p>
               </motion.div>
             ))}
+          </div>
+        </Container>
+      </Section>
+
+      {/* New Section: Sincronização e Gestão Centralizada */}
+      <Section className="relative z-10 overflow-hidden bg-white py-24">
+        <Container>
+          <div className="grid items-center gap-16 lg:grid-cols-2">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              <h2 className="text-brand-dark text-4xl leading-tight font-black sm:text-5xl">
+                Tudo em um só lugar: <br />
+                <span className="text-brand-blue">
+                  O fim das filas e dos erros.
+                </span>
+              </h2>
+              <p className="text-brand-dark/70 mt-8 text-lg leading-relaxed font-medium">
+                Centralize o autoatendimento. Garanta que pedidos feitos no
+                totem ou via QR Code caiam direto na cozinha e no seu PDV, sem
+                intermediários e com sincronização total de estoque.
+              </p>
+
+              <ul className="mt-10 space-y-5">
+                {[
+                  'Pedidos via Totem e QR Code direto no KDS',
+                  'Interface intuitiva que dispensa treinamento',
+                  'Pagamento integrado com conciliação automática',
+                  'Sincronização de produtos e preços em tempo real',
+                ].map((item, i) => (
+                  <motion.li
+                    key={i}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.1 }}
+                    className="text-brand-dark flex items-center gap-4 pl-1 font-bold"
+                  >
+                    <div className="bg-brand-blue/10 text-brand-blue flex h-7 w-7 shrink-0 items-center justify-center rounded-full">
+                      <CheckCircle2 className="h-5 w-5" />
+                    </div>
+                    <span>{item}</span>
+                  </motion.li>
+                ))}
+              </ul>
+
+              <div className="mt-12">
+                <Button
+                  size="lg"
+                  className="bg-brand-blue hover:bg-brand-blue/90 shadow-brand-blue/20 rounded-full px-10 text-base font-bold text-white shadow-lg transition-all hover:scale-105 active:scale-95"
+                >
+                  Saiba mais sobre a integração
+                </Button>
+              </div>
+            </motion.div>
+
+            <div className="relative">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1 }}
+                className="relative z-10 overflow-hidden rounded-[3rem] border-8 border-slate-50 shadow-2xl"
+              >
+                <div className="flex aspect-square w-full items-center justify-center bg-gradient-to-br from-slate-100 to-slate-200">
+                  <Monitor className="text-brand-blue/20 h-32 w-32" />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <span className="text-brand-dark/20 text-sm font-black tracking-widest uppercase">
+                      Dashboard Centralizado
+                    </span>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Decorative elements */}
+              <div className="bg-brand-blue/10 absolute -top-12 -right-12 h-64 w-64 rounded-full blur-3xl" />
+              <div className="bg-brand-orange/5 absolute -bottom-12 -left-12 h-64 w-64 rounded-full blur-3xl" />
+            </div>
           </div>
         </Container>
       </Section>

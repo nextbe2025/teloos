@@ -10,8 +10,7 @@ import {
   Bike,
   Smartphone,
   PackageSearch,
-  TrendingUp,
-  Puzzle,
+  PieChart,
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
@@ -29,7 +28,7 @@ const SOLUTIONS: Solution[] = [
   {
     title: 'Operação & Atendimento',
     description:
-      'Controle pedidos, mesas, atendimento e fluxo do seu restaurante com mais agilidade e menos erros no dia a dia.',
+      'PDV, Mesas e Cozinha (KDS). Controle pedidos, atendimento e fluxo do seu restaurante com mais agilidade.',
     image: '/images/Sistema PDV_image.png',
     icon: UtensilsCrossed,
     cta: 'Ver mais soluções',
@@ -38,7 +37,7 @@ const SOLUTIONS: Solution[] = [
   {
     title: 'Delivery & Vendas',
     description:
-      'Gerencie pedidos, integrações com iFood e entregas em tempo real, tudo centralizado em um só sistema.',
+      'App próprio e Integrador iFood. Gerencie pedidos e entregas em tempo real, tudo centralizado em um só sistema.',
     image: '/images/Delivery próprio_image.png',
     icon: Bike,
     cta: 'Ver mais soluções',
@@ -47,38 +46,20 @@ const SOLUTIONS: Solution[] = [
   {
     title: 'Autoatendimento',
     description:
-      'Permita que seus clientes façam pedidos direto da mesa, reduzindo filas e aumentando a eficiência do atendimento.',
+      'Cardápio Digital e Totens. Permita que seus clientes façam pedidos direto da mesa ou em terminais, reduzindo filas.',
     image: '/images/Cardápio par tablet_image.png',
     icon: Smartphone,
     cta: 'Ver mais soluções',
     href: '/solucoes/autoatendimento',
   },
   {
-    title: 'Gestão & Controle',
+    title: 'Gestão & Financeiro',
     description:
-      'Acompanhe estoque, vendas e operação com mais organização e controle total do seu negócio.',
+      'Controle de estoque e relatórios. Acompanhe estoque, vendas e operação com mais organização e controle total.',
     image: '/images/Gestão de clientes_image.png',
-    icon: PackageSearch,
+    icon: PieChart,
     cta: 'Ver mais soluções',
     href: '/solucoes/gestao-e-financeiro',
-  },
-  {
-    title: 'Financeiro & Resultados',
-    description:
-      'Tenha visão clara do faturamento, despesas e desempenho para tomar decisões com mais segurança.',
-    image: '/images/__elementos 112.png',
-    icon: TrendingUp,
-    cta: 'Ver mais soluções',
-    href: '/solucoes/financeiro',
-  },
-  {
-    title: 'Integrações & Expansão',
-    description:
-      'Conecte seu restaurante com marketplaces, sistemas e soluções para crescer sem limitações.',
-    image: '/images/Integração com maquininhas_image.png',
-    icon: Puzzle,
-    cta: 'Ver mais soluções',
-    href: '/solucoes/pagamentos',
   },
 ]
 
@@ -193,7 +174,10 @@ function SolutionCard({
 
 export function SolutionsSection() {
   return (
-    <section className="relative bg-[#F4F6FB] pt-0 pb-24 lg:pt-0 lg:pb-40">
+    <section
+      id="solucoes"
+      className="relative bg-[#F4F6FB] pt-0 pb-24 lg:pt-0 lg:pb-40"
+    >
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         {/* Cabeçalho */}
         <div className="mb-16 flex flex-col gap-6 lg:mb-24 lg:flex-row lg:items-end lg:justify-between">

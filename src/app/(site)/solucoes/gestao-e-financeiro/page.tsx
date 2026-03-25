@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { useEffect } from 'react'
 import { motion } from 'framer-motion'
@@ -14,6 +14,7 @@ import {
   CheckCircle2,
   LayoutDashboard,
   Users,
+  Monitor,
 } from 'lucide-react'
 import { Container } from '@/components/shared/container'
 import { Section } from '@/components/shared/section'
@@ -70,7 +71,7 @@ export default function GestaoFinanceiroPage() {
 
       {/* Background Orbs */}
       <div className="bg-brand-blue/5 absolute top-[-10%] right-[-10%] h-[500px] w-[500px] rounded-full blur-[120px]" />
-      <div className="bg-brand-orange/5 absolute bottom-[-10%] left-[-10%] h-[500px] w-[500px] rounded-full blur-[120px]" />
+      <div className="bg-brand-blue/5 absolute bottom-[-10%] left-[-10%] h-[500px] w-[500px] rounded-full blur-[120px]" />
 
       {/* Hero Section */}
       <Section className="relative z-10 pt-32 pb-20">
@@ -103,21 +104,17 @@ export default function GestaoFinanceiroPage() {
                 lucratividade do seu restaurante.
               </p>
 
-              {/* Standardized Hero Buttons (Light Background) */}
+              {/* Standardized Hero Button (Light Background) */}
               <div className="mt-12 flex flex-col gap-5 sm:flex-row">
                 <Button
+                  asChild
                   size="lg"
-                  className="bg-brand-orange hover:bg-brand-orange/90 shadow-brand-orange/20 h-16 w-full rounded-full px-10 text-lg font-bold text-white shadow-xl transition-all hover:scale-105 active:scale-95 sm:w-auto"
+                  className="bg-brand-blue hover:bg-brand-blue/90 shadow-brand-blue/20 h-14 w-full rounded-full px-10 font-bold text-white shadow-xl transition-all hover:scale-105 active:scale-95 sm:w-auto"
                 >
-                  Falar com especialista
-                  <ArrowRight className="ml-2 h-6 w-6" />
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-brand-blue text-brand-blue hover:bg-brand-blue/5 h-16 w-full rounded-full px-10 text-lg font-bold transition-all hover:scale-105 active:scale-95 sm:w-auto"
-                >
-                  Ver demonstração
+                  <Link href="/contato">
+                    Falar com especialista
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Link>
                 </Button>
               </div>
             </motion.div>
@@ -134,7 +131,7 @@ export default function GestaoFinanceiroPage() {
                     <div className="h-8 w-1/3 animate-pulse rounded-lg bg-slate-100" />
                     <div className="grid h-32 grid-cols-3 gap-4">
                       <div className="bg-brand-blue/5 border-brand-blue/10 rounded-2xl border" />
-                      <div className="bg-brand-orange/5 border-brand-orange/10 rounded-2xl border" />
+                      <div className="bg-brand-blue/5 border-brand-blue/10 rounded-2xl border" />
                       <div className="bg-brand-blue/5 border-brand-blue/10 rounded-2xl border" />
                     </div>
                     <div className="flex flex-1 items-center justify-center rounded-2xl border border-slate-100 bg-slate-50">
@@ -170,7 +167,7 @@ export default function GestaoFinanceiroPage() {
                 transition={{ delay: 0.7, duration: 0.8 }}
                 className="absolute -bottom-8 -left-8 z-20 flex items-center gap-3 rounded-2xl border border-slate-100 bg-white p-4 shadow-xl"
               >
-                <div className="text-brand-orange rounded-xl bg-orange-100 p-2">
+                <div className="text-brand-blue rounded-xl bg-blue-100 p-2">
                   <Package className="h-5 w-5" />
                 </div>
                 <div>
@@ -273,12 +270,93 @@ export default function GestaoFinanceiroPage() {
         </Container>
       </Section>
 
+      {/* New Section: Sincronização e Gestão Centralizada */}
+      <Section className="relative z-10 overflow-hidden bg-white py-24">
+        <Container>
+          <div className="grid items-center gap-16 lg:grid-cols-2">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              <h2 className="text-brand-dark text-4xl leading-tight font-black sm:text-5xl">
+                Tudo em um só lugar: <br />
+                <span className="text-brand-blue">
+                  Gestão 360° do seu negócio.
+                </span>
+              </h2>
+              <p className="text-brand-dark/70 mt-8 text-xl leading-relaxed font-medium">
+                Controle o financeiro, estoque e vendas em um painel único.
+                Transforme dados em decisões inteligentes e tenha o controle na
+                palma da sua mão, onde quer que você esteja.
+              </p>
+
+              <ul className="mt-10 space-y-6">
+                {[
+                  'Fluxo de caixa e DRE automatizados',
+                  'Controle de estoque com baixa inteligente',
+                  'Relatórios de lucratividade por produto',
+                  'Gestão multiloja centralizada no PDV',
+                ].map((item, i) => (
+                  <motion.li
+                    key={i}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.1 }}
+                    className="text-brand-dark flex items-center gap-4 pl-1 text-lg font-bold"
+                  >
+                    <div className="bg-brand-blue/10 text-brand-blue flex h-8 w-8 shrink-0 items-center justify-center rounded-full">
+                      <CheckCircle2 className="h-6 w-6" />
+                    </div>
+                    <span>{item}</span>
+                  </motion.li>
+                ))}
+              </ul>
+
+              <div className="mt-12">
+                <Button
+                  size="lg"
+                  className="bg-brand-blue hover:bg-brand-blue/90 shadow-brand-blue/20 h-14 rounded-full px-10 text-lg font-bold text-white shadow-lg transition-all hover:scale-105 active:scale-95"
+                >
+                  Saiba mais sobre a integração
+                </Button>
+              </div>
+            </motion.div>
+
+            <div className="relative">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1 }}
+                className="relative z-10 overflow-hidden rounded-[3rem] border-8 border-slate-50 shadow-2xl"
+              >
+                <div className="flex aspect-square w-full items-center justify-center bg-gradient-to-br from-slate-100 to-slate-200">
+                  <Monitor className="text-brand-blue/20 h-32 w-32" />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <span className="text-brand-dark/20 text-sm font-black tracking-widest uppercase">
+                      Dashboard Centralizado
+                    </span>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Decorative elements */}
+              <div className="bg-brand-blue/10 absolute -top-12 -right-12 h-64 w-64 rounded-full blur-3xl" />
+              <div className="bg-brand-blue/5 absolute -bottom-12 -left-12 h-64 w-64 rounded-full blur-3xl" />
+            </div>
+          </div>
+        </Container>
+      </Section>
+
       {/* CTA Section (Standardized Dark Background) */}
       <Section className="relative z-10 bg-white py-32">
         <Container>
           <div className="bg-brand-dark relative overflow-hidden rounded-[4rem] px-8 py-20 text-center shadow-2xl sm:px-16">
             <div className="bg-brand-blue/20 absolute top-0 right-0 h-[400px] w-[400px] translate-x-1/2 -translate-y-1/2 rounded-full blur-[100px]" />
-            <div className="bg-brand-orange/20 absolute bottom-0 left-0 h-[400px] w-[400px] -translate-x-1/2 translate-y-1/2 rounded-full blur-[100px]" />
+            <div className="bg-brand-blue/20 absolute bottom-0 left-0 h-[400px] w-[400px] -translate-x-1/2 translate-y-1/2 rounded-full blur-[100px]" />
 
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -299,7 +377,7 @@ export default function GestaoFinanceiroPage() {
               <div className="mt-12 flex flex-col items-center justify-center gap-6 sm:flex-row">
                 <Button
                   size="lg"
-                  className="bg-brand-orange hover:bg-brand-orange/90 shadow-brand-orange/20 h-16 w-full rounded-full px-12 text-lg font-bold text-white shadow-lg transition-all hover:scale-105 active:scale-95 sm:w-auto"
+                  className="bg-brand-blue hover:bg-brand-blue/90 shadow-brand-blue/20 h-16 w-full rounded-full px-12 text-lg font-bold text-white shadow-lg transition-all hover:scale-105 active:scale-95 sm:w-auto"
                 >
                   Quero começar agora
                 </Button>
