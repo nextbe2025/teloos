@@ -7,33 +7,42 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { siteConfig } from '@/config/site'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
-import { Menu, UserRound, X, ChevronDown, UtensilsCrossed, Bike, Smartphone, PieChart } from 'lucide-react'
+import {
+  Menu,
+  UserRound,
+  X,
+  ChevronDown,
+  UtensilsCrossed,
+  Bike,
+  Smartphone,
+  PieChart,
+} from 'lucide-react'
 
 const PRODUCT_SUBMENU = [
   {
     label: 'Operação & Atendimento',
     description: 'PDV, Mesas e Cozinha (KDS)',
     href: '/solucoes/operacao-e-atendimento',
-    icon: UtensilsCrossed
+    icon: UtensilsCrossed,
   },
   {
     label: 'Delivery & Vendas',
     description: 'App próprio e Integrador iFood',
     href: '/solucoes/delivery',
-    icon: Bike
+    icon: Bike,
   },
   {
     label: 'Autoatendimento',
     description: 'Cardápio Digital e Totens',
     href: '/solucoes/autoatendimento',
-    icon: Smartphone
+    icon: Smartphone,
   },
   {
     label: 'Gestão & Financeiro',
     description: 'Controle de estoque e relatórios',
     href: '/solucoes/gestao-e-financeiro',
-    icon: PieChart
-  }
+    icon: PieChart,
+  },
 ]
 
 const NAV_LINKS = [
@@ -95,17 +104,26 @@ export function SiteHeader() {
 
             {/* Nav Central */}
             <nav className="hidden items-center gap-10 lg:flex">
+              <Link
+                href="/"
+                className="text-brand-dark/70 hover:text-brand-blue text-[15px] font-medium transition-colors duration-200"
+              >
+                Início
+              </Link>
               {/* Menu Produtos com Dropdown */}
-              <div 
+              <div
                 className="relative"
                 onMouseEnter={() => setIsProductsOpen(true)}
                 onMouseLeave={() => setIsProductsOpen(false)}
               >
-                <button
-                  className="text-brand-dark/70 hover:text-brand-blue flex items-center gap-1 text-[15px] font-medium transition-colors duration-200 focus:outline-none"
-                >
+                <button className="text-brand-dark/70 hover:text-brand-blue flex items-center gap-1 text-[15px] font-medium transition-colors duration-200 focus:outline-none">
                   Produtos
-                  <ChevronDown className={cn("h-4 w-4 transition-transform duration-200", isProductsOpen && "rotate-180")} />
+                  <ChevronDown
+                    className={cn(
+                      'h-4 w-4 transition-transform duration-200',
+                      isProductsOpen && 'rotate-180'
+                    )}
+                  />
                 </button>
 
                 <AnimatePresence>
@@ -115,7 +133,7 @@ export function SiteHeader() {
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: 10, scale: 0.95 }}
                       transition={{ duration: 0.2 }}
-                      className="absolute -left-4 top-full pt-6"
+                      className="absolute top-full -left-4 pt-6"
                     >
                       <div className="w-[450px] overflow-hidden rounded-2xl border border-gray-100 bg-white p-2 shadow-2xl">
                         <div className="grid grid-cols-1 gap-1">
@@ -126,12 +144,16 @@ export function SiteHeader() {
                               className="group flex items-center gap-4 rounded-xl p-3 transition-colors hover:bg-slate-50"
                               onClick={() => setIsProductsOpen(false)}
                             >
-                              <div className="bg-brand-blue/5 text-brand-blue flex h-10 w-10 shrink-0 items-center justify-center rounded-lg transition-colors group-hover:bg-brand-blue group-hover:text-white">
+                              <div className="bg-brand-blue/5 text-brand-blue group-hover:bg-brand-blue flex h-10 w-10 shrink-0 items-center justify-center rounded-lg transition-colors group-hover:text-white">
                                 <item.icon className="h-5 w-5" />
                               </div>
                               <div className="flex flex-col text-left">
-                                <span className="text-brand-dark text-[14px] font-bold">{item.label}</span>
-                                <span className="text-brand-dark/40 text-[12px] font-medium">{item.description}</span>
+                                <span className="text-brand-dark text-[14px] font-bold">
+                                  {item.label}
+                                </span>
+                                <span className="text-brand-dark/40 text-[12px] font-medium">
+                                  {item.description}
+                                </span>
                               </div>
                             </Link>
                           ))}
