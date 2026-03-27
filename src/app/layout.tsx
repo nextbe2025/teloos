@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
 import { ThemeProvider } from '@/components/theme-provider'
+import { Toaster } from '@/components/ui/sonner'
 import { ScrollToTop } from '@/components/ui/scroll-to-top'
 import { siteConfig } from '@/config/site'
 import './globals.css'
@@ -83,6 +84,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           {children}
+          <Toaster richColors closeButton />
           <ScrollToTop />
         </ThemeProvider>
       </body>

@@ -9,7 +9,6 @@ import {
   Instagram,
   Linkedin,
   MessageCircle,
-  Send,
   Loader2,
   CheckCircle2,
   ArrowRight,

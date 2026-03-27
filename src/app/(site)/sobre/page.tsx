@@ -8,7 +8,6 @@ import {
   ShieldCheck,
   Heart,
   Coffee,
-  ArrowRight,
   Sparkles,
 } from 'lucide-react'
 import { Container } from '@/components/shared/container'

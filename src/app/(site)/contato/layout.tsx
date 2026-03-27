@@ -1,5 +1,4 @@
 import { generateMetadata } from '@/lib/metadata'
-import ContatoPage from './page'
 
 export const metadata = generateMetadata({
   title: 'Contato | Fale com a Teloos',

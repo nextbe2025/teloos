@@ -15,6 +15,7 @@ const eslintConfig = [
       "out/**",
       "build/**",
       "next-env.d.ts",
+      "docs/nextbe/**",
       "ui-ux-pro-max-skill/**",
       "Teloos Identidade Visual/**",
     ],

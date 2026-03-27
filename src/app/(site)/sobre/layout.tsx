@@ -1,5 +1,4 @@
 import { generateMetadata } from '@/lib/metadata'
-import SobrePage from './page'
 
 export const metadata = generateMetadata({
   title: 'Sobre Nós | Nossa História e Missão',

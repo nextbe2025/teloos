@@ -5,7 +5,6 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 import {
   Touchpad,
-  Smartphone,
   Zap,
   Clock,
   ArrowRight,
@@ -18,7 +17,6 @@ import { Container } from '@/components/shared/container'
 import { Section } from '@/components/shared/section'
 import { Button } from '@/components/ui/button'
 import { SiteHeader } from '@/components/layout/site-header'
-import Image from 'next/image'
 
 const FEATURES = [
   {

@@ -8,33 +8,40 @@ import { siteConfig } from '@/config/site'
 import { Container } from '@/components/shared'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
-import { UserRound, ChevronDown, UtensilsCrossed, Smartphone, PieChart, Bike } from 'lucide-react'
+import {
+  UserRound,
+  ChevronDown,
+  UtensilsCrossed,
+  Smartphone,
+  PieChart,
+  Bike,
+} from 'lucide-react'
 
 const PRODUCT_SUBMENU = [
   {
     label: 'Operação & Atendimento',
     description: 'PDV, Mesas e Cozinha (KDS)',
     href: '/solucoes/operacao-e-atendimento',
-    icon: UtensilsCrossed
+    icon: UtensilsCrossed,
   },
   {
     label: 'Delivery & Vendas',
     description: 'App próprio e Integrador iFood',
     href: '/solucoes/delivery',
-    icon: Bike
+    icon: Bike,
   },
   {
     label: 'Autoatendimento',
     description: 'Cardápio Digital e Totens',
     href: '/solucoes/autoatendimento',
-    icon: Smartphone
+    icon: Smartphone,
   },
   {
     label: 'Gestão & Financeiro',
     description: 'Controle de estoque e relatórios',
-    href: '/solucoes/gestao',
-    icon: PieChart
-  }
+    href: '/solucoes/gestao-e-financeiro',
+    icon: PieChart,
+  },
 ]
 
 const NAV_LINKS = [
@@ -68,16 +75,19 @@ export function Header() {
           aria-label="Navegação principal"
         >
           {/* Menu Produtos com Dropdown */}
-          <div 
+          <div
             className="relative"
             onMouseEnter={() => setIsProductsOpen(true)}
             onMouseLeave={() => setIsProductsOpen(false)}
           >
-            <button
-              className="hover:text-brand-blue flex items-center gap-1 text-sm font-medium text-gray-500 transition-colors focus:outline-none"
-            >
+            <button className="hover:text-brand-blue flex items-center gap-1 text-sm font-medium text-gray-500 transition-colors focus:outline-none">
               Produtos
-              <ChevronDown className={cn("h-4 w-4 transition-transform duration-200", isProductsOpen && "rotate-180")} />
+              <ChevronDown
+                className={cn(
+                  'h-4 w-4 transition-transform duration-200',
+                  isProductsOpen && 'rotate-180'
+                )}
+              />
             </button>
 
             <AnimatePresence>
@@ -87,7 +97,7 @@ export function Header() {
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: 10, scale: 0.95 }}
                   transition={{ duration: 0.2 }}
-                  className="absolute -left-4 top-full pt-4"
+                  className="absolute top-full -left-4 pt-4"
                 >
                   <div className="w-[450px] overflow-hidden rounded-2xl border border-gray-100 bg-white p-2 shadow-2xl">
                     <div className="grid grid-cols-1 gap-1">
@@ -97,14 +107,18 @@ export function Header() {
                           href={item.href}
                           className="group flex items-center gap-4 rounded-xl p-3 transition-colors hover:bg-slate-50"
                         >
-                          <div className="bg-brand-blue/5 text-brand-blue flex h-10 w-10 shrink-0 items-center justify-center rounded-lg transition-colors group-hover:bg-brand-blue group-hover:text-white">
+                          <div className="bg-brand-blue/5 text-brand-blue group-hover:bg-brand-blue flex h-10 w-10 shrink-0 items-center justify-center rounded-lg transition-colors group-hover:text-white">
                             <item.icon className="h-5 w-5" />
                           </div>
                           <div className="flex flex-col">
-                            <span className="text-brand-dark text-sm font-bold">{item.label}</span>
-                            <span className="text-brand-dark/40 text-xs font-medium">{item.description}</span>
+                            <span className="text-brand-dark text-sm font-bold">
+                              {item.label}
+                            </span>
+                            <span className="text-brand-dark/40 text-xs font-medium">
+                              {item.description}
+                            </span>
                           </div>
-                        </motion.div>
+                        </Link>
                       ))}
                     </div>
                   </div>

@@ -9,8 +9,6 @@ import {
   CheckCircle2,
   ShoppingBag,
   Zap,
-  ArrowRight,
-  Smartphone,
   Globe,
   Store,
   MessageCircle,
@@ -19,7 +17,6 @@ import {
 import { Button } from '@/components/ui/button'
 import { Container, Section } from '@/components/shared'
 import { SiteHeader } from '@/components/layout/site-header'
-import { cn } from '@/lib/utils'
 
 const FEATURES = [
   {

@@ -9,7 +9,6 @@ import {
   UtensilsCrossed,
   Bike,
   Smartphone,
-  PackageSearch,
   PieChart,
 } from 'lucide-react'
 import { cn } from '@/lib/utils'

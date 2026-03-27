@@ -7,11 +7,9 @@ import { motion } from 'framer-motion'
 import {
   UtensilsCrossed,
   CheckCircle2,
-  Clock,
   LayoutDashboard,
   Smartphone,
   Zap,
-  ArrowRight,
   ShieldCheck,
   Users,
 } from 'lucide-react'
@@ -19,7 +17,6 @@ import {
 import { Button } from '@/components/ui/button'
 import { Container, Section } from '@/components/shared'
 import { SiteHeader } from '@/components/layout/site-header'
-import { cn } from '@/lib/utils'
 
 const FEATURES = [
   {
