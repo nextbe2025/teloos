@@ -1,6 +1,6 @@
 'use client'
 
-import { AlertTriangle, ArrowRight, X } from 'lucide-react'
+import { AlertTriangle, ArrowRight, Loader2, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 type ForceSessionDialogProps = {
@@ -29,7 +29,7 @@ export function ForceSessionDialog({
         aria-label="Fechar confirmação de sessão"
       />
 
-      <div className="relative z-10 w-full max-w-xl rounded-[2rem] border border-slate-100 bg-white p-6 shadow-2xl sm:p-8">
+      <div className="relative z-10 w-full max-w-xl rounded-[2rem] border border-t-[3px] border-slate-100 border-t-amber-400 bg-white p-6 shadow-2xl sm:p-8">
         <div className="mb-6 flex items-start justify-between gap-4">
           <div>
             <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-100 text-amber-600">
@@ -68,10 +68,17 @@ export function ForceSessionDialog({
             disabled={isSubmitting}
             className="bg-brand-blue hover:bg-brand-blue/90 rounded-full px-6 py-6 font-bold text-white"
           >
-            <span className="inline-flex items-center gap-2">
-              <ArrowRight className="h-4 w-4" />
-              {isSubmitting ? 'Continuando...' : 'Quero continuar aqui'}
-            </span>
+            {isSubmitting ? (
+              <span className="inline-flex items-center gap-2">
+                <Loader2 className="h-4 w-4 animate-spin" />
+                Continuando...
+              </span>
+            ) : (
+              <span className="inline-flex items-center gap-2">
+                <ArrowRight className="h-4 w-4" />
+                Quero continuar aqui
+              </span>
+            )}
           </Button>
         </div>
       </div>

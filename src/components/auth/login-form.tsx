@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Eye, EyeOff, Loader2, LogIn } from 'lucide-react'
+import { ArrowRight, Eye, EyeOff, Loader2 } from 'lucide-react'
 import { useForm } from 'react-hook-form'
 import { useState } from 'react'
 import { AuthShell } from '@/components/auth/auth-shell'
@@ -13,7 +13,7 @@ import { loginSchema, type LoginFormValues } from '@/lib/auth/schemas'
 import { Button } from '@/components/ui/button'
 
 const inputClassName =
-  'focus:border-brand-blue text-brand-dark placeholder:text-slate-400 caret-brand-dark w-full rounded-2xl border-2 border-slate-100 bg-white px-5 py-4 font-medium transition-colors focus:outline-none'
+  'focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/10 text-brand-dark placeholder:text-slate-400 caret-brand-dark w-full rounded-2xl border-2 border-slate-100 bg-white px-5 py-4 font-medium transition-all focus:outline-none'
 
 export function LoginForm() {
   const [showPassword, setShowPassword] = useState(false)
@@ -68,7 +68,7 @@ export function LoginForm() {
               type="email"
               autoComplete="email"
               placeholder="seu@email.com"
-              className={inputClassName}
+              className={`${inputClassName} ${errors.email ? 'border-red-400 focus:border-red-400 focus:ring-red-400/10' : ''}`}
               {...register('email')}
             />
             {errors.email ? (
@@ -91,7 +91,7 @@ export function LoginForm() {
                 type={showPassword ? 'text' : 'password'}
                 autoComplete="current-password"
                 placeholder="Digite sua senha"
-                className={`${inputClassName} pr-14`}
+                className={`${inputClassName} pr-14 ${errors.password ? 'border-red-400 focus:border-red-400 focus:ring-red-400/10' : ''}`}
                 {...register('password')}
               />
               <button
@@ -118,7 +118,7 @@ export function LoginForm() {
             <label className="flex items-center gap-3 text-sm font-bold text-slate-600">
               <input
                 type="checkbox"
-                className="border-brand-blue/30 text-brand-blue h-4 w-4 rounded"
+                className="border-brand-blue/30 text-brand-blue h-4 w-4 rounded accent-[#3f63e6]"
                 {...register('remember')}
               />
               Lembrar acesso
@@ -144,7 +144,7 @@ export function LoginForm() {
               </span>
             ) : (
               <span className="inline-flex items-center gap-2">
-                <LogIn className="h-4 w-4" />
+                <ArrowRight className="h-4 w-4" />
                 Entrar na plataforma
               </span>
             )}

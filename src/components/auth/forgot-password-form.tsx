@@ -21,7 +21,7 @@ import { publicEnv } from '@/lib/env'
 import { Button } from '@/components/ui/button'
 
 const inputClassName =
-  'focus:border-brand-blue text-brand-dark placeholder:text-slate-400 caret-brand-dark w-full rounded-2xl border-2 border-slate-100 bg-white px-5 py-4 font-medium transition-colors focus:outline-none'
+  'focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/10 text-brand-dark placeholder:text-slate-400 caret-brand-dark w-full rounded-2xl border-2 border-slate-100 bg-white px-5 py-4 font-medium transition-all focus:outline-none'
 
 function ForgotPasswordFormInner() {
   const { executeRecaptcha } = useGoogleReCaptcha()
@@ -78,7 +78,7 @@ function ForgotPasswordFormInner() {
             type="email"
             autoComplete="email"
             placeholder="seu@email.com"
-            className={inputClassName}
+            className={`${inputClassName} ${errors.email ? 'border-red-400 focus:border-red-400 focus:ring-red-400/10' : ''}`}
             {...register('email')}
           />
           {errors.email ? (

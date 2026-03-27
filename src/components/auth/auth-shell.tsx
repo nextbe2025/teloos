@@ -136,9 +136,11 @@ export function AuthShell({
                 className={`shadow-brand-blue/5 border border-slate-100 bg-white shadow-xl ${isMinimal ? 'rounded-[2rem] p-6 sm:p-8' : 'rounded-[2.5rem] p-6 sm:p-8 lg:p-10'}`}
               >
                 <div className={`mb-8 ${isMinimal ? '' : 'lg:hidden'}`}>
-                  <div className="bg-brand-blue/10 text-brand-blue mb-4 inline-flex items-center rounded-full px-4 py-1.5 text-sm font-bold">
-                    {eyebrow}
-                  </div>
+                  {!isMinimal && (
+                    <div className="bg-brand-blue/10 text-brand-blue mb-4 inline-flex items-center rounded-full px-4 py-1.5 text-sm font-bold">
+                      {eyebrow}
+                    </div>
+                  )}
                   <h1
                     className={`text-brand-dark leading-[1.1] font-black ${isMinimal ? 'text-2xl sm:text-3xl' : 'text-3xl sm:text-4xl'}`}
                   >
@@ -157,6 +159,23 @@ export function AuthShell({
           </div>
         </div>
       </div>
+
+      {/* Elemento Decorativo */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8, rotate: -15 }}
+        animate={{ opacity: 1, scale: 1, rotate: 0 }}
+        transition={{ duration: 2.2, ease: 'easeOut' }}
+        className="pointer-events-none absolute -bottom-64 -left-72 z-0 overflow-hidden select-none"
+        aria-hidden="true"
+      >
+        <Image
+          src="/images/__elementos 100.png"
+          alt=""
+          width={1200}
+          height={1200}
+          className="w-[1200px] opacity-[0.06]"
+        />
+      </motion.div>
     </div>
   )
 }

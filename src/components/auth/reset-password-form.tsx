@@ -20,7 +20,7 @@ import {
 import { Button } from '@/components/ui/button'
 
 const inputClassName =
-  'focus:border-brand-blue text-brand-dark placeholder:text-slate-400 caret-brand-dark w-full rounded-2xl border-2 border-slate-100 bg-white px-5 py-4 font-medium transition-colors focus:outline-none'
+  'focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/10 text-brand-dark placeholder:text-slate-400 caret-brand-dark w-full rounded-2xl border-2 border-slate-100 bg-white px-5 py-4 font-medium transition-all focus:outline-none'
 
 export function ResetPasswordForm() {
   const searchParams = useSearchParams()
@@ -100,7 +100,7 @@ export function ResetPasswordForm() {
               type="email"
               autoComplete="email"
               placeholder="seu@email.com"
-              className={inputClassName}
+              className={`${inputClassName} ${errors.email ? 'border-red-400 focus:border-red-400 focus:ring-red-400/10' : ''}`}
               {...register('email')}
             />
             {errors.email ? (
@@ -123,7 +123,7 @@ export function ResetPasswordForm() {
                 type={showPassword ? 'text' : 'password'}
                 autoComplete="new-password"
                 placeholder="Digite sua nova senha"
-                className={`${inputClassName} pr-14`}
+                className={`${inputClassName} pr-14 ${errors.password ? 'border-red-400 focus:border-red-400 focus:ring-red-400/10' : ''}`}
                 {...register('password')}
               />
               <button
@@ -159,7 +159,7 @@ export function ResetPasswordForm() {
                 type={showPasswordConfirmation ? 'text' : 'password'}
                 autoComplete="new-password"
                 placeholder="Confirme sua nova senha"
-                className={`${inputClassName} pr-14`}
+                className={`${inputClassName} pr-14 ${errors.password_confirmation ? 'border-red-400 focus:border-red-400 focus:ring-red-400/10' : ''}`}
                 {...register('password_confirmation')}
               />
               <button
