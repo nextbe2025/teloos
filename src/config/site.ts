@@ -25,7 +25,7 @@ export const siteConfig = {
   social: {
     instagram: 'https://instagram.com/teloossistemas',
     linkedin: 'https://linkedin.com/company/teloos',
-    whatsapp: 'https://wa.me/5511999999999',
+    whatsapp: 'https://wa.me/5541936181651',
   },
 
   /** Informações de contato */

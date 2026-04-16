@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import { X } from 'lucide-react'
 
-const WA_NUMBER = '5541955077590'
+const WA_NUMBER = '5541936181651'
 const WA_MESSAGE =
   'Olá! Vim pelo site da Teloos e gostaria de conhecer mais sobre as soluções.'
 

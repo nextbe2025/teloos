@@ -40,8 +40,8 @@ const CONTACT_INFO = [
   {
     icon: WhatsAppSvg,
     label: 'WhatsApp',
-    value: '(41) 9550-7759',
-    href: 'https://wa.me/5541955077590',
+    value: '(41) 93618-1651',
+    href: 'https://wa.me/5541936181651',
   },
   {
     icon: MapPin,
