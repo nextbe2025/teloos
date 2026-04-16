@@ -64,6 +64,15 @@ export default function ContatoPage() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isDone, setIsDone] = useState(false)
 
+  function formatPhone(value: string) {
+    const digits = value.replace(/\D/g, '').slice(0, 11)
+    if (digits.length <= 2) return digits.replace(/(\d{0,2})/, '($1')
+    if (digits.length <= 6) return digits.replace(/(\d{2})(\d+)/, '($1) $2')
+    if (digits.length <= 10)
+      return digits.replace(/(\d{2})(\d{4})(\d+)/, '($1) $2-$3')
+    return digits.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3')
+  }
+
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
     setIsSubmitting(true)
@@ -259,8 +268,12 @@ export default function ContatoPage() {
                             required
                             id="phone"
                             type="tel"
-                            placeholder="(11) 99999-9999"
+                            placeholder="(41) 99999-9999"
+                            maxLength={15}
                             className="focus:border-brand-blue w-full rounded-2xl border-2 border-slate-100 px-6 py-4 font-medium transition-colors focus:outline-none"
+                            onChange={(e) => {
+                              e.target.value = formatPhone(e.target.value)
+                            }}
                           />
                         </div>
                         <div className="space-y-2">
