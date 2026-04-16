@@ -55,6 +55,10 @@ export const metadata: Metadata = {
     follow: true,
     googleBot: { index: true, follow: true, 'max-image-preview': 'large' },
   },
+  icons: {
+    icon: '/brand/teloos-symbol.png',
+    apple: '/brand/teloos-symbol.png',
+  },
 }
 
 export const viewport: Viewport = {

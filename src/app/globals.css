@@ -110,6 +110,13 @@
     @apply bg-background text-foreground font-sans antialiased;
   }
 
+  a,
+  button,
+  select,
+  [role='button'] {
+    @apply cursor-pointer;
+  }
+
   /* Tipografia base responsiva */
   h1 {
     @apply text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl;
