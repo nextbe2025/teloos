@@ -33,7 +33,7 @@ export function HeroHome() {
               className="text-brand-dark/60 mb-10 max-w-[480px] text-[17px] leading-relaxed"
             >
               Conecte pedidos, atendimento e operação em uma única plataforma
-              inteligente que integra software e hardware de ponta.
+              inteligente que integra software e hardware de ponta a ponta.
             </motion.p>
 
             <motion.div

@@ -31,7 +31,7 @@ const VALUES = [
   {
     title: 'Inovação Prática',
     description:
-      'Criamos tecnologia que simplifica, não que complica a vida do restaurador.',
+      'Criamos tecnologia que simplifica, não que complica a vida do empreendedor.',
     icon: Rocket,
   },
   {
@@ -106,7 +106,7 @@ export default function SobrePage() {
               <p className="text-brand-dark/60 mt-6 text-lg leading-relaxed font-medium">
                 Hoje, impactamos centenas de negócios diariamente, desde
                 pequenos bistrôs até grandes redes, sempre com o mesmo objetivo:
-                dar tempo e clareza para que o restaurador foque no que faz de
+                dar tempo e clareza para que o empreendedor foque no que faz de
                 melhor.
               </p>
 
@@ -136,19 +136,23 @@ export default function SobrePage() {
               viewport={{ once: true }}
               className="relative"
             >
-              <div className="flex aspect-square items-center justify-center overflow-hidden rounded-[3rem] border-8 border-white bg-slate-100 p-12 shadow-2xl">
-                <div className="grid h-full w-full grid-cols-2 gap-6">
-                  <div className="bg-brand-blue/10 flex items-center justify-center rounded-3xl">
-                    <Target className="text-brand-blue h-16 w-16" />
+              <div className="flex aspect-square items-center justify-center overflow-hidden rounded-[3rem] border-8 border-white bg-slate-100 p-10 shadow-2xl">
+                <div className="grid h-full w-full grid-cols-2 gap-5">
+                  <div className="bg-brand-blue/10 flex flex-col items-center justify-center gap-3 rounded-3xl">
+                    <Target className="text-brand-blue h-12 w-12" />
+                    <span className="text-brand-blue text-[11px] font-bold uppercase tracking-widest">Missão</span>
                   </div>
-                  <div className="bg-brand-orange/10 flex translate-y-8 items-center justify-center rounded-3xl">
-                    <Heart className="text-brand-orange h-16 w-16" />
+                  <div className="bg-brand-orange/10 flex flex-col items-center justify-center gap-3 rounded-3xl">
+                    <Heart className="text-brand-orange h-12 w-12" />
+                    <span className="text-brand-orange text-[11px] font-bold uppercase tracking-widest">Paixão</span>
                   </div>
-                  <div className="flex -translate-y-8 items-center justify-center rounded-3xl bg-slate-200">
-                    <Users className="h-16 w-16 text-slate-400" />
+                  <div className="flex flex-col items-center justify-center gap-3 rounded-3xl bg-slate-200">
+                    <Users className="h-12 w-12 text-slate-500" />
+                    <span className="text-[11px] font-bold uppercase tracking-widest text-slate-500">Pessoas</span>
                   </div>
-                  <div className="bg-brand-blue/5 flex items-center justify-center rounded-3xl">
-                    <Coffee className="text-brand-blue/30 h-16 w-16" />
+                  <div className="bg-brand-blue/5 flex flex-col items-center justify-center gap-3 rounded-3xl">
+                    <Coffee className="text-brand-blue/50 h-12 w-12" />
+                    <span className="text-brand-blue/50 text-[11px] font-bold uppercase tracking-widest">Cultura</span>
                   </div>
                 </div>
               </div>

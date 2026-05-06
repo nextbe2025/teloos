@@ -103,15 +103,15 @@ export function CtaSection() {
           <div className="mt-12 flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-sm font-medium text-white/60">
             <span className="flex items-center gap-2">
               <div className="bg-brand-orange h-1.5 w-1.5 rounded-full shadow-[0_0_8px_#FF7A00]" />
+              Sem contrato de fidelidade
+            </span>
+            <span className="flex items-center gap-2">
+              <div className="bg-brand-orange h-1.5 w-1.5 rounded-full shadow-[0_0_8px_#FF7A00]" />
               Implantação assistida
             </span>
             <span className="flex items-center gap-2">
               <div className="bg-brand-orange h-1.5 w-1.5 rounded-full shadow-[0_0_8px_#FF7A00]" />
-              Suporte 24/7 especializado
-            </span>
-            <span className="flex items-center gap-2">
-              <div className="bg-brand-orange h-1.5 w-1.5 rounded-full shadow-[0_0_8px_#FF7A00]" />
-              Sem taxa de setup
+              Suporte humanizado
             </span>
           </div>
         </div>

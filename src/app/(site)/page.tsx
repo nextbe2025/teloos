@@ -7,7 +7,7 @@ import {
   SegmentsSection,
   WhyTeloosSection,
   AnalyticsSection,
-  IntegrationsSection,
+  FaqSection,
   CtaSection,
 } from '@/components/sections'
 
@@ -27,7 +27,7 @@ export default function HomePage() {
       <SegmentsSection />
       <WhyTeloosSection />
       <AnalyticsSection />
-      <IntegrationsSection />
+      <FaqSection />
       <CtaSection />
     </>
   )

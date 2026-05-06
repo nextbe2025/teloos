@@ -18,6 +18,7 @@ const FOOTER_LINKS = {
     { label: 'Sobre nós', href: '/sobre' },
     { label: 'Preços', href: '/precos' },
     { label: 'Contato', href: '/contato' },
+    { label: 'WhatsApp', href: siteConfig.social.whatsapp },
   ],
   suporte: [
     { label: 'Central de Ajuda', href: '#' },
@@ -41,40 +42,19 @@ export function Footer() {
                 alt={siteConfig.name}
                 width={220}
                 height={64}
-                className="h-14 w-auto"
+                className="h-20 w-auto"
               />
             </Link>
             <p className="mb-6 max-w-xs text-sm leading-relaxed text-white/50">
               Sistemas integrados de gestão para food service. Do pedido ao
-              relatório financeiro, tudo em um lugar.
+              relatório financeiro, tudo em um só lugar.
             </p>
-            <div className="flex items-center gap-3">
-              <a
-                href={siteConfig.social.instagram}
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Instagram"
-                className="hover:bg-brand-blue flex h-9 w-9 items-center justify-center rounded-lg bg-white/10 transition-colors"
-              >
-                <Instagram className="h-4 w-4" />
-              </a>
-              <a
-                href={siteConfig.social.linkedin}
-                target="_blank"
-                rel="noreferrer"
-                aria-label="LinkedIn"
-                className="hover:bg-brand-blue flex h-9 w-9 items-center justify-center rounded-lg bg-white/10 transition-colors"
-              >
-                <Linkedin className="h-4 w-4" />
-              </a>
-            </div>
           </div>
 
           {/* Links cols */}
           {[
             { title: 'Soluções', links: FOOTER_LINKS.solucoes },
             { title: 'Empresa', links: FOOTER_LINKS.empresa },
-            { title: 'Suporte', links: FOOTER_LINKS.suporte },
           ].map((col) => (
             <div key={col.title}>
               <p className="mb-4 text-sm font-semibold text-white">
@@ -94,6 +74,37 @@ export function Footer() {
               </ul>
             </div>
           ))}
+
+          {/* Redes Sociais */}
+          <div>
+            <p className="mb-4 text-sm font-semibold text-white">
+              Redes Sociais
+            </p>
+            <div className="flex flex-col gap-3">
+              <a
+                href={siteConfig.social.instagram}
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-3 text-sm text-white/50 transition-colors hover:text-white"
+              >
+                <span className="hover:bg-brand-blue flex h-9 w-9 items-center justify-center rounded-lg bg-white/10 transition-colors">
+                  <Instagram className="h-4 w-4" />
+                </span>
+                Instagram
+              </a>
+              <a
+                href={siteConfig.social.linkedin}
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-3 text-sm text-white/50 transition-colors hover:text-white"
+              >
+                <span className="hover:bg-brand-blue flex h-9 w-9 items-center justify-center rounded-lg bg-white/10 transition-colors">
+                  <Linkedin className="h-4 w-4" />
+                </span>
+                LinkedIn
+              </a>
+            </div>
+          </div>
         </div>
 
         <div className="mt-12 flex flex-col items-center justify-between gap-6 border-t border-white/10 pt-8 text-sm text-white/40 sm:flex-row">

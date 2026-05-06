@@ -4,7 +4,6 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import {
   Mail,
-  Phone,
   MapPin,
   Instagram,
   Linkedin,
@@ -19,6 +18,13 @@ const WhatsAppSvg = ({ size = 24 }: { size?: number }) => (
   </svg>
 )
 import { Container } from '@/components/shared/container'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select'
 import { Section } from '@/components/shared/section'
 import { Button } from '@/components/ui/button'
 import { SiteHeader } from '@/components/layout/site-header'
@@ -32,12 +38,6 @@ const CONTACT_INFO = [
     href: 'mailto:comercial@teloos.com.br',
   },
   {
-    icon: Phone,
-    label: 'Telefone',
-    value: '(41) 3732-0275',
-    href: 'tel:+554137320275',
-  },
-  {
     icon: WhatsAppSvg,
     label: 'WhatsApp',
     value: '(41) 93618-1651',
@@ -46,7 +46,7 @@ const CONTACT_INFO = [
   {
     icon: MapPin,
     label: 'Endereço',
-    value: 'R. Cassiano Ricardo, 1253 - Vargem Grande, Pinhais - PR, 83321-090',
+    value: 'Pinhais/PR',
     href: 'https://maps.google.com/?q=R.+Cassiano+Ricardo,+1253+Pinhais+PR',
   },
 ]
@@ -54,10 +54,10 @@ const CONTACT_INFO = [
 const SOCIAL_LINKS = [
   {
     icon: Instagram,
-    href: 'https://instagram.com/teloos.sistemas',
+    href: 'https://instagram.com/teloossistemas',
     label: 'Instagram',
   },
-  { icon: Linkedin, href: '#', label: 'LinkedIn' },
+  { icon: Linkedin, href: 'https://linkedin.com/company/teloos', label: 'LinkedIn' },
 ]
 
 export default function ContatoPage() {
@@ -236,7 +236,7 @@ export default function ContatoPage() {
                             id="name"
                             type="text"
                             placeholder="Seu nome"
-                            className="focus:border-brand-blue w-full rounded-2xl border-2 border-slate-100 px-6 py-4 font-medium transition-colors focus:outline-none"
+                            className="focus:border-brand-blue h-[58px] w-full rounded-2xl border-2 border-slate-100 px-6 font-medium transition-colors focus:outline-none"
                           />
                         </div>
                         <div className="space-y-2">
@@ -251,7 +251,7 @@ export default function ContatoPage() {
                             id="email"
                             type="email"
                             placeholder="seu@email.com"
-                            className="focus:border-brand-blue w-full rounded-2xl border-2 border-slate-100 px-6 py-4 font-medium transition-colors focus:outline-none"
+                            className="focus:border-brand-blue h-[58px] w-full rounded-2xl border-2 border-slate-100 px-6 font-medium transition-colors focus:outline-none"
                           />
                         </div>
                       </div>
@@ -270,7 +270,7 @@ export default function ContatoPage() {
                             type="tel"
                             placeholder="(41) 99999-9999"
                             maxLength={15}
-                            className="focus:border-brand-blue w-full rounded-2xl border-2 border-slate-100 px-6 py-4 font-medium transition-colors focus:outline-none"
+                            className="focus:border-brand-blue h-[58px] w-full rounded-2xl border-2 border-slate-100 px-6 font-medium transition-colors focus:outline-none"
                             onChange={(e) => {
                               e.target.value = formatPhone(e.target.value)
                             }}
@@ -283,29 +283,27 @@ export default function ContatoPage() {
                           >
                             Área de atuação
                           </label>
-                          <select
-                            required
-                            id="restaurant"
-                            defaultValue=""
-                            className="focus:border-brand-blue w-full rounded-2xl border-2 border-slate-100 bg-white px-6 py-4 font-medium transition-colors focus:outline-none"
-                          >
-                            <option value="" disabled>
-                              Selecione seu tipo de negócio
-                            </option>
-                            <option value="restaurante">Restaurante</option>
-                            <option value="padaria">Padaria</option>
-                            <option value="cafeteria">
-                              Cafeteria / Doceria
-                            </option>
-                            <option value="hamburgueria">Hamburgueria</option>
-                            <option value="pizzaria">Pizzaria</option>
-                            <option value="bar">Bar / Pub</option>
-                            <option value="buffet">Buffet / Eventos</option>
-                            <option value="delivery-only">
-                              Apenas Delivery (Dark Kitchen)
-                            </option>
-                            <option value="outro">Outro</option>
-                          </select>
+                          <Select name="restaurant" required>
+                            <SelectTrigger size={undefined}
+                              className="focus:border-brand-blue h-[58px] w-full rounded-2xl border-2 border-slate-100 px-6 font-medium transition-colors focus:outline-none focus:ring-0 data-[size=default]:h-[58px]">
+                              <SelectValue placeholder="Selecione" />
+                            </SelectTrigger>
+                            <SelectContent className="rounded-2xl border border-slate-100 shadow-xl">
+                              <SelectItem value="restaurante">Restaurante</SelectItem>
+                              <SelectItem value="padaria">Padaria</SelectItem>
+                              <SelectItem value="cafeteria">Cafeteria / Doceria</SelectItem>
+                              <SelectItem value="hamburgueria">Hamburgueria</SelectItem>
+                              <SelectItem value="pizzaria">Pizzaria</SelectItem>
+                              <SelectItem value="bar">Bar / Pub</SelectItem>
+                              <SelectItem value="buffet">Buffet / Eventos</SelectItem>
+                              <SelectItem value="delivery-only">Apenas Delivery (Dark Kitchen)</SelectItem>
+                              <SelectItem value="loja-roupas">Loja de Roupas</SelectItem>
+                              <SelectItem value="calcados">Loja de Calçados</SelectItem>
+                              <SelectItem value="mercado">Mercado / Mercearia</SelectItem>
+                              <SelectItem value="pet">Pet Shop</SelectItem>
+                              <SelectItem value="outro">Outro</SelectItem>
+                            </SelectContent>
+                          </Select>
                         </div>
                       </div>
 

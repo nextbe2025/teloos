@@ -186,11 +186,17 @@
   }
 
   .animate-scroll {
-    animation: scroll 40s linear infinite;
+    animation: scroll 25s linear infinite;
   }
 
   .pause-on-hover:hover {
     animation-play-state: paused;
+  }
+
+  /* Evita layout shift ao abrir dropdowns Radix UI */
+  body[data-scroll-locked] {
+    padding-right: 0 !important;
+    margin-right: 0 !important;
   }
 
   /* Gradiente sutil de fundo — hero e seções de destaque */
