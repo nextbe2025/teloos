@@ -18,7 +18,7 @@ const FOOTER_LINKS = {
     { label: 'Sobre nós', href: '/sobre' },
     { label: 'Preços', href: '/precos' },
     { label: 'Contato', href: '/contato' },
-    { label: 'WhatsApp', href: siteConfig.social.whatsapp },
+    { label: 'Suporte', href: 'https://wa.me/5541936181661' },
   ],
   suporte: [
     { label: 'Central de Ajuda', href: '#' },

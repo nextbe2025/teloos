@@ -113,7 +113,7 @@ export default function SobrePage() {
               <div className="mt-10 grid grid-cols-2 gap-8">
                 <div>
                   <div className="text-brand-blue text-4xl font-black">
-                    500+
+                    +3.000
                   </div>
                   <div className="text-brand-dark/40 mt-1 text-sm font-bold tracking-widest uppercase">
                     Negócios
@@ -121,10 +121,10 @@ export default function SobrePage() {
                 </div>
                 <div>
                   <div className="text-brand-orange text-4xl font-black">
-                    1M+
+                    +200k
                   </div>
                   <div className="text-brand-dark/40 mt-1 text-sm font-bold tracking-widest uppercase">
-                    Pedidos/mês
+                    Pedidos/dia
                   </div>
                 </div>
               </div>

@@ -1,32 +1,40 @@
 'use client'
 
+import React from 'react'
 import { motion } from 'framer-motion'
-import { Rocket, ShieldCheck, Zap, Headphones } from 'lucide-react'
+import { Rocket, ShieldCheck, Zap, HeartHandshake } from 'lucide-react'
 
-const METRICS = [
+const METRICS: {
+  icon: React.ElementType
+  value: string | null
+  label: string
+  subtitle?: string
+  description: string
+}[] = [
   {
     icon: Rocket,
-    value: '500+',
-    label: 'Restaurantes ativos',
+    value: '+3.000',
+    label: 'Licenças ativas',
     description: 'clientes confiam na plataforma',
   },
   {
     icon: ShieldCheck,
-    value: '10M+',
-    label: 'Pedidos processados',
+    value: '+200k',
+    label: 'Pedidos por dia',
     description: 'transações processadas com segurança',
   },
   {
     icon: Zap,
-    value: '99.9%',
-    label: 'Uptime garantido',
-    description: 'disponibilidade da plataforma',
+    value: '+5.000',
+    label: 'PDVs em operação',
+    description: 'terminais ativos em todo o Brasil',
   },
   {
-    icon: Headphones,
-    value: '24/7',
-    label: 'Suporte especializado',
-    description: 'atendimento para seu negócio',
+    icon: HeartHandshake,
+    value: null,
+    label: 'Atendimento Humanizado',
+    subtitle: 'pessoas reais, respostas reais',
+    description: 'suporte de verdade para o seu negócio',
   },
 ]
 
@@ -49,13 +57,28 @@ export function MetricsSection() {
                   <metric.icon className="h-6 w-6" />
                 </div>
 
-                <h2 className="mb-1 text-4xl font-extrabold tracking-tight">
-                  {metric.value}
-                </h2>
+                {metric.value ? (
+                  <h2 className="mb-1 text-4xl font-extrabold tracking-tight">
+                    {metric.value}
+                  </h2>
+                ) : (
+                  <div className="mb-2">
+                    <p className="text-[22px] font-extrabold leading-tight tracking-tight">
+                      {metric.label}
+                    </p>
+                    {metric.subtitle && (
+                      <p className="mt-1 text-[12px] font-semibold text-white/60">
+                        {metric.subtitle}
+                      </p>
+                    )}
+                  </div>
+                )}
 
-                <p className="mb-1 text-sm font-bold tracking-wider text-white uppercase">
-                  {metric.label}
-                </p>
+                {metric.value && (
+                  <p className="mb-1 text-sm font-bold tracking-wider text-white uppercase">
+                    {metric.label}
+                  </p>
+                )}
                 <p className="text-xs leading-relaxed font-medium text-white/50">
                   {metric.description}
                 </p>

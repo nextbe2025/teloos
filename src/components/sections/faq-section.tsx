@@ -10,7 +10,7 @@ const FAQS = [
   {
     question: 'O que é a Teloos?',
     answer:
-      'A Teloos é uma plataforma completa de gestão para food service. Reunimos em um só lugar tudo que seu restaurante, bar ou lanchonete precisa: PDV, cardápio digital, autoatendimento, delivery integrado, controle de estoque e relatórios financeiros — com tecnologia moderna e suporte humanizado.',
+      'A Teloos é uma plataforma completa de gestão para food service. Reunimos em um só lugar tudo que seu restaurante, bar ou lanchonete precisa: PDV, cardápio digital, autoatendimento, delivery integrado, controle de estoque e relatórios financeiros, com tecnologia moderna e suporte humanizado.',
   },
   {
     question: 'Como funciona o sistema de PDV da Teloos?',
