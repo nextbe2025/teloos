@@ -29,23 +29,28 @@ import { Section } from '@/components/shared/section'
 import { Button } from '@/components/ui/button'
 import { SiteHeader } from '@/components/layout/site-header'
 import { toast } from 'sonner'
+import { trackLead, trackSocialClick } from '@/lib/gtm'
 
 const CONTACT_INFO = [
   {
     icon: Mail,
     label: 'E-mail',
+    method: 'email' as const,
     value: 'comercial@teloos.com.br',
     href: 'mailto:comercial@teloos.com.br',
   },
   {
     icon: WhatsAppSvg,
     label: 'WhatsApp',
+    method: 'whatsapp' as const,
     value: '(41) 93618-1651',
-    href: 'https://wa.me/5541936181651',
+    // URL deve conter "whatsapp" para o trigger 32 do GTM disparar nativamente
+    href: 'https://api.whatsapp.com/send/?phone=5541936181651',
   },
   {
     icon: MapPin,
     label: 'Endereço',
+    method: 'maps' as const,
     value: 'Pinhais/PR',
     href: 'https://maps.google.com/?q=R.+Cassiano+Ricardo,+1253+Pinhais+PR',
   },
@@ -99,6 +104,13 @@ export default function ContatoPage() {
         const { error } = await res.json()
         throw new Error(error ?? 'Erro desconhecido')
       }
+
+      // GTM: dispara evento "Lead" (trigger 19 - Evento Leadster) ANTES de ocultar
+      // o formulário para que as variáveis user-input-* do GTM ainda leiam o DOM:
+      //   user-input-firstname → document.querySelector('[id="fullname"]').value
+      //   user-input-email     → document.querySelector('[id="email"]').value
+      //   user-input-phone     → document.querySelector('[id="phone"]').value
+      trackLead()
 
       setIsDone(true)
       toast.success('Mensagem enviada com sucesso!')
@@ -157,6 +169,8 @@ export default function ContatoPage() {
                     <a
                       key={item.label}
                       href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="group flex items-start gap-4 rounded-2xl border border-slate-100 bg-white p-4 shadow-sm transition-shadow hover:shadow-md"
                     >
                       <div className="bg-brand-blue/5 text-brand-blue group-hover:bg-brand-blue rounded-xl p-3 transition-colors group-hover:text-white">
@@ -181,6 +195,7 @@ export default function ContatoPage() {
                       <a
                         key={social.label}
                         href={social.href}
+                        onClick={() => trackSocialClick(social.label)}
                         className="rounded-2xl bg-white/10 p-4 text-white transition-colors hover:bg-white/20"
                         aria-label={social.label}
                       >
@@ -226,14 +241,16 @@ export default function ContatoPage() {
                       <div className="grid gap-6 sm:grid-cols-2">
                         <div className="space-y-2">
                           <label
-                            htmlFor="name"
+                            htmlFor="fullname"
                             className="text-brand-dark/60 ml-1 text-sm font-bold"
                           >
                             Nome Completo
                           </label>
+                          {/* id="fullname" obrigatório: GTM lê document.querySelector('[id="fullname"]') */}
                           <input
                             required
-                            id="name"
+                            id="fullname"
+                            name="name"
                             type="text"
                             placeholder="Seu nome"
                             className="focus:border-brand-blue h-[58px] w-full rounded-2xl border-2 border-slate-100 px-6 font-medium transition-colors focus:outline-none"
