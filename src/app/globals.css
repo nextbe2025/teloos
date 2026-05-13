@@ -110,6 +110,13 @@
     @apply bg-background text-foreground font-sans antialiased;
   }
 
+  a,
+  button,
+  select,
+  [role='button'] {
+    @apply cursor-pointer;
+  }
+
   /* Tipografia base responsiva */
   h1 {
     @apply text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl;
@@ -179,11 +186,17 @@
   }
 
   .animate-scroll {
-    animation: scroll 40s linear infinite;
+    animation: scroll 25s linear infinite;
   }
 
   .pause-on-hover:hover {
     animation-play-state: paused;
+  }
+
+  /* Evita layout shift ao abrir dropdowns Radix UI */
+  body[data-scroll-locked] {
+    padding-right: 0 !important;
+    margin-right: 0 !important;
   }
 
   /* Gradiente sutil de fundo — hero e seções de destaque */

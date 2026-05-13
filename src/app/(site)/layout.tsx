@@ -1,4 +1,6 @@
 import { Footer } from '@/components/layout/footer'
+import { WhatsAppButton } from '@/components/shared/whatsapp-button'
+import { CookieBanner } from '@/components/shared/cookie-banner'
 
 /**
  * Layout do grupo de rotas do site público.
@@ -14,6 +16,8 @@ export default function SiteLayout({
     <>
       <main>{children}</main>
       <Footer />
+      <WhatsAppButton />
+      <CookieBanner />
     </>
   )
 }

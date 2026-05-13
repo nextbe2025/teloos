@@ -1,9 +1,12 @@
 import type { Metadata, Viewport } from 'next'
+import Script from 'next/script'
 import { Inter } from 'next/font/google'
 import { ThemeProvider } from '@/components/theme-provider'
 import { Toaster } from '@/components/ui/sonner'
 import { ScrollToTop } from '@/components/ui/scroll-to-top'
+import { GTMProvider } from '@/components/shared/gtm-provider'
 import { siteConfig } from '@/config/site'
+import { GTM_ID } from '@/lib/gtm'
 import './globals.css'
 
 const inter = Inter({
@@ -55,6 +58,10 @@ export const metadata: Metadata = {
     follow: true,
     googleBot: { index: true, follow: true, 'max-image-preview': 'large' },
   },
+  icons: {
+    icon: '/brand/icon teloos.png',
+    apple: '/brand/icon teloos.png',
+  },
 }
 
 export const viewport: Viewport = {
@@ -77,16 +84,44 @@ export default function RootLayout({
         className={`${inter.variable} bg-background min-h-screen font-sans antialiased`}
         suppressHydrationWarning
       >
+        {/* GTM noscript fallback */}
+        <noscript>
+          <iframe
+            src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+            height="0"
+            width="0"
+            style={{ display: 'none', visibility: 'hidden' }}
+          />
+        </noscript>
+
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-          {children}
-          <Toaster richColors closeButton />
-          <ScrollToTop />
+          <GTMProvider>
+            {children}
+            <Toaster richColors closeButton />
+            <ScrollToTop />
+          </GTMProvider>
         </ThemeProvider>
+
+        {/* Google Tag Manager */}
+        <Script
+          id="gtm-script"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+              })(window,document,'script','dataLayer','${GTM_ID}');
+            `,
+          }}
+        />
       </body>
     </html>
   )

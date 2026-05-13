@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import Link from 'next/link'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { ArrowRight, Eye, EyeOff, Loader2 } from 'lucide-react'
@@ -14,6 +15,40 @@ import { Button } from '@/components/ui/button'
 
 const inputClassName =
   'focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/10 text-brand-dark placeholder:text-slate-400 caret-brand-dark w-full rounded-2xl border-2 border-slate-100 bg-white px-5 py-4 font-medium transition-all focus:outline-none'
+
+function FoodSymbol() {
+  return (
+    <Image
+      src="/brand/teloos-symbol.png"
+      alt=""
+      aria-hidden="true"
+      width={969}
+      height={594}
+      className="inline-block h-[0.62em] w-auto"
+      priority
+    />
+  )
+}
+
+function LoginEditorial() {
+  return (
+    <div className="relative py-10">
+      <div className="text-brand-dark max-w-[24ch] text-[2.8rem] leading-[0.95] font-black tracking-[-0.04em] xl:text-[4.2rem]">
+        <p>transformando</p>
+        <p className="flex items-end gap-3">
+          <span>negócios</span>
+          <span>f</span>
+          <span className="inline-flex shrink-0 translate-y-[-0.03em] items-end leading-none">
+            <FoodSymbol />
+          </span>
+          <span>d</span>
+        </p>
+        <p>em receitas de</p>
+        <p className="text-brand-blue">grande sucesso!</p>
+      </div>
+    </div>
+  )
+}
 
 export function LoginForm() {
   const [showPassword, setShowPassword] = useState(false)
@@ -54,6 +89,7 @@ export function LoginForm() {
         eyebrow="Acesso à plataforma"
         title="Entre na plataforma Teloos"
         description="Bem-vindo de volta."
+        sideContent={<LoginEditorial />}
       >
         <form onSubmit={onSubmit} className="space-y-6">
           <div className="space-y-2">

@@ -79,7 +79,7 @@ export function SiteHeader() {
     <>
       <header
         className={cn(
-          'fixed top-0 right-0 left-0 z-50 py-6 transition-all duration-300',
+          'fixed top-0 right-0 left-0 z-50 py-3 transition-all duration-300',
           scrolled
             ? 'border-brand-dark/5 border-b bg-white/80 shadow-sm backdrop-blur-md'
             : 'bg-transparent'
@@ -93,7 +93,7 @@ export function SiteHeader() {
               className="shrink-0 transition-transform duration-300 hover:scale-[1.02]"
             >
               <Image
-                src="/brand/Logo Teloos Principal.png"
+                src="/brand/Logo Teloos.png"
                 alt={siteConfig.name}
                 width={220}
                 height={64}
