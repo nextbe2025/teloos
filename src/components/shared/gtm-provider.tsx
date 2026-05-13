@@ -1,8 +1,37 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
-import { usePathname } from 'next/navigation'
+import { useEffect, useRef, Suspense } from 'react'
+import { usePathname, useSearchParams } from 'next/navigation'
 import { trackPageView } from '@/lib/gtm'
+
+/**
+ * Componente interno que lida com o rastreamento para ter acesso aos hooks.
+ */
+function GTMTrackingHandler() {
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
+  const isFirstRender = useRef(true)
+
+  useEffect(() => {
+    // No primeiro render o GTM já dispara All Pages — pulamos para evitar duplicata.
+    if (isFirstRender.current) {
+      isFirstRender.current = false
+      return
+    }
+
+    // Usamos um timer curto (100ms) para garantir que o Next.js já tenha 
+    // atualizado o metadata (document.title) no DOM antes do disparo.
+    // Isso evita que o GA4 capture o título da página anterior.
+    const url = pathname + (searchParams?.toString() ? `?${searchParams.toString()}` : '')
+    const timer = setTimeout(() => {
+      trackPageView(url)
+    }, 100)
+
+    return () => clearTimeout(timer)
+  }, [pathname, searchParams])
+
+  return null
+}
 
 /**
  * Provider client-side que dispara page_view a cada troca de rota
@@ -14,20 +43,15 @@ import { trackPageView } from '@/lib/gtm'
  * e [API] 0 | Scroll (63).
  *
  * PAGE VIEW SPA: o All Pages trigger (2147479553) só dispara no hard-load.
- * Por isso empurramos page_view manualmente a cada mudança de pathname.
+ * Por isso empurramos page_view manualmente a cada mudança de pathname/searchParams.
  */
 export function GTMProvider({ children }: { children: React.ReactNode }) {
-  const pathname = usePathname()
-  const isFirstRender = useRef(true)
-
-  useEffect(() => {
-    // No primeiro render o GTM já dispara All Pages — pulamos para evitar duplicata.
-    if (isFirstRender.current) {
-      isFirstRender.current = false
-      return
-    }
-    trackPageView(pathname)
-  }, [pathname])
-
-  return <>{children}</>
+  return (
+    <>
+      <Suspense fallback={null}>
+        <GTMTrackingHandler />
+      </Suspense>
+      {children}
+    </>
+  )
 }
