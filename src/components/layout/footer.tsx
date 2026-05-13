@@ -6,13 +6,10 @@ import { Instagram, Linkedin } from 'lucide-react'
 
 const FOOTER_LINKS = {
   solucoes: [
+    { label: 'PDV e Mesas', href: '/solucoes/operacao-e-atendimento' },
+    { label: 'Delivery', href: '/solucoes/delivery' },
     { label: 'Autoatendimento', href: '/solucoes/autoatendimento' },
-    { label: 'Delivery Integrado', href: '/solucoes/delivery' },
-    {
-      label: 'Operação e Atendimento',
-      href: '/solucoes/operacao-e-atendimento',
-    },
-    { label: 'Gestão e Financeiro', href: '/solucoes/gestao-e-financeiro' },
+    { label: 'Relatórios', href: '/solucoes/gestao-e-financeiro' },
   ],
   empresa: [
     { label: 'Sobre nós', href: '/sobre' },

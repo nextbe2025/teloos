@@ -20,26 +20,26 @@ import {
 
 const PRODUCT_SUBMENU = [
   {
-    label: 'Operação & Atendimento',
-    description: 'PDV, Mesas e Cozinha (KDS)',
+    label: 'PDV e Mesas',
+    description: 'PDV, Mesas, Comandas e Cozinha (KDS)',
     href: '/solucoes/operacao-e-atendimento',
     icon: UtensilsCrossed,
   },
   {
-    label: 'Delivery & Vendas',
-    description: 'App próprio e Integrador iFood',
+    label: 'Delivery',
+    description: 'App próprio, Delivery Integrado iFood',
     href: '/solucoes/delivery',
     icon: Bike,
   },
   {
     label: 'Autoatendimento',
-    description: 'Cardápio Digital e Totens',
+    description: 'Totem Autoatendimento, Cardápio Digital',
     href: '/solucoes/autoatendimento',
     icon: Smartphone,
   },
   {
-    label: 'Gestão & Financeiro',
-    description: 'Controle de estoque e relatórios',
+    label: 'Relatórios',
+    description: 'Relatórios de vendas, financeiro e estoque',
     href: '/solucoes/gestao-e-financeiro',
     icon: PieChart,
   },

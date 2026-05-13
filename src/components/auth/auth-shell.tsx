@@ -58,7 +58,7 @@ export function AuthShell({
             className="transition-transform duration-300 hover:scale-[1.02]"
           >
             <Image
-              src="/brand/Logo Teloos Principal.png"
+              src="/brand/Logo Teloos.png"
               alt="Teloos"
               width={220}
               height={64}

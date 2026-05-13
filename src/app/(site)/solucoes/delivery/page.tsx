@@ -8,7 +8,6 @@ import {
   Bike,
   CheckCircle2,
   ShoppingBag,
-  Zap,
   Globe,
   Store,
   MessageCircle,
@@ -20,46 +19,34 @@ import { SiteHeader } from '@/components/layout/site-header'
 
 const FEATURES = [
   {
-    title: 'App de Delivery Próprio',
+    title: 'Cardápio Digital',
     description:
-      'Venda direto para seu cliente final sem taxas abusivas de marketplaces e fidelize sua base.',
-    icon: ShoppingBag,
-  },
-  {
-    title: 'Gestor de iFood Integrado',
-    description:
-      'Receba seus pedidos do iFood direto no sistema Teloos, sem precisar de múltiplos aparelhos.',
-    icon: Store,
-  },
-  {
-    title: 'Cardápio Digital Web',
-    description:
-      'Um link personalizado para seu restaurante onde o cliente faz o pedido no navegador com facilidade.',
+      'Cardápio online com sua marca e domínio próprio, sem comissão por pedido.',
     icon: Globe,
   },
   {
-    title: 'Integração com Logística',
+    title: 'Chatbot no WhatsApp',
     description:
-      'Chame entregadores e acompanhe o status da entrega em tempo real direto pelo painel.',
-    icon: Bike,
-  },
-  {
-    title: 'Pedidos via WhatsApp',
-    description:
-      'Link direto que envia o carrinho do cliente formatado para seu WhatsApp, facilitando a recepção.',
+      'Atenda e receba pedidos automaticamente pelo WhatsApp, sem depender de aplicativos de terceiros.',
     icon: MessageCircle,
   },
   {
-    title: 'Relatórios de Vendas',
+    title: 'Integração com Apps de Delivery',
     description:
-      'Saiba quais produtos saem mais e identifique seus clientes mais fiéis no delivery.',
-    icon: Zap,
+      'Centralize pedidos do iFood e outros apps em um único painel, sem tablets extras.',
+    icon: Store,
+  },
+  {
+    title: 'Gestão de Pedidos Integrado',
+    description:
+      'Acompanhe todos os pedidos em tempo real, do recebimento até a entrega, tudo em um só lugar.',
+    icon: Bike,
   },
 ]
 
 export default function DeliveryVendasPage() {
   useEffect(() => {
-    document.title = 'Delivery Próprio e Gestão de Entregas | Teloos'
+    document.title = 'Delivery | App próprio e iFood Integrado | Teloos'
   }, [])
 
   return (
@@ -79,7 +66,7 @@ export default function DeliveryVendasPage() {
               <div className="border-brand-blue/10 inline-flex items-center gap-3 rounded-full border bg-white/70 px-4 py-2 backdrop-blur">
                 <Bike className="text-brand-blue h-4 w-4" />
                 <span className="text-brand-blue text-[13px] font-bold tracking-[0.2em] uppercase">
-                  Delivery & Vendas
+                  Delivery
                 </span>
               </div>
 
@@ -273,7 +260,7 @@ export default function DeliveryVendasPage() {
             </h2>
           </motion.div>
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-6 sm:grid-cols-2">
             {FEATURES.map((feature, i) => (
               <motion.div
                 key={i}

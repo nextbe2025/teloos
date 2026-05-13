@@ -37,11 +37,13 @@ function LoginEditorial() {
         <p>transformando</p>
         <p className="flex items-end gap-3">
           <span>negócios</span>
-          <span>f</span>
-          <span className="inline-flex shrink-0 translate-y-[-0.03em] items-end leading-none">
-            <FoodSymbol />
+          <span className="inline-flex items-end gap-0">
+            <span className="mr-[0.02em]">f</span>
+            <span className="inline-flex shrink-0 translate-y-[-0.08em] items-end leading-none">
+              <FoodSymbol />
+            </span>
+            <span className="ml-[0.02em]">d</span>
           </span>
-          <span>d</span>
         </p>
         <p>em receitas de</p>
         <p className="text-brand-blue">grande sucesso!</p>

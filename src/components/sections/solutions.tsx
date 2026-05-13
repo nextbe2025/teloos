@@ -25,18 +25,18 @@ interface Solution {
 
 const SOLUTIONS: Solution[] = [
   {
-    title: 'Operação & Atendimento',
+    title: 'PDV e Mesas',
     description:
-      'PDV, Mesas e Cozinha (KDS). Controle pedidos, atendimento e fluxo do seu restaurante com mais agilidade.',
+      'PDV, Mesas, Comandas e Cozinha (KDS). Controle pedidos, atendimento e fluxo do seu restaurante com mais agilidade.',
     image: '/images/Sistema PDV_image.png',
     icon: UtensilsCrossed,
     cta: 'Ver mais soluções',
     href: '/solucoes/operacao-e-atendimento',
   },
   {
-    title: 'Delivery & Vendas',
+    title: 'Delivery',
     description:
-      'App próprio e Integrador iFood. Gerencie pedidos e entregas em tempo real, tudo centralizado em um só sistema.',
+      'App próprio, Delivery Integrado iFood, Gestão dos seus pedidos em tempo real, tudo centralizado em um só sistema.',
     image: '/images/Delivery próprio_image.png',
     icon: Bike,
     cta: 'Ver mais soluções',
@@ -45,16 +45,16 @@ const SOLUTIONS: Solution[] = [
   {
     title: 'Autoatendimento',
     description:
-      'Cardápio Digital e Totens. Permita que seus clientes façam pedidos direto da mesa ou em terminais, reduzindo filas.',
+      'Totem Autoatendimento, Cardápio Digital. Seus clientes façam pedidos direto da mesa ou em terminais, reduzindo filas.',
     image: '/images/Cardápio par tablet_image.png',
     icon: Smartphone,
     cta: 'Ver mais soluções',
     href: '/solucoes/autoatendimento',
   },
   {
-    title: 'Gestão & Financeiro',
+    title: 'Relatórios',
     description:
-      'Controle de estoque e relatórios. Acompanhe estoque, vendas e operação com mais organização e controle total.',
+      'Acompanha sua operação de vendas, financeiro e estoque com mais organização e controle total.',
     image: '/images/Gestão de clientes_image.png',
     icon: PieChart,
     cta: 'Ver mais soluções',

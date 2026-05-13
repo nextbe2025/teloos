@@ -1,5 +1,5 @@
 import { Footer } from '@/components/layout/footer'
-import { WhatsAppButton } from '@/components/shared/whatsapp-button'
+// import { WhatsAppButton } from '@/components/shared/whatsapp-button'
 import { CookieBanner } from '@/components/shared/cookie-banner'
 
 /**
@@ -16,7 +16,7 @@ export default function SiteLayout({
     <>
       <main>{children}</main>
       <Footer />
-      <WhatsAppButton />
+      {/* <WhatsAppButton /> */}
       <CookieBanner />
     </>
   )

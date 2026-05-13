@@ -59,7 +59,7 @@ const FEATURES = [
 
 export default function AutoatendimentoPage() {
   useEffect(() => {
-    document.title = 'Autoatendimento e Totens para Food Service | Teloos'
+    document.title = 'Autoatendimento | Totem e Cardápio Digital | Teloos'
   }, [])
 
   return (
@@ -86,7 +86,7 @@ export default function AutoatendimentoPage() {
                 className="bg-brand-blue/10 text-brand-blue mb-6 inline-flex items-center rounded-full px-4 py-1.5 text-sm font-bold"
               >
                 <Touchpad className="mr-2 h-4 w-4" />
-                Autoatendimento & Totens
+                Autoatendimento / Totem
               </motion.div>
               <h1 className="text-brand-dark text-4xl leading-[1.1] font-black sm:text-5xl lg:text-6xl">
                 Mais agilidade, <br />

@@ -8,13 +8,12 @@ import {
   TrendingUp,
   Package,
   Wallet,
-  FileText,
   PieChart,
   ArrowRight,
   CheckCircle2,
-  LayoutDashboard,
   Users,
   Monitor,
+  Sparkles,
 } from 'lucide-react'
 import { Container } from '@/components/shared/container'
 import { Section } from '@/components/shared/section'
@@ -23,47 +22,40 @@ import { SiteHeader } from '@/components/layout/site-header'
 
 const FEATURES = [
   {
-    title: 'Dashboard em Tempo Real',
+    title: 'Insights Maia (IA)',
     description:
-      'Visualize suas vendas, ticket médio e performance de produtos em segundos.',
-    icon: LayoutDashboard,
+      'Inteligência artificial que analisa seus dados e sugere ações para lucrar mais.',
+    icon: Sparkles,
   },
   {
-    title: 'Controle de Estoque',
+    title: 'Fluxo de Caixa',
     description:
-      'Gestão inteligente de insumos com avisos de estoque baixo e ficha técnica.',
-    icon: Package,
-  },
-  {
-    title: 'Financeiro Completo',
-    description:
-      'Fluxo de caixa, contas a pagar e receber integrados com suas vendas.',
+      'Visualize entradas e saídas em tempo real e mantenha o financeiro sempre equilibrado.',
     icon: Wallet,
   },
   {
-    title: 'Relatórios Avançados',
+    title: 'DRE Gerencial',
     description:
-      'Exporte relatórios fiscais e gerenciais detalhados para sua contabilidade.',
-    icon: FileText,
+      'Demonstrativo de resultados completo para entender a lucratividade do seu negócio.',
+    icon: TrendingUp,
   },
   {
-    title: 'Gestão de Clientes (CRM)',
+    title: 'Matriz de Clientes',
     description:
-      'Conheça os hábitos dos seus clientes e crie campanhas de fidelidade.',
+      'Identifique seus clientes mais valiosos e crie estratégias personalizadas de fidelização.',
     icon: Users,
   },
   {
-    title: 'Análise de Lucratividade',
+    title: 'Desempenho por Canal',
     description:
-      'Entenda quais itens do seu cardápio trazem mais margem para o seu negócio.',
-    icon: TrendingUp,
+      'Compare resultados entre salão, delivery e autoatendimento em um só painel.',
+    icon: BarChart3,
   },
 ]
 
 export default function GestaoFinanceiroPage() {
   useEffect(() => {
-    document.title =
-      'Gestão e Financeiro | Controle Completo para Restaurantes | Teloos'
+    document.title = 'Relatórios | Vendas, Financeiro e Estoque | Teloos'
   }, [])
   return (
     <div className="relative min-h-screen overflow-hidden bg-[#F4F6FB]">
@@ -89,7 +81,7 @@ export default function GestaoFinanceiroPage() {
                 className="bg-brand-blue/10 text-brand-blue mb-6 inline-flex items-center rounded-full px-4 py-1.5 text-sm font-bold"
               >
                 <BarChart3 className="mr-2 h-4 w-4" />
-                Gestão & Financeiro
+                Relatórios
               </motion.div>
               <h1 className="text-brand-dark text-4xl leading-[1.1] font-black sm:text-5xl lg:text-6xl">
                 O controle total <br />
@@ -244,14 +236,43 @@ export default function GestaoFinanceiroPage() {
             </h2>
           </motion.div>
 
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {FEATURES.map((feature, i) => (
+          {/* Card destaque — primeiro item */}
+          {(() => {
+            const featured = FEATURES[0]
+            const FeaturedIcon = featured.icon
+            return (
+              <motion.div
+                initial={{ opacity: 0, y: 20, scale: 0.95 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true, margin: '-50px' }}
+                transition={{ duration: 0.5 }}
+                whileHover={{ y: -6, transition: { duration: 0.2 } }}
+                className="group hover:border-brand-blue/30 mb-8 flex items-center gap-8 rounded-[2.5rem] border border-slate-200 bg-white p-10 shadow-sm transition-all hover:shadow-xl"
+              >
+                <div className="bg-brand-blue/10 group-hover:bg-brand-blue text-brand-blue flex h-16 w-16 shrink-0 items-center justify-center rounded-[1.25rem] transition-colors group-hover:text-white">
+                  <FeaturedIcon className="h-8 w-8" />
+                </div>
+                <div>
+                  <h3 className="text-brand-dark group-hover:text-brand-blue text-2xl font-black transition-colors">
+                    {featured.title}
+                  </h3>
+                  <p className="text-brand-dark/60 mt-2 text-[15px] leading-relaxed font-medium">
+                    {featured.description}
+                  </p>
+                </div>
+              </motion.div>
+            )
+          })()}
+
+          {/* Grid 2x2 — demais itens */}
+          <div className="grid gap-8 sm:grid-cols-2">
+            {FEATURES.slice(1).map((feature, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 20, scale: 0.95 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true, margin: '-50px' }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
+                transition={{ duration: 0.5, delay: (i + 1) * 0.1 }}
                 whileHover={{ y: -10, transition: { duration: 0.2 } }}
                 className="group hover:border-brand-blue/30 rounded-[2.5rem] border border-slate-200 bg-white p-10 shadow-sm transition-all hover:shadow-2xl"
               >

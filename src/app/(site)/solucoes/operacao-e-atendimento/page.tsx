@@ -10,8 +10,8 @@ import {
   LayoutDashboard,
   Smartphone,
   Zap,
-  ShieldCheck,
-  Users,
+  CreditCard,
+  Store,
 } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
@@ -20,46 +20,40 @@ import { SiteHeader } from '@/components/layout/site-header'
 
 const FEATURES = [
   {
-    title: 'PDV Ultra-Rápido',
+    title: 'Gestão de Mesas',
     description:
-      'Interface intuitiva desenhada para máxima agilidade no fechamento de contas e lançamento de pedidos.',
-    icon: Zap,
-  },
-  {
-    title: 'Gestão de Mesas e Comandas',
-    description:
-      'Mapa de mesas em tempo real com status de ocupação, tempo de permanência e alertas de inatividade.',
+      'Visualize o status de todas as mesas em tempo real com atualização instantânea.',
     icon: LayoutDashboard,
   },
   {
-    title: 'KDS (Cozinha Digital)',
+    title: 'Garçom Digital',
     description:
-      'Elimine papéis e ruídos. Organize a produção da cozinha por ordem de chegada e tempo de preparo.',
-    icon: UtensilsCrossed,
-  },
-  {
-    title: 'Cardápio Digital Integrado',
-    description:
-      'Atualização em tempo real de preços e disponibilidade direto do seu painel administrativo.',
+      'Garçons lançam pedidos direto da mesa via tablet, reduzindo erros e agilizando o atendimento.',
     icon: Smartphone,
   },
   {
-    title: 'Atendimento via Tablet',
+    title: 'KDS',
     description:
-      'Garçons mais produtivos com lançamentos direto da mesa, reduzindo idas e vindas desnecessárias.',
-    icon: Users,
+      'Monitore a produção da cozinha por ordem de chegada, tempo de preparo e status em tempo real.',
+    icon: UtensilsCrossed,
   },
   {
-    title: 'Controle de Sangria e Caixa',
+    title: 'Balcão',
     description:
-      'Segurança total no fechamento do dia com rastreabilidade completa de todas as movimentações.',
-    icon: ShieldCheck,
+      'Atendimento rápido no balcão com PDV otimizado para pedidos de alto volume.',
+    icon: Store,
+  },
+  {
+    title: 'Smart POS',
+    description:
+      'Terminal de ponto de venda moderno com pagamentos integrados e fechamento de caixa automático.',
+    icon: CreditCard,
   },
 ]
 
 export default function OperacaoAtendimentoPage() {
   useEffect(() => {
-    document.title = 'Operação & Atendimento | PDV e KDS | Teloos'
+    document.title = 'PDV e Mesas | Comandas e Cozinha KDS | Teloos'
   }, [])
 
   return (
@@ -85,7 +79,7 @@ export default function OperacaoAtendimentoPage() {
               <div className="border-brand-blue/10 inline-flex items-center gap-3 rounded-full border bg-white/70 px-4 py-2 backdrop-blur">
                 <UtensilsCrossed className="text-brand-blue h-4 w-4" />
                 <span className="text-brand-blue text-[13px] font-bold tracking-[0.2em] uppercase">
-                  Operação & Atendimento
+                  PDV e Mesas
                 </span>
               </div>
 
@@ -279,14 +273,43 @@ export default function OperacaoAtendimentoPage() {
             </h2>
           </motion.div>
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {FEATURES.map((feature, i) => (
+          {/* Card destaque — primeiro item */}
+          {(() => {
+            const featured = FEATURES[0]
+            const FeaturedIcon = featured.icon
+            return (
+              <motion.div
+                initial={{ opacity: 0, y: 20, scale: 0.95 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true, margin: '-50px' }}
+                transition={{ duration: 0.5 }}
+                whileHover={{ y: -6, transition: { duration: 0.2 } }}
+                className="group hover:border-brand-blue/30 mb-6 flex items-center gap-8 rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm transition-all hover:shadow-xl"
+              >
+                <div className="bg-brand-blue/10 group-hover:bg-brand-blue text-brand-blue flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl transition-colors group-hover:text-white">
+                  <FeaturedIcon className="h-8 w-8" />
+                </div>
+                <div>
+                  <h3 className="text-brand-dark group-hover:text-brand-blue text-2xl font-black transition-colors">
+                    {featured.title}
+                  </h3>
+                  <p className="text-brand-dark/60 mt-2 text-[15px] leading-relaxed font-medium">
+                    {featured.description}
+                  </p>
+                </div>
+              </motion.div>
+            )
+          })()}
+
+          {/* Grid 2x2 — demais itens */}
+          <div className="grid gap-6 sm:grid-cols-2">
+            {FEATURES.slice(1).map((feature, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 20, scale: 0.95 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true, margin: '-50px' }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
+                transition={{ duration: 0.5, delay: (i + 1) * 0.1 }}
                 whileHover={{ y: -8, transition: { duration: 0.2 } }}
                 className="group hover:border-brand-blue/30 rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm transition-all hover:shadow-xl"
               >
