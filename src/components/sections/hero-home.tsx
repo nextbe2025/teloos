@@ -20,7 +20,7 @@ export function HeroHome() {
             className="max-w-[620px]"
           >
             <h1 className="text-brand-dark mb-7 text-[40px] leading-[1.15] tracking-tight sm:text-5xl lg:text-[52px] xl:text-[58px]">
-              <span className="font-normal">transformando negócios </span>
+              <span className="font-normal">Transformando negócios </span>
               <span className="font-bold">f</span>
               <Image
                 src="/brand/teloos-symbol.png"
