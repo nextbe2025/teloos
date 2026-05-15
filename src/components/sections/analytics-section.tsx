@@ -2,47 +2,15 @@
 
 import React from 'react'
 import { motion } from 'framer-motion'
-import { Users, Zap, ArrowUpRight, TrendingDown, BarChart3 } from 'lucide-react'
+import { Users, Zap, ArrowUpRight, BarChart3 } from 'lucide-react'
 import { cn } from '@/lib/utils'
-
-interface MetricCardProps {
-  label: string
-  value: string
-  change: string
-  isPositive?: boolean
-}
-
-function MetricCard({
-  label,
-  value,
-  change,
-  isPositive = true,
-}: MetricCardProps) {
-  return (
-    <div className="cursor-default rounded-2xl border border-gray-100 bg-white p-4 shadow-sm transition-all hover:shadow-md">
-      <p className="text-brand-dark/40 text-[12px] font-medium tracking-wider uppercase">
-        {label}
-      </p>
-      <p className="text-brand-dark mt-1 text-xl font-bold">{value}</p>
-      <div
-        className={cn(
-          'mt-2 flex items-center gap-1 text-[11px] font-bold',
-          isPositive ? 'text-emerald-500' : 'text-rose-500'
-        )}
-      >
-        {isPositive ? <ArrowUpRight size={12} /> : <TrendingDown size={12} />}
-        {change}
-      </div>
-    </div>
-  )
-}
 
 export function AnalyticsSection() {
   return (
     <section className="relative overflow-hidden bg-[#F4F6FB] py-24 lg:py-40">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <div className="grid gap-16 lg:grid-cols-[450px_1fr] lg:items-center">
-          {/* COLUNA ESQUERDA: CONTEÚDO E ESTRATÉGIA */}
+          {/* COLUNA ESQUERDA */}
           <div className="flex flex-col">
             <motion.span
               initial={{ opacity: 0, y: 10 }}
@@ -76,7 +44,6 @@ export function AnalyticsSection() {
               você agir rápido e crescer com mais segurança.
             </motion.p>
 
-            {/* Micro-benefícios */}
             <div className="mb-10 space-y-6">
               {[
                 {
@@ -112,7 +79,6 @@ export function AnalyticsSection() {
 
             <div className="bg-brand-dark/5 mb-10 h-px w-full" />
 
-            {/* Indicadores de Resultado */}
             <div className="grid grid-cols-2 gap-8">
               <div>
                 <div className="text-brand-blue text-2xl font-black">↑ 23%</div>
@@ -144,7 +110,7 @@ export function AnalyticsSection() {
             </motion.div>
           </div>
 
-          {/* COLUNA DIREITA: DASHBOARD VISUAL PREMIUM */}
+          {/* COLUNA DIREITA: DASHBOARD FINANCEIRO */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95, x: 20 }}
             whileInView={{ opacity: 1, scale: 1, x: 0 }}
@@ -152,197 +118,240 @@ export function AnalyticsSection() {
             transition={{ duration: 0.8, ease: 'easeOut' }}
             className="relative"
           >
-            {/* Window Container */}
             <div className="rounded-[2.5rem] bg-white p-2 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.12)] ring-1 ring-black/5">
               <div className="overflow-hidden rounded-[2rem] bg-[#F8FAFF]">
-                {/* Header do Mockup */}
-                <div className="flex items-center justify-between border-b border-gray-100 bg-white px-8 py-5">
-                  <div className="flex items-center gap-6">
-                    <div className="flex gap-1.5">
-                      <div className="h-2.5 w-2.5 rounded-full bg-gray-200" />
-                      <div className="h-2.5 w-2.5 rounded-full bg-gray-200" />
-                      <div className="h-2.5 w-2.5 rounded-full bg-gray-200" />
+                {/* App Top Bar */}
+                <div className="flex items-center justify-between bg-[#1a70b0] px-5 py-2">
+                  <span className="max-w-[60%] truncate text-[9px] font-semibold text-white/80">
+                    SABOR &amp; CIA RESTAURANTES | 12.345.678/0001-90
+                  </span>
+                  <div className="flex shrink-0 items-center gap-2">
+                    <div className="flex h-5 w-5 items-center justify-center rounded-full bg-orange-500">
+                      <span className="text-[7px] font-bold text-white">
+                        MA
+                      </span>
                     </div>
-                    <nav className="hidden items-center gap-6 md:flex">
-                      {['Visão Geral', 'Vendas', 'Produtos', 'Equipe'].map(
-                        (item, idx) => (
-                          <span
-                            key={item}
-                            className={cn(
-                              'cursor-pointer text-[13px] font-bold transition-colors',
-                              idx === 0
-                                ? 'text-brand-blue'
-                                : 'text-brand-dark/30 hover:text-brand-dark/60'
-                            )}
-                          >
-                            {item}
-                          </span>
-                        )
-                      )}
-                    </nav>
-                  </div>
-
-                  {/* Status Ao Vivo */}
-                  <div className="flex items-center gap-2 rounded-full bg-emerald-50 px-3 py-1 ring-1 ring-emerald-500/20">
-                    <span className="relative flex h-2 w-2">
-                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
-                      <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500"></span>
-                    </span>
-                    <span className="text-[11px] font-black tracking-wider text-emerald-600 uppercase">
-                      Ao Vivo
-                    </span>
+                    <span className="text-[9px] text-white/70">MARKETING</span>
                   </div>
                 </div>
 
-                {/* Grid de Métricas do Dashboard */}
-                <div className="p-8">
-                  <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
-                    <MetricCard
-                      label="Faturamento"
-                      value="R$ 48.920"
-                      change="+12%"
-                    />
-                    <MetricCard label="Pedidos" value="612" change="+8%" />
-                    <MetricCard
-                      label="Ticket Médio"
-                      value="R$ 79,90"
-                      change="+4%"
-                    />
-                    <MetricCard label="Clientes" value="384" change="+15%" />
+                {/* Tab Bar */}
+                <div className="flex items-center gap-1 border-b border-gray-200 bg-white px-4 py-1.5">
+                  {[
+                    { label: 'Início', active: false },
+                    { label: 'Financeiro', active: true },
+                    { label: 'Estoque', active: false },
+                    { label: 'Fiscal', active: false },
+                  ].map((tab, i) => (
+                    <div
+                      key={tab.label}
+                      className={cn(
+                        'flex items-center gap-1 rounded px-2.5 py-1 text-[10px] font-semibold',
+                        tab.active
+                          ? 'border-brand-blue/30 bg-brand-blue/10 text-brand-blue border'
+                          : 'text-gray-400'
+                      )}
+                    >
+                      {tab.active && (
+                        <span className="bg-brand-blue inline-block h-1.5 w-1.5 rounded-full" />
+                      )}
+                      {tab.label}
+                      {i > 0 && <span className="ml-0.5 text-gray-300">×</span>}
+                    </div>
+                  ))}
+                </div>
+
+                {/* Dashboard Content */}
+                <div className="p-6">
+                  {/* Title */}
+                  <div className="mb-5 flex items-center gap-3">
+                    <h4 className="text-brand-dark text-[15px] font-bold">
+                      Dashboard Financeiro
+                    </h4>
+                    <span className="rounded border border-gray-200 bg-white px-2 py-0.5 text-[10px] text-gray-500">
+                      Ano 2026
+                    </span>
                   </div>
 
-                  {/* Área do Gráfico Principal */}
-                  <div className="mt-8 rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
-                    <div className="mb-8 flex items-end justify-between">
-                      <div>
-                        <h4 className="text-brand-dark text-[14px] font-bold">
-                          Faturamento diário
-                        </h4>
-                        <p className="text-brand-dark/40 text-[12px] font-medium">
-                          Últimas 12 semanas
-                        </p>
-                      </div>
-                      <div className="flex gap-4">
-                        <div className="flex items-center gap-2">
-                          <div className="bg-brand-blue h-2 w-2 rounded-full" />
-                          <span className="text-brand-dark/40 text-[11px] font-bold uppercase">
-                            Atual
-                          </span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <div className="h-2 w-2 rounded-full bg-gray-200" />
-                          <span className="text-brand-dark/40 text-[11px] font-bold uppercase">
-                            Anterior
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Simulação Visual de Gráfico de Área */}
-                    <div className="relative h-48 w-full">
-                      <svg
-                        viewBox="0 0 400 100"
-                        className="h-full w-full overflow-visible"
-                      >
-                        <defs>
-                          <linearGradient
-                            id="chartGradient"
-                            x1="0"
-                            y1="0"
-                            x2="0"
-                            y2="1"
-                          >
-                            <stop
-                              offset="0%"
-                              stopColor="#2563eb"
-                              stopOpacity="0.2"
-                            />
-                            <stop
-                              offset="100%"
-                              stopColor="#2563eb"
-                              stopOpacity="0"
-                            />
-                          </linearGradient>
-                        </defs>
-                        {/* Linha Fundo (Cinza) */}
-                        <path
-                          d="M0,80 Q50,75 100,85 T200,70 T300,75 T400,65"
-                          fill="none"
-                          stroke="#e2e8f0"
-                          strokeWidth="2"
-                        />
-                        {/* Área Blue */}
-                        <path
-                          d="M0,70 Q50,60 100,75 T200,45 T300,55 T400,30 L400,100 L0,100 Z"
-                          fill="url(#chartGradient)"
-                        />
-                        {/* Linha Blue */}
-                        <motion.path
-                          initial={{ pathLength: 0 }}
-                          whileInView={{ pathLength: 1 }}
-                          transition={{ duration: 1.5, ease: 'easeInOut' }}
-                          d="M0,70 Q50,60 100,75 T200,45 T300,55 T400,30"
-                          fill="none"
-                          stroke="#2563eb"
-                          strokeWidth="3"
-                          strokeLinecap="round"
-                        />
-                        {/* Cursor/Hotspot simulação */}
-                        <circle
-                          cx="200"
-                          cy="45"
-                          r="5"
-                          fill="#2563eb"
-                          className="animate-pulse shadow-lg"
-                        />
-                      </svg>
-                    </div>
-                  </div>
-
-                  {/* Indicadores Inferiores por Categoria */}
-                  <div className="mt-8 grid grid-cols-3 gap-6">
+                  {/* 4 Colored Metric Tiles */}
+                  <div className="mb-6 grid grid-cols-4 gap-3">
                     {[
                       {
-                        label: 'Hambúrgueres',
-                        value: '82%',
-                        color: 'bg-brand-blue',
+                        label: 'Receitas',
+                        value: 'R$ 16.633,50',
+                        bg: 'bg-green-500',
+                        icon: '⊕',
                       },
                       {
-                        label: 'Bebidas',
-                        value: '61%',
-                        color: 'bg-emerald-500',
+                        label: 'Despesas',
+                        value: 'R$ 4.517,16',
+                        bg: 'bg-red-500',
+                        icon: '⊖',
                       },
                       {
-                        label: 'Sobremesas',
-                        value: '44%',
-                        color: 'bg-brand-orange text-white',
+                        label: 'Saldo',
+                        value: 'R$ 12.116,30',
+                        bg: 'bg-teal-500',
+                        icon: '≡',
                       },
-                    ].map((cat) => (
-                      <div key={cat.label}>
-                        <div className="mb-2 flex items-center justify-between">
-                          <span className="text-brand-dark/50 text-[11px] font-bold tracking-tight uppercase">
-                            {cat.label}
+                      {
+                        label: 'Lucratividade',
+                        value: '72.84%',
+                        bg: 'bg-purple-500',
+                        icon: '↗',
+                      },
+                    ].map((tile, idx) => (
+                      <motion.div
+                        key={tile.label}
+                        initial={{ opacity: 0, y: 8 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: idx * 0.08 }}
+                        className={cn('rounded-xl p-3 text-white', tile.bg)}
+                      >
+                        <div className="mb-1 flex items-center justify-between">
+                          <span className="text-[9px] font-medium text-white/80">
+                            {tile.label}
                           </span>
-                          <span className="text-brand-dark text-[11px] font-black">
-                            {cat.value}
+                          <span className="text-[13px] text-white/50">
+                            {tile.icon}
                           </span>
                         </div>
-                        <div className="h-1.5 w-full overflow-hidden rounded-full bg-gray-100">
-                          <motion.div
-                            initial={{ width: 0 }}
-                            whileInView={{ width: cat.value }}
-                            transition={{ duration: 1, delay: 0.5 }}
-                            className={cn('h-full rounded-full', cat.color)}
-                          />
+                        <div className="text-[12px] leading-tight font-bold">
+                          {tile.value}
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+
+                  {/* Charts Area */}
+                  <div className="grid grid-cols-[1fr_200px] gap-4">
+                    {/* Entrada x Saída */}
+                    <div className="rounded-xl border border-gray-100 bg-white p-4 shadow-sm">
+                      <h5 className="text-brand-dark mb-3 text-[12px] font-bold">
+                        Entrada x Saída
+                      </h5>
+                      <div className="flex h-28 items-end gap-3">
+                        {[
+                          { month: 'Jan', inPct: 60, outPct: 12 },
+                          { month: 'Fev', inPct: 60, outPct: 40 },
+                          { month: 'Mar', inPct: 100, outPct: 17 },
+                          { month: 'Abr', inPct: 58, outPct: 8 },
+                          { month: 'Mai', inPct: 32, outPct: 3 },
+                        ].map((m) => (
+                          <div
+                            key={m.month}
+                            className="flex flex-1 flex-col items-center"
+                          >
+                            <div className="flex h-24 w-full items-end gap-0.5">
+                              <motion.div
+                                initial={{ height: 0 }}
+                                whileInView={{ height: `${m.inPct}%` }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.7 }}
+                                className="flex-1 rounded-t-sm bg-green-500"
+                              />
+                              <motion.div
+                                initial={{ height: 0 }}
+                                whileInView={{ height: `${m.outPct}%` }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.7, delay: 0.1 }}
+                                className="flex-1 rounded-t-sm bg-red-400"
+                              />
+                            </div>
+                            <span className="mt-1 text-[9px] text-gray-400">
+                              {m.month}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                      <div className="mt-2 flex gap-4 text-[9px] text-gray-400">
+                        <span className="flex items-center gap-1">
+                          <span className="inline-block h-1.5 w-1.5 rounded-full bg-green-500" />
+                          Entradas
+                        </span>
+                        <span className="flex items-center gap-1">
+                          <span className="inline-block h-1.5 w-1.5 rounded-full bg-red-400" />
+                          Saídas
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Top 5 Receitas + Saídas */}
+                    <div className="flex flex-col gap-3">
+                      <div className="flex-1 rounded-xl border border-gray-100 bg-white p-3 shadow-sm">
+                        <h5 className="mb-2 text-[10px] font-bold text-gray-500">
+                          Top 5 Receitas
+                        </h5>
+                        <div className="space-y-2">
+                          {[
+                            {
+                              name: 'Vendas de Produtos',
+                              pct: 100,
+                              val: 'R$16.616',
+                            },
+                            { name: 'Ajuste de Caixa', pct: 1, val: 'R$52' },
+                          ].map((r) => (
+                            <div key={r.name}>
+                              <div className="mb-0.5 flex justify-between text-[8px]">
+                                <span className="max-w-[65%] truncate text-gray-600">
+                                  {r.name}
+                                </span>
+                                <span className="text-gray-400">{r.val}</span>
+                              </div>
+                              <div className="h-1.5 w-full overflow-hidden rounded-full bg-gray-100">
+                                <motion.div
+                                  initial={{ width: 0 }}
+                                  whileInView={{ width: `${r.pct}%` }}
+                                  viewport={{ once: true }}
+                                  transition={{ duration: 0.8 }}
+                                  className="h-full rounded-full bg-green-500"
+                                />
+                              </div>
+                            </div>
+                          ))}
                         </div>
                       </div>
-                    ))}
+
+                      <div className="flex-1 rounded-xl border border-gray-100 bg-white p-3 shadow-sm">
+                        <h5 className="mb-2 text-[10px] font-bold text-gray-500">
+                          Top 5 Saídas
+                        </h5>
+                        <div className="space-y-2">
+                          {[
+                            {
+                              name: 'Geração de Crédito',
+                              pct: 100,
+                              val: 'R$4.400',
+                            },
+                            { name: 'Compras/Estoque', pct: 28, val: 'R$117' },
+                          ].map((r) => (
+                            <div key={r.name}>
+                              <div className="mb-0.5 flex justify-between text-[8px]">
+                                <span className="max-w-[65%] truncate text-gray-600">
+                                  {r.name}
+                                </span>
+                                <span className="text-gray-400">{r.val}</span>
+                              </div>
+                              <div className="h-1.5 w-full overflow-hidden rounded-full bg-gray-100">
+                                <motion.div
+                                  initial={{ width: 0 }}
+                                  whileInView={{ width: `${r.pct}%` }}
+                                  viewport={{ once: true }}
+                                  transition={{ duration: 0.8, delay: 0.1 }}
+                                  className="h-full rounded-full bg-red-400"
+                                />
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Elementos Decorativos de Fundo */}
             <div className="bg-brand-blue/5 absolute -top-8 -right-8 -z-10 h-64 w-64 rounded-full blur-3xl" />
             <div className="absolute -bottom-12 -left-12 -z-10 h-64 w-64 rounded-full bg-emerald-500/5 blur-3xl" />
           </motion.div>

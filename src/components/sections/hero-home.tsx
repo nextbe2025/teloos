@@ -19,10 +19,21 @@ export function HeroHome() {
             transition={{ duration: 0.8, ease: 'easeOut' }}
             className="max-w-[620px]"
           >
-            <h1 className="text-brand-dark mb-7 text-[40px] leading-[1.15] font-extrabold tracking-tight sm:text-5xl lg:text-[52px] xl:text-[58px]">
-              O ecossistema completo para a <br className="hidden xl:block" />
-              <span className="text-brand-blue">
-                gestão do seu restaurante e food service.
+            <h1 className="text-brand-dark mb-7 text-[40px] leading-[1.15] tracking-tight sm:text-5xl lg:text-[52px] xl:text-[58px]">
+              <span className="font-normal">transformando negócios </span>
+              <span className="font-normal">f</span>
+              <Image
+                src="/brand/teloos-symbol.png"
+                alt=""
+                aria-hidden="true"
+                width={969}
+                height={594}
+                className="mx-[-0.04em] inline-block h-[0.7em] w-auto translate-y-[-0.06em]"
+              />
+              <span className="font-normal">d em </span>
+              <br className="hidden xl:block" />
+              <span className="text-brand-blue font-bold">
+                receitas de grande sucesso!
               </span>
             </h1>
 
@@ -91,175 +102,396 @@ export function HeroHome() {
 
                 {/* Dashboard Real - Visual Premium */}
                 <div className="bg-white">
-                  <div className="flex h-[420px] sm:h-[420px]">
-                    {/* Sidebar */}
-                    <div className="bg-brand-dark hidden w-44 shrink-0 flex-col p-4 sm:flex">
-                      {/* Logo interna da dashboard */}
-                      <div className="mb-6 flex items-center gap-2 px-1">
-                        <div className="bg-brand-blue flex h-6 w-6 items-center justify-center rounded-md">
-                          <span className="text-[10px] font-bold tracking-tighter text-white">
-                            TL
-                          </span>
-                        </div>
-                        <span className="text-xs font-bold text-white">
-                          Dashboard
+                  {/* App Top Bar */}
+                  <div className="flex items-center justify-between bg-[#1a70b0] px-4 py-1.5">
+                    <span className="max-w-[55%] truncate text-[8px] font-semibold text-white/80">
+                      SABOR & CIA RESTAURANTES | 12.345.678/0001-90
+                    </span>
+                    <div className="flex shrink-0 items-center gap-1.5">
+                      <div className="flex h-5 w-5 items-center justify-center rounded-full bg-orange-500">
+                        <span className="text-[7px] font-bold text-white">
+                          MA
                         </span>
                       </div>
-                      <div className="space-y-1">
+                      <span className="text-[8px] text-white/70">
+                        MARKETING
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="flex h-[394px]">
+                    {/* Sidebar */}
+                    <div className="bg-brand-dark hidden w-44 shrink-0 flex-col sm:flex">
+                      <div className="flex items-center gap-2 border-b border-white/10 px-3 py-2.5">
+                        <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-orange-500">
+                          <span className="text-[9px] font-bold text-white">
+                            MA
+                          </span>
+                        </div>
+                        <span className="text-[10px] font-bold text-white">
+                          MARKETING
+                        </span>
+                      </div>
+                      <div className="mx-3 my-2 flex h-6 items-center rounded border border-white/10 bg-white/5 px-2">
+                        <span className="text-[9px] text-white/30">
+                          Pesquisar...
+                        </span>
+                      </div>
+                      <div className="flex-1 space-y-0.5 px-2">
                         {[
-                          { label: 'Visão Geral', active: true },
-                          { label: 'Pedidos', active: false },
-                          { label: 'Mesas', active: false },
-                          { label: 'Cardápio', active: false },
-                          { label: 'Relatórios', active: false },
-                          { label: 'Financeiro', active: false },
+                          { label: 'Dashboards', active: true, badge: false },
+                          {
+                            label: 'Módulo Cadastros',
+                            active: false,
+                            badge: false,
+                          },
+                          {
+                            label: 'Módulo Financeiro',
+                            active: false,
+                            badge: false,
+                          },
+                          {
+                            label: 'Módulo Estoque',
+                            active: false,
+                            badge: false,
+                          },
+                          {
+                            label: 'Módulo Vendas',
+                            active: false,
+                            badge: false,
+                          },
+                          { label: 'Relatórios', active: false, badge: false },
+                          {
+                            label: 'Configurações',
+                            active: false,
+                            badge: false,
+                          },
+                          { label: 'Suporte', active: false, badge: true },
                         ].map((item) => (
                           <div
                             key={item.label}
                             className={cn(
-                              'flex items-center gap-3 rounded-lg px-3 py-2 text-[11px] font-medium transition-colors',
+                              'flex items-center justify-between rounded-lg px-2.5 py-1.5 text-[10px] font-medium',
                               item.active
                                 ? 'bg-brand-blue text-white'
-                                : 'cursor-pointer text-white/40 hover:bg-white/5 hover:text-white/60'
+                                : 'text-white/40'
                             )}
                           >
-                            <div
-                              className={cn(
-                                'h-1.5 w-1.5 rounded-full',
-                                item.active ? 'bg-white' : 'bg-white/20'
-                              )}
-                            />
-                            {item.label}
+                            <div className="flex items-center gap-2">
+                              <div
+                                className={cn(
+                                  'h-1.5 w-1.5 shrink-0 rounded-full',
+                                  item.active ? 'bg-white' : 'bg-white/20'
+                                )}
+                              />
+                              {item.label}
+                            </div>
+                            {item.badge && (
+                              <span className="flex h-3.5 w-3.5 items-center justify-center rounded-full bg-red-500 text-[6px] font-bold text-white">
+                                2
+                              </span>
+                            )}
                           </div>
                         ))}
                       </div>
-                      <div className="mt-auto border-t border-white/10 pt-4">
-                        <div className="flex items-center gap-2 px-2 text-[10px] font-medium tracking-widest text-white/30 uppercase">
-                          Unidade 01
-                        </div>
+                      <div className="border-t border-white/10 px-4 py-2">
+                        <span className="text-[8px] text-white/20">
+                          Avalie o sistema
+                        </span>
                       </div>
                     </div>
 
-                    {/* Main Content Area */}
-                    <div className="flex-1 overflow-hidden bg-gray-50/80 p-4 sm:p-6">
-                      <div className="mb-6 flex items-center justify-between">
-                        <h3 className="text-brand-dark text-sm font-bold">
-                          Resumo do Dia
-                        </h3>
-                        <div className="bg-brand-blue/10 text-brand-blue flex h-7 w-20 items-center justify-center rounded-lg text-[10px] font-bold uppercase">
-                          Ao Vivo
+                    {/* Main Content */}
+                    <div className="flex-1 overflow-hidden bg-gray-50/80 p-3">
+                      {/* Tab */}
+                      <div className="mb-2 flex">
+                        <div className="border-brand-blue/30 text-brand-blue flex h-6 items-center gap-1.5 rounded-md border bg-white px-2.5 text-[9px] font-semibold shadow-sm">
+                          <span className="bg-brand-blue inline-block h-1.5 w-1.5 rounded-full" />
+                          Início
+                          <span className="ml-0.5 text-gray-400">×</span>
                         </div>
                       </div>
 
-                      {/* Info Cards */}
-                      <div className="mb-6 grid grid-cols-2 gap-4 lg:grid-cols-3">
+                      {/* Title */}
+                      <div className="mb-2 flex items-center justify-between">
+                        <h3 className="text-brand-dark text-[12px] font-bold">
+                          Visão de Vendas
+                        </h3>
+                        <div className="bg-brand-blue/10 text-brand-blue flex h-6 items-center gap-1 rounded-lg px-2 text-[8px] font-bold">
+                          ✦ Analisar Ontem (IA)
+                        </div>
+                      </div>
+
+                      {/* 4 Metrics */}
+                      <div className="mb-2 grid grid-cols-4 gap-1.5">
                         {[
                           {
-                            label: 'Faturamento',
-                            value: 'R$ 14.280',
-                            color: 'text-brand-blue',
+                            label: 'Vendas Hoje',
+                            value: 'R$ 30,00',
+                            sub: '15/05/2026',
+                            badge: null,
+                            badgeClass: '',
                           },
                           {
-                            label: 'Pedidos',
-                            value: '158',
-                            color: 'text-brand-dark',
+                            label: 'Vendas Ontem',
+                            value: 'R$ 351,60',
+                            sub: '14/05/2026',
+                            badge: null,
+                            badgeClass: '',
                           },
                           {
-                            label: 'Estoque Médio',
-                            value: 'R$ 4.5k',
-                            color: 'text-brand-orange',
+                            label: 'Últimos 7 dias',
+                            value: 'R$ 524,60',
+                            sub: null,
+                            badge: '-57.77%',
+                            badgeClass: 'bg-red-50 text-red-600',
+                          },
+                          {
+                            label: 'Período',
+                            value: 'R$ 1.766,90',
+                            sub: null,
+                            badge: '+2.83%',
+                            badgeClass: 'bg-green-50 text-green-600',
                           },
                         ].map((card, idx) => (
                           <motion.div
                             key={card.label}
-                            initial={{ opacity: 0, y: 10 }}
+                            initial={{ opacity: 0, y: 6 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.6 + idx * 0.1 }}
-                            className="rounded-2xl border border-gray-100 bg-white p-4 shadow-sm"
+                            transition={{ delay: 0.5 + idx * 0.08 }}
+                            className="rounded-lg border border-gray-100 bg-white p-2 shadow-sm"
                           >
-                            <p className="mb-1 text-[10px] font-medium text-gray-400">
+                            <p className="mb-0.5 text-[7px] leading-tight font-medium text-gray-400">
                               {card.label}
                             </p>
-                            <p
-                              className={cn('text-base font-bold', card.color)}
-                            >
+                            <p className="text-brand-blue text-[10px] leading-tight font-bold">
                               {card.value}
                             </p>
+                            {card.sub && (
+                              <p className="mt-0.5 text-[7px] text-gray-300">
+                                {card.sub}
+                              </p>
+                            )}
+                            {card.badge && (
+                              <span
+                                className={cn(
+                                  'mt-0.5 inline-block rounded px-1 py-0.5 text-[7px] font-bold',
+                                  card.badgeClass
+                                )}
+                              >
+                                {card.badge}
+                              </span>
+                            )}
                           </motion.div>
                         ))}
                       </div>
 
-                      {/* Chart Simulation */}
-                      <div className="mb-6 rounded-2xl border border-gray-100 bg-white p-4 shadow-sm">
-                        <div className="flex h-20 items-end gap-1.5">
-                          {[35, 45, 30, 60, 85, 40, 55, 95, 75, 50, 65, 80].map(
-                            (h, i) => (
+                      {/* 2 Charts side by side */}
+                      <div className="mb-2 grid grid-cols-2 gap-1.5">
+                        {/* Evolução Diária */}
+                        <div className="rounded-lg border border-gray-100 bg-white p-2 shadow-sm">
+                          <p className="mb-1 text-[8px] font-medium text-gray-400">
+                            Evolução diária – 30 dias
+                          </p>
+                          <div className="flex h-12 items-end gap-px">
+                            {[
+                              5, 8, 4, 7, 10, 6, 3, 7, 5, 90, 70, 24, 13, 8, 5,
+                              3, 5, 8, 6, 10,
+                            ].map((h, i) => (
                               <motion.div
                                 key={i}
                                 initial={{ height: 0 }}
                                 animate={{ height: `${h}%` }}
                                 transition={{
-                                  duration: 1,
-                                  delay: 0.8 + i * 0.05,
+                                  duration: 0.7,
+                                  delay: 0.7 + i * 0.025,
                                   ease: 'easeOut',
                                 }}
                                 className={cn(
-                                  'flex-1 rounded-t-sm transition-all duration-500',
-                                  i === 7 ? 'bg-brand-blue' : 'bg-brand-blue/20'
+                                  'flex-1 rounded-t-[1px]',
+                                  i === 9
+                                    ? 'bg-teal-400'
+                                    : i === 10
+                                      ? 'bg-teal-300'
+                                      : 'bg-teal-200/60'
                                 )}
                               />
-                            )
-                          )}
+                            ))}
+                          </div>
+                          <div className="mt-1 flex justify-between text-[7px] text-gray-300">
+                            <span>15/04</span>
+                            <span>01/05</span>
+                            <span>15/05</span>
+                          </div>
                         </div>
-                        <div className="mt-3 flex items-center justify-between text-[10px] font-medium text-gray-300">
-                          <span>08:00</span>
-                          <span>14:00</span>
-                          <span>20:00</span>
+
+                        {/* Evolução Mensal empilhada */}
+                        <div className="rounded-lg border border-gray-100 bg-white p-2 shadow-sm">
+                          <p className="mb-1 text-[8px] font-medium text-gray-400">
+                            Evolução mensal – 12 meses
+                          </p>
+                          <div className="flex h-12 items-end gap-px">
+                            {(
+                              [
+                                [5, 10],
+                                [8, 12],
+                                [10, 15],
+                                [12, 18],
+                                [5, 7],
+                                [3, 5],
+                                [30, 50],
+                                [25, 45],
+                                [35, 55],
+                                [40, 55],
+                                [35, 50],
+                                [20, 35],
+                              ] as [number, number][]
+                            ).map(([a, b], i) => (
+                              <motion.div
+                                key={i}
+                                initial={{ height: 0 }}
+                                animate={{ height: `${a + b}%` }}
+                                transition={{
+                                  duration: 0.7,
+                                  delay: 0.8 + i * 0.04,
+                                }}
+                                className="flex-1 overflow-hidden rounded-t-[1px]"
+                              >
+                                <div className="flex h-full flex-col">
+                                  <div
+                                    className="bg-teal-300/70"
+                                    style={{ flex: b }}
+                                  />
+                                  <div
+                                    className="bg-brand-blue/60"
+                                    style={{ flex: a }}
+                                  />
+                                </div>
+                              </motion.div>
+                            ))}
+                          </div>
+                          <div className="mt-1 flex justify-between text-[7px] text-gray-300">
+                            <span>Jun</span>
+                            <span>Set</span>
+                            <span>Dez</span>
+                            <span>Mar</span>
+                          </div>
                         </div>
                       </div>
 
-                      {/* Recent Activities */}
-                      <div className="space-y-3">
-                        {[
-                          {
-                            table: 'Mesa 08',
-                            time: 'Há 2 min',
-                            status: 'Pedido Enviado',
-                            dot: 'bg-green-500',
-                          },
-                          {
-                            table: 'Balcão',
-                            time: 'Há 5 min',
-                            status: 'Aguardando Pagamento',
-                            dot: 'bg-yellow-500',
-                          },
-                        ].map((row, idx) => (
-                          <motion.div
-                            key={idx}
-                            initial={{ opacity: 0, x: -10 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: 1.2 + idx * 0.1 }}
-                            className="flex items-center justify-between rounded-xl border border-gray-50 bg-white/50 px-4 py-3 text-[11px]"
-                          >
-                            <div className="flex items-center gap-3">
-                              <span className="text-brand-dark font-bold">
-                                {row.table}
-                              </span>
-                              <span className="text-gray-400">{row.time}</span>
-                            </div>
-                            <div className="flex items-center gap-2">
+                      {/* Bottom 3 columns */}
+                      <div className="grid grid-cols-3 gap-1.5">
+                        {/* Top Produtos */}
+                        <div className="rounded-lg border border-gray-100 bg-white p-2 shadow-sm">
+                          <p className="mb-1.5 text-[8px] font-bold text-gray-500">
+                            10 mais vendidos
+                          </p>
+                          <div className="space-y-1.5">
+                            {[
+                              { name: 'Buffet Kg', val: 'R$684' },
+                              { name: 'Água Tônica', val: 'R$666' },
+                              { name: 'Batata Frita', val: 'R$514' },
+                            ].map((p) => (
                               <div
-                                className={cn(
-                                  'h-1.5 w-1.5 rounded-full',
-                                  row.dot
-                                )}
-                              />
-                              <span className="font-medium text-gray-600">
-                                {row.status}
-                              </span>
-                            </div>
-                          </motion.div>
-                        ))}
+                                key={p.name}
+                                className="flex items-center gap-1.5"
+                              >
+                                <div className="h-5 w-5 shrink-0 rounded bg-gray-100" />
+                                <div className="min-w-0 flex-1">
+                                  <div className="truncate text-[7px] font-medium text-gray-600">
+                                    {p.name}
+                                  </div>
+                                  <div className="text-[7px] text-gray-400">
+                                    {p.val}
+                                  </div>
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+
+                        {/* Ranking Grupos */}
+                        <div className="rounded-lg border border-gray-100 bg-white p-2 shadow-sm">
+                          <p className="mb-1.5 text-[8px] font-bold text-gray-500">
+                            Ranking Grupos
+                          </p>
+                          <div className="space-y-1.5">
+                            {[
+                              { name: 'Água', pct: 100, val: '270' },
+                              { name: 'Lanches', pct: 60, val: '26' },
+                              { name: 'Porções', pct: 38, val: '25' },
+                              { name: 'Cervejas', pct: 12, val: '12' },
+                            ].map((g) => (
+                              <div key={g.name}>
+                                <div className="mb-0.5 flex justify-between text-[7px]">
+                                  <span className="text-gray-600">
+                                    {g.name}
+                                  </span>
+                                  <span className="text-gray-400">{g.val}</span>
+                                </div>
+                                <div className="h-1 w-full overflow-hidden rounded-full bg-gray-100">
+                                  <motion.div
+                                    initial={{ width: 0 }}
+                                    animate={{ width: `${g.pct}%` }}
+                                    transition={{ duration: 0.8, delay: 1.0 }}
+                                    className="bg-brand-blue h-full rounded-full"
+                                  />
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+
+                        {/* Visão Geral */}
+                        <div className="rounded-lg border border-gray-100 bg-white p-2 shadow-sm">
+                          <p className="mb-1.5 text-[8px] font-bold text-gray-500">
+                            Visão Geral
+                          </p>
+                          <div className="space-y-1">
+                            {[
+                              {
+                                label: 'Vendas/Entregas',
+                                value: '87',
+                                bg: 'bg-yellow-400',
+                              },
+                              {
+                                label: 'Itens Lançados',
+                                value: '366',
+                                bg: 'bg-green-500',
+                              },
+                              {
+                                label: 'Pessoas Atend.',
+                                value: '562',
+                                bg: 'bg-red-400',
+                              },
+                              {
+                                label: 'Ticket Médio',
+                                value: 'R$5,93',
+                                bg: 'bg-cyan-400',
+                              },
+                            ].map((item, idx) => (
+                              <motion.div
+                                key={item.label}
+                                initial={{ opacity: 0, x: 4 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ delay: 1.0 + idx * 0.05 }}
+                                className="flex items-center justify-between"
+                              >
+                                <span className="text-[7px] text-gray-500">
+                                  {item.label}
+                                </span>
+                                <span
+                                  className={cn(
+                                    'rounded px-1.5 py-0.5 text-[7px] font-bold text-white',
+                                    item.bg
+                                  )}
+                                >
+                                  {item.value}
+                                </span>
+                              </motion.div>
+                            ))}
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>

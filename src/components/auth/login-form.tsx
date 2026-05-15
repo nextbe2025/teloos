@@ -14,7 +14,7 @@ import { loginSchema, type LoginFormValues } from '@/lib/auth/schemas'
 import { Button } from '@/components/ui/button'
 
 const inputClassName =
-  'focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/10 text-brand-dark placeholder:text-slate-400 caret-brand-dark w-full rounded-2xl border-2 border-slate-100 bg-white px-5 py-4 font-medium transition-all focus:outline-none'
+  'focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/10 text-brand-dark placeholder:text-slate-400 caret-brand-dark w-full rounded-2xl border-2 border-slate-100 bg-white px-5 py-4 font-bold transition-all focus:outline-none'
 
 function FoodSymbol() {
   return (
@@ -33,9 +33,9 @@ function FoodSymbol() {
 function LoginEditorial() {
   return (
     <div className="relative py-10">
-      <div className="text-brand-dark max-w-[24ch] text-[2.8rem] leading-[0.95] font-black tracking-[-0.04em] xl:text-[4.2rem]">
-        <p>transformando</p>
-        <p className="flex items-end gap-3">
+      <div className="text-brand-dark max-w-[24ch] text-[2.8rem] leading-[0.95] tracking-[-0.04em] xl:text-[4.2rem]">
+        <p className="font-normal">transformando</p>
+        <p className="flex items-end gap-3 font-normal">
           <span>negócios</span>
           <span
             className="inline-flex items-end gap-0"
@@ -52,8 +52,11 @@ function LoginEditorial() {
             </span>
           </span>
         </p>
-        <p>em receitas de</p>
-        <p className="text-brand-blue">grande sucesso!</p>
+        <p>
+          <span className="font-normal">em </span>
+          <span className="text-brand-blue font-bold">receitas de</span>
+        </p>
+        <p className="text-brand-blue font-bold">grande sucesso!</p>
       </div>
     </div>
   )
@@ -117,7 +120,7 @@ export function LoginForm() {
               {...register('email')}
             />
             {errors.email ? (
-              <p className="ml-1 text-sm font-medium text-red-600">
+              <p className="ml-1 text-sm font-bold text-red-600">
                 {errors.email.message}
               </p>
             ) : null}
@@ -153,7 +156,7 @@ export function LoginForm() {
               </button>
             </div>
             {errors.password ? (
-              <p className="ml-1 text-sm font-medium text-red-600">
+              <p className="ml-1 text-sm font-bold text-red-600">
                 {errors.password.message}
               </p>
             ) : null}
