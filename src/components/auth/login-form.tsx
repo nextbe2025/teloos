@@ -38,7 +38,7 @@ function LoginEditorial() {
         <p className="flex items-end gap-3 font-normal">
           <span>negócios</span>
           <span
-            className="inline-flex items-end gap-0"
+            className="inline-flex items-end gap-0 font-bold"
             suppressHydrationWarning
           >
             <span className="mr-[0.02em]" suppressHydrationWarning>
@@ -54,7 +54,8 @@ function LoginEditorial() {
         </p>
         <p>
           <span className="font-normal">em </span>
-          <span className="text-brand-blue font-bold">receitas de</span>
+          <span className="text-brand-blue font-bold">receitas</span>
+          <span className="text-brand-blue font-normal"> de</span>
         </p>
         <p className="text-brand-blue font-bold">grande sucesso!</p>
       </div>
