@@ -783,19 +783,22 @@ export function PlansSection() {
               </button>
             </div>
 
-            <AnimatePresence>
-              {isAnnual && (
-                <motion.p
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  className="text-brand-blue mt-6 flex items-center gap-2 text-[14px] font-bold"
-                >
-                  <Sparkles className="fill-brand-blue/20 text-brand-blue h-4 w-4" />
-                  Garantia de melhor custo-benefício
-                </motion.p>
-              )}
-            </AnimatePresence>
+            <div className="mt-4 flex h-8 items-center justify-center">
+              <AnimatePresence>
+                {isAnnual && (
+                  <motion.p
+                    initial={{ opacity: 0, y: -6 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -6 }}
+                    transition={{ duration: 0.2 }}
+                    className="text-brand-blue flex items-center gap-2 text-[14px] font-bold"
+                  >
+                    <Sparkles className="fill-brand-blue/20 text-brand-blue h-4 w-4" />
+                    Garantia de melhor custo-benefício
+                  </motion.p>
+                )}
+              </AnimatePresence>
+            </div>
           </div>
 
           <div className="mt-10 grid gap-8 md:grid-cols-2 xl:grid-cols-4">
