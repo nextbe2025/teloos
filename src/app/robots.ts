@@ -10,6 +10,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',
       allow: '/',
+      disallow: ['/entrar', '/esqueci-senha', '/redefinir-senha'],
     },
     sitemap: `${siteConfig.url}/sitemap.xml`,
   }

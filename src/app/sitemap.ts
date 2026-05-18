@@ -1,38 +1,70 @@
 import type { MetadataRoute } from 'next'
 import { siteConfig } from '@/config/site'
 
-/**
- * Sitemap gerado dinamicamente pelo Next.js.
- * Adicione as páginas do site conforme forem criadas.
- * Acesso: /sitemap.xml
- */
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = siteConfig.url
+  const base = siteConfig.url
+  const now = new Date()
 
   return [
     {
-      url: baseUrl,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
+      url: base,
+      lastModified: now,
+      changeFrequency: 'weekly',
       priority: 1,
     },
     {
-      url: `${baseUrl}/solucoes`,
-      lastModified: new Date(),
+      url: `${base}/solucoes/pdv-e-mesas`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${base}/solucoes/delivery`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${base}/solucoes/autoatendimento`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${base}/solucoes/relatorios`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${base}/precos`,
+      lastModified: now,
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/sobre`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/contato`,
-      lastModified: new Date(),
+      url: `${base}/sobre`,
+      lastModified: now,
       changeFrequency: 'yearly',
       priority: 0.6,
+    },
+    {
+      url: `${base}/contato`,
+      lastModified: now,
+      changeFrequency: 'yearly',
+      priority: 0.6,
+    },
+    {
+      url: `${base}/privacidade`,
+      lastModified: now,
+      changeFrequency: 'yearly',
+      priority: 0.2,
+    },
+    {
+      url: `${base}/termos`,
+      lastModified: now,
+      changeFrequency: 'yearly',
+      priority: 0.2,
     },
   ]
 }
