@@ -70,7 +70,7 @@ export default function DeliveryVendasPage() {
               </div>
 
               <h1 className="text-brand-dark mt-8 text-[40px] leading-[1.1] font-extrabold tracking-tight sm:text-5xl lg:text-[56px]">
-                Seu delivery sem taxas, <br />
+                Seu delivery sem taxas,{' '}
                 <span className="text-brand-blue">
                   mais lucro no seu bolso.
                 </span>
