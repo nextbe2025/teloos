@@ -10,6 +10,8 @@ import {
   LayoutDashboard,
   Zap,
   BarChart3,
+  TrendingUp,
+  AlertCircle,
 } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
@@ -354,7 +356,91 @@ export function PlansSection() {
             transition={{ duration: 0.8, ease: 'easeOut' }}
             className="relative hidden lg:block"
           >
-            <div className="rounded-[2.5rem] bg-white p-2 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.12)] ring-1 ring-black/5">
+            {/* Card 1: Receita Bruta (top-left) */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.3, duration: 0.7 }}
+              className="border-brand-blue/10 absolute -top-4 -left-6 z-30 w-52 cursor-default rounded-2xl border bg-white/95 p-4 shadow-[0_20px_40px_-12px_rgba(0,0,0,0.1)] backdrop-blur-md"
+            >
+              <div className="mb-1.5 flex items-center gap-2">
+                <TrendingUp className="h-3.5 w-3.5 text-emerald-500" />
+                <span className="text-brand-dark/40 text-[10px] font-bold tracking-wider uppercase">
+                  Receita Bruta
+                </span>
+              </div>
+              <div className="flex items-baseline gap-1.5">
+                <span className="text-brand-dark text-[22px] leading-none font-black tracking-tight">
+                  R$ 7.786
+                </span>
+                <span className="text-[11px] font-black text-emerald-500">
+                  +22%
+                </span>
+              </div>
+              <p className="text-brand-dark/30 mt-1 text-[10px] font-medium">
+                acumulado no ano
+              </p>
+            </motion.div>
+
+            {/* Card 2: Resultado do Mês (bottom-right) */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 0.7 }}
+              className="absolute -right-6 -bottom-4 z-30 w-56 cursor-default rounded-2xl bg-slate-900/95 p-4 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] backdrop-blur-md"
+            >
+              <div className="mb-2 flex items-center justify-between">
+                <span className="text-[10px] font-bold tracking-wider text-white/40 uppercase">
+                  Resultado do Mês
+                </span>
+                <span className="rounded-full bg-emerald-500/20 px-2 py-0.5 text-[9px] font-black text-emerald-400">
+                  91.18%
+                </span>
+              </div>
+              <div className="text-[22px] leading-none font-black tracking-tight text-white">
+                R$ 7.098
+              </div>
+              <p className="mt-1 text-[10px] font-medium text-white/30">
+                lucratividade no período
+              </p>
+            </motion.div>
+
+            {/* Card 3: Inadimplentes (middle-right) */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.7, duration: 0.7 }}
+              className="border-brand-blue/10 absolute top-1/3 -right-6 z-30 w-48 cursor-default rounded-2xl border bg-white/95 p-4 shadow-[0_20px_40px_-12px_rgba(0,0,0,0.08)] backdrop-blur-md"
+            >
+              <div className="mb-2 flex items-center justify-between">
+                <div className="flex items-center gap-1.5">
+                  <AlertCircle className="h-3.5 w-3.5 text-orange-400" />
+                  <span className="text-brand-dark/40 text-[10px] font-bold tracking-wider uppercase">
+                    Inadimplentes
+                  </span>
+                </div>
+              </div>
+              <div className="flex items-end justify-between">
+                <div>
+                  <div className="text-brand-dark text-[22px] leading-none font-black">
+                    4
+                  </div>
+                  <p className="text-brand-dark/30 mt-0.5 text-[10px] font-medium">
+                    clientes
+                  </p>
+                </div>
+                <div className="text-right">
+                  <div className="text-[14px] font-black text-orange-500">
+                    R$ 80,40
+                  </div>
+                  <p className="text-brand-dark/30 text-[9px] font-medium">
+                    em aberto
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+            <div className="mx-4 my-8 rounded-[2.5rem] bg-white p-2 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.12)] ring-1 ring-black/5">
               <div className="overflow-hidden rounded-[2rem] bg-[#F8FAFF]">
                 {/* App Top Bar */}
                 <div className="flex items-center justify-between bg-[#1a70b0] px-5 py-2">
