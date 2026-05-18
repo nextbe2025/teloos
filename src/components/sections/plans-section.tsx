@@ -328,17 +328,16 @@ export function PlansSection() {
             </div>
 
             <h2 className="text-brand-dark mt-8 text-[40px] leading-[1.15] font-extrabold tracking-tight sm:text-5xl lg:text-[52px] xl:text-[58px]">
-              Escolha o plano ideal <br className="hidden xl:block" />
-              <span className="text-brand-blue">de acordo com seu negócio</span>
+              Escolha o plano ideal para crescer com{' '}
+              <br className="hidden xl:block" />
+              <span className="text-brand-blue">
+                controle e previsibilidade.
+              </span>
             </h2>
 
             <p className="text-brand-dark/60 mt-7 max-w-[560px] text-[17px] leading-relaxed">
-              Sistema completo de gestão para restaurantes, bares, lojas de
-              alimentos e delivery com as{' '}
-              <strong className="text-brand-dark/80 font-bold">
-                melhores funcionalidades
-              </strong>{' '}
-              do mercado.
+              Escolha o plano ideal para digitalizar e otimizar sua operação com
+              uma experiência premium do pedido ao financeiro.
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-4">
