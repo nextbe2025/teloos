@@ -1,7 +1,6 @@
 ﻿'use client'
 
 import React, { useEffect } from 'react'
-import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import {
@@ -100,14 +99,145 @@ export default function DeliveryVendasPage() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="relative"
             >
-              <div className="shadow-brand-blue/10 relative overflow-hidden rounded-[2.5rem] border-8 border-white bg-slate-200 shadow-2xl">
-                <Image
-                  src="/images/Delivery próprio_image.png"
-                  alt="Interface Delivery Teloos"
-                  width={800}
-                  height={600}
-                  className="w-full object-cover"
-                />
+              <div className="shadow-brand-blue/10 relative overflow-hidden rounded-[2.5rem] border-8 border-white bg-white shadow-2xl">
+                <div className="aspect-[4/3] w-full overflow-hidden bg-[#F8FAFF]">
+                  <div className="flex items-center justify-between bg-[#1a70b0] px-4 py-1.5">
+                    <span className="truncate text-[8px] font-semibold text-white/80">
+                      SABOR &amp; CIA RESTAURANTES | 12.345.678/0001-90
+                    </span>
+                    <div className="flex h-4 w-4 items-center justify-center rounded-full bg-orange-500">
+                      <span className="text-[5px] font-bold text-white">
+                        MA
+                      </span>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-1 border-b border-gray-200 bg-white px-3 py-1">
+                    <div className="rounded px-2 py-0.5 text-[8px] whitespace-nowrap text-gray-400">
+                      Dashboard ×
+                    </div>
+                    <div className="flex items-center gap-1 rounded border border-blue-200 bg-blue-50 px-2 py-0.5 text-[8px] font-semibold whitespace-nowrap text-blue-600">
+                      <span className="inline-block h-1.5 w-1.5 rounded-full bg-blue-500" />
+                      Delivery ×
+                    </div>
+                  </div>
+                  <div className="flex flex-col gap-2.5 p-3">
+                    <div className="flex items-center justify-between">
+                      <h4 className="text-[11px] font-bold text-gray-700">
+                        Pedidos em Andamento
+                      </h4>
+                      <span className="flex items-center gap-1 text-[7px] font-bold text-green-600">
+                        <span className="inline-block h-1.5 w-1.5 rounded-full bg-green-500" />
+                        Loja Aberta
+                      </span>
+                    </div>
+                    <div className="grid grid-cols-3 gap-2">
+                      {[
+                        { label: 'Hoje', value: 'R$ 4.240', bg: 'bg-blue-500' },
+                        { label: 'Pedidos', value: '38', bg: 'bg-green-500' },
+                        {
+                          label: 'Ticket Médio',
+                          value: 'R$ 111,58',
+                          bg: 'bg-purple-500',
+                        },
+                      ].map((tile) => (
+                        <div
+                          key={tile.label}
+                          className={`rounded-lg p-2 text-white ${tile.bg}`}
+                        >
+                          <div className="text-[6.5px] text-white/80">
+                            {tile.label}
+                          </div>
+                          <div className="text-[9px] leading-tight font-bold">
+                            {tile.value}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="rounded-xl border border-gray-100 bg-white shadow-sm">
+                      {[
+                        {
+                          num: '#4489',
+                          canal: 'iFood',
+                          value: 'R$ 142,50',
+                          status: 'EM ROTA',
+                          statusColor: 'bg-blue-100 text-blue-700',
+                        },
+                        {
+                          num: '#4488',
+                          canal: 'Site Próprio',
+                          value: 'R$ 89,90',
+                          status: 'PREPARO',
+                          statusColor: 'bg-yellow-100 text-yellow-700',
+                        },
+                        {
+                          num: '#4487',
+                          canal: 'WhatsApp',
+                          value: 'R$ 67,00',
+                          status: 'ENTREGUE',
+                          statusColor: 'bg-green-100 text-green-700',
+                        },
+                        {
+                          num: '#4486',
+                          canal: 'iFood',
+                          value: 'R$ 198,00',
+                          status: 'ENTREGUE',
+                          statusColor: 'bg-green-100 text-green-700',
+                        },
+                      ].map((order, i) => (
+                        <div
+                          key={order.num}
+                          className={`flex items-center justify-between px-3 py-2 ${i > 0 ? 'border-t border-gray-100' : ''}`}
+                        >
+                          <div className="flex items-center gap-2">
+                            <span className="text-[8px] font-black text-gray-600">
+                              {order.num}
+                            </span>
+                            <span className="text-[6.5px] text-gray-400">
+                              {order.canal}
+                            </span>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <span className="text-[8px] font-bold text-gray-700">
+                              {order.value}
+                            </span>
+                            <span
+                              className={`rounded-full px-1.5 py-0.5 text-[6px] font-black ${order.statusColor}`}
+                            >
+                              {order.status}
+                            </span>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="flex gap-2">
+                      {[
+                        { label: 'iFood', pct: 65, color: 'bg-red-400' },
+                        {
+                          label: 'Site Próprio',
+                          pct: 25,
+                          color: 'bg-blue-400',
+                        },
+                        { label: 'WhatsApp', pct: 10, color: 'bg-green-400' },
+                      ].map((ch) => (
+                        <div key={ch.label} className="flex-1">
+                          <div className="mb-0.5 flex justify-between text-[6.5px]">
+                            <span className="text-gray-500">{ch.label}</span>
+                            <span className="text-gray-400">{ch.pct}%</span>
+                          </div>
+                          <div className="h-1.5 w-full rounded-full bg-gray-100">
+                            <motion.div
+                              initial={{ width: 0 }}
+                              whileInView={{ width: `${ch.pct}%` }}
+                              viewport={{ once: true }}
+                              transition={{ duration: 0.8 }}
+                              className={`h-full rounded-full ${ch.color}`}
+                            />
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
               </div>
 
               {/* Floating Notifications Simulation */}
@@ -298,13 +428,147 @@ export default function DeliveryVendasPage() {
               className="order-2 lg:order-1"
             >
               <div className="relative">
-                <Image
-                  src="/images/Integração com maquininhas_image.png"
-                  alt="Gestor iFood Teloos"
-                  width={600}
-                  height={500}
-                  className="rounded-[2.5rem] shadow-2xl"
-                />
+                <div className="overflow-hidden rounded-[2.5rem] shadow-2xl">
+                  <div className="aspect-[4/3] w-full overflow-hidden bg-[#F8FAFF]">
+                    <div className="flex items-center justify-between bg-[#1a70b0] px-4 py-1.5">
+                      <span className="truncate text-[8px] font-semibold text-white/80">
+                        SABOR &amp; CIA RESTAURANTES | 12.345.678/0001-90
+                      </span>
+                      <div className="flex h-4 w-4 items-center justify-center rounded-full bg-orange-500">
+                        <span className="text-[5px] font-bold text-white">
+                          MA
+                        </span>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-1 border-b border-gray-200 bg-white px-3 py-1">
+                      <div className="rounded px-2 py-0.5 text-[8px] whitespace-nowrap text-gray-400">
+                        Dashboard ×
+                      </div>
+                      <div className="flex items-center gap-1 rounded border border-red-200 bg-red-50 px-2 py-0.5 text-[8px] font-semibold whitespace-nowrap text-red-600">
+                        <span className="inline-block h-1.5 w-1.5 rounded-full bg-red-500" />
+                        Integração iFood ×
+                      </div>
+                    </div>
+                    <div className="flex flex-col gap-2.5 p-3">
+                      <div className="flex items-center justify-between">
+                        <h4 className="text-[11px] font-bold text-gray-700">
+                          Central de Pedidos
+                        </h4>
+                        <span className="rounded-full bg-red-100 px-2 py-0.5 text-[7px] font-bold text-red-600">
+                          iFood Ativo
+                        </span>
+                      </div>
+                      <div className="grid grid-cols-3 gap-2">
+                        {[
+                          {
+                            label: 'iFood',
+                            orders: '22 pedidos',
+                            value: 'R$ 2.580',
+                            bg: 'bg-red-50',
+                            border: 'border-red-200',
+                            text: 'text-red-600',
+                          },
+                          {
+                            label: 'Site Próprio',
+                            orders: '12 pedidos',
+                            value: 'R$ 1.340',
+                            bg: 'bg-blue-50',
+                            border: 'border-blue-200',
+                            text: 'text-blue-600',
+                          },
+                          {
+                            label: 'WhatsApp',
+                            orders: '4 pedidos',
+                            value: 'R$ 320',
+                            bg: 'bg-green-50',
+                            border: 'border-green-200',
+                            text: 'text-green-600',
+                          },
+                        ].map((ch) => (
+                          <div
+                            key={ch.label}
+                            className={`rounded-xl border p-2 ${ch.bg} ${ch.border}`}
+                          >
+                            <div className={`text-[7px] font-black ${ch.text}`}>
+                              {ch.label}
+                            </div>
+                            <div className="mt-0.5 text-[6.5px] text-gray-500">
+                              {ch.orders}
+                            </div>
+                            <div
+                              className={`mt-1 text-[8px] font-black ${ch.text}`}
+                            >
+                              {ch.value}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                      <div>
+                        <p className="mb-1 text-[8px] font-bold text-gray-500">
+                          Fila Unificada de Produção
+                        </p>
+                        <div className="rounded-xl border border-gray-100 bg-white shadow-sm">
+                          {[
+                            {
+                              num: '#4489',
+                              canal: 'iFood',
+                              items: 'X-Burguer x2, Refri',
+                              status: 'NOVO',
+                              statusColor: 'bg-red-100 text-red-700',
+                            },
+                            {
+                              num: '#4488',
+                              canal: 'Site Próprio',
+                              items: 'Combo Duplo x1',
+                              status: 'PREPARO',
+                              statusColor: 'bg-yellow-100 text-yellow-700',
+                            },
+                            {
+                              num: '#4487',
+                              canal: 'iFood',
+                              items: 'Pizza P x1, Suco',
+                              status: 'PRONTO',
+                              statusColor: 'bg-green-100 text-green-700',
+                            },
+                          ].map((order, i) => (
+                            <div
+                              key={order.num}
+                              className={`flex items-center gap-2 px-3 py-2 ${i > 0 ? 'border-t border-gray-100' : ''}`}
+                            >
+                              <span className="text-[8px] font-black text-gray-600">
+                                {order.num}
+                              </span>
+                              <span
+                                className={`rounded px-1 py-0.5 text-[5.5px] font-bold ${order.canal === 'iFood' ? 'bg-red-100 text-red-600' : 'bg-blue-100 text-blue-600'}`}
+                              >
+                                {order.canal}
+                              </span>
+                              <span className="flex-1 truncate text-[6.5px] text-gray-400">
+                                {order.items}
+                              </span>
+                              <span
+                                className={`rounded-full px-1.5 py-0.5 text-[6px] font-black ${order.statusColor}`}
+                              >
+                                {order.status}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-2 rounded-lg border border-gray-100 bg-white px-3 py-1.5 shadow-sm">
+                        <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-green-100 text-[8px] text-green-600">
+                          ✓
+                        </div>
+                        <span className="text-[7px] text-gray-500">
+                          Sincronizado com PDV e Estoque
+                        </span>
+                        <span className="ml-auto text-[7px] font-bold text-green-500">
+                          Agora
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
                 <motion.div
                   initial={{ scale: 0, rotate: -20 }}
                   whileInView={{ scale: 1, rotate: 0 }}
