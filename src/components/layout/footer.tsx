@@ -6,10 +6,10 @@ import { Instagram, Linkedin } from 'lucide-react'
 
 const FOOTER_LINKS = {
   solucoes: [
-    { label: 'PDV e Mesas', href: '/solucoes/operacao-e-atendimento' },
+    { label: 'PDV e Mesas', href: '/solucoes/pdv-e-mesa' },
     { label: 'Delivery', href: '/solucoes/delivery' },
     { label: 'Autoatendimento', href: '/solucoes/autoatendimento' },
-    { label: 'Relatórios', href: '/solucoes/gestao-e-financeiro' },
+    { label: 'Relatórios', href: '/solucoes/relatorios' },
   ],
   empresa: [
     { label: 'Sobre nós', href: '/sobre' },

@@ -31,7 +31,7 @@ const SOLUTIONS: Solution[] = [
     image: '/images/Sistema PDV_image.png',
     icon: UtensilsCrossed,
     cta: 'Ver mais soluções',
-    href: '/solucoes/operacao-e-atendimento',
+    href: '/solucoes/pdv-e-mesa',
   },
   {
     title: 'Delivery',
@@ -58,7 +58,7 @@ const SOLUTIONS: Solution[] = [
     image: '/images/Gestão de clientes_image.png',
     icon: PieChart,
     cta: 'Ver mais soluções',
-    href: '/solucoes/gestao-e-financeiro',
+    href: '/solucoes/relatorios',
   },
 ]
 

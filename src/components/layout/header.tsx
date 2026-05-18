@@ -21,7 +21,7 @@ const PRODUCT_SUBMENU = [
   {
     label: 'PDV e Mesas',
     description: 'PDV, Mesas, Comandas e Cozinha (KDS)',
-    href: '/solucoes/operacao-e-atendimento',
+    href: '/solucoes/pdv-e-mesa',
     icon: UtensilsCrossed,
   },
   {
@@ -39,7 +39,7 @@ const PRODUCT_SUBMENU = [
   {
     label: 'Relatórios',
     description: 'Relatórios de vendas, financeiro e estoque',
-    href: '/solucoes/gestao-e-financeiro',
+    href: '/solucoes/relatorios',
     icon: PieChart,
   },
 ]
