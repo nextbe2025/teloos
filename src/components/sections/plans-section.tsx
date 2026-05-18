@@ -32,6 +32,7 @@ type Plan = {
   priceAnnual: string
   description: string
   recommended?: boolean
+  priceCustom?: boolean
   features: string[]
   ctaLabel: string
 }
@@ -56,61 +57,81 @@ const BENEFITS: Benefit[] = [
 
 const PLANS: Plan[] = [
   {
-    id: 'basico',
-    name: 'Básico',
-    priceMonthly: 'R$ 249,00',
-    priceAnnual: 'R$ 199,00',
+    id: 'start',
+    name: 'START',
+    priceMonthly: 'R$ 169,00',
+    priceAnnual: 'R$ 143,65',
     description: 'Para começar com controle e organização na rotina.',
     features: [
-      'Pedidos e cardápio',
-      'Mesas e atendimento',
-      'Relatórios essenciais',
-      'Suporte padrão',
+      '1 PDV',
+      'Mesa & Comanda Eletrônica',
+      'Delivery base',
+      'Integração iFood e outros',
+      'Relatórios de Vendas',
+      '3 usuários',
     ],
-    ctaLabel: 'Quero o Básico',
+    ctaLabel: 'Quero o START',
   },
   {
-    id: 'essencial',
-    name: 'Essencial',
-    priceMonthly: 'R$ 269,00',
-    priceAnnual: 'R$ 215,00',
-    description: 'Mais integrações e visão para crescer com segurança.',
-    features: [
-      'Tudo do Básico',
-      'Integrações de canais',
-      'Relatórios avançados',
-      'Suporte prioritário',
-    ],
-    ctaLabel: 'Escolher Essencial',
-  },
-  {
-    id: 'completo',
-    name: 'Completo',
-    priceMonthly: 'R$ 349,00',
-    priceAnnual: 'R$ 279,00',
+    id: 'gestao',
+    name: 'GESTÃO',
+    priceMonthly: 'R$ 279,00',
+    priceAnnual: 'R$ 237,15',
     description: 'Recomendado para operações que querem eficiência total.',
     recommended: true,
     features: [
-      'Tudo do Essencial',
-      'Automação operacional',
-      'Painel de gestão em tempo real',
-      'Treinamento para equipe',
+      '1 PDV Fiscal SAT/NFC-E',
+      'Mesa & Comanda Eletrônica',
+      'Delivery base',
+      'Integração iFood e outros',
+      'Lançamento (Garçom) x3',
+      'Relatório de Vendas',
+      '5 usuários',
     ],
-    ctaLabel: 'Começar pelo Completo',
+    ctaLabel: 'Começar pelo GESTÃO',
   },
   {
-    id: 'premium',
-    name: 'Premium',
-    priceMonthly: 'R$ 449,00',
-    priceAnnual: 'R$ 359,00',
-    description: 'Para redes e operações com necessidade de escala.',
+    id: 'prime',
+    name: 'PRIME',
+    priceMonthly: 'R$ 389,00',
+    priceAnnual: 'R$ 330,65',
+    description: 'Para operações que precisam de escala e controle total.',
     features: [
-      'Tudo do Completo',
-      'Acompanhamento dedicado',
-      'Integrações avançadas',
-      'Roadmap e evolução do sistema',
+      '2 PDV Fiscal SAT/NFC-E',
+      'Mesa & Comanda Eletrônica',
+      'Delivery base',
+      'Integração iFood e outros',
+      'Lançamento (Garçom) x4',
+      'Relatório de Vendas',
+      'Estoque',
+      'Financeiro',
+      'Fiscal',
+      'Usuários ilimitados',
+      'Portal do Contador',
     ],
-    ctaLabel: 'Falar com comercial',
+    ctaLabel: 'Escolher PRIME',
+  },
+  {
+    id: 'estrategico',
+    name: 'ESTRATÉGICO',
+    priceMonthly: '',
+    priceAnnual: '',
+    priceCustom: true,
+    description: 'Para redes e operações com múltiplas unidades.',
+    features: [
+      'PDV Fiscal SAT/NFC-E ilimitados',
+      'Mesa & Comanda Eletrônica',
+      'Delivery URL próprio',
+      'Integração iFood e outros',
+      'Lançamento (Garçom) ilimitados',
+      'Estoque, Financeiro e Fiscal',
+      'Relatórios analíticos',
+      'Nota fiscal ilimitadas',
+      'Usuários ilimitados',
+      'Portal do Contador',
+      'Todas as funcionalidades',
+    ],
+    ctaLabel: 'Falar com Comercial',
   },
 ]
 
@@ -200,18 +221,36 @@ function PlanCard({ plan, isAnnual }: { plan: Plan; isAnnual: boolean }) {
 
         {/* Preço de Destaque (Ajuste de Proporção) */}
         <div className="mb-8">
-          <div className="flex items-baseline gap-1">
-            <span className="text-brand-dark/30 text-lg font-bold">R$</span>
-            <span className="text-brand-dark text-5xl font-black tracking-tight">
-              {currentPrice.replace('R$ ', '').split(',')[0]}
-            </span>
-            <span className="text-brand-dark/40 text-2xl font-bold">
-              ,{currentPrice.split(',')[1] || '00'}
-            </span>
-            <span className="text-brand-dark/40 ml-1.5 text-[13px] font-bold lowercase">
-              /mês
-            </span>
-          </div>
+          {plan.priceCustom ? (
+            <div>
+              <div className="text-brand-dark text-[28px] leading-tight font-black">
+                Falar Comercial
+              </div>
+              <p className="text-brand-dark/40 mt-2 text-[13px] font-medium">
+                Sob consulta
+              </p>
+            </div>
+          ) : (
+            <div>
+              <div className="flex items-baseline gap-1">
+                <span className="text-brand-dark/30 text-lg font-bold">R$</span>
+                <span className="text-brand-dark text-5xl font-black tracking-tight">
+                  {currentPrice.replace('R$ ', '').split(',')[0]}
+                </span>
+                <span className="text-brand-dark/40 text-2xl font-bold">
+                  ,{currentPrice.split(',')[1] || '00'}
+                </span>
+                <span className="text-brand-dark/40 ml-1.5 text-[13px] font-bold lowercase">
+                  /mês
+                </span>
+              </div>
+              {isAnnual && (
+                <p className="text-brand-dark/40 mt-1.5 text-[12px] font-medium">
+                  cobrado anualmente
+                </p>
+              )}
+            </div>
+          )}
         </div>
 
         {/* Botão de Conversão (100% largura) */}
@@ -259,7 +298,7 @@ function PlanCard({ plan, isAnnual }: { plan: Plan; isAnnual: boolean }) {
         {/* Texto Inferior Refinado */}
         <div className="mt-12 flex justify-center border-t border-slate-100 pt-8">
           <p className="text-brand-dark/25 text-center text-[11px] font-extrabold tracking-widest uppercase">
-            Sem fidelidade • Cancele quando quiser
+            Sem fidelidade
           </p>
         </div>
       </div>
@@ -289,16 +328,17 @@ export function PlansSection() {
             </div>
 
             <h2 className="text-brand-dark mt-8 text-[40px] leading-[1.15] font-extrabold tracking-tight sm:text-5xl lg:text-[52px] xl:text-[58px]">
-              Escolha o plano ideal para crescer com{' '}
-              <br className="hidden xl:block" />
-              <span className="text-brand-blue">
-                controle e previsibilidade.
-              </span>
+              Escolha o plano ideal <br className="hidden xl:block" />
+              <span className="text-brand-blue">de acordo com seu negócio</span>
             </h2>
 
             <p className="text-brand-dark/60 mt-7 max-w-[560px] text-[17px] leading-relaxed">
-              Escolha o plano ideal para digitalizar e otimizar sua operação com
-              uma experiência premium do pedido ao financeiro.
+              Sistema completo de gestão para restaurantes, bares, lojas de
+              alimentos e delivery com as{' '}
+              <strong className="text-brand-dark/80 font-bold">
+                melhores funcionalidades
+              </strong>{' '}
+              do mercado.
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-4">
@@ -591,11 +631,18 @@ export function PlansSection() {
           <div className="mb-16 flex flex-col items-center">
             <div className="mb-10 max-w-[720px] text-center">
               <h2 className="text-brand-dark text-[32px] leading-tight font-extrabold sm:text-4xl">
-                Escolha seu plano
+                Escolha o plano ideal{' '}
+                <span className="text-brand-blue">
+                  de acordo com seu negócio
+                </span>
               </h2>
               <p className="text-brand-dark/60 mt-4 text-[17px] leading-relaxed">
-                Comece com o que você precisa hoje e evolua quando fizer sentido
-                para o seu negócio.
+                Sistema completo de gestão para restaurantes, bares, lojas de
+                alimentos e delivery com as{' '}
+                <strong className="text-brand-dark/80 font-bold">
+                  melhores funcionalidades
+                </strong>{' '}
+                do mercado.
               </p>
             </div>
 
@@ -622,7 +669,7 @@ export function PlansSection() {
               >
                 Anual
                 <span className="bg-brand-orange shadow-brand-orange/20 absolute -top-3 -right-6 animate-bounce rounded-full px-2.5 py-1 text-[10px] font-black text-white shadow-lg">
-                  ECONOMIZE 20%
+                  ECONOMIZE 15%
                 </span>
               </button>
             </div>
