@@ -28,7 +28,7 @@ export function HeroHome() {
                 aria-hidden="true"
                 width={969}
                 height={594}
-                className="mx-[0.06em] inline-block h-[0.7em] w-auto translate-y-[-0.06em]"
+                className="mx-[0.02em] inline-block h-[0.7em] w-auto translate-y-[-0.06em]"
               />
               <span className="font-bold">d</span>
               <span className="font-normal"> em </span>

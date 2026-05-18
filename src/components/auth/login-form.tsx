@@ -38,7 +38,7 @@ function LoginEditorial() {
         <p className="flex items-end gap-3 font-normal">
           <span>negócios</span>
           <span
-            className="inline-flex items-end gap-[0.07em] font-bold"
+            className="inline-flex items-end gap-[0.03em] font-bold"
             suppressHydrationWarning
           >
             <span suppressHydrationWarning>f</span>
