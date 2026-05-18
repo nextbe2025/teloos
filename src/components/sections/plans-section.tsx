@@ -8,12 +8,8 @@ import {
   Crown,
   Sparkles,
   LayoutDashboard,
-  TrendingUp,
-  ShoppingBag,
-  Users,
   Zap,
   BarChart3,
-  Clock,
 } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
@@ -351,254 +347,287 @@ export function PlansSection() {
             </div>
           </div>
 
-          {/* Visual Dashboard - Modern SaaS Style */}
-          <div className="relative hidden lg:block">
-            <div className="relative h-[620px] w-full">
-              {/* Main Dashboard Base (Background Window) */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, ease: 'easeOut' }}
-                className="border-brand-blue/15 absolute inset-x-12 inset-y-16 overflow-hidden rounded-[2.5rem] border bg-white shadow-[0_32px_64px_-16px_rgba(30,58,138,0.12)]"
-              >
-                <div className="flex h-full flex-col">
-                  {/* Chrome Header */}
-                  <div className="border-brand-blue/10 flex items-center justify-between border-b bg-slate-50/80 p-4 backdrop-blur-sm">
-                    <div className="flex items-center gap-3">
-                      <div className="bg-brand-blue/10 text-brand-blue flex h-7 w-7 items-center justify-center rounded-lg">
-                        <LayoutDashboard className="h-4 w-4" />
-                      </div>
-                      <div className="bg-brand-dark/10 h-2 w-24 rounded-full" />
+          {/* Visual Dashboard - Balanço Resultado */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95, x: 20 }}
+            animate={{ opacity: 1, scale: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: 'easeOut' }}
+            className="relative hidden lg:block"
+          >
+            <div className="rounded-[2.5rem] bg-white p-2 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.12)] ring-1 ring-black/5">
+              <div className="overflow-hidden rounded-[2rem] bg-[#F8FAFF]">
+                {/* App Top Bar */}
+                <div className="flex items-center justify-between bg-[#1a70b0] px-5 py-2">
+                  <span className="max-w-[60%] truncate text-[9px] font-semibold text-white/80">
+                    SABOR &amp; CIA RESTAURANTES | 12.345.678/0001-90
+                  </span>
+                  <div className="flex shrink-0 items-center gap-2">
+                    <div className="flex h-5 w-5 items-center justify-center rounded-full bg-orange-500">
+                      <span className="text-[7px] font-bold text-white">
+                        MA
+                      </span>
                     </div>
-                    <div className="flex gap-1.5">
-                      <div className="h-2 w-2 rounded-full bg-slate-200" />
-                      <div className="h-2 w-2 rounded-full bg-slate-200" />
-                      <div className="h-2 w-2 rounded-full bg-slate-200" />
+                    <span className="text-[9px] text-white/70">MARKETING</span>
+                  </div>
+                </div>
+
+                {/* Tab Bar */}
+                <div className="flex items-center gap-1 border-b border-gray-200 bg-white px-4 py-1.5">
+                  {[
+                    { label: 'Início', active: false },
+                    { label: 'Financeiro', active: false },
+                    { label: 'Inadimplentes', active: false },
+                    { label: 'Balanço Resultado', active: true },
+                  ].map((tab, i) => (
+                    <div
+                      key={tab.label}
+                      className={cn(
+                        'flex items-center gap-1 rounded px-2.5 py-1 text-[9px] font-semibold whitespace-nowrap',
+                        tab.active
+                          ? 'border-brand-blue/30 bg-brand-blue/10 text-brand-blue border'
+                          : 'text-gray-400'
+                      )}
+                    >
+                      {tab.active && (
+                        <span className="bg-brand-blue inline-block h-1.5 w-1.5 rounded-full" />
+                      )}
+                      {tab.label}
+                      {i > 0 && <span className="ml-0.5 text-gray-300">×</span>}
+                    </div>
+                  ))}
+                </div>
+
+                {/* Content */}
+                <div className="p-5">
+                  <h4 className="text-brand-dark mb-4 text-center text-[12px] font-bold">
+                    Relatório de resultados - 2026
+                  </h4>
+
+                  {/* Filters */}
+                  <div className="mb-4 flex items-start gap-8">
+                    <div>
+                      <div className="mb-1 text-[8px] font-semibold text-gray-500">
+                        Ano
+                      </div>
+                      <div className="flex items-center gap-1 rounded border border-gray-200 bg-white px-2 py-1 text-[9px] text-gray-600">
+                        2026 <span className="text-gray-400">▾</span>
+                      </div>
+                    </div>
+                    <div>
+                      <div className="mb-1 text-[8px] font-semibold text-gray-500">
+                        Tipo de Período
+                      </div>
+                      <div className="space-y-1">
+                        {[
+                          { label: 'Data de Pagamento', checked: true },
+                          { label: 'Data de Emissão', checked: false },
+                          { label: 'Data de Vencimento', checked: false },
+                        ].map((opt) => (
+                          <div
+                            key={opt.label}
+                            className="flex items-center gap-1.5"
+                          >
+                            <div
+                              className={cn(
+                                'h-2 w-2 rounded-full border',
+                                opt.checked
+                                  ? 'border-brand-blue bg-brand-blue'
+                                  : 'border-gray-300 bg-white'
+                              )}
+                            />
+                            <span
+                              className={cn(
+                                'text-[7px]',
+                                opt.checked
+                                  ? 'text-brand-blue font-bold'
+                                  : 'text-gray-400'
+                              )}
+                            >
+                              {opt.label}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </div>
 
-                  {/* Dashboard Mock Content */}
-                  <div className="flex-1 p-8">
-                    <div className="grid grid-cols-2 gap-6 opacity-30 grayscale-[0.4]">
-                      <div className="flex h-28 flex-col justify-between rounded-2xl border border-slate-200 bg-slate-50 p-4">
-                        <div className="h-2 w-12 rounded-full bg-slate-300" />
-                        <div className="h-8 w-24 rounded-lg bg-slate-200/50" />
+                  {/* Table */}
+                  <div className="overflow-hidden rounded-xl border border-gray-100 bg-white text-[7px]">
+                    <div className="grid grid-cols-[2fr_repeat(5,1fr)_1fr_0.6fr] border-b border-gray-200 bg-gray-50 px-3 py-1.5">
+                      <div className="font-bold text-gray-500">Conta</div>
+                      {['Jan', 'Fev', 'Mar', 'Abr', 'Mai'].map((m) => (
+                        <div
+                          key={m}
+                          className="text-center font-bold text-gray-500"
+                        >
+                          {m}
+                        </div>
+                      ))}
+                      <div className="text-right font-bold text-gray-500">
+                        Total
                       </div>
-                      <div className="flex h-28 flex-col justify-between rounded-2xl border border-slate-200 bg-slate-50 p-4">
-                        <div className="h-2 w-16 rounded-full bg-slate-300" />
-                        <div className="h-8 w-16 rounded-lg bg-slate-200/50" />
+                      <div className="text-right font-bold text-gray-500">
+                        %
                       </div>
                     </div>
 
-                    {/* Improvised Chart with Grid */}
-                    <div className="relative mt-8 flex h-48 items-end gap-3 rounded-[2rem] border border-slate-200 bg-slate-50/50 p-8 opacity-40">
-                      {/* Grid Lines */}
-                      <div className="pointer-events-none absolute inset-x-8 inset-y-8 flex flex-col justify-between">
-                        <div className="h-px w-full bg-slate-200/60" />
-                        <div className="h-px w-full bg-slate-200/60" />
-                        <div className="h-px w-full bg-slate-200/60" />
-                        <div className="h-px w-full bg-slate-200" />
-                      </div>
-
-                      {/* Bars */}
-                      {[50, 80, 45, 95, 60, 85, 55, 75, 40, 90, 65, 80].map(
-                        (h, i) => (
+                    <div className="border-b border-gray-50 bg-gray-50/70 px-3 py-1">
+                      <span className="font-bold text-gray-600">
+                        Faturamento (R$)
+                      </span>
+                    </div>
+                    {[
+                      {
+                        label: 'Vendas de produtos',
+                        vals: [
+                          '1732,94',
+                          '1318,83',
+                          '3335,52',
+                          '963,17',
+                          '284,03',
+                        ],
+                        total: '7634,49',
+                        pct: '98.05%',
+                      },
+                      {
+                        label: 'Ajuste de caixa',
+                        vals: ['0,00', '100,00', '52,00', '0,00', '0,00'],
+                        total: '152,00',
+                        pct: '1.95%',
+                      },
+                    ].map((row) => (
+                      <div
+                        key={row.label}
+                        className="grid grid-cols-[2fr_repeat(5,1fr)_1fr_0.6fr] border-b border-gray-50 px-3 py-1"
+                      >
+                        <div className="text-gray-500">{row.label}</div>
+                        {row.vals.map((v, i) => (
                           <div
                             key={i}
-                            className="bg-brand-blue/30 hover:bg-brand-blue/50 relative z-10 flex-1 rounded-t-lg transition-colors"
-                            style={{ height: `${h}%` }}
-                          />
-                        )
-                      )}
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Card 1: Faturamento (Top Left) */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                whileHover={{
-                  y: -5,
-                  scale: 1.02,
-                  transition: { duration: 0.2 },
-                }}
-                transition={{ delay: 0.2, duration: 0.8 }}
-                className="border-brand-blue/10 absolute top-16 left-0 z-30 w-52 cursor-default rounded-2xl border bg-white/95 p-5 shadow-[0_20px_40px_-12px_rgba(0,0,0,0.08)] backdrop-blur-md"
-              >
-                <div className="mb-1.5 flex items-center gap-2">
-                  <TrendingUp className="h-4 w-4 text-emerald-500" />
-                  <span className="text-brand-dark/40 text-[11px] font-bold tracking-wider uppercase">
-                    Faturamento hoje
-                  </span>
-                </div>
-                <div className="flex items-baseline gap-1.5">
-                  <span className="text-brand-dark text-2xl leading-none font-black tracking-tight">
-                    R$ 8.420
-                  </span>
-                  <div className="flex items-center text-[11px] font-bold text-emerald-600">
-                    +18%
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Card 2: Pedidos Tempo Real (Top Right - Same height as Faturamento) */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                whileHover={{
-                  y: -5,
-                  scale: 1.02,
-                  transition: { duration: 0.2 },
-                }}
-                transition={{ delay: 0.4, duration: 0.8 }}
-                className="border-brand-blue/10 absolute top-16 right-0 z-30 w-56 cursor-default rounded-2xl border bg-slate-900/95 p-5 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.2)] backdrop-blur-md"
-              >
-                <div className="mb-1.5 flex items-center gap-2 text-white/40">
-                  <ShoppingBag className="text-brand-blue h-4 w-4" />
-                  <span className="text-[11px] font-bold tracking-wider uppercase">
-                    Pedidos ativos
-                  </span>
-                </div>
-                <div className="flex items-center justify-between">
-                  <span className="text-2xl leading-none font-black text-white">
-                    127{' '}
-                    <span className="text-[11px] font-medium text-white/40 uppercase">
-                      total
-                    </span>
-                  </span>
-                  <div className="bg-brand-blue/20 border-brand-blue/30 flex items-center gap-1.5 rounded-full border px-2.5 py-1">
-                    <span className="relative flex h-2 w-2">
-                      <span className="bg-brand-blue absolute inline-flex h-full w-full animate-ping rounded-full opacity-75"></span>
-                      <span className="bg-brand-blue relative inline-flex h-2 w-2 rounded-full"></span>
-                    </span>
-                    <span className="text-brand-blue text-[11px] font-black">
-                      +12
-                    </span>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Card 3: Equipe Online (Middle Right) */}
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                whileHover={{
-                  x: 5,
-                  scale: 1.02,
-                  transition: { duration: 0.2 },
-                }}
-                transition={{ delay: 0.6, duration: 0.8 }}
-                className="border-brand-blue/10 absolute top-48 right-4 z-30 w-56 cursor-default rounded-2xl border bg-white p-5 shadow-[0_20px_40px_-12px_rgba(0,0,0,0.08)]"
-              >
-                <div className="mb-3 flex items-center gap-3">
-                  <div className="flex -space-x-2">
-                    {[1, 2, 3].map((i) => (
-                      <div
-                        key={i}
-                        className="flex h-7 w-7 items-center justify-center overflow-hidden rounded-full border-2 border-white bg-slate-100"
-                      >
-                        <Users className="h-4 w-4 text-slate-400" />
+                            className={cn(
+                              'text-center',
+                              v === '0,00'
+                                ? 'text-gray-300'
+                                : 'font-semibold text-green-600'
+                            )}
+                          >
+                            {v}
+                          </div>
+                        ))}
+                        <div className="text-right font-semibold text-green-600">
+                          {row.total}
+                        </div>
+                        <div className="text-right text-green-600">
+                          {row.pct}
+                        </div>
                       </div>
                     ))}
-                    <div className="bg-brand-blue flex h-7 w-7 items-center justify-center rounded-full border-2 border-white text-[9px] font-bold text-white">
-                      +2
+                    <div className="grid grid-cols-[2fr_repeat(5,1fr)_1fr_0.6fr] border-b border-gray-200 bg-gray-50 px-3 py-1.5">
+                      <div className="font-bold text-gray-700">
+                        RECEITA BRUTA (R$)
+                      </div>
+                      {[
+                        '1732,94',
+                        '1418,83',
+                        '3387,52',
+                        '963,17',
+                        '284,03',
+                      ].map((v, i) => (
+                        <div
+                          key={i}
+                          className="text-center font-bold text-gray-700"
+                        >
+                          {v}
+                        </div>
+                      ))}
+                      <div className="text-right font-bold text-gray-700">
+                        7786,49
+                      </div>
+                      <div className="text-right text-gray-300">—</div>
                     </div>
-                  </div>
-                  <div className="flex items-center gap-1.5">
-                    <div className="h-2 w-2 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]" />
-                    <span className="text-brand-dark/40 text-[11px] font-bold">
-                      Equipe online
-                    </span>
-                  </div>
-                </div>
-                <div className="text-brand-dark/70 flex items-center gap-2">
-                  <Clock className="text-brand-blue h-4 w-4" />
-                  <span className="text-[12px] font-bold">
-                    Tempo médio: 3min
-                  </span>
-                </div>
-              </motion.div>
 
-              {/* Card 4: Integrações (Middle Left) */}
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                whileHover={{
-                  x: -5,
-                  scale: 1.02,
-                  transition: { duration: 0.2 },
-                }}
-                transition={{ delay: 0.8, duration: 0.8 }}
-                className="border-brand-blue/10 absolute top-48 left-6 z-30 w-60 cursor-default rounded-2xl border bg-white/95 p-5 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)] backdrop-blur-md"
-              >
-                <div className="mb-3 flex items-center justify-between">
-                  <div className="text-brand-orange flex h-8 w-8 items-center justify-center rounded-lg bg-orange-50">
-                    <Zap className="h-4 w-4" />
-                  </div>
-                  <div className="flex items-center gap-1.5 rounded-full border border-emerald-100 bg-emerald-50 px-2.5 py-1 text-[10px] font-bold text-emerald-600">
-                    Sincronizado
-                  </div>
-                </div>
-                <p className="text-brand-dark text-[13px] font-black">
-                  iFood + WhatsApp + PDV
-                </p>
-              </motion.div>
-
-              {/* Card 5: INDICADOR PRINCIPAL (Bottom Center - ELEMENTO DE FOCO) */}
-              <motion.div
-                initial={{ opacity: 0, y: 40, scale: 0.9 }}
-                animate={{ opacity: 1, y: 0, scale: 1.15 }}
-                whileHover={{
-                  y: -10,
-                  scale: 1.18,
-                  transition: { duration: 0.2 },
-                }}
-                transition={{
-                  delay: 1,
-                  duration: 1,
-                  type: 'spring',
-                  stiffness: 100,
-                }}
-                className="border-brand-blue bg-brand-blue absolute bottom-4 left-1/2 z-50 w-80 -translate-x-1/2 cursor-default rounded-[2rem] border p-7 text-white shadow-[0_40px_80px_-20px_rgba(40,86,183,0.4)]"
-              >
-                <div className="mb-5 flex items-center justify-between">
-                  <div className="flex items-center gap-2 text-white/60">
-                    <BarChart3 className="h-5 w-5" />
-                    <span className="text-[11px] font-bold tracking-widest uppercase">
-                      Indicadores da operação
-                    </span>
-                  </div>
-                  <div className="h-2 w-2 rounded-full bg-white/30" />
-                </div>
-
-                <div className="space-y-5">
-                  <div className="flex items-center justify-between border-b border-white/10 pb-4">
-                    <span className="text-[14px] font-medium text-white/70">
-                      Ticket Médio
-                    </span>
-                    <span className="text-[18px] font-black tracking-tight">
-                      R$ 62,40
-                    </span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-[14px] font-medium text-white/70">
-                      Conversão de pedidos
-                    </span>
-                    <div className="flex flex-col items-end">
-                      <span className="text-[18px] font-black tracking-tight">
-                        28.4%
-                      </span>
-                      <span className="text-[10px] leading-none font-bold text-emerald-400">
-                        +4.2% mês
+                    <div className="border-b border-gray-50 bg-gray-50/70 px-3 py-1">
+                      <span className="font-bold text-gray-600">
+                        Despesas Variáveis (R$)
                       </span>
                     </div>
+                    <div className="grid grid-cols-[2fr_repeat(5,1fr)_1fr_0.6fr] border-b border-gray-100 px-3 py-1">
+                      <div className="text-gray-500">Geração de crédito</div>
+                      {['137,80', '24,00', '360,00', '52,00', '0,00'].map(
+                        (v, i) => (
+                          <div
+                            key={i}
+                            className={cn(
+                              'text-center',
+                              v === '0,00'
+                                ? 'text-gray-300'
+                                : 'font-semibold text-red-500'
+                            )}
+                          >
+                            {v}
+                          </div>
+                        )
+                      )}
+                      <div className="text-right font-semibold text-red-500">
+                        573,80
+                      </div>
+                      <div className="text-right text-red-500">83.43%</div>
+                    </div>
+                    <div className="grid grid-cols-[2fr_repeat(5,1fr)_1fr_0.6fr] border-b border-gray-200 bg-gray-50 px-3 py-1.5">
+                      <div className="font-bold text-gray-700">
+                        MARGEM CONTRIBUIÇÃO
+                      </div>
+                      {[
+                        '1517,14',
+                        '1394,83',
+                        '3003,52',
+                        '899,17',
+                        '284,03',
+                      ].map((v, i) => (
+                        <div
+                          key={i}
+                          className="text-center font-bold text-gray-700"
+                        >
+                          {v}
+                        </div>
+                      ))}
+                      <div className="text-right font-bold text-gray-700">
+                        7098,69
+                      </div>
+                      <div className="text-right text-gray-300">—</div>
+                    </div>
+
+                    <div className="grid grid-cols-[2fr_repeat(5,1fr)_1fr_0.6fr] bg-green-50 px-3 py-2">
+                      <div className="font-black text-green-700">
+                        RESULTADO MES (R$)
+                      </div>
+                      {[
+                        '1517,14',
+                        '1394,83',
+                        '3003,52',
+                        '899,17',
+                        '284,03',
+                      ].map((v, i) => (
+                        <div
+                          key={i}
+                          className="text-center font-black text-green-600"
+                        >
+                          {v}
+                        </div>
+                      ))}
+                      <div className="text-right font-black text-green-600">
+                        7098,69
+                      </div>
+                      <div className="text-right text-gray-300">—</div>
+                    </div>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             </div>
-          </div>
+
+            <div className="bg-brand-blue/5 absolute -top-8 -right-8 -z-10 h-64 w-64 rounded-full blur-3xl" />
+            <div className="absolute -bottom-12 -left-12 -z-10 h-64 w-64 rounded-full bg-emerald-500/5 blur-3xl" />
+          </motion.div>
         </div>
 
         {/* Benefits (cards) */}
