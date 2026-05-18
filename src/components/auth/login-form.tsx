@@ -34,15 +34,15 @@ function LoginEditorial() {
   return (
     <div className="relative py-10">
       <div className="text-brand-dark max-w-[24ch] text-[2.8rem] leading-[0.95] tracking-[-0.04em] xl:text-[4.2rem]">
-        <p className="font-normal">Transformando</p>
+        <p className="font-normal">transformando</p>
         <p className="flex items-end gap-3 font-normal">
           <span>negócios</span>
           <span
-            className="inline-flex items-end gap-0 font-bold"
+            className="inline-flex items-end gap-[0.07em] font-bold"
             suppressHydrationWarning
           >
             <span suppressHydrationWarning>f</span>
-            <span className="mx-[-0.04em] inline-flex shrink-0 translate-y-[-0.08em] items-end leading-none">
+            <span className="inline-flex shrink-0 translate-y-[-0.08em] items-end leading-none">
               <FoodSymbol />
             </span>
             <span suppressHydrationWarning>d</span>
@@ -51,7 +51,7 @@ function LoginEditorial() {
         <p>
           <span className="font-normal">em </span>
           <span className="text-brand-blue font-bold">receitas</span>
-          <span className="text-brand-blue font-normal"> de</span>
+          <span className="font-normal"> de</span>
         </p>
         <p className="text-brand-blue font-bold">grande sucesso!</p>
       </div>

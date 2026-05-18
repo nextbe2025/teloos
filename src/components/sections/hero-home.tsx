@@ -20,7 +20,7 @@ export function HeroHome() {
             className="max-w-[620px]"
           >
             <h1 className="text-brand-dark mb-7 text-[40px] leading-[1.15] tracking-tight sm:text-5xl lg:text-[52px] xl:text-[58px]">
-              <span className="font-normal">Transformando negócios </span>
+              <span className="font-normal">transformando negócios </span>
               <span className="font-bold">f</span>
               <Image
                 src="/brand/teloos-symbol.png"
@@ -28,13 +28,13 @@ export function HeroHome() {
                 aria-hidden="true"
                 width={969}
                 height={594}
-                className="mx-[-0.04em] inline-block h-[0.7em] w-auto translate-y-[-0.06em]"
+                className="mx-[0.06em] inline-block h-[0.7em] w-auto translate-y-[-0.06em]"
               />
               <span className="font-bold">d</span>
               <span className="font-normal"> em </span>
               <br className="hidden xl:block" />
               <span className="text-brand-blue font-bold">receitas</span>
-              <span className="text-brand-blue font-normal"> de </span>
+              <span className="font-normal"> de </span>
               <span className="text-brand-blue font-bold">grande sucesso!</span>
             </h1>
 
