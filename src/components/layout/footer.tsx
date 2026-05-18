@@ -6,7 +6,7 @@ import { Instagram, Linkedin } from 'lucide-react'
 
 const FOOTER_LINKS = {
   solucoes: [
-    { label: 'PDV e Mesas', href: '/solucoes/pdv-e-mesa' },
+    { label: 'PDV e Mesas', href: '/solucoes/pdv-e-mesas' },
     { label: 'Delivery', href: '/solucoes/delivery' },
     { label: 'Autoatendimento', href: '/solucoes/autoatendimento' },
     { label: 'Relatórios', href: '/solucoes/relatorios' },

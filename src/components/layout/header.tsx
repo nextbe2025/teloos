@@ -21,7 +21,7 @@ const PRODUCT_SUBMENU = [
   {
     label: 'PDV e Mesas',
     description: 'PDV, Mesas, Comandas e Cozinha (KDS)',
-    href: '/solucoes/pdv-e-mesa',
+    href: '/solucoes/pdv-e-mesas',
     icon: UtensilsCrossed,
   },
   {

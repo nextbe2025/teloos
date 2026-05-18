@@ -31,7 +31,7 @@ const SOLUTIONS: Solution[] = [
     image: '/images/Sistema PDV_image.png',
     icon: UtensilsCrossed,
     cta: 'Ver mais soluções',
-    href: '/solucoes/pdv-e-mesa',
+    href: '/solucoes/pdv-e-mesas',
   },
   {
     title: 'Delivery',
