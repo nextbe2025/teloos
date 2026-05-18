@@ -398,62 +398,57 @@ export function PlansSection() {
                 </div>
 
                 {/* Content */}
-                <div className="p-5">
-                  <h4 className="text-brand-dark mb-4 text-center text-[12px] font-bold">
+                <div className="p-3">
+                  <h4 className="text-brand-dark mb-2 text-center text-[12px] font-bold">
                     Relatório de resultados - 2026
                   </h4>
 
                   {/* Filters */}
-                  <div className="mb-4 flex items-start gap-8">
-                    <div>
-                      <div className="mb-1 text-[8px] font-semibold text-gray-500">
-                        Ano
-                      </div>
-                      <div className="flex items-center gap-1 rounded border border-gray-200 bg-white px-2 py-1 text-[9px] text-gray-600">
+                  <div className="mb-2 flex items-center gap-6">
+                    <div className="flex items-center gap-1.5">
+                      <span className="text-[7px] font-semibold text-gray-400">
+                        Ano:
+                      </span>
+                      <div className="flex items-center gap-1 rounded border border-gray-200 bg-white px-1.5 py-0.5 text-[8px] text-gray-600">
                         2026 <span className="text-gray-400">▾</span>
                       </div>
                     </div>
-                    <div>
-                      <div className="mb-1 text-[8px] font-semibold text-gray-500">
-                        Tipo de Período
-                      </div>
-                      <div className="space-y-1">
-                        {[
-                          { label: 'Data de Pagamento', checked: true },
-                          { label: 'Data de Emissão', checked: false },
-                          { label: 'Data de Vencimento', checked: false },
-                        ].map((opt) => (
+                    <div className="flex items-center gap-3">
+                      {[
+                        { label: 'Data de Pagamento', checked: true },
+                        { label: 'Data de Emissão', checked: false },
+                        { label: 'Data de Vencimento', checked: false },
+                      ].map((opt) => (
+                        <div
+                          key={opt.label}
+                          className="flex items-center gap-1"
+                        >
                           <div
-                            key={opt.label}
-                            className="flex items-center gap-1.5"
+                            className={cn(
+                              'h-1.5 w-1.5 rounded-full border',
+                              opt.checked
+                                ? 'border-brand-blue bg-brand-blue'
+                                : 'border-gray-300 bg-white'
+                            )}
+                          />
+                          <span
+                            className={cn(
+                              'text-[6.5px]',
+                              opt.checked
+                                ? 'text-brand-blue font-bold'
+                                : 'text-gray-400'
+                            )}
                           >
-                            <div
-                              className={cn(
-                                'h-2 w-2 rounded-full border',
-                                opt.checked
-                                  ? 'border-brand-blue bg-brand-blue'
-                                  : 'border-gray-300 bg-white'
-                              )}
-                            />
-                            <span
-                              className={cn(
-                                'text-[7px]',
-                                opt.checked
-                                  ? 'text-brand-blue font-bold'
-                                  : 'text-gray-400'
-                              )}
-                            >
-                              {opt.label}
-                            </span>
-                          </div>
-                        ))}
-                      </div>
+                            {opt.label}
+                          </span>
+                        </div>
+                      ))}
                     </div>
                   </div>
 
                   {/* Table */}
                   <div className="overflow-hidden rounded-xl border border-gray-100 bg-white text-[7px]">
-                    <div className="grid grid-cols-[2fr_repeat(5,1fr)_1fr_0.6fr] border-b border-gray-200 bg-gray-50 px-3 py-1.5">
+                    <div className="grid grid-cols-[2fr_repeat(5,1fr)_1fr_0.6fr] border-b border-gray-200 bg-gray-50 px-3 py-1">
                       <div className="font-bold text-gray-500">Conta</div>
                       {['Jan', 'Fev', 'Mar', 'Abr', 'Mai'].map((m) => (
                         <div
@@ -471,7 +466,7 @@ export function PlansSection() {
                       </div>
                     </div>
 
-                    <div className="border-b border-gray-50 bg-gray-50/70 px-3 py-1">
+                    <div className="border-b border-gray-50 bg-gray-50/70 px-3 py-0.5">
                       <span className="font-bold text-gray-600">
                         Faturamento (R$)
                       </span>
@@ -498,7 +493,7 @@ export function PlansSection() {
                     ].map((row) => (
                       <div
                         key={row.label}
-                        className="grid grid-cols-[2fr_repeat(5,1fr)_1fr_0.6fr] border-b border-gray-50 px-3 py-1"
+                        className="grid grid-cols-[2fr_repeat(5,1fr)_1fr_0.6fr] border-b border-gray-50 px-3 py-0.5"
                       >
                         <div className="text-gray-500">{row.label}</div>
                         {row.vals.map((v, i) => (
@@ -522,7 +517,7 @@ export function PlansSection() {
                         </div>
                       </div>
                     ))}
-                    <div className="grid grid-cols-[2fr_repeat(5,1fr)_1fr_0.6fr] border-b border-gray-200 bg-gray-50 px-3 py-1.5">
+                    <div className="grid grid-cols-[2fr_repeat(5,1fr)_1fr_0.6fr] border-b border-gray-200 bg-gray-50 px-3 py-1">
                       <div className="font-bold text-gray-700">
                         RECEITA BRUTA (R$)
                       </div>
@@ -546,12 +541,12 @@ export function PlansSection() {
                       <div className="text-right text-gray-300">—</div>
                     </div>
 
-                    <div className="border-b border-gray-50 bg-gray-50/70 px-3 py-1">
+                    <div className="border-b border-gray-50 bg-gray-50/70 px-3 py-0.5">
                       <span className="font-bold text-gray-600">
                         Despesas Variáveis (R$)
                       </span>
                     </div>
-                    <div className="grid grid-cols-[2fr_repeat(5,1fr)_1fr_0.6fr] border-b border-gray-100 px-3 py-1">
+                    <div className="grid grid-cols-[2fr_repeat(5,1fr)_1fr_0.6fr] border-b border-gray-100 px-3 py-0.5">
                       <div className="text-gray-500">Geração de crédito</div>
                       {['137,80', '24,00', '360,00', '52,00', '0,00'].map(
                         (v, i) => (
@@ -573,7 +568,7 @@ export function PlansSection() {
                       </div>
                       <div className="text-right text-red-500">83.43%</div>
                     </div>
-                    <div className="grid grid-cols-[2fr_repeat(5,1fr)_1fr_0.6fr] border-b border-gray-200 bg-gray-50 px-3 py-1.5">
+                    <div className="grid grid-cols-[2fr_repeat(5,1fr)_1fr_0.6fr] border-b border-gray-200 bg-gray-50 px-3 py-1">
                       <div className="font-bold text-gray-700">
                         MARGEM CONTRIBUIÇÃO
                       </div>
@@ -597,7 +592,7 @@ export function PlansSection() {
                       <div className="text-right text-gray-300">—</div>
                     </div>
 
-                    <div className="grid grid-cols-[2fr_repeat(5,1fr)_1fr_0.6fr] bg-green-50 px-3 py-2">
+                    <div className="grid grid-cols-[2fr_repeat(5,1fr)_1fr_0.6fr] bg-green-50 px-3 py-1">
                       <div className="font-black text-green-700">
                         RESULTADO MES (R$)
                       </div>
