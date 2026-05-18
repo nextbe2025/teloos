@@ -113,14 +113,137 @@ export default function OperacaoAtendimentoPage() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="relative"
             >
-              <div className="shadow-brand-blue/10 relative overflow-hidden rounded-[2.5rem] border-8 border-white bg-slate-200 shadow-2xl">
-                <Image
-                  src="/images/Sistema PDV_image.png"
-                  alt="Sistema PDV Teloos"
-                  width={800}
-                  height={600}
-                  className="w-full object-cover"
-                />
+              <div className="shadow-brand-blue/10 relative overflow-hidden rounded-[2.5rem] border-8 border-white bg-white shadow-2xl">
+                <div className="aspect-[4/3] w-full overflow-hidden bg-[#F8FAFF]">
+                  <div className="flex items-center justify-between bg-[#1a70b0] px-4 py-1.5">
+                    <span className="truncate text-[8px] font-semibold text-white/80">
+                      SABOR &amp; CIA RESTAURANTES | 12.345.678/0001-90
+                    </span>
+                    <div className="flex h-4 w-4 items-center justify-center rounded-full bg-orange-500">
+                      <span className="text-[5px] font-bold text-white">
+                        MA
+                      </span>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-1 border-b border-gray-200 bg-white px-3 py-1">
+                    <div className="rounded px-2 py-0.5 text-[8px] whitespace-nowrap text-gray-400">
+                      PDV ×
+                    </div>
+                    <div className="flex items-center gap-1 rounded border border-blue-200 bg-blue-50 px-2 py-0.5 text-[8px] font-semibold whitespace-nowrap text-blue-600">
+                      <span className="inline-block h-1.5 w-1.5 rounded-full bg-blue-500" />
+                      Mapa de Mesas ×
+                    </div>
+                  </div>
+                  <div className="flex flex-col gap-2.5 p-3">
+                    <div className="flex items-center justify-between">
+                      <h4 className="text-[11px] font-bold text-gray-700">
+                        Salão Principal
+                      </h4>
+                      <span className="flex items-center gap-1 text-[7px] font-bold text-green-600">
+                        <span className="inline-block h-1.5 w-1.5 rounded-full bg-green-500" />
+                        4 garçons ativos
+                      </span>
+                    </div>
+                    <div className="grid grid-cols-3 gap-2">
+                      {[
+                        {
+                          label: 'Ocupadas',
+                          value: '32 / 48',
+                          bg: 'bg-orange-500',
+                        },
+                        {
+                          label: 'Faturamento',
+                          value: 'R$ 3.840',
+                          bg: 'bg-blue-500',
+                        },
+                        {
+                          label: 'Ticket Médio',
+                          value: 'R$ 120',
+                          bg: 'bg-purple-500',
+                        },
+                      ].map((tile) => (
+                        <div
+                          key={tile.label}
+                          className={`rounded-lg p-2 text-white ${tile.bg}`}
+                        >
+                          <div className="text-[6.5px] text-white/80">
+                            {tile.label}
+                          </div>
+                          <div className="text-[9px] leading-tight font-bold">
+                            {tile.value}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="grid grid-cols-6 gap-1.5">
+                      {[
+                        { num: '01', status: 'ocupada', ticket: 'R$280' },
+                        { num: '02', status: 'livre', ticket: '' },
+                        { num: '03', status: 'ocupada', ticket: 'R$145' },
+                        { num: '04', status: 'ocupada', ticket: 'R$390' },
+                        { num: '05', status: 'aguardando', ticket: '' },
+                        { num: '06', status: 'livre', ticket: '' },
+                        { num: '07', status: 'ocupada', ticket: 'R$88' },
+                        { num: '08', status: 'ocupada', ticket: 'R$220' },
+                        { num: '09', status: 'livre', ticket: '' },
+                        { num: '10', status: 'ocupada', ticket: 'R$445' },
+                        { num: '11', status: 'aguardando', ticket: '' },
+                        { num: '12', status: 'ocupada', ticket: 'R$62' },
+                      ].map((table) => (
+                        <div
+                          key={table.num}
+                          className={`rounded-lg p-1.5 text-center ${
+                            table.status === 'ocupada'
+                              ? 'border border-orange-200 bg-orange-100'
+                              : table.status === 'aguardando'
+                                ? 'border border-yellow-200 bg-yellow-100'
+                                : 'border border-green-200 bg-green-50'
+                          }`}
+                        >
+                          <div
+                            className={`text-[8px] font-black ${
+                              table.status === 'ocupada'
+                                ? 'text-orange-700'
+                                : table.status === 'aguardando'
+                                  ? 'text-yellow-700'
+                                  : 'text-green-600'
+                            }`}
+                          >
+                            {table.num}
+                          </div>
+                          <div
+                            className={`text-[5.5px] leading-tight ${
+                              table.status === 'ocupada'
+                                ? 'text-gray-500'
+                                : table.status === 'aguardando'
+                                  ? 'text-yellow-600'
+                                  : 'text-green-500'
+                            }`}
+                          >
+                            {table.ticket ||
+                              (table.status === 'aguardando'
+                                ? 'Aguard.'
+                                : 'Livre')}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="flex gap-4 text-[6.5px] text-gray-400">
+                      <span className="flex items-center gap-1">
+                        <span className="inline-block h-2 w-2 rounded-sm bg-orange-200" />
+                        Ocupada
+                      </span>
+                      <span className="flex items-center gap-1">
+                        <span className="inline-block h-2 w-2 rounded-sm bg-yellow-200" />
+                        Aguardando
+                      </span>
+                      <span className="flex items-center gap-1">
+                        <span className="inline-block h-2 w-2 rounded-sm bg-green-100" />
+                        Livre
+                      </span>
+                    </div>
+                  </div>
+                </div>
               </div>
 
               {/* Floating Notifications Simulation */}
