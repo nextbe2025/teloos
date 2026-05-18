@@ -8,11 +8,9 @@ import {
   TrendingUp,
   Package,
   Wallet,
-  PieChart,
   ArrowRight,
   CheckCircle2,
   Users,
-  Monitor,
   Sparkles,
 } from 'lucide-react'
 import { Container } from '@/components/shared/container'
@@ -118,16 +116,119 @@ export default function GestaoFinanceiroPage() {
                 transition={{ duration: 1 }}
                 className="relative z-10 overflow-hidden rounded-[2.5rem] border-[8px] border-white bg-white shadow-2xl"
               >
-                <div className="flex aspect-[4/3] w-full items-center justify-center bg-slate-50 p-8">
-                  <div className="flex h-full w-full flex-col gap-4">
-                    <div className="h-8 w-1/3 animate-pulse rounded-lg bg-slate-100" />
-                    <div className="grid h-32 grid-cols-3 gap-4">
-                      <div className="bg-brand-blue/5 border-brand-blue/10 rounded-2xl border" />
-                      <div className="bg-brand-blue/5 border-brand-blue/10 rounded-2xl border" />
-                      <div className="bg-brand-blue/5 border-brand-blue/10 rounded-2xl border" />
+                {/* Capital de Giro Dashboard */}
+                <div className="aspect-[4/3] w-full overflow-hidden bg-[#F8FAFF]">
+                  <div className="flex items-center justify-between bg-[#1a70b0] px-4 py-1.5">
+                    <span className="truncate text-[8px] font-semibold text-white/80">
+                      SABOR &amp; CIA RESTAURANTES | 12.345.678/0001-90
+                    </span>
+                    <div className="flex items-center gap-1.5">
+                      <div className="flex h-4 w-4 items-center justify-center rounded-full bg-orange-500">
+                        <span className="text-[5px] font-bold text-white">
+                          MA
+                        </span>
+                      </div>
                     </div>
-                    <div className="flex flex-1 items-center justify-center rounded-2xl border border-slate-100 bg-slate-50">
-                      <PieChart className="h-20 w-20 text-slate-200" />
+                  </div>
+                  <div className="flex items-center gap-1 border-b border-gray-200 bg-white px-3 py-1">
+                    <div className="rounded px-2 py-0.5 text-[8px] whitespace-nowrap text-gray-400">
+                      Financeiro ×
+                    </div>
+                    <div className="flex items-center gap-1 rounded border border-blue-200 bg-blue-50 px-2 py-0.5 text-[8px] font-semibold whitespace-nowrap text-blue-600">
+                      <span className="inline-block h-1.5 w-1.5 rounded-full bg-blue-500" />
+                      Capital de Giro ×
+                    </div>
+                  </div>
+                  <div className="flex flex-col p-3">
+                    <h4 className="mb-1.5 text-center text-[11px] font-bold text-gray-700">
+                      Capital de Giro
+                    </h4>
+                    <div className="mb-2 flex flex-wrap items-center gap-3 text-[7px]">
+                      <div className="flex items-center gap-1">
+                        <span className="text-gray-400">Data Inicial:</span>
+                        <span className="rounded border border-gray-200 bg-white px-1.5 py-0.5 text-gray-600">
+                          2026-04
+                        </span>
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <span className="text-gray-400">Data Final:</span>
+                        <span className="rounded border border-gray-200 bg-white px-1.5 py-0.5 text-gray-600">
+                          2026-05
+                        </span>
+                      </div>
+                    </div>
+                    <div className="mb-2 flex flex-wrap gap-x-2.5 gap-y-1">
+                      {[
+                        ['Caixa', 'bg-green-300'],
+                        ['Banco', 'bg-green-600'],
+                        ['Contas a Receber', 'bg-emerald-500'],
+                        ['Contas a Pagar', 'bg-red-400'],
+                        ['Capital Giro', 'bg-blue-500'],
+                      ].map(([label, color]) => (
+                        <div key={label} className="flex items-center gap-1">
+                          <div className={`h-1.5 w-3 rounded-sm ${color}`} />
+                          <span className="text-[6.5px] text-gray-500">
+                            {label}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="flex flex-col gap-4">
+                      {[
+                        {
+                          period: '04-2026',
+                          bars: [
+                            [14, 'bg-green-300'],
+                            [2, 'bg-green-600'],
+                            [92, 'bg-emerald-500'],
+                            [17, 'bg-red-400'],
+                            [100, 'bg-blue-500'],
+                          ],
+                        },
+                        {
+                          period: '05-2026',
+                          bars: [
+                            [9, 'bg-green-300'],
+                            [1, 'bg-green-600'],
+                            [58, 'bg-emerald-500'],
+                            [2, 'bg-red-400'],
+                            [64, 'bg-blue-500'],
+                          ],
+                        },
+                      ].map((group) => (
+                        <div
+                          key={group.period}
+                          className="flex items-start gap-2"
+                        >
+                          <span className="w-14 shrink-0 pt-1 text-right text-[7px] font-bold text-gray-500">
+                            {group.period}
+                          </span>
+                          <div className="flex flex-1 flex-col gap-0.5">
+                            {group.bars.map(([pct, color], i) => (
+                              <div
+                                key={i}
+                                className="flex h-3 w-full items-center"
+                              >
+                                <motion.div
+                                  initial={{ width: 0 }}
+                                  whileInView={{ width: `${pct}%` }}
+                                  viewport={{ once: true }}
+                                  transition={{
+                                    duration: 0.7,
+                                    delay: i * 0.08,
+                                  }}
+                                  className={`h-2 min-w-[2px] rounded-r-sm ${color}`}
+                                />
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="mt-1 flex justify-between pl-16 text-[5.5px] text-gray-300">
+                      {['R$ 0', 'R$ 1k', 'R$ 2k', 'R$ 3k'].map((v) => (
+                        <span key={v}>{v}</span>
+                      ))}
                     </div>
                   </div>
                 </div>
@@ -354,12 +455,136 @@ export default function GestaoFinanceiroPage() {
                 transition={{ duration: 1 }}
                 className="relative z-10 overflow-hidden rounded-[3rem] border-8 border-slate-50 shadow-2xl"
               >
-                <div className="flex aspect-square w-full items-center justify-center bg-gradient-to-br from-slate-100 to-slate-200">
-                  <Monitor className="text-brand-blue/20 h-32 w-32" />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="text-brand-dark/20 text-sm font-black tracking-widest uppercase">
-                      Dashboard Centralizado
+                <div className="aspect-square w-full overflow-hidden bg-[#F8FAFF]">
+                  {/* App top bar */}
+                  <div className="flex items-center justify-between bg-[#1a70b0] px-4 py-1.5">
+                    <span className="truncate text-[8px] font-semibold text-white/80">
+                      SABOR &amp; CIA RESTAURANTES | 12.345.678/0001-90
                     </span>
+                    <div className="flex h-4 w-4 items-center justify-center rounded-full bg-orange-500">
+                      <span className="text-[5px] font-bold text-white">
+                        MA
+                      </span>
+                    </div>
+                  </div>
+                  {/* Tab bar */}
+                  <div className="flex items-center gap-1 border-b border-gray-200 bg-white px-3 py-1">
+                    <div className="rounded px-2 py-0.5 text-[8px] whitespace-nowrap text-gray-400">
+                      Financeiro ×
+                    </div>
+                    <div className="flex items-center gap-1 rounded border border-blue-200 bg-blue-50 px-2 py-0.5 text-[8px] font-semibold whitespace-nowrap text-blue-600">
+                      <span className="inline-block h-1.5 w-1.5 rounded-full bg-blue-500" />
+                      Fluxo de Caixa ×
+                    </div>
+                  </div>
+                  {/* Content */}
+                  <div className="flex flex-col gap-3 p-3">
+                    <h4 className="text-center text-[11px] font-bold text-gray-700">
+                      Fluxo de Caixa — Semana Atual
+                    </h4>
+                    {/* Summary tiles */}
+                    <div className="grid grid-cols-3 gap-2">
+                      {[
+                        {
+                          label: 'Entradas',
+                          value: 'R$ 8.420',
+                          bg: 'bg-green-500',
+                        },
+                        {
+                          label: 'Saídas',
+                          value: 'R$ 3.180',
+                          bg: 'bg-red-400',
+                        },
+                        {
+                          label: 'Saldo',
+                          value: 'R$ 5.240',
+                          bg: 'bg-blue-500',
+                        },
+                      ].map((tile) => (
+                        <div
+                          key={tile.label}
+                          className={`rounded-lg p-2 text-white ${tile.bg}`}
+                        >
+                          <div className="text-[6.5px] text-white/80">
+                            {tile.label}
+                          </div>
+                          <div className="text-[9px] leading-tight font-bold">
+                            {tile.value}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                    {/* Bar chart */}
+                    <div className="rounded-xl border border-gray-100 bg-white p-3 shadow-sm">
+                      <div className="flex h-32 items-end gap-2">
+                        {[
+                          { day: 'Seg', income: 70, expense: 30 },
+                          { day: 'Ter', income: 85, expense: 40 },
+                          { day: 'Qua', income: 60, expense: 25 },
+                          { day: 'Qui', income: 100, expense: 45 },
+                          { day: 'Sex', income: 90, expense: 55 },
+                          { day: 'Sáb', income: 75, expense: 20 },
+                          { day: 'Dom', income: 50, expense: 15 },
+                        ].map((d, i) => (
+                          <div
+                            key={d.day}
+                            className="flex flex-1 flex-col items-center"
+                          >
+                            <div className="flex h-24 w-full items-end justify-center gap-0.5">
+                              <motion.div
+                                initial={{ height: 0 }}
+                                whileInView={{ height: `${d.income}%` }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.7, delay: i * 0.06 }}
+                                className="flex-1 rounded-t-sm bg-green-400"
+                              />
+                              <motion.div
+                                initial={{ height: 0 }}
+                                whileInView={{ height: `${d.expense}%` }}
+                                viewport={{ once: true }}
+                                transition={{
+                                  duration: 0.7,
+                                  delay: i * 0.06 + 0.1,
+                                }}
+                                className="flex-1 rounded-t-sm bg-red-400"
+                              />
+                            </div>
+                            <span className="mt-1 text-[6px] text-gray-400">
+                              {d.day}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                      <div className="mt-2 flex justify-center gap-4 text-[7px] text-gray-400">
+                        <span className="flex items-center gap-1">
+                          <span className="inline-block h-1.5 w-1.5 rounded-full bg-green-400" />
+                          Entradas
+                        </span>
+                        <span className="flex items-center gap-1">
+                          <span className="inline-block h-1.5 w-1.5 rounded-full bg-red-400" />
+                          Saídas
+                        </span>
+                      </div>
+                    </div>
+                    {/* Bottom summary row */}
+                    <div className="flex items-center justify-between rounded-lg border border-gray-100 bg-white px-3 py-2 shadow-sm">
+                      <div>
+                        <p className="text-[7px] text-gray-400">
+                          Saldo Acumulado
+                        </p>
+                        <p className="text-[11px] font-black text-green-600">
+                          R$ 5.240,00
+                        </p>
+                      </div>
+                      <div className="text-right">
+                        <p className="text-[7px] text-gray-400">
+                          vs. semana anterior
+                        </p>
+                        <p className="text-[10px] font-black text-green-500">
+                          ↑ +12,4%
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </motion.div>

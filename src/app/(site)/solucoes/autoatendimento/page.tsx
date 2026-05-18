@@ -118,12 +118,114 @@ export default function AutoatendimentoPage() {
                 transition={{ duration: 1 }}
                 className="relative z-10 overflow-hidden rounded-[2.5rem] border-[8px] border-white bg-slate-200 shadow-2xl"
               >
-                <div className="flex aspect-[4/3] w-full items-center justify-center bg-gradient-to-br from-slate-100 to-slate-300">
-                  {/* Fallback pattern while image isn't available */}
-                  <div className="flex flex-col items-center gap-4 text-slate-400">
-                    <Monitor className="h-20 w-20 opacity-20" />
-                    <span className="text-sm font-bold tracking-widest uppercase opacity-30">
-                      Interface Totem Teloos
+                <div className="aspect-[4/3] w-full overflow-hidden bg-[#1c1c2e]">
+                  {/* Header */}
+                  <div className="flex items-center justify-between bg-[#12122a] px-4 py-2">
+                    <div className="flex items-center gap-2">
+                      <div className="h-3 w-3 rounded-full bg-orange-500" />
+                      <span className="text-[9px] font-black tracking-wider text-white">
+                        SABOR &amp; CIA
+                      </span>
+                    </div>
+                    <span className="rounded-full bg-orange-500/20 px-2 py-0.5 text-[6px] font-bold text-orange-400">
+                      AUTOATENDIMENTO
+                    </span>
+                  </div>
+                  {/* Category tabs */}
+                  <div className="flex gap-1.5 bg-[#1c1c2e] px-3 pt-2 pb-1.5">
+                    {[
+                      { label: 'Lanches', active: false },
+                      { label: 'Combos', active: true },
+                      { label: 'Bebidas', active: false },
+                      { label: 'Extras', active: false },
+                    ].map((cat) => (
+                      <div
+                        key={cat.label}
+                        className={`rounded-full px-2.5 py-1 text-[7px] font-bold whitespace-nowrap ${
+                          cat.active
+                            ? 'bg-orange-500 text-white'
+                            : 'bg-white/10 text-white/40'
+                        }`}
+                      >
+                        {cat.label}
+                      </div>
+                    ))}
+                  </div>
+                  {/* Product grid */}
+                  <div className="grid grid-cols-3 gap-2 px-3 pb-2">
+                    {[
+                      {
+                        name: 'X-Burguer',
+                        price: 'R$ 24,90',
+                        color: 'bg-amber-600',
+                        badge: false,
+                      },
+                      {
+                        name: 'X-Bacon',
+                        price: 'R$ 29,90',
+                        color: 'bg-red-700',
+                        badge: false,
+                      },
+                      {
+                        name: 'Combo Duplo',
+                        price: 'R$ 39,90',
+                        color: 'bg-orange-600',
+                        badge: true,
+                      },
+                      {
+                        name: 'X-Veggie',
+                        price: 'R$ 22,90',
+                        color: 'bg-green-700',
+                        badge: false,
+                      },
+                      {
+                        name: 'X-Frango',
+                        price: 'R$ 26,90',
+                        color: 'bg-yellow-600',
+                        badge: false,
+                      },
+                      {
+                        name: 'Smash Cheddar',
+                        price: 'R$ 32,90',
+                        color: 'bg-purple-700',
+                        badge: false,
+                      },
+                    ].map((item, i) => (
+                      <div
+                        key={i}
+                        className="relative overflow-hidden rounded-xl bg-white/5"
+                      >
+                        <div className={`${item.color} h-10 w-full`} />
+                        {item.badge && (
+                          <div className="absolute top-1 left-1 rounded-sm bg-orange-500 px-1 py-0.5 text-[5px] font-black text-white">
+                            + PEDIDO
+                          </div>
+                        )}
+                        <div className="p-1.5">
+                          <p className="text-[7px] leading-tight font-bold text-white">
+                            {item.name}
+                          </p>
+                          <p className="text-[8px] font-black text-orange-400">
+                            {item.price}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  {/* Cart bar */}
+                  <div className="mx-3 flex items-center justify-between rounded-xl bg-orange-500 px-3 py-1.5">
+                    <div className="flex items-center gap-2">
+                      <div className="flex h-4 w-4 items-center justify-center rounded-full bg-white">
+                        <span className="text-[7px] font-black text-orange-500">
+                          2
+                        </span>
+                      </div>
+                      <span className="text-[7px] font-bold text-white">
+                        Itens no pedido
+                      </span>
+                    </div>
+                    <span className="text-[9px] font-black text-white">
+                      R$ 54,80 →
                     </span>
                   </div>
                 </div>
@@ -321,12 +423,148 @@ export default function AutoatendimentoPage() {
                 transition={{ duration: 1 }}
                 className="relative z-10 overflow-hidden rounded-[3rem] border-8 border-slate-50 shadow-2xl"
               >
-                <div className="flex aspect-square w-full items-center justify-center bg-gradient-to-br from-slate-100 to-slate-200">
-                  <Monitor className="text-brand-blue/20 h-32 w-32" />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="text-brand-dark/20 text-sm font-black tracking-widest uppercase">
-                      Dashboard Centralizado
+                <div className="aspect-square w-full overflow-hidden bg-[#0f172a]">
+                  {/* KDS Header */}
+                  <div className="flex items-center justify-between bg-[#0a0f1e] px-4 py-2">
+                    <span className="text-[9px] font-black tracking-widest text-white/70 uppercase">
+                      KDS — Cozinha
                     </span>
+                    <span className="flex items-center gap-1 text-[7px] font-bold text-green-400">
+                      <span className="inline-block h-1.5 w-1.5 rounded-full bg-green-400" />
+                      AO VIVO
+                    </span>
+                  </div>
+                  {/* Column headers */}
+                  <div className="grid grid-cols-3 gap-2 px-3 pt-2 pb-1">
+                    {[
+                      { label: 'NOVO', color: 'bg-red-500/20 text-red-400' },
+                      {
+                        label: 'PREPARO',
+                        color: 'bg-yellow-500/20 text-yellow-400',
+                      },
+                      {
+                        label: 'PRONTO',
+                        color: 'bg-green-500/20 text-green-400',
+                      },
+                    ].map((col) => (
+                      <div
+                        key={col.label}
+                        className={`rounded-t-lg py-1 text-center text-[7px] font-black tracking-wider ${col.color}`}
+                      >
+                        {col.label}
+                      </div>
+                    ))}
+                  </div>
+                  {/* Order cards */}
+                  <div className="grid grid-cols-3 gap-2 px-3">
+                    {/* NOVO */}
+                    <div className="flex flex-col gap-2">
+                      {[
+                        {
+                          num: '#047',
+                          items: ['X-Burguer x2', 'Batata G'],
+                          time: '2min',
+                        },
+                        { num: '#048', items: ['Combo Duplo'], time: '1min' },
+                        { num: '#049', items: ['X-Bacon x1'], time: '< 1min' },
+                      ].map((o) => (
+                        <div
+                          key={o.num}
+                          className="rounded-xl border border-red-500/30 bg-red-500/10 p-2"
+                        >
+                          <div className="mb-1 flex items-center justify-between">
+                            <span className="text-[8px] font-black text-red-400">
+                              {o.num}
+                            </span>
+                            <span className="text-[6px] text-red-400/60">
+                              {o.time}
+                            </span>
+                          </div>
+                          {o.items.map((orderItem, j) => (
+                            <p key={j} className="text-[6.5px] text-white/50">
+                              {orderItem}
+                            </p>
+                          ))}
+                        </div>
+                      ))}
+                    </div>
+                    {/* PREPARO */}
+                    <div className="flex flex-col gap-2">
+                      {[
+                        {
+                          num: '#044',
+                          items: ['X-Bacon x1', 'Suco Lj x2'],
+                          time: '8min',
+                        },
+                        {
+                          num: '#045',
+                          items: ['Combo Fml', 'Refri x1'],
+                          time: '6min',
+                        },
+                        { num: '#046', items: ['X-Frango x2'], time: '4min' },
+                      ].map((o) => (
+                        <div
+                          key={o.num}
+                          className="rounded-xl border border-yellow-500/30 bg-yellow-500/10 p-2"
+                        >
+                          <div className="mb-1 flex items-center justify-between">
+                            <span className="text-[8px] font-black text-yellow-400">
+                              {o.num}
+                            </span>
+                            <span className="text-[6px] text-yellow-400/60">
+                              {o.time}
+                            </span>
+                          </div>
+                          {o.items.map((orderItem, j) => (
+                            <p key={j} className="text-[6.5px] text-white/50">
+                              {orderItem}
+                            </p>
+                          ))}
+                        </div>
+                      ))}
+                    </div>
+                    {/* PRONTO */}
+                    <div className="flex flex-col gap-2">
+                      {[
+                        { num: '#041', items: ['X-Burguer x2'], time: '12min' },
+                        {
+                          num: '#042',
+                          items: ['Smash Chd', 'Açaí M'],
+                          time: '11min',
+                        },
+                        { num: '#043', items: ['Combo Dbr'], time: '10min' },
+                      ].map((o) => (
+                        <div
+                          key={o.num}
+                          className="rounded-xl border border-green-500/30 bg-green-500/10 p-2"
+                        >
+                          <div className="mb-1 flex items-center justify-between">
+                            <span className="text-[8px] font-black text-green-400">
+                              {o.num}
+                            </span>
+                            <span className="text-[6px] text-green-400/60">
+                              {o.time}
+                            </span>
+                          </div>
+                          {o.items.map((orderItem, j) => (
+                            <p key={j} className="text-[6.5px] text-white/50">
+                              {orderItem}
+                            </p>
+                          ))}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  {/* Footer status bar */}
+                  <div className="mx-3 mt-2 flex items-center justify-between rounded-lg bg-white/5 px-3 py-1.5">
+                    <span className="text-[7px] text-white/40">
+                      9 pedidos em aberto
+                    </span>
+                    <div className="flex gap-3 text-[7px]">
+                      <span className="text-red-400">3 novos</span>
+                      <span className="text-yellow-400">3 preparo</span>
+                      <span className="text-green-400">3 prontos</span>
+                    </div>
                   </div>
                 </div>
               </motion.div>
