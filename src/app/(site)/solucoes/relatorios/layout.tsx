@@ -1,9 +1,9 @@
 import { generateMetadata } from '@/lib/metadata'
 
 export const metadata = generateMetadata({
-  title: 'Gestão & Financeiro | Controle Total do Negócio',
+  title: 'Relatórios | Vendas, Financeiro e Estoque | Teloos',
   description:
-    'Gestão inteligente para food service. Controle de estoque, financeiro completo, DRE em tempo real e relatórios avançados para tomada de decisão.',
+    'Relatórios completos de vendas, financeiro e estoque para food service. DRE em tempo real, fluxo de caixa e insights de IA para tomar decisões com dados.',
 })
 
 export default function Layout({ children }: { children: React.ReactNode }) {

@@ -53,7 +53,7 @@ const FEATURES = [
 
 export default function OperacaoAtendimentoPage() {
   useEffect(() => {
-    document.title = 'PDV e Mesas | Comandas e Cozinha KDS | Teloos'
+    document.title = 'PDV e Mesas | Comandas, KDS e Gestão de Mesas | Teloos'
   }, [])
 
   return (

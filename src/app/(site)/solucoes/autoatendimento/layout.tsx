@@ -1,7 +1,7 @@
 import { generateMetadata } from '@/lib/metadata'
 
 export const metadata = generateMetadata({
-  title: 'Autoatendimento | Cardápio Digital e Totens',
+  title: 'Autoatendimento | Totem e Cardápio Digital | Teloos',
   description:
     'Aumente o ticket médio e reduza filas com nossas soluções de autoatendimento. Cardápios via QR Code e totens intuitivos totalmente integrados ao seu caixa.',
 })
