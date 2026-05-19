@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Plus, Minus } from 'lucide-react'
+import Link from 'next/link'
 import { Container } from '@/components/shared'
 import { cn } from '@/lib/utils'
 
@@ -102,6 +103,17 @@ export function FaqSection() {
               )
             })}
           </div>
+
+          {/* Rodapé FAQ */}
+          <p className="mt-8 text-center text-[15px] text-brand-dark/50">
+            Ainda tem dúvidas?{' '}
+            <Link
+              href="/contato"
+              className="text-brand-blue font-semibold hover:underline underline-offset-2 transition-opacity hover:opacity-80"
+            >
+              Entre em contato com nossa equipe
+            </Link>
+          </p>
         </div>
       </Container>
     </section>
