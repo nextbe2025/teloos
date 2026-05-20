@@ -38,6 +38,21 @@ const FAQS = [
     answer:
       'Sim. A Teloos emite NFC-e (Nota Fiscal de Consumidor Eletrônica) e NF-e integradas ao fluxo de venda, com suporte a SAT Fiscal. Tudo dentro das exigências fiscais brasileiras, sem complicação.',
   },
+  {
+    question: 'A Teloos oferece controle financeiro e de estoque?',
+    answer:
+      'Sim. A Teloos possui módulos completos de controle de estoque e gestão financeira integrados à operação. Acompanhe entradas, saídas, CMV, fluxo de caixa e relatórios em tempo real, tudo em um só lugar, sem planilhas ou sistemas separados.',
+  },
+  {
+    question: 'A Teloos tem integração com maquininhas de cartão?',
+    answer:
+      'Sim. A Teloos se integra com as principais maquininhas do mercado, permitindo pagamentos por cartão de débito, crédito, Pix e carteiras digitais diretamente pelo PDV. A integração elimina a necessidade de digitar valores manualmente e reduz erros no fechamento.',
+  },
+  {
+    question: 'A Teloos tem aplicativo mobile?',
+    answer:
+      'Sim. A Teloos conta com aplicativo mobile para gestão do negócio, permitindo acompanhar vendas, pedidos e indicadores em tempo real de qualquer lugar. Ideal para donos e gerentes que precisam de visibilidade mesmo fora do estabelecimento.',
+  },
 ]
 
 export function FaqSection() {
