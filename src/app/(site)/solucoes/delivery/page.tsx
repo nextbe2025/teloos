@@ -69,7 +69,7 @@ export default function DeliveryVendasPage() {
                 </span>
               </div>
 
-              <h1 className="text-brand-dark mt-8 text-[40px] leading-[1.1] font-black tracking-tight sm:text-5xl lg:text-[56px]">
+              <h1 className="text-brand-dark mt-8 text-[40px] leading-[1.1] font-extrabold tracking-tight sm:text-5xl lg:text-[56px]">
                 Seu delivery sem taxas, <span>mais lucro no seu bolso.</span>
               </h1>
 
@@ -186,7 +186,7 @@ export default function DeliveryVendasPage() {
                           className={`flex items-center justify-between px-3 py-2 ${i > 0 ? 'border-t border-gray-100' : ''}`}
                         >
                           <div className="flex items-center gap-2">
-                            <span className="text-[8px] font-black text-gray-600">
+                            <span className="text-[8px] font-extrabold text-gray-600">
                               {order.num}
                             </span>
                             <span className="text-[6.5px] text-gray-400">
@@ -198,7 +198,7 @@ export default function DeliveryVendasPage() {
                               {order.value}
                             </span>
                             <span
-                              className={`rounded-full px-1.5 py-0.5 text-[6px] font-black ${order.statusColor}`}
+                              className={`rounded-full px-1.5 py-0.5 text-[6px] font-extrabold ${order.statusColor}`}
                             >
                               {order.status}
                             </span>
@@ -249,7 +249,7 @@ export default function DeliveryVendasPage() {
                     <ShoppingBag className="h-4 w-4" />
                   </div>
                   <div className="flex-1">
-                    <p className="text-brand-dark text-xs font-black">
+                    <p className="text-brand-dark text-xs font-extrabold">
                       Novo Pedido!
                     </p>
                     <p className="text-brand-dark/50 text-[10px] font-bold">
@@ -273,7 +273,7 @@ export default function DeliveryVendasPage() {
                     <Bike className="h-4 w-4" />
                   </div>
                   <div className="flex-1">
-                    <p className="text-brand-dark text-xs font-black">
+                    <p className="text-brand-dark text-xs font-extrabold">
                       Entregador a caminho
                     </p>
                     <p className="text-brand-dark/50 text-[10px] font-bold">
@@ -294,7 +294,7 @@ export default function DeliveryVendasPage() {
                 className="absolute top-1/2 -right-12 z-10 hidden items-center gap-2 rounded-full border border-slate-100 bg-white px-4 py-2 shadow-lg sm:flex"
               >
                 <div className="bg-brand-blue h-2 w-2 animate-pulse rounded-full" />
-                <span className="text-brand-dark text-[11px] font-black tracking-wider uppercase">
+                <span className="text-brand-dark text-[11px] font-extrabold tracking-wider uppercase">
                   Loja Aberta
                 </span>
               </motion.div>
@@ -305,7 +305,7 @@ export default function DeliveryVendasPage() {
                 transition={{ delay: 1.6, duration: 0.5 }}
                 className="bg-brand-dark absolute top-1/3 -left-12 z-10 hidden items-center gap-2 rounded-full px-4 py-2 shadow-lg sm:flex"
               >
-                <span className="text-[11px] font-black tracking-wider text-white uppercase">
+                <span className="text-[11px] font-extrabold tracking-wider text-white uppercase">
                   iFood On-line
                 </span>
               </motion.div>
@@ -316,7 +316,7 @@ export default function DeliveryVendasPage() {
                 transition={{ delay: 1.8, duration: 0.5 }}
                 className="absolute -right-8 bottom-1/4 z-10 hidden items-center gap-2 rounded-full bg-emerald-500 px-4 py-2 shadow-lg sm:flex"
               >
-                <span className="text-[11px] font-black tracking-wider text-white uppercase">
+                <span className="text-[11px] font-extrabold tracking-wider text-white uppercase">
                   R$ 4.240 hoje
                 </span>
               </motion.div>
@@ -357,7 +357,7 @@ export default function DeliveryVendasPage() {
                 >
                   <CheckCircle2 className="h-6 w-6" />
                 </motion.div>
-                <h3 className="text-brand-dark text-xl font-black">
+                <h3 className="text-brand-dark text-xl font-extrabold">
                   {item.label}
                 </h3>
                 <p className="text-brand-dark/60 mt-2 font-medium">
@@ -381,7 +381,7 @@ export default function DeliveryVendasPage() {
             viewport={{ once: true }}
             className="mb-16 text-center"
           >
-            <h2 className="text-brand-dark text-3xl font-black sm:text-4xl lg:text-5xl">
+            <h2 className="text-brand-dark text-3xl font-extrabold sm:text-4xl lg:text-5xl">
               Venda onde seu cliente <br className="hidden md:block" />
               <span>está presente.</span>
             </h2>
@@ -401,7 +401,7 @@ export default function DeliveryVendasPage() {
                 <div className="bg-brand-blue/10 group-hover:bg-brand-blue text-brand-blue mb-6 flex h-14 w-14 items-center justify-center rounded-2xl transition-colors group-hover:text-white">
                   <feature.icon className="h-7 w-7" />
                 </div>
-                <h3 className="text-brand-dark group-hover:text-brand-blue text-xl font-black transition-colors">
+                <h3 className="text-brand-dark group-hover:text-brand-blue text-xl font-extrabold transition-colors">
                   {feature.title}
                 </h3>
                 <p className="text-brand-dark/60 mt-4 leading-relaxed font-medium">
@@ -486,14 +486,16 @@ export default function DeliveryVendasPage() {
                             key={ch.label}
                             className={`rounded-xl border p-2 ${ch.bg} ${ch.border}`}
                           >
-                            <div className={`text-[7px] font-black ${ch.text}`}>
+                            <div
+                              className={`text-[7px] font-extrabold ${ch.text}`}
+                            >
                               {ch.label}
                             </div>
                             <div className="mt-0.5 text-[6.5px] text-gray-500">
                               {ch.orders}
                             </div>
                             <div
-                              className={`mt-1 text-[8px] font-black ${ch.text}`}
+                              className={`mt-1 text-[8px] font-extrabold ${ch.text}`}
                             >
                               {ch.value}
                             </div>
@@ -532,7 +534,7 @@ export default function DeliveryVendasPage() {
                               key={order.num}
                               className={`flex items-center gap-2 px-3 py-2 ${i > 0 ? 'border-t border-gray-100' : ''}`}
                             >
-                              <span className="text-[8px] font-black text-gray-600">
+                              <span className="text-[8px] font-extrabold text-gray-600">
                                 {order.num}
                               </span>
                               <span
@@ -544,7 +546,7 @@ export default function DeliveryVendasPage() {
                                 {order.items}
                               </span>
                               <span
-                                className={`rounded-full px-1.5 py-0.5 text-[6px] font-black ${order.statusColor}`}
+                                className={`rounded-full px-1.5 py-0.5 text-[6px] font-extrabold ${order.statusColor}`}
                               >
                                 {order.status}
                               </span>
@@ -578,7 +580,7 @@ export default function DeliveryVendasPage() {
                   }}
                   className="bg-brand-blue absolute -bottom-8 -left-8 flex h-32 w-32 flex-col items-center justify-center rounded-full text-white shadow-xl"
                 >
-                  <span className="text-2xl font-black">Full</span>
+                  <span className="text-2xl font-extrabold">Full</span>
                   <span className="text-center text-[10px] font-bold tracking-widest uppercase">
                     Integração iFood
                   </span>
@@ -592,7 +594,7 @@ export default function DeliveryVendasPage() {
               transition={{ duration: 0.8 }}
               className="order-1 lg:order-2"
             >
-              <h2 className="text-brand-dark text-3xl font-black sm:text-4xl">
+              <h2 className="text-brand-dark text-3xl font-extrabold sm:text-4xl">
                 Tudo em um só lugar: <br />
                 Acabe com o caos dos tablets.
               </h2>
@@ -639,7 +641,7 @@ export default function DeliveryVendasPage() {
               viewport={{ once: true }}
               className="relative z-10"
             >
-              <h2 className="text-4xl font-black text-white sm:text-5xl lg:text-6xl">
+              <h2 className="text-4xl font-extrabold text-white sm:text-5xl lg:text-6xl">
                 Sua vitrine online <br className="hidden md:block" />
                 <span>espera por você.</span>
               </h2>

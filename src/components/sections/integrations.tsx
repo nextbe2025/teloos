@@ -32,7 +32,7 @@ function LogoItem({ name }: { name: string }) {
       <div className="group relative">
         {/* Logo Placeholder - Estilo Glassmorphism neutro */}
         <div className="group-hover:border-brand-blue/30 group-hover:shadow-brand-blue/5 flex h-14 w-28 items-center justify-center rounded-2xl border border-gray-100 bg-white/50 px-4 transition-all duration-300 group-hover:bg-white group-hover:shadow-lg">
-          <span className="text-brand-dark/20 group-hover:text-brand-blue text-[13px] font-black tracking-tighter grayscale transition-all group-hover:grayscale-0">
+          <span className="text-brand-dark/20 group-hover:text-brand-blue text-[13px] font-extrabold tracking-tighter grayscale transition-all group-hover:grayscale-0">
             {name}
           </span>
         </div>
@@ -92,7 +92,7 @@ export function IntegrationsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-brand-dark mb-6 text-[34px] leading-[1.1] font-black sm:text-[42px] lg:text-[52px]"
+            className="text-brand-dark mb-6 text-[34px] leading-[1.1] font-extrabold sm:text-[42px] lg:text-[52px]"
           >
             Integrado com as principais <br className="hidden lg:block" />
             <span>plataformas do mercado</span>

@@ -162,7 +162,7 @@ function BenefitCard({ benefit, index }: { benefit: Benefit; index: number }) {
             {index === 2 && <BarChart3 className="h-7 w-7" strokeWidth={2} />}
           </div>
           <div>
-            <h3 className="text-brand-dark text-[22px] leading-tight font-black tracking-tight">
+            <h3 className="text-brand-dark text-[22px] leading-tight font-extrabold tracking-tight">
               {benefit.title}
             </h3>
             <p className="text-brand-dark/55 mt-4 text-[16px] leading-relaxed">
@@ -199,7 +199,7 @@ function PlanCard({ plan, isAnnual }: { plan: Plan; isAnnual: boolean }) {
       {/* Badge Recomendado (Reposicionado) */}
       {plan.recommended && (
         <div className="absolute top-0 left-1/2 z-[100] -translate-x-1/2 -translate-y-1/2">
-          <span className="bg-brand-blue inline-flex items-center gap-1.5 rounded-full px-5 py-2 text-[11px] font-black tracking-[0.15em] whitespace-nowrap text-white uppercase shadow-xl ring-4 ring-white">
+          <span className="bg-brand-blue inline-flex items-center gap-1.5 rounded-full px-5 py-2 text-[11px] font-extrabold tracking-[0.15em] whitespace-nowrap text-white uppercase shadow-xl ring-4 ring-white">
             <Crown className="h-3.5 w-3.5 fill-current" strokeWidth={3} />
             Recomendado
           </span>
@@ -209,7 +209,7 @@ function PlanCard({ plan, isAnnual }: { plan: Plan; isAnnual: boolean }) {
       <div className="uppercase-none relative flex h-full flex-col p-10">
         {/* Header: Nome e Descrição */}
         <div className="mb-8">
-          <h3 className="text-brand-dark mb-3 text-2xl font-black tracking-tight">
+          <h3 className="text-brand-dark mb-3 text-2xl font-extrabold tracking-tight">
             {plan.name}
           </h3>
           <p className="text-brand-dark/50 min-h-[45px] text-[14px] leading-relaxed font-medium">
@@ -221,7 +221,7 @@ function PlanCard({ plan, isAnnual }: { plan: Plan; isAnnual: boolean }) {
         <div className="mb-8">
           {plan.priceCustom ? (
             <div>
-              <div className="text-brand-dark text-[28px] leading-tight font-black">
+              <div className="text-brand-dark text-[28px] leading-tight font-extrabold">
                 Falar Comercial
               </div>
               <p className="text-brand-dark/40 mt-2 text-[13px] font-medium">
@@ -232,7 +232,7 @@ function PlanCard({ plan, isAnnual }: { plan: Plan; isAnnual: boolean }) {
             <div>
               <div className="flex items-baseline gap-1">
                 <span className="text-brand-dark/30 text-lg font-bold">R$</span>
-                <span className="text-brand-dark text-5xl font-black tracking-tight">
+                <span className="text-brand-dark text-5xl font-extrabold tracking-tight">
                   {currentPrice.replace('R$ ', '').split(',')[0]}
                 </span>
                 <span className="text-brand-dark/40 text-2xl font-bold">
@@ -257,7 +257,7 @@ function PlanCard({ plan, isAnnual }: { plan: Plan; isAnnual: boolean }) {
             asChild
             size="lg"
             className={cn(
-              'h-14 w-full rounded-full text-[15px] font-black transition-all duration-300',
+              'h-14 w-full rounded-full text-[15px] font-extrabold transition-all duration-300',
               plan.recommended
                 ? 'from-brand-blue to-brand-orange shadow-brand-blue/25 border-0 bg-gradient-to-r text-white shadow-lg hover:scale-[1.02] hover:brightness-110'
                 : 'bg-brand-dark hover:bg-brand-dark/95 shadow-brand-dark/10 text-white shadow-md'
@@ -269,7 +269,7 @@ function PlanCard({ plan, isAnnual }: { plan: Plan; isAnnual: boolean }) {
 
         {/* Lista de Benefícios */}
         <div className="flex-grow space-y-6">
-          <p className="text-brand-dark/20 text-[11px] font-black tracking-[0.2em] uppercase">
+          <p className="text-brand-dark/20 text-[11px] font-extrabold tracking-[0.2em] uppercase">
             O que está incluso:
           </p>
           <ul className="space-y-4">
@@ -295,7 +295,7 @@ function PlanCard({ plan, isAnnual }: { plan: Plan; isAnnual: boolean }) {
 
         {/* Texto Inferior Refinado */}
         <div className="mt-12 flex justify-center border-t border-slate-100 pt-8">
-          <p className="text-brand-dark/25 text-center text-[11px] font-black tracking-widest uppercase">
+          <p className="text-brand-dark/25 text-center text-[11px] font-extrabold tracking-widest uppercase">
             Sem fidelidade
           </p>
         </div>
@@ -325,7 +325,7 @@ export function PlansSection() {
               </span>
             </div>
 
-            <h2 className="text-brand-dark mt-8 text-[40px] leading-[1.15] font-black tracking-tight sm:text-5xl lg:text-[52px] xl:text-[58px]">
+            <h2 className="text-brand-dark mt-8 text-[40px] leading-[1.15] font-extrabold tracking-tight sm:text-5xl lg:text-[52px] xl:text-[58px]">
               Escolha o plano ideal para crescer com{' '}
               <br className="hidden xl:block" />
               <span>controle e previsibilidade.</span>
@@ -368,10 +368,10 @@ export function PlansSection() {
                 </span>
               </div>
               <div className="flex items-baseline gap-1.5">
-                <span className="text-brand-dark text-[22px] leading-none font-black tracking-tight">
+                <span className="text-brand-dark text-[22px] leading-none font-extrabold tracking-tight">
                   R$ 7.786
                 </span>
-                <span className="text-[11px] font-black text-emerald-500">
+                <span className="text-[11px] font-extrabold text-emerald-500">
                   +22%
                 </span>
               </div>
@@ -391,11 +391,11 @@ export function PlansSection() {
                 <span className="text-[10px] font-bold tracking-wider text-white/40 uppercase">
                   Resultado do Mês
                 </span>
-                <span className="rounded-full bg-emerald-500/20 px-2 py-0.5 text-[9px] font-black text-emerald-400">
+                <span className="rounded-full bg-emerald-500/20 px-2 py-0.5 text-[9px] font-extrabold text-emerald-400">
                   91.18%
                 </span>
               </div>
-              <div className="text-[22px] leading-none font-black tracking-tight text-white">
+              <div className="text-[22px] leading-none font-extrabold tracking-tight text-white">
                 R$ 7.098
               </div>
               <p className="mt-1 text-[10px] font-medium text-white/30">
@@ -420,7 +420,7 @@ export function PlansSection() {
               </div>
               <div className="flex items-end justify-between">
                 <div>
-                  <div className="text-brand-dark text-[22px] leading-none font-black">
+                  <div className="text-brand-dark text-[22px] leading-none font-extrabold">
                     4
                   </div>
                   <p className="text-brand-dark/30 mt-0.5 text-[10px] font-medium">
@@ -428,7 +428,7 @@ export function PlansSection() {
                   </p>
                 </div>
                 <div className="text-right">
-                  <div className="text-[14px] font-black text-orange-500">
+                  <div className="text-[14px] font-extrabold text-orange-500">
                     R$ 80,40
                   </div>
                   <p className="text-brand-dark/30 text-[9px] font-medium">
@@ -677,7 +677,7 @@ export function PlansSection() {
                     </div>
 
                     <div className="grid grid-cols-[2fr_repeat(5,1fr)_1fr_0.6fr] bg-green-50 px-3 py-1">
-                      <div className="font-black text-green-700">
+                      <div className="font-extrabold text-green-700">
                         RESULTADO MES (R$)
                       </div>
                       {[
@@ -689,12 +689,12 @@ export function PlansSection() {
                       ].map((v, i) => (
                         <div
                           key={i}
-                          className="text-center font-black text-green-600"
+                          className="text-center font-extrabold text-green-600"
                         >
                           {v}
                         </div>
                       ))}
-                      <div className="text-right font-black text-green-600">
+                      <div className="text-right font-extrabold text-green-600">
                         7098,69
                       </div>
                       <div className="text-right text-gray-300">—</div>
@@ -713,7 +713,7 @@ export function PlansSection() {
         <div className="relative z-10 mt-16 lg:mt-20">
           <div className="flex items-end justify-between gap-6">
             <div className="max-w-[640px]">
-              <h2 className="text-brand-dark text-[26px] leading-tight font-black sm:text-3xl">
+              <h2 className="text-brand-dark text-[26px] leading-tight font-extrabold sm:text-3xl">
                 O que está incluso no seu plano
               </h2>
               <p className="text-brand-dark/60 mt-3 text-[15px] leading-relaxed">
@@ -737,7 +737,7 @@ export function PlansSection() {
         <div className="relative z-10 mt-16 lg:mt-24">
           <div className="mb-16 flex flex-col items-center">
             <div className="mb-10 max-w-[720px] text-center">
-              <h2 className="text-brand-dark text-[32px] leading-tight font-black sm:text-4xl">
+              <h2 className="text-brand-dark text-[32px] leading-tight font-extrabold sm:text-4xl">
                 Escolha o plano ideal <span>de acordo com seu negócio</span>
               </h2>
               <p className="text-brand-dark/60 mt-4 text-[17px] leading-relaxed">
@@ -754,7 +754,7 @@ export function PlansSection() {
               <button
                 onClick={() => setIsAnnual(false)}
                 className={cn(
-                  'rounded-full px-10 py-3 text-[14px] font-black transition-all duration-300',
+                  'rounded-full px-10 py-3 text-[14px] font-extrabold transition-all duration-300',
                   !isAnnual
                     ? 'bg-brand-blue text-white shadow-md'
                     : 'text-brand-dark/40 hover:text-brand-dark/60'
@@ -765,14 +765,14 @@ export function PlansSection() {
               <button
                 onClick={() => setIsAnnual(true)}
                 className={cn(
-                  'relative rounded-full px-10 py-3 text-[14px] font-black transition-all duration-300',
+                  'relative rounded-full px-10 py-3 text-[14px] font-extrabold transition-all duration-300',
                   isAnnual
                     ? 'bg-brand-blue text-white shadow-md'
                     : 'text-brand-dark/40 hover:text-brand-dark/60'
                 )}
               >
                 Anual
-                <span className="bg-brand-orange shadow-brand-orange/20 absolute -top-3 -right-6 animate-bounce rounded-full px-2.5 py-1 text-[10px] font-black text-white shadow-lg">
+                <span className="bg-brand-orange shadow-brand-orange/20 absolute -top-3 -right-6 animate-bounce rounded-full px-2.5 py-1 text-[10px] font-extrabold text-white shadow-lg">
                   ECONOMIZE 15%
                 </span>
               </button>
@@ -812,7 +812,7 @@ export function PlansSection() {
 
             <div className="relative z-10 flex flex-col gap-10 lg:flex-row lg:items-center lg:justify-between">
               <div className="max-w-[580px]">
-                <h3 className="text-3xl leading-tight font-black tracking-tight text-white sm:text-4xl">
+                <h3 className="text-3xl leading-tight font-extrabold tracking-tight text-white sm:text-4xl">
                   Pronto para transformar sua operação?
                 </h3>
                 <p className="mt-5 text-[17px] leading-relaxed font-medium text-white/80">
@@ -825,7 +825,7 @@ export function PlansSection() {
                 <Button
                   asChild
                   size="lg"
-                  className="bg-brand-orange hover:bg-brand-orange/90 shadow-brand-orange/20 h-14 rounded-full px-10 font-black text-white shadow-xl transition-all hover:scale-[1.05]"
+                  className="bg-brand-orange hover:bg-brand-orange/90 shadow-brand-orange/20 h-14 rounded-full px-10 font-extrabold text-white shadow-xl transition-all hover:scale-[1.05]"
                 >
                   <Link href="/contato">Começar agora</Link>
                 </Button>
@@ -833,7 +833,7 @@ export function PlansSection() {
                   asChild
                   variant="outline"
                   size="lg"
-                  className="h-14 rounded-full border-white/20 bg-white/10 px-8 font-black text-white backdrop-blur-md transition-all hover:bg-white/20 sm:border-white"
+                  className="h-14 rounded-full border-white/20 bg-white/10 px-8 font-extrabold text-white backdrop-blur-md transition-all hover:bg-white/20 sm:border-white"
                 >
                   <Link href="/contato">Falar com consultor</Link>
                 </Button>

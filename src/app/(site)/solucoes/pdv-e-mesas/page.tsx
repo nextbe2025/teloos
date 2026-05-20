@@ -83,7 +83,7 @@ export default function OperacaoAtendimentoPage() {
                 </span>
               </div>
 
-              <h1 className="text-brand-dark mt-8 text-[40px] leading-[1.1] font-black tracking-tight sm:text-5xl lg:text-[56px]">
+              <h1 className="text-brand-dark mt-8 text-[40px] leading-[1.1] font-extrabold tracking-tight sm:text-5xl lg:text-[56px]">
                 Agilidade no salão, <br />
                 <span>precisão na cozinha.</span>
               </h1>
@@ -199,7 +199,7 @@ export default function OperacaoAtendimentoPage() {
                           }`}
                         >
                           <div
-                            className={`text-[8px] font-black ${
+                            className={`text-[8px] font-extrabold ${
                               table.status === 'ocupada'
                                 ? 'text-orange-700'
                                 : table.status === 'aguardando'
@@ -256,7 +256,7 @@ export default function OperacaoAtendimentoPage() {
                     <UtensilsCrossed className="h-4 w-4" />
                   </div>
                   <div className="flex-1">
-                    <p className="text-brand-dark text-xs font-black">
+                    <p className="text-brand-dark text-xs font-extrabold">
                       Pedido Confirmado
                     </p>
                     <p className="text-brand-dark/50 text-[10px] font-bold">
@@ -280,7 +280,7 @@ export default function OperacaoAtendimentoPage() {
                     <Zap className="h-4 w-4" />
                   </div>
                   <div className="flex-1">
-                    <p className="text-brand-dark text-xs font-black">
+                    <p className="text-brand-dark text-xs font-extrabold">
                       Conta Fechada!
                     </p>
                     <p className="text-brand-dark/50 text-[10px] font-bold">
@@ -300,7 +300,7 @@ export default function OperacaoAtendimentoPage() {
                 transition={{ delay: 1.4, duration: 0.5 }}
                 className="bg-brand-blue absolute top-1/2 -left-12 z-10 hidden items-center gap-2 rounded-full px-4 py-2 shadow-lg sm:flex"
               >
-                <span className="text-[11px] font-black tracking-wider text-white uppercase">
+                <span className="text-[11px] font-extrabold tracking-wider text-white uppercase">
                   Garçons: 4 ON
                 </span>
               </motion.div>
@@ -312,7 +312,7 @@ export default function OperacaoAtendimentoPage() {
                 className="absolute top-1/4 -right-12 z-10 hidden items-center gap-2 rounded-full border border-slate-100 bg-white px-4 py-2 shadow-lg sm:flex"
               >
                 <div className="h-2 w-2 animate-pulse rounded-full bg-blue-500" />
-                <span className="text-brand-dark text-[11px] font-black tracking-wider uppercase">
+                <span className="text-brand-dark text-[11px] font-extrabold tracking-wider uppercase">
                   Cozinha a Mil
                 </span>
               </motion.div>
@@ -323,7 +323,7 @@ export default function OperacaoAtendimentoPage() {
                 transition={{ delay: 1.8, duration: 0.5 }}
                 className="bg-brand-dark absolute -right-8 bottom-1/3 z-10 hidden items-center gap-2 rounded-full px-4 py-2 shadow-lg sm:flex"
               >
-                <span className="text-[11px] font-black tracking-wider text-white uppercase">
+                <span className="text-[11px] font-extrabold tracking-wider text-white uppercase">
                   32 Mesas Ocupadas
                 </span>
               </motion.div>
@@ -364,7 +364,7 @@ export default function OperacaoAtendimentoPage() {
                 >
                   <CheckCircle2 className="h-6 w-6" />
                 </motion.div>
-                <h3 className="text-brand-dark text-xl font-black">
+                <h3 className="text-brand-dark text-xl font-extrabold">
                   {item.label}
                 </h3>
                 <p className="text-brand-dark/60 mt-2 font-medium">
@@ -388,7 +388,7 @@ export default function OperacaoAtendimentoPage() {
             viewport={{ once: true }}
             className="mb-16 text-center"
           >
-            <h2 className="text-brand-dark text-3xl font-black sm:text-4xl lg:text-5xl">
+            <h2 className="text-brand-dark text-3xl font-extrabold sm:text-4xl lg:text-5xl">
               Tudo o que sua operação <br className="hidden md:block" />
               <span>precisa para voar.</span>
             </h2>
@@ -411,7 +411,7 @@ export default function OperacaoAtendimentoPage() {
                   <FeaturedIcon className="h-8 w-8" />
                 </div>
                 <div>
-                  <h3 className="text-brand-dark group-hover:text-brand-blue text-2xl font-black transition-colors">
+                  <h3 className="text-brand-dark group-hover:text-brand-blue text-2xl font-extrabold transition-colors">
                     {featured.title}
                   </h3>
                   <p className="text-brand-dark/60 mt-2 text-[15px] leading-relaxed font-medium">
@@ -437,7 +437,7 @@ export default function OperacaoAtendimentoPage() {
                 <div className="bg-brand-blue/10 group-hover:bg-brand-blue text-brand-blue mb-6 flex h-14 w-14 items-center justify-center rounded-2xl transition-colors group-hover:text-white">
                   <feature.icon className="h-7 w-7" />
                 </div>
-                <h3 className="text-brand-dark group-hover:text-brand-blue text-xl font-black transition-colors">
+                <h3 className="text-brand-dark group-hover:text-brand-blue text-xl font-extrabold transition-colors">
                   {feature.title}
                 </h3>
                 <p className="text-brand-dark/60 mt-4 leading-relaxed font-medium">
@@ -480,7 +480,7 @@ export default function OperacaoAtendimentoPage() {
                   }}
                   className="bg-brand-blue absolute -top-8 -right-8 flex h-32 w-32 flex-col items-center justify-center rounded-full text-white shadow-xl"
                 >
-                  <span className="text-2xl font-black">Zero</span>
+                  <span className="text-2xl font-extrabold">Zero</span>
                   <span className="text-[10px] font-bold tracking-widest uppercase">
                     Papel na Cozinha
                   </span>
@@ -494,7 +494,7 @@ export default function OperacaoAtendimentoPage() {
               transition={{ duration: 0.8 }}
               className="order-1 lg:order-2"
             >
-              <h2 className="text-brand-dark text-3xl font-black sm:text-4xl">
+              <h2 className="text-brand-dark text-3xl font-extrabold sm:text-4xl">
                 Cozinha Digital (KDS): <br />A evolução do seu preparo.
               </h2>
               <p className="text-brand-dark/60 mt-6 text-lg leading-relaxed">
@@ -532,7 +532,7 @@ export default function OperacaoAtendimentoPage() {
         <Container>
           <div className="grid items-center gap-16 lg:grid-cols-2">
             <div>
-              <h2 className="text-brand-dark text-3xl font-black sm:text-4xl">
+              <h2 className="text-brand-dark text-3xl font-extrabold sm:text-4xl">
                 Mapa de Mesas Visual: <br />
                 Sua casa sob controle.
               </h2>
@@ -546,7 +546,7 @@ export default function OperacaoAtendimentoPage() {
                   <div className="text-brand-blue mb-4">
                     <LayoutDashboard className="h-8 w-8" />
                   </div>
-                  <h4 className="text-brand-dark font-black">
+                  <h4 className="text-brand-dark font-extrabold">
                     Layout Personalizado
                   </h4>
                   <p className="text-brand-dark/50 mt-2 text-sm font-medium">
@@ -557,7 +557,7 @@ export default function OperacaoAtendimentoPage() {
                   <div className="text-brand-orange mb-4">
                     <Zap className="h-8 w-8" />
                   </div>
-                  <h4 className="text-brand-dark font-black">
+                  <h4 className="text-brand-dark font-extrabold">
                     Fechamento Ágil
                   </h4>
                   <p className="text-brand-dark/50 mt-2 text-sm font-medium">
@@ -592,7 +592,7 @@ export default function OperacaoAtendimentoPage() {
               viewport={{ once: true }}
               className="relative z-10"
             >
-              <h2 className="text-4xl font-black text-white sm:text-5xl lg:text-6xl">
+              <h2 className="text-4xl font-extrabold text-white sm:text-5xl lg:text-6xl">
                 Pronto para revolucionar <br className="hidden md:block" />
                 <span>sua operação?</span>
               </h2>

@@ -58,12 +58,12 @@ export function MetricsSection() {
                 </div>
 
                 {metric.value ? (
-                  <h2 className="mb-1 text-4xl font-black tracking-tight">
+                  <h2 className="mb-1 text-4xl font-extrabold tracking-tight">
                     {metric.value}
                   </h2>
                 ) : (
                   <div className="mb-2">
-                    <p className="text-[22px] leading-tight font-black tracking-tight">
+                    <p className="text-[22px] leading-tight font-extrabold tracking-tight">
                       {metric.label}
                     </p>
                     {metric.subtitle && (

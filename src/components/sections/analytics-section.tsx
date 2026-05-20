@@ -26,7 +26,7 @@ export function AnalyticsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="text-brand-dark mb-6 text-[34px] leading-[1.1] font-black sm:text-[42px] lg:text-[48px]"
+              className="text-brand-dark mb-6 text-[34px] leading-[1.1] font-extrabold sm:text-[42px] lg:text-[48px]"
             >
               Aumente seu faturamento com <span>decisões em tempo real</span>
             </motion.h2>
@@ -80,13 +80,15 @@ export function AnalyticsSection() {
 
             <div className="grid grid-cols-2 gap-8">
               <div>
-                <div className="text-brand-blue text-2xl font-black">↑ 23%</div>
+                <div className="text-brand-blue text-2xl font-extrabold">
+                  ↑ 23%
+                </div>
                 <p className="text-brand-dark/40 mt-1 text-[13px] leading-snug font-medium">
                   Mais faturamento com decisões baseadas em dados
                 </p>
               </div>
               <div>
-                <div className="text-2xl font-black text-emerald-500">
+                <div className="text-2xl font-extrabold text-emerald-500">
                   ↓ 40%
                 </div>
                 <p className="text-brand-dark/40 mt-1 text-[13px] leading-snug font-medium">

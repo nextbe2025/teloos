@@ -192,7 +192,7 @@ export function WhyTeloosSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="text-brand-dark max-w-[700px] text-[34px] leading-[1.1] font-black sm:text-[42px] lg:text-[52px]"
+              className="text-brand-dark max-w-[700px] text-[34px] leading-[1.1] font-extrabold sm:text-[42px] lg:text-[52px]"
             >
               Tecnologia que transforma a <br className="hidden lg:block" />
               <span>gestão do seu negócio</span>
@@ -233,7 +233,7 @@ export function WhyTeloosSection() {
                   {/* Número de fundo no estilo premium */}
                   <span
                     className={cn(
-                      'pointer-events-none absolute right-8 bottom-8 text-7xl font-black transition-opacity',
+                      'pointer-events-none absolute right-8 bottom-8 text-7xl font-extrabold transition-opacity',
                       isActive
                         ? 'text-brand-blue opacity-15'
                         : 'text-brand-dark opacity-10'
