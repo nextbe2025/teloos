@@ -92,7 +92,7 @@ export function IntegrationsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-brand-dark mb-6 text-[34px] leading-[1.1] font-extrabold sm:text-[42px] lg:text-[52px]"
+            className="text-brand-dark mb-6 text-[34px] leading-[1.1] font-black sm:text-[42px] lg:text-[52px]"
           >
             Integrado com as principais <br className="hidden lg:block" />
             <span>plataformas do mercado</span>

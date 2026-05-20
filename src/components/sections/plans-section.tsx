@@ -295,7 +295,7 @@ function PlanCard({ plan, isAnnual }: { plan: Plan; isAnnual: boolean }) {
 
         {/* Texto Inferior Refinado */}
         <div className="mt-12 flex justify-center border-t border-slate-100 pt-8">
-          <p className="text-brand-dark/25 text-center text-[11px] font-extrabold tracking-widest uppercase">
+          <p className="text-brand-dark/25 text-center text-[11px] font-black tracking-widest uppercase">
             Sem fidelidade
           </p>
         </div>
@@ -325,7 +325,7 @@ export function PlansSection() {
               </span>
             </div>
 
-            <h2 className="text-brand-dark mt-8 text-[40px] leading-[1.15] font-extrabold tracking-tight sm:text-5xl lg:text-[52px] xl:text-[58px]">
+            <h2 className="text-brand-dark mt-8 text-[40px] leading-[1.15] font-black tracking-tight sm:text-5xl lg:text-[52px] xl:text-[58px]">
               Escolha o plano ideal para crescer com{' '}
               <br className="hidden xl:block" />
               <span>controle e previsibilidade.</span>
@@ -713,7 +713,7 @@ export function PlansSection() {
         <div className="relative z-10 mt-16 lg:mt-20">
           <div className="flex items-end justify-between gap-6">
             <div className="max-w-[640px]">
-              <h2 className="text-brand-dark text-[26px] leading-tight font-extrabold sm:text-3xl">
+              <h2 className="text-brand-dark text-[26px] leading-tight font-black sm:text-3xl">
                 O que está incluso no seu plano
               </h2>
               <p className="text-brand-dark/60 mt-3 text-[15px] leading-relaxed">
@@ -737,7 +737,7 @@ export function PlansSection() {
         <div className="relative z-10 mt-16 lg:mt-24">
           <div className="mb-16 flex flex-col items-center">
             <div className="mb-10 max-w-[720px] text-center">
-              <h2 className="text-brand-dark text-[32px] leading-tight font-extrabold sm:text-4xl">
+              <h2 className="text-brand-dark text-[32px] leading-tight font-black sm:text-4xl">
                 Escolha o plano ideal <span>de acordo com seu negócio</span>
               </h2>
               <p className="text-brand-dark/60 mt-4 text-[17px] leading-relaxed">

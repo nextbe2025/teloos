@@ -83,7 +83,7 @@ export default function OperacaoAtendimentoPage() {
                 </span>
               </div>
 
-              <h1 className="text-brand-dark mt-8 text-[40px] leading-[1.1] font-extrabold tracking-tight sm:text-5xl lg:text-[56px]">
+              <h1 className="text-brand-dark mt-8 text-[40px] leading-[1.1] font-black tracking-tight sm:text-5xl lg:text-[56px]">
                 Agilidade no salão, <br />
                 <span>precisão na cozinha.</span>
               </h1>

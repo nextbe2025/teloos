@@ -121,7 +121,7 @@ function SolutionCard({
       <div className="flex flex-1 flex-col p-8 lg:p-10">
         <h3
           className={cn(
-            'text-brand-dark group-hover:text-brand-blue group-active:text-brand-blue mb-4 text-2xl font-extrabold tracking-tight transition-colors',
+            'text-brand-dark group-hover:text-brand-blue group-active:text-brand-blue mb-4 text-2xl font-black tracking-tight transition-colors',
             isPressed && 'text-brand-blue'
           )}
         >
@@ -159,7 +159,7 @@ export function SolutionsSection() {
         {/* Cabeçalho */}
         <div className="mb-16 flex flex-col gap-6 lg:mb-24 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-[800px]">
-            <h2 className="text-brand-dark text-[34px] leading-[1.1] font-extrabold sm:text-[42px] lg:text-[52px]">
+            <h2 className="text-brand-dark text-[34px] leading-[1.1] font-black sm:text-[42px] lg:text-[52px]">
               Plataforma completa para o <span>seu restaurante crescer.</span>
             </h2>
           </div>
