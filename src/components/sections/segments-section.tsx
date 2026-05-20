@@ -29,38 +29,66 @@ import { Section } from '@/components/shared/section'
 import { cn } from '@/lib/utils'
 
 const ALIMENTACAO = [
-  { name: 'Pizzarias',       icon: Pizza,       color: 'bg-red-50 text-red-500' },
-  { name: 'Hamburguerias',   icon: Store,       color: 'bg-blue-50 text-blue-500' },
-  { name: 'Bares',           icon: Beer,        color: 'bg-yellow-50 text-yellow-600' },
-  { name: 'Cafeterias',      icon: Coffee,      color: 'bg-amber-50 text-amber-600' },
-  { name: 'Lanchonetes',     icon: Utensils,    color: 'bg-orange-50 text-orange-500' },
-  { name: 'Padarias',        icon: Croissant,   color: 'bg-orange-50 text-orange-700' },
-  { name: 'Confeitarias',    icon: Croissant,   color: 'bg-pink-50 text-pink-500' },
-  { name: 'Sorveterias',     icon: IceCream,    color: 'bg-pink-50 text-pink-600' },
-  { name: 'Fast Food',       icon: Store,       color: 'bg-red-50 text-red-600' },
-  { name: 'Food Truck',      icon: Truck,       color: 'bg-slate-50 text-slate-600' },
-  { name: 'Açougue',         icon: Beef,        color: 'bg-red-50 text-red-800' },
-  { name: 'Wine Bars',       icon: Wine,        color: 'bg-purple-50 text-purple-600' },
+  { name: 'Pizzarias', icon: Pizza, color: 'bg-red-50 text-red-500' },
+  { name: 'Hamburguerias', icon: Store, color: 'bg-blue-50 text-blue-500' },
+  { name: 'Bares', icon: Beer, color: 'bg-yellow-50 text-yellow-600' },
+  { name: 'Cafeterias', icon: Coffee, color: 'bg-amber-50 text-amber-600' },
+  {
+    name: 'Lanchonetes',
+    icon: Utensils,
+    color: 'bg-orange-50 text-orange-500',
+  },
+  { name: 'Padarias', icon: Croissant, color: 'bg-orange-50 text-orange-700' },
+  { name: 'Confeitarias', icon: Croissant, color: 'bg-pink-50 text-pink-500' },
+  { name: 'Sorveterias', icon: IceCream, color: 'bg-pink-50 text-pink-600' },
+  { name: 'Fast Food', icon: Store, color: 'bg-red-50 text-red-600' },
+  { name: 'Food Truck', icon: Truck, color: 'bg-slate-50 text-slate-600' },
+  { name: 'Açougue', icon: Beef, color: 'bg-red-50 text-red-800' },
+  { name: 'Wine Bars', icon: Wine, color: 'bg-purple-50 text-purple-600' },
 ]
 
 const VAREJO = [
-  { name: 'Lojas de Roupas',          icon: Shirt,        color: 'bg-purple-50 text-purple-500' },
-  { name: 'Lojas de Calçados',        icon: Footprints,   color: 'bg-blue-50 text-blue-500' },
-  { name: 'Autopeças',                icon: Car,          color: 'bg-slate-50 text-slate-600' },
-  { name: 'Casa e Embalagens',        icon: Package,      color: 'bg-amber-50 text-amber-600' },
-  { name: 'Suplementos',              icon: Leaf,         color: 'bg-green-50 text-green-600' },
-  { name: 'Produtos Naturais',        icon: Leaf,         color: 'bg-emerald-50 text-emerald-600' },
-  { name: 'Mercados e Mercearias',    icon: ShoppingCart, color: 'bg-orange-50 text-orange-500' },
-  { name: 'Pet Shops',                icon: PawPrint,     color: 'bg-yellow-50 text-yellow-600' },
-  { name: 'Dist. de Bebidas',         icon: Droplets,     color: 'bg-blue-50 text-blue-600' },
-  { name: 'Adegas',                   icon: Wine,         color: 'bg-purple-50 text-purple-700' },
-  { name: 'Papelarias',               icon: BookOpen,     color: 'bg-pink-50 text-pink-500' },
-  { name: 'Farmácias',                icon: Plus,         color: 'bg-green-50 text-green-600' },
+  {
+    name: 'Lojas de Roupas',
+    icon: Shirt,
+    color: 'bg-purple-50 text-purple-500',
+  },
+  {
+    name: 'Lojas de Calçados',
+    icon: Footprints,
+    color: 'bg-blue-50 text-blue-500',
+  },
+  { name: 'Autopeças', icon: Car, color: 'bg-slate-50 text-slate-600' },
+  {
+    name: 'Casa e Embalagens',
+    icon: Package,
+    color: 'bg-amber-50 text-amber-600',
+  },
+  { name: 'Suplementos', icon: Leaf, color: 'bg-green-50 text-green-600' },
+  {
+    name: 'Produtos Naturais',
+    icon: Leaf,
+    color: 'bg-emerald-50 text-emerald-600',
+  },
+  {
+    name: 'Mercados e Mercearias',
+    icon: ShoppingCart,
+    color: 'bg-orange-50 text-orange-500',
+  },
+  { name: 'Pet Shops', icon: PawPrint, color: 'bg-yellow-50 text-yellow-600' },
+  {
+    name: 'Dist. de Bebidas',
+    icon: Droplets,
+    color: 'bg-blue-50 text-blue-600',
+  },
+  { name: 'Adegas', icon: Wine, color: 'bg-purple-50 text-purple-700' },
+  { name: 'Papelarias', icon: BookOpen, color: 'bg-pink-50 text-pink-500' },
+  { name: 'Farmácias', icon: Plus, color: 'bg-green-50 text-green-600' },
 ]
 
 const TABS = [
   { key: 'alimentacao', label: 'Alimentação', segments: ALIMENTACAO },
-  { key: 'varejo',      label: 'Varejo',      segments: VAREJO },
+  { key: 'varejo', label: 'Varejo', segments: VAREJO },
 ]
 
 export function SegmentsSection() {
@@ -90,7 +118,7 @@ export function SegmentsSection() {
               className="text-brand-dark text-[34px] leading-tight font-black sm:text-[42px] lg:text-[48px]"
             >
               Feito para o seu <br />
-              <span className="text-brand-blue">tipo de negócio.</span>
+              <span>tipo de negócio.</span>
             </motion.h2>
           </div>
           <motion.p
@@ -100,8 +128,8 @@ export function SegmentsSection() {
             transition={{ delay: 0.2 }}
             className="text-brand-dark/50 max-w-[400px] text-[17px] leading-relaxed lg:pb-2"
           >
-            Seja qual for o seu segmento, a Teloos se adapta à sua operação
-            com tecnologia, agilidade e suporte de verdade.
+            Seja qual for o seu segmento, a Teloos se adapta à sua operação com
+            tecnologia, agilidade e suporte de verdade.
           </motion.p>
         </div>
 
@@ -149,7 +177,7 @@ export function SegmentsSection() {
                 >
                   <segment.icon className="h-6 w-6" strokeWidth={2} />
                 </div>
-                <span className="text-brand-dark text-[13px] font-semibold leading-tight">
+                <span className="text-brand-dark text-[13px] leading-tight font-semibold">
                   {segment.name}
                 </span>
               </motion.div>

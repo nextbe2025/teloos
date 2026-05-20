@@ -195,7 +195,7 @@ export function WhyTeloosSection() {
               className="text-brand-dark max-w-[700px] text-[34px] leading-[1.1] font-extrabold sm:text-[42px] lg:text-[52px]"
             >
               Tecnologia que transforma a <br className="hidden lg:block" />
-              <span className="text-brand-blue">gestão do seu negócio</span>
+              <span>gestão do seu negócio</span>
             </motion.h2>
 
             <motion.p

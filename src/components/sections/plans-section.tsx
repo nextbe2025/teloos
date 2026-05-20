@@ -328,9 +328,7 @@ export function PlansSection() {
             <h2 className="text-brand-dark mt-8 text-[40px] leading-[1.15] font-extrabold tracking-tight sm:text-5xl lg:text-[52px] xl:text-[58px]">
               Escolha o plano ideal para crescer com{' '}
               <br className="hidden xl:block" />
-              <span className="text-brand-blue">
-                controle e previsibilidade.
-              </span>
+              <span>controle e previsibilidade.</span>
             </h2>
 
             <p className="text-brand-dark/60 mt-7 max-w-[560px] text-[17px] leading-relaxed">
@@ -740,10 +738,7 @@ export function PlansSection() {
           <div className="mb-16 flex flex-col items-center">
             <div className="mb-10 max-w-[720px] text-center">
               <h2 className="text-brand-dark text-[32px] leading-tight font-extrabold sm:text-4xl">
-                Escolha o plano ideal{' '}
-                <span className="text-brand-blue">
-                  de acordo com seu negócio
-                </span>
+                Escolha o plano ideal <span>de acordo com seu negócio</span>
               </h2>
               <p className="text-brand-dark/60 mt-4 text-[17px] leading-relaxed">
                 Sistema completo de gestão para restaurantes, bares, lojas de

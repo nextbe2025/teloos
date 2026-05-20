@@ -1,5 +1,6 @@
 ﻿'use client'
 
+import Image from 'next/image'
 import { useEffect } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
@@ -84,9 +85,7 @@ export default function GestaoFinanceiroPage() {
               <h1 className="text-brand-dark text-4xl leading-[1.1] font-black sm:text-5xl lg:text-6xl">
                 O controle total <br />
                 do seu negócio <br />
-                <span className="text-brand-blue text-glow-blue">
-                  na palma da mão.
-                </span>
+                <span>na palma da mão.</span>
               </h1>
               <p className="text-brand-dark/70 mt-8 max-w-xl text-xl leading-relaxed font-medium">
                 Tome decisões inteligentes baseadas em dados reais. Automatize
@@ -333,7 +332,7 @@ export default function GestaoFinanceiroPage() {
           >
             <h2 className="text-brand-dark text-3xl font-black sm:text-4xl lg:text-5xl">
               Tudo o que você precisa <br className="hidden md:block" />
-              <span className="text-brand-blue">para gerir o sucesso.</span>
+              <span>para gerir o sucesso.</span>
             </h2>
           </motion.div>
 
@@ -404,9 +403,7 @@ export default function GestaoFinanceiroPage() {
             >
               <h2 className="text-brand-dark text-4xl leading-tight font-black sm:text-5xl">
                 Tudo em um só lugar: <br />
-                <span className="text-brand-blue">
-                  Gestão 360° do seu negócio.
-                </span>
+                <span>Gestão 360° do seu negócio.</span>
               </h2>
               <p className="text-brand-dark/70 mt-8 text-xl leading-relaxed font-medium">
                 Controle o financeiro, estoque e vendas em um painel único.
@@ -455,138 +452,13 @@ export default function GestaoFinanceiroPage() {
                 transition={{ duration: 1 }}
                 className="relative z-10 overflow-hidden rounded-[3rem] border-8 border-slate-50 shadow-2xl"
               >
-                <div className="aspect-square w-full overflow-hidden bg-[#F8FAFF]">
-                  {/* App top bar */}
-                  <div className="flex items-center justify-between bg-[#1a70b0] px-4 py-1.5">
-                    <span className="truncate text-[8px] font-semibold text-white/80">
-                      SABOR &amp; CIA RESTAURANTES | 12.345.678/0001-90
-                    </span>
-                    <div className="flex h-4 w-4 items-center justify-center rounded-full bg-orange-500">
-                      <span className="text-[5px] font-bold text-white">
-                        MA
-                      </span>
-                    </div>
-                  </div>
-                  {/* Tab bar */}
-                  <div className="flex items-center gap-1 border-b border-gray-200 bg-white px-3 py-1">
-                    <div className="rounded px-2 py-0.5 text-[8px] whitespace-nowrap text-gray-400">
-                      Financeiro ×
-                    </div>
-                    <div className="flex items-center gap-1 rounded border border-blue-200 bg-blue-50 px-2 py-0.5 text-[8px] font-semibold whitespace-nowrap text-blue-600">
-                      <span className="inline-block h-1.5 w-1.5 rounded-full bg-blue-500" />
-                      Fluxo de Caixa ×
-                    </div>
-                  </div>
-                  {/* Content */}
-                  <div className="flex flex-col gap-3 p-3">
-                    <h4 className="text-center text-[11px] font-bold text-gray-700">
-                      Fluxo de Caixa — Semana Atual
-                    </h4>
-                    {/* Summary tiles */}
-                    <div className="grid grid-cols-3 gap-2">
-                      {[
-                        {
-                          label: 'Entradas',
-                          value: 'R$ 8.420',
-                          bg: 'bg-green-500',
-                        },
-                        {
-                          label: 'Saídas',
-                          value: 'R$ 3.180',
-                          bg: 'bg-red-400',
-                        },
-                        {
-                          label: 'Saldo',
-                          value: 'R$ 5.240',
-                          bg: 'bg-blue-500',
-                        },
-                      ].map((tile) => (
-                        <div
-                          key={tile.label}
-                          className={`rounded-lg p-2 text-white ${tile.bg}`}
-                        >
-                          <div className="text-[6.5px] text-white/80">
-                            {tile.label}
-                          </div>
-                          <div className="text-[9px] leading-tight font-bold">
-                            {tile.value}
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                    {/* Bar chart */}
-                    <div className="rounded-xl border border-gray-100 bg-white p-3 shadow-sm">
-                      <div className="flex h-32 items-end gap-2">
-                        {[
-                          { day: 'Seg', income: 70, expense: 30 },
-                          { day: 'Ter', income: 85, expense: 40 },
-                          { day: 'Qua', income: 60, expense: 25 },
-                          { day: 'Qui', income: 100, expense: 45 },
-                          { day: 'Sex', income: 90, expense: 55 },
-                          { day: 'Sáb', income: 75, expense: 20 },
-                          { day: 'Dom', income: 50, expense: 15 },
-                        ].map((d, i) => (
-                          <div
-                            key={d.day}
-                            className="flex flex-1 flex-col items-center"
-                          >
-                            <div className="flex h-24 w-full items-end justify-center gap-0.5">
-                              <motion.div
-                                initial={{ height: 0 }}
-                                whileInView={{ height: `${d.income}%` }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.7, delay: i * 0.06 }}
-                                className="flex-1 rounded-t-sm bg-green-400"
-                              />
-                              <motion.div
-                                initial={{ height: 0 }}
-                                whileInView={{ height: `${d.expense}%` }}
-                                viewport={{ once: true }}
-                                transition={{
-                                  duration: 0.7,
-                                  delay: i * 0.06 + 0.1,
-                                }}
-                                className="flex-1 rounded-t-sm bg-red-400"
-                              />
-                            </div>
-                            <span className="mt-1 text-[6px] text-gray-400">
-                              {d.day}
-                            </span>
-                          </div>
-                        ))}
-                      </div>
-                      <div className="mt-2 flex justify-center gap-4 text-[7px] text-gray-400">
-                        <span className="flex items-center gap-1">
-                          <span className="inline-block h-1.5 w-1.5 rounded-full bg-green-400" />
-                          Entradas
-                        </span>
-                        <span className="flex items-center gap-1">
-                          <span className="inline-block h-1.5 w-1.5 rounded-full bg-red-400" />
-                          Saídas
-                        </span>
-                      </div>
-                    </div>
-                    {/* Bottom summary row */}
-                    <div className="flex items-center justify-between rounded-lg border border-gray-100 bg-white px-3 py-2 shadow-sm">
-                      <div>
-                        <p className="text-[7px] text-gray-400">
-                          Saldo Acumulado
-                        </p>
-                        <p className="text-[11px] font-black text-green-600">
-                          R$ 5.240,00
-                        </p>
-                      </div>
-                      <div className="text-right">
-                        <p className="text-[7px] text-gray-400">
-                          vs. semana anterior
-                        </p>
-                        <p className="text-[10px] font-black text-green-500">
-                          ↑ +12,4%
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <Image
+                  src="/images/Relatório financeiro.jpeg"
+                  alt="Relatório financeiro Teloos"
+                  width={600}
+                  height={600}
+                  className="w-full object-cover"
+                />
               </motion.div>
 
               {/* Decorative elements */}
@@ -612,7 +484,7 @@ export default function GestaoFinanceiroPage() {
             >
               <h2 className="text-4xl font-black text-white sm:text-5xl lg:text-6xl">
                 Domine seus números e <br className="hidden md:block" />
-                <span className="text-brand-blue">lucre muito mais.</span>
+                <span>lucre muito mais.</span>
               </h2>
               <p className="mx-auto mt-8 max-w-2xl text-xl font-medium text-white/70">
                 A tecnologia Teloos organiza seu financeiro para você focar no

@@ -28,8 +28,7 @@ export function AnalyticsSection() {
               transition={{ delay: 0.1 }}
               className="text-brand-dark mb-6 text-[34px] leading-[1.1] font-extrabold sm:text-[42px] lg:text-[48px]"
             >
-              Aumente seu faturamento com{' '}
-              <span className="text-brand-blue">decisões em tempo real</span>
+              Aumente seu faturamento com <span>decisões em tempo real</span>
             </motion.h2>
 
             <motion.p

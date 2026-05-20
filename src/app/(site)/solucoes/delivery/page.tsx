@@ -70,10 +70,7 @@ export default function DeliveryVendasPage() {
               </div>
 
               <h1 className="text-brand-dark mt-8 text-[40px] leading-[1.1] font-extrabold tracking-tight sm:text-5xl lg:text-[56px]">
-                Seu delivery sem taxas,{' '}
-                <span className="text-brand-blue">
-                  mais lucro no seu bolso.
-                </span>
+                Seu delivery sem taxas, <span>mais lucro no seu bolso.</span>
               </h1>
 
               <p className="text-brand-dark/60 mt-8 max-w-[540px] text-lg leading-relaxed">
@@ -386,7 +383,7 @@ export default function DeliveryVendasPage() {
           >
             <h2 className="text-brand-dark text-3xl font-black sm:text-4xl lg:text-5xl">
               Venda onde seu cliente <br className="hidden md:block" />
-              <span className="text-brand-blue">está presente.</span>
+              <span>está presente.</span>
             </h2>
           </motion.div>
 
@@ -644,7 +641,7 @@ export default function DeliveryVendasPage() {
             >
               <h2 className="text-4xl font-black text-white sm:text-5xl lg:text-6xl">
                 Sua vitrine online <br className="hidden md:block" />
-                <span className="text-brand-blue">espera por você.</span>
+                <span>espera por você.</span>
               </h2>
               <p className="mx-auto mt-8 max-w-2xl text-xl font-medium text-white/70">
                 Comece a vender agora pelo seu canal oficial e aumente a

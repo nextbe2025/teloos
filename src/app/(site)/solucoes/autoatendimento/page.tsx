@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { useEffect } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
@@ -90,7 +91,7 @@ export default function AutoatendimentoPage() {
               </motion.div>
               <h1 className="text-brand-dark text-4xl leading-[1.1] font-black sm:text-5xl lg:text-6xl">
                 Mais agilidade, <br />
-                <span className="text-brand-blue">menos filas</span> e <br />
+                <span>menos filas</span> e <br />
                 maior lucro.
               </h1>
               <p className="text-brand-dark/70 mt-6 max-w-xl text-lg leading-relaxed font-medium">
@@ -350,7 +351,7 @@ export default function AutoatendimentoPage() {
           >
             <h2 className="text-brand-dark text-3xl font-black sm:text-4xl lg:text-5xl">
               Inovação que <br className="hidden md:block" />
-              <span className="text-brand-blue">transforma a experiência.</span>
+              <span>transforma a experiência.</span>
             </h2>
           </motion.div>
 
@@ -392,9 +393,7 @@ export default function AutoatendimentoPage() {
             >
               <h2 className="text-brand-dark text-4xl leading-tight font-black sm:text-5xl">
                 Tudo em um só lugar: <br />
-                <span className="text-brand-blue">
-                  O fim das filas e dos erros.
-                </span>
+                <span>O fim das filas e dos erros.</span>
               </h2>
               <p className="text-brand-dark/70 mt-8 text-lg leading-relaxed font-medium">
                 Centralize o autoatendimento. Garanta que pedidos feitos no
@@ -443,181 +442,13 @@ export default function AutoatendimentoPage() {
                 transition={{ duration: 1 }}
                 className="relative z-10 overflow-hidden rounded-[3rem] border-8 border-slate-50 shadow-2xl"
               >
-                <div className="aspect-square w-full overflow-hidden bg-[#F8FAFF]">
-                  <div className="flex items-center justify-between bg-[#1a70b0] px-4 py-1.5">
-                    <span className="truncate text-[8px] font-semibold text-white/80">
-                      SABOR &amp; CIA RESTAURANTES | 12.345.678/0001-90
-                    </span>
-                    <div className="flex h-4 w-4 items-center justify-center rounded-full bg-orange-500">
-                      <span className="text-[5px] font-bold text-white">
-                        MA
-                      </span>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-1 border-b border-gray-200 bg-white px-3 py-1">
-                    <div className="rounded px-2 py-0.5 text-[8px] whitespace-nowrap text-gray-400">
-                      Cozinha ×
-                    </div>
-                    <div className="flex items-center gap-1 rounded border border-blue-200 bg-blue-50 px-2 py-0.5 text-[8px] font-semibold whitespace-nowrap text-blue-600">
-                      <span className="inline-block h-1.5 w-1.5 rounded-full bg-blue-500" />
-                      KDS ×
-                    </div>
-                  </div>
-                  <div className="flex flex-col gap-2 p-3">
-                    <div className="flex items-center justify-between">
-                      <h4 className="text-[11px] font-bold text-gray-700">
-                        KDS — Cozinha
-                      </h4>
-                      <span className="flex items-center gap-1 text-[7px] font-bold text-green-600">
-                        <span className="inline-block h-1.5 w-1.5 rounded-full bg-green-500" />
-                        Ao vivo
-                      </span>
-                    </div>
-                    <div className="grid grid-cols-3 gap-2">
-                      {[
-                        {
-                          label: 'NOVO',
-                          bg: 'bg-red-50',
-                          text: 'text-red-600',
-                          border: 'border-red-200',
-                        },
-                        {
-                          label: 'PREPARO',
-                          bg: 'bg-yellow-50',
-                          text: 'text-yellow-700',
-                          border: 'border-yellow-200',
-                        },
-                        {
-                          label: 'PRONTO',
-                          bg: 'bg-green-50',
-                          text: 'text-green-600',
-                          border: 'border-green-200',
-                        },
-                      ].map((col) => (
-                        <div
-                          key={col.label}
-                          className={`rounded-t-lg border-x border-t py-1 text-center text-[7px] font-black tracking-wider ${col.bg} ${col.text} ${col.border}`}
-                        >
-                          {col.label}
-                        </div>
-                      ))}
-                    </div>
-                    <div className="grid grid-cols-3 gap-2">
-                      <div className="flex flex-col gap-1.5">
-                        {[
-                          {
-                            num: '#047',
-                            items: ['X-Burguer x2', 'Batata G'],
-                            time: '2min',
-                          },
-                          { num: '#048', items: ['Combo Duplo'], time: '1min' },
-                          {
-                            num: '#049',
-                            items: ['X-Bacon x1'],
-                            time: '< 1min',
-                          },
-                        ].map((o) => (
-                          <div
-                            key={o.num}
-                            className="rounded-xl border border-red-200 bg-red-50 p-2"
-                          >
-                            <div className="mb-1 flex items-center justify-between">
-                              <span className="text-[8px] font-black text-red-600">
-                                {o.num}
-                              </span>
-                              <span className="text-[6px] text-red-400">
-                                {o.time}
-                              </span>
-                            </div>
-                            {o.items.map((orderItem, j) => (
-                              <p key={j} className="text-[6.5px] text-gray-500">
-                                {orderItem}
-                              </p>
-                            ))}
-                          </div>
-                        ))}
-                      </div>
-                      <div className="flex flex-col gap-1.5">
-                        {[
-                          {
-                            num: '#044',
-                            items: ['X-Bacon x1', 'Suco Lj x2'],
-                            time: '8min',
-                          },
-                          {
-                            num: '#045',
-                            items: ['Combo Fml', 'Refri x1'],
-                            time: '6min',
-                          },
-                          { num: '#046', items: ['X-Frango x2'], time: '4min' },
-                        ].map((o) => (
-                          <div
-                            key={o.num}
-                            className="rounded-xl border border-yellow-200 bg-yellow-50 p-2"
-                          >
-                            <div className="mb-1 flex items-center justify-between">
-                              <span className="text-[8px] font-black text-yellow-700">
-                                {o.num}
-                              </span>
-                              <span className="text-[6px] text-yellow-500">
-                                {o.time}
-                              </span>
-                            </div>
-                            {o.items.map((orderItem, j) => (
-                              <p key={j} className="text-[6.5px] text-gray-500">
-                                {orderItem}
-                              </p>
-                            ))}
-                          </div>
-                        ))}
-                      </div>
-                      <div className="flex flex-col gap-1.5">
-                        {[
-                          {
-                            num: '#041',
-                            items: ['X-Burguer x2'],
-                            time: '12min',
-                          },
-                          {
-                            num: '#042',
-                            items: ['Smash Chd', 'Açaí M'],
-                            time: '11min',
-                          },
-                          { num: '#043', items: ['Combo Dbr'], time: '10min' },
-                        ].map((o) => (
-                          <div
-                            key={o.num}
-                            className="rounded-xl border border-green-200 bg-green-50 p-2"
-                          >
-                            <div className="mb-1 flex items-center justify-between">
-                              <span className="text-[8px] font-black text-green-700">
-                                {o.num}
-                              </span>
-                              <span className="text-[6px] text-green-500">
-                                {o.time}
-                              </span>
-                            </div>
-                            {o.items.map((orderItem, j) => (
-                              <p key={j} className="text-[6.5px] text-gray-500">
-                                {orderItem}
-                              </p>
-                            ))}
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                    <div className="flex items-center justify-between rounded-lg border border-gray-100 bg-white px-3 py-1.5 shadow-sm">
-                      <span className="text-[7px] text-gray-400">
-                        9 pedidos em aberto
-                      </span>
-                      <div className="flex gap-3 text-[7px]">
-                        <span className="text-red-500">3 novos</span>
-                        <span className="text-yellow-600">3 preparo</span>
-                        <span className="text-green-600">3 prontos</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <Image
+                  src="/images/Totem bancada.jpeg"
+                  alt="Totem de autoatendimento Teloos"
+                  width={600}
+                  height={600}
+                  className="w-full object-cover"
+                />
               </motion.div>
 
               {/* Decorative elements */}
@@ -643,7 +474,7 @@ export default function AutoatendimentoPage() {
             >
               <h2 className="text-3xl font-black text-white sm:text-4xl lg:text-5xl">
                 Pronto para eliminar as <br className="hidden md:block" />
-                <span className="text-brand-blue">filas do seu negócio?</span>
+                <span>filas do seu negócio?</span>
               </h2>
               <p className="mx-auto mt-6 max-w-2xl text-lg font-medium text-white/70">
                 Junte-se a centenas de restaurantes que já modernizaram seu

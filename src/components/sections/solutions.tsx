@@ -28,7 +28,7 @@ const SOLUTIONS: Solution[] = [
     title: 'PDV e Mesas',
     description:
       'PDV, Mesas, Comandas e Cozinha (KDS). Controle pedidos, atendimento e fluxo do seu restaurante com mais agilidade.',
-    image: '/images/Sistema PDV_image.png',
+    image: '/images/PDV.jpeg',
     icon: UtensilsCrossed,
     cta: 'Ver mais soluções',
     href: '/solucoes/pdv-e-mesas',
@@ -37,7 +37,7 @@ const SOLUTIONS: Solution[] = [
     title: 'Delivery',
     description:
       'App próprio, Delivery Integrado iFood, Gestão dos seus pedidos em tempo real, tudo centralizado em um só sistema.',
-    image: '/images/Delivery próprio_image.png',
+    image: '/images/Delivery Teloos.png',
     icon: Bike,
     cta: 'Ver mais soluções',
     href: '/solucoes/delivery',
@@ -46,7 +46,7 @@ const SOLUTIONS: Solution[] = [
     title: 'Autoatendimento',
     description:
       'Totem Autoatendimento, Cardápio Digital. Seus clientes façam pedidos direto da mesa ou em terminais, reduzindo filas.',
-    image: '/images/Cardápio par tablet_image.png',
+    image: '/images/totem.jpeg',
     icon: Smartphone,
     cta: 'Ver mais soluções',
     href: '/solucoes/autoatendimento',
@@ -55,7 +55,7 @@ const SOLUTIONS: Solution[] = [
     title: 'Relatórios',
     description:
       'Acompanha sua operação de vendas, financeiro e estoque com mais organização e controle total.',
-    image: '/images/Gestão de clientes_image.png',
+    image: '/images/Dashboard.jpeg',
     icon: PieChart,
     cta: 'Ver mais soluções',
     href: '/solucoes/relatorios',
@@ -91,64 +91,42 @@ function SolutionCard({
         isPressed && '-translate-y-2 scale-[1.01] border-transparent shadow-2xl'
       )}
     >
-      {/* Imagem no Topo */}
-      <div
-        className={cn(
-          'group-hover:bg-brand-blue/10 group-active:bg-brand-blue/10 relative flex aspect-[16/10] w-full items-center justify-center overflow-hidden bg-[#F8FAFF] p-8 transition-all duration-500',
-          isPressed && 'bg-brand-blue/10'
-        )}
-      >
-        {/* Ícone flutuante de fundo para dar textura */}
-        <div
+      {/* Imagem no Topo — Full Bleed */}
+      <div className="relative aspect-[16/10] w-full overflow-hidden">
+        <Image
+          src={solution.image}
+          alt={solution.title}
+          fill
           className={cn(
-            'text-brand-blue/5 group-hover:text-brand-blue/10 group-active:text-brand-blue/10 absolute top-6 left-6 transition-colors duration-500',
-            isPressed && 'text-brand-blue/10'
-          )}
-        >
-          <Icon size={120} strokeWidth={1} />
-        </div>
-
-        <div
-          className={cn(
-            'relative flex h-full w-full items-center justify-center transition-transform duration-500 group-hover:scale-105 group-active:scale-105',
+            'object-cover transition-transform duration-500 group-hover:scale-105 group-active:scale-105',
             isPressed && 'scale-105'
           )}
+        />
+        {/* Gradiente sutil na base */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+
+        {/* Ícone sobreposto — badge branco no canto inferior esquerdo */}
+        <div
+          className={cn(
+            'text-brand-blue absolute bottom-4 left-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-white shadow-lg transition-all duration-300',
+            'group-hover:bg-brand-blue group-active:bg-brand-blue group-hover:text-white group-active:text-white',
+            isPressed && 'bg-brand-blue text-white'
+          )}
         >
-          <Image
-            src={solution.image}
-            alt={solution.title}
-            width={400}
-            height={250}
-            className="z-10 object-contain drop-shadow-2xl"
-            onError={(e) => {
-              const target = e.target as HTMLImageElement
-              target.style.display = 'none'
-            }}
-          />
-          {/* Fallback label visual caso a imagem não carregue */}
-          <div className="absolute inset-0 -z-10 flex items-center justify-center rounded-2xl bg-gray-100/30">
-            <span className="text-[10px] font-bold tracking-[0.2em] text-gray-300 uppercase">
-              {solution.title}
-            </span>
-          </div>
+          <Icon size={22} strokeWidth={2.5} />
         </div>
       </div>
 
       {/* Área de Conteúdo */}
       <div className="flex flex-1 flex-col p-8 lg:p-10">
-        <div className="mb-4 flex items-center gap-3">
-          <div className="bg-brand-blue/10 text-brand-blue flex h-10 w-10 items-center justify-center rounded-xl">
-            <Icon size={20} strokeWidth={2.5} />
-          </div>
-          <h3
-            className={cn(
-              'text-brand-dark group-hover:text-brand-blue group-active:text-brand-blue text-2xl font-extrabold tracking-tight transition-colors',
-              isPressed && 'text-brand-blue'
-            )}
-          >
-            {solution.title}
-          </h3>
-        </div>
+        <h3
+          className={cn(
+            'text-brand-dark group-hover:text-brand-blue group-active:text-brand-blue mb-4 text-2xl font-extrabold tracking-tight transition-colors',
+            isPressed && 'text-brand-blue'
+          )}
+        >
+          {solution.title}
+        </h3>
 
         <p className="text-brand-dark/60 mb-8 flex-1 text-[15px] leading-relaxed">
           {solution.description}
@@ -182,8 +160,7 @@ export function SolutionsSection() {
         <div className="mb-16 flex flex-col gap-6 lg:mb-24 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-[800px]">
             <h2 className="text-brand-dark text-[34px] leading-[1.1] font-extrabold sm:text-[42px] lg:text-[52px]">
-              Plataforma completa para o{' '}
-              <span className="text-brand-blue">seu restaurante crescer.</span>
+              Plataforma completa para o <span>seu restaurante crescer.</span>
             </h2>
           </div>
           <p className="text-brand-dark/50 max-w-[440px] text-[17px] leading-relaxed lg:pb-2">

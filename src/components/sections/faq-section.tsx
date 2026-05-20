@@ -68,8 +68,7 @@ export function FaqSection() {
               Dúvidas
             </span>
             <h2 className="text-brand-dark mb-4 text-[34px] leading-tight font-black sm:text-[42px] lg:text-[48px]">
-              Perguntas{' '}
-              <span className="text-brand-blue">frequentes</span>
+              Perguntas <span>frequentes</span>
             </h2>
             <p className="text-brand-dark/50 text-[17px] leading-relaxed">
               Tudo que você precisa saber antes de começar.
@@ -86,10 +85,14 @@ export function FaqSection() {
                     onClick={() => setOpenIndex(isOpen ? null : index)}
                     className={cn(
                       'flex w-full items-center justify-between gap-6 px-6 py-5 text-left transition-colors duration-200',
-                      isOpen ? 'text-brand-blue' : 'text-brand-dark hover:text-brand-blue'
+                      isOpen
+                        ? 'text-brand-blue'
+                        : 'text-brand-dark hover:text-brand-blue'
                     )}
                   >
-                    <span className="text-[15px] font-semibold">{faq.question}</span>
+                    <span className="text-[15px] font-semibold">
+                      {faq.question}
+                    </span>
                     <span className="shrink-0">
                       {isOpen ? (
                         <Minus className="h-4 w-4" />
@@ -120,11 +123,11 @@ export function FaqSection() {
           </div>
 
           {/* Rodapé FAQ */}
-          <p className="mt-8 text-center text-[15px] text-brand-dark/50">
+          <p className="text-brand-dark/50 mt-8 text-center text-[15px]">
             Ainda tem dúvidas?{' '}
             <Link
               href="/contato"
-              className="text-brand-blue font-semibold hover:underline underline-offset-2 transition-opacity hover:opacity-80"
+              className="text-brand-blue font-semibold underline-offset-2 transition-opacity hover:underline hover:opacity-80"
             >
               Entre em contato com nossa equipe
             </Link>

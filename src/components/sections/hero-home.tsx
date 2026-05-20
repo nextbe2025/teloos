@@ -33,9 +33,9 @@ export function HeroHome() {
               <span className="font-bold">d</span>
               <span className="font-normal"> em </span>
               <br className="hidden xl:block" />
-              <span className="text-brand-blue font-bold">receitas</span>
+              <span className="font-bold">receitas</span>
               <span className="font-normal"> de </span>
-              <span className="text-brand-blue font-bold">grande sucesso!</span>
+              <span className="font-bold">grande sucesso!</span>
             </h1>
 
             <motion.p

@@ -95,7 +95,7 @@ export function IntegrationsSection() {
             className="text-brand-dark mb-6 text-[34px] leading-[1.1] font-extrabold sm:text-[42px] lg:text-[52px]"
           >
             Integrado com as principais <br className="hidden lg:block" />
-            <span className="text-brand-blue">plataformas do mercado</span>
+            <span>plataformas do mercado</span>
           </motion.h2>
 
           <motion.p

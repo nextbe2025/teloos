@@ -85,9 +85,7 @@ export default function OperacaoAtendimentoPage() {
 
               <h1 className="text-brand-dark mt-8 text-[40px] leading-[1.1] font-extrabold tracking-tight sm:text-5xl lg:text-[56px]">
                 Agilidade no salão, <br />
-                <span className="text-brand-blue text-glow-blue">
-                  precisão na cozinha.
-                </span>
+                <span>precisão na cozinha.</span>
               </h1>
 
               <p className="text-brand-dark/60 mt-8 max-w-[540px] text-lg leading-relaxed">
@@ -392,7 +390,7 @@ export default function OperacaoAtendimentoPage() {
           >
             <h2 className="text-brand-dark text-3xl font-black sm:text-4xl lg:text-5xl">
               Tudo o que sua operação <br className="hidden md:block" />
-              <span className="text-brand-blue">precisa para voar.</span>
+              <span>precisa para voar.</span>
             </h2>
           </motion.div>
 
@@ -464,7 +462,7 @@ export default function OperacaoAtendimentoPage() {
             >
               <div className="relative">
                 <Image
-                  src="/images/Automação de processos_image.jpg"
+                  src="/images/PDV homem.jpeg"
                   alt="KDS Teloos"
                   width={600}
                   height={500}
@@ -570,7 +568,7 @@ export default function OperacaoAtendimentoPage() {
             </div>
             <div className="relative">
               <Image
-                src="/images/Controle operacional total_image.jpg"
+                src="/images/PDV mulher.png"
                 alt="Mapa de Mesas Teloos"
                 width={600}
                 height={500}
@@ -596,7 +594,7 @@ export default function OperacaoAtendimentoPage() {
             >
               <h2 className="text-4xl font-black text-white sm:text-5xl lg:text-6xl">
                 Pronto para revolucionar <br className="hidden md:block" />
-                <span className="text-brand-blue">sua operação?</span>
+                <span>sua operação?</span>
               </h2>
               <p className="mx-auto mt-8 max-w-2xl text-xl font-medium text-white/70">
                 Junte-se a centenas de restaurantes que já otimizaram seus
