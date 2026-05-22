@@ -226,7 +226,7 @@ export default function SobrePage() {
               viewport={{ once: true }}
               className="relative z-10 flex h-full flex-col justify-center px-10 py-16 sm:px-16 lg:max-w-[60%]"
             >
-              <h2 className="text-4xl leading-tight font-black text-white sm:text-5xl lg:text-[52px]">
+              <h2 className="text-2xl leading-tight font-black text-white sm:text-3xl lg:text-[36px]">
                 Você empresário do setor gastronômico, junte-se à Teloos e
                 impulsione o crescimento do seu negócio!
               </h2>
