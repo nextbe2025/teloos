@@ -43,7 +43,7 @@ const VALUES = [
   {
     title: 'Excelência',
     description:
-      'Não entregamos apenas software, entregamos a melhor experiência de gestão.',
+      'Mais que software, entregamos resultados reais e comprovados para melhor gestão do seu negócio.',
     icon: Sparkles,
   },
 ]
@@ -140,19 +140,27 @@ export default function SobrePage() {
                 <div className="grid h-full w-full grid-cols-2 gap-5">
                   <div className="bg-brand-blue/10 flex flex-col items-center justify-center gap-3 rounded-3xl">
                     <Target className="text-brand-blue h-12 w-12" />
-                    <span className="text-brand-blue text-[11px] font-bold uppercase tracking-widest">Missão</span>
+                    <span className="text-brand-blue text-[11px] font-bold tracking-widest uppercase">
+                      Missão
+                    </span>
                   </div>
                   <div className="bg-brand-orange/10 flex flex-col items-center justify-center gap-3 rounded-3xl">
                     <Heart className="text-brand-orange h-12 w-12" />
-                    <span className="text-brand-orange text-[11px] font-bold uppercase tracking-widest">Paixão</span>
+                    <span className="text-brand-orange text-[11px] font-bold tracking-widest uppercase">
+                      Paixão
+                    </span>
                   </div>
                   <div className="flex flex-col items-center justify-center gap-3 rounded-3xl bg-slate-200">
                     <Users className="h-12 w-12 text-slate-500" />
-                    <span className="text-[11px] font-bold uppercase tracking-widest text-slate-500">Pessoas</span>
+                    <span className="text-[11px] font-bold tracking-widest text-slate-500 uppercase">
+                      Pessoas
+                    </span>
                   </div>
                   <div className="bg-brand-blue/5 flex flex-col items-center justify-center gap-3 rounded-3xl">
                     <Coffee className="text-brand-blue/50 h-12 w-12" />
-                    <span className="text-brand-blue/50 text-[11px] font-bold uppercase tracking-widest">Cultura</span>
+                    <span className="text-brand-blue/50 text-[11px] font-bold tracking-widest uppercase">
+                      Cultura
+                    </span>
                   </div>
                 </div>
               </div>
