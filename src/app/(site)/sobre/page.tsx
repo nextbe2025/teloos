@@ -204,54 +204,45 @@ export default function SobrePage() {
         </Container>
       </Section>
 
-      {/* CTA Final — Full Bleed com foto */}
-      <section className="relative z-10 min-h-[500px] overflow-hidden">
-        {/* Imagem de fundo */}
-        <Image
-          src="/images/background quem somos.jpg"
-          alt="Faça parte da história Teloos"
-          fill
-          className="object-cover object-center"
-          priority
-        />
-        {/* Overlay escuro */}
-        <div className="absolute inset-0 bg-black/60" />
+      {/* CTA Final — estilo LP com foto */}
+      <section className="relative z-10 bg-white py-16 lg:py-24">
+        <Container>
+          <div className="relative min-h-[460px] overflow-hidden rounded-[2.5rem] lg:min-h-[520px]">
+            {/* Foto de fundo */}
+            <Image
+              src="/images/background quem somos.jpg"
+              alt="Faça parte da história Teloos"
+              fill
+              className="object-cover object-center"
+              priority
+            />
+            {/* Gradiente escuro só no lado esquerdo — mantém as pessoas visíveis à direita */}
+            <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/50 to-black/10" />
 
-        <div className="relative z-10 px-8 py-32 text-center sm:px-16">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="mx-auto max-w-4xl text-4xl font-black text-white sm:text-5xl lg:text-6xl">
-              Faça parte da nossa <br className="hidden md:block" />
-              história de sucesso.
-            </h2>
-            <p className="mx-auto mt-8 max-w-2xl text-xl font-medium text-white/70">
-              Estamos prontos para levar seu negócio para o próximo nível com a
-              melhor tecnologia de gestão do mercado.
-            </p>
+            {/* Conteúdo alinhado à esquerda */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="relative z-10 flex h-full flex-col justify-center px-10 py-16 sm:px-16 lg:max-w-[60%]"
+            >
+              <h2 className="text-4xl leading-tight font-black text-white sm:text-5xl lg:text-[52px]">
+                Você empresário do setor gastronômico, junte-se à Teloos e
+                impulsione o crescimento do seu negócio!
+              </h2>
 
-            <div className="mt-12 flex flex-col items-center justify-center gap-6 sm:flex-row">
-              <Button
-                asChild
-                size="lg"
-                className="bg-brand-orange hover:bg-brand-orange/90 shadow-brand-orange/20 h-16 w-full rounded-full px-12 text-lg font-bold text-white shadow-lg transition-all hover:scale-105 active:scale-95 sm:w-auto"
-              >
-                <Link href="/contato">Quero ser Teloos</Link>
-              </Button>
-              <Link href="/contato" className="w-full sm:w-auto">
+              <div className="mt-10">
                 <Button
+                  asChild
                   size="lg"
-                  variant="outline"
-                  className="hover:text-brand-dark h-16 w-full rounded-full border-white bg-transparent px-12 text-lg font-bold text-white transition-all hover:scale-105 hover:bg-white active:scale-95 sm:w-auto"
+                  className="bg-brand-orange hover:bg-brand-orange/90 h-14 rounded-full px-10 text-lg font-bold text-white transition-all hover:scale-105 active:scale-95"
                 >
-                  Falar com consultor
+                  <Link href="/contato">Entrar em contato hoje!</Link>
                 </Button>
-              </Link>
-            </div>
-          </motion.div>
-        </div>
+              </div>
+            </motion.div>
+          </div>
+        </Container>
       </section>
     </div>
   )
