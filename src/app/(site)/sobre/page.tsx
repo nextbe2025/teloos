@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import {
   Users,
@@ -203,51 +204,55 @@ export default function SobrePage() {
         </Container>
       </Section>
 
-      {/* CTA Final Padronizado */}
-      <Section className="relative z-10 bg-white py-32">
-        <Container>
-          <div className="bg-brand-dark relative overflow-hidden rounded-[4rem] px-8 py-20 text-center shadow-2xl sm:px-16">
-            <div className="bg-brand-blue/20 absolute top-0 right-0 h-[400px] w-[400px] translate-x-1/2 -translate-y-1/2 rounded-full blur-[100px]" />
-            <div className="bg-brand-orange/20 absolute bottom-0 left-0 h-[400px] w-[400px] -translate-x-1/2 translate-y-1/2 rounded-full blur-[100px]" />
+      {/* CTA Final — Full Bleed com foto */}
+      <section className="relative z-10 min-h-[500px] overflow-hidden">
+        {/* Imagem de fundo */}
+        <Image
+          src="/images/background quem somos.jpg"
+          alt="Faça parte da história Teloos"
+          fill
+          className="object-cover object-center"
+          priority
+        />
+        {/* Overlay escuro */}
+        <div className="absolute inset-0 bg-black/60" />
 
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="relative z-10"
-            >
-              <h2 className="text-4xl font-black text-white sm:text-5xl lg:text-6xl">
-                Faça parte da nossa <br className="hidden md:block" />
-                <span className="text-brand-blue text-glow-blue">
-                  história de sucesso.
-                </span>
-              </h2>
-              <p className="mx-auto mt-8 max-w-2xl text-xl font-medium text-white/70">
-                Estamos prontos para levar seu negócio para o próximo nível com
-                a melhor tecnologia de gestão do mercado.
-              </p>
+        <div className="relative z-10 px-8 py-32 text-center sm:px-16">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="mx-auto max-w-4xl text-4xl font-black text-white sm:text-5xl lg:text-6xl">
+              Faça parte da nossa <br className="hidden md:block" />
+              história de sucesso.
+            </h2>
+            <p className="mx-auto mt-8 max-w-2xl text-xl font-medium text-white/70">
+              Estamos prontos para levar seu negócio para o próximo nível com a
+              melhor tecnologia de gestão do mercado.
+            </p>
 
-              <div className="mt-12 flex flex-col items-center justify-center gap-6 sm:flex-row">
+            <div className="mt-12 flex flex-col items-center justify-center gap-6 sm:flex-row">
+              <Button
+                asChild
+                size="lg"
+                className="bg-brand-orange hover:bg-brand-orange/90 shadow-brand-orange/20 h-16 w-full rounded-full px-12 text-lg font-bold text-white shadow-lg transition-all hover:scale-105 active:scale-95 sm:w-auto"
+              >
+                <Link href="/contato">Quero ser Teloos</Link>
+              </Button>
+              <Link href="/contato" className="w-full sm:w-auto">
                 <Button
                   size="lg"
-                  className="bg-brand-orange hover:bg-brand-orange/90 shadow-brand-orange/20 h-16 w-full rounded-full px-12 text-lg font-bold text-white shadow-lg transition-all hover:scale-105 active:scale-95 sm:w-auto"
+                  variant="outline"
+                  className="hover:text-brand-dark h-16 w-full rounded-full border-white bg-transparent px-12 text-lg font-bold text-white transition-all hover:scale-105 hover:bg-white active:scale-95 sm:w-auto"
                 >
-                  Quero ser Teloos
+                  Falar com consultor
                 </Button>
-                <Link href="/contato" className="w-full sm:w-auto">
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="hover:text-brand-dark h-16 w-full rounded-full border-white bg-transparent px-12 text-lg font-bold text-white transition-all hover:scale-105 hover:bg-white active:scale-95 sm:w-auto"
-                  >
-                    Falar com consultor
-                  </Button>
-                </Link>
-              </div>
-            </motion.div>
-          </div>
-        </Container>
-      </Section>
+              </Link>
+            </div>
+          </motion.div>
+        </div>
+      </section>
     </div>
   )
 }
