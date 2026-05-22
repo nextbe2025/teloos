@@ -462,7 +462,7 @@ export default function OperacaoAtendimentoPage() {
             >
               <div className="relative">
                 <Image
-                  src="/images/PDV homem.jpeg"
+                  src="/images/PDV mulher.png"
                   alt="KDS Teloos"
                   width={600}
                   height={500}
@@ -533,7 +533,7 @@ export default function OperacaoAtendimentoPage() {
           <div className="grid items-center gap-16 lg:grid-cols-2">
             <div>
               <h2 className="text-brand-dark text-3xl font-extrabold sm:text-4xl">
-                Mapa de Mesas Visual: <br />
+                Mapa de Mesas/Comandas Visual: <br />
                 Sua casa sob controle.
               </h2>
               <p className="text-brand-dark/60 mt-6 text-lg leading-relaxed">
@@ -568,7 +568,7 @@ export default function OperacaoAtendimentoPage() {
             </div>
             <div className="relative">
               <Image
-                src="/images/PDV mulher.png"
+                src="/images/PDV homem.jpeg"
                 alt="Mapa de Mesas Teloos"
                 width={600}
                 height={500}
