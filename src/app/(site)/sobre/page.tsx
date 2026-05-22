@@ -224,21 +224,23 @@ export default function SobrePage() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="relative z-10 flex h-full flex-col justify-center px-10 py-16 sm:px-16 lg:max-w-[60%]"
+              className="relative z-10 flex h-full flex-col items-center justify-center px-10 py-16 sm:px-16"
             >
-              <h2 className="text-2xl leading-tight font-black text-white sm:text-3xl lg:text-[36px]">
-                Você empresário do setor gastronômico, junte-se à Teloos e
-                impulsione o crescimento do seu negócio!
-              </h2>
+              <div className="max-w-xl text-left">
+                <h2 className="text-2xl leading-tight font-black text-white sm:text-3xl lg:text-[36px]">
+                  Você empresário do setor gastronômico, junte-se à Teloos e
+                  impulsione o crescimento do seu negócio!
+                </h2>
 
-              <div className="mt-10">
-                <Button
-                  asChild
-                  size="lg"
-                  className="bg-brand-orange hover:bg-brand-orange/90 h-14 rounded-full px-10 text-lg font-bold text-white transition-all hover:scale-105 active:scale-95"
-                >
-                  <Link href="/contato">Entrar em contato hoje!</Link>
-                </Button>
+                <div className="mt-10">
+                  <Button
+                    asChild
+                    size="lg"
+                    className="bg-brand-orange hover:bg-brand-orange/90 h-14 rounded-full px-10 text-lg font-bold text-white transition-all hover:scale-105 active:scale-95"
+                  >
+                    <Link href="/contato">Entrar em contato hoje!</Link>
+                  </Button>
+                </div>
               </div>
             </motion.div>
           </div>
