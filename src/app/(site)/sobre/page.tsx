@@ -219,28 +219,26 @@ export default function SobrePage() {
             {/* Gradiente escuro só no lado esquerdo — mantém as pessoas visíveis à direita */}
             <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/50 to-black/10" />
 
-            {/* Conteúdo alinhado à esquerda */}
+            {/* Conteúdo centralizado verticalmente, alinhado à esquerda */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="relative z-10 flex h-full flex-col justify-center px-10 py-16 sm:px-16 lg:max-w-[55%]"
+              className="absolute inset-0 z-10 flex flex-col justify-center px-10 sm:px-16 lg:max-w-[55%]"
             >
-              <div className="max-w-xl text-left">
-                <h2 className="text-2xl leading-tight font-black text-white sm:text-3xl lg:text-[36px]">
-                  Você empresário do setor gastronômico, junte-se à Teloos e
-                  impulsione o crescimento do seu negócio!
-                </h2>
+              <h2 className="text-2xl leading-tight font-black text-white sm:text-3xl lg:text-[36px]">
+                Você empresário do setor gastronômico, junte-se à Teloos e
+                impulsione o crescimento do seu negócio!
+              </h2>
 
-                <div className="mt-10">
-                  <Button
-                    asChild
-                    size="lg"
-                    className="bg-brand-orange hover:bg-brand-orange/90 h-14 rounded-full px-10 text-lg font-bold text-white transition-all hover:scale-105 active:scale-95"
-                  >
-                    <Link href="/contato">Entrar em contato hoje!</Link>
-                  </Button>
-                </div>
+              <div className="mt-10">
+                <Button
+                  asChild
+                  size="lg"
+                  className="bg-brand-orange hover:bg-brand-orange/90 h-14 rounded-full px-10 text-lg font-bold text-white transition-all hover:scale-105 active:scale-95"
+                >
+                  <Link href="/contato">Entrar em contato hoje!</Link>
+                </Button>
               </div>
             </motion.div>
           </div>
