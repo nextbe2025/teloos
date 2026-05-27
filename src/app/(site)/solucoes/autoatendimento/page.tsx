@@ -429,7 +429,7 @@ export default function AutoatendimentoPage() {
                   size="lg"
                   className="bg-brand-blue hover:bg-brand-blue/90 shadow-brand-blue/20 rounded-full px-10 text-base font-bold text-white shadow-lg transition-all hover:scale-105 active:scale-95"
                 >
-                  Saiba mais sobre a integração
+                  Solicitar demo
                 </Button>
               </div>
             </motion.div>
