@@ -392,8 +392,8 @@ export default function AutoatendimentoPage() {
               transition={{ duration: 0.8 }}
             >
               <h2 className="text-brand-dark text-4xl leading-tight font-black sm:text-5xl">
-                Tudo em um só lugar: <br />
-                <span>O fim das filas e dos erros.</span>
+                Reduza filas, erros de pedido e aumente o faturamento mesmo com
+                a casa cheia.
               </h2>
               <p className="text-brand-dark/70 mt-8 text-lg leading-relaxed font-medium">
                 Centralize o autoatendimento. Garanta que pedidos feitos no
