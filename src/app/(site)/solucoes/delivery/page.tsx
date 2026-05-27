@@ -76,8 +76,7 @@ export default function DeliveryVendasPage() {
               <p className="text-brand-dark/60 mt-8 max-w-[540px] text-lg leading-relaxed">
                 Tenha controle total das suas vendas com uma plataforma de
                 delivery próprio da Teloos, rápida, simples e feita para crescer
-                seu negócio. Além disso, centralize pedidos do iFood direto no
-                seu PDV, sem tablets extras.
+                seu negócio.
               </p>
 
               <div className="mt-10 flex flex-col gap-4 sm:flex-row">
