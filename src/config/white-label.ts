@@ -1,5 +1,5 @@
 const DEFAULT_AUTH_API_URL = 'https://pdvx.com.br/api'
-const DEFAULT_CLIENT_URL = 'https://nextbe.acess.app'
+const DEFAULT_CLIENT_URL = 'https://app.teloos.com.br'
 
 export const whiteLabelConfig = {
   resellerName: process.env.NOME_REVENDA ?? 'Teloos',

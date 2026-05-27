@@ -78,7 +78,7 @@ Criar ou manter `.env.local` com:
 ```env
 NEXT_PUBLIC_SITE_URL=http://localhost:3000
 AUTH_API_URL=https://pdvx.com.br/api
-NEXT_PUBLIC_CLIENT_URL=https://nextbe.acess.app
+NEXT_PUBLIC_CLIENT_URL=https://pdvx.com.br
 NEXT_PUBLIC_RECAPTCHA_SITE_KEY=sua-chave-publica
 ```
 
