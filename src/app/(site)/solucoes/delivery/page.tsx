@@ -30,9 +30,9 @@ const FEATURES = [
     icon: MessageCircle,
   },
   {
-    title: 'Integração com Apps de Delivery',
+    title: 'Integração iFood via PDV',
     description:
-      'Centralize pedidos do iFood e outros apps em um único painel, sem tablets extras.',
+      'Receba e gerencie pedidos do iFood direto no seu PDV Teloos, sem tablets extras e sem perder nenhum pedido.',
     icon: Store,
   },
   {
@@ -74,9 +74,10 @@ export default function DeliveryVendasPage() {
               </h1>
 
               <p className="text-brand-dark/60 mt-8 max-w-[540px] text-lg leading-relaxed">
-                Aumente suas vendas online com uma plataforma de delivery
-                própria, integrada ao iFood e desenhada para converter mais em
-                menos cliques.
+                Tenha controle total das suas vendas com uma plataforma de
+                delivery próprio da Teloos, rápida, simples e feita para crescer
+                seu negócio. Além disso, centralize pedidos do iFood direto no
+                seu PDV, sem tablets extras.
               </p>
 
               <div className="mt-10 flex flex-col gap-4 sm:flex-row">
