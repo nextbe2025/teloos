@@ -107,13 +107,6 @@ export default function RootLayout({
           </GTMProvider>
         </ThemeProvider>
 
-        {/* RD Station Marketing */}
-        <Script
-          id="rdstation-script"
-          strategy="afterInteractive"
-          src="https://d335luupugsy2.cloudfront.net/js/loader-scripts/92d72cce-2851-416a-8611-0bb4922c43de-loader.js"
-        />
-
         {/* Google Tag Manager */}
         <Script
           id="gtm-script"

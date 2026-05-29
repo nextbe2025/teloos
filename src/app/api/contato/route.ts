@@ -23,9 +23,31 @@ export async function POST(req: NextRequest) {
       )
     }
 
-    // RD Station: integração via script nativo (mapeamento de campos configurado no painel)
-    // API server-side desativada — reativar se necessário alterando o comentário abaixo
-    // await fetch(`https://api.rd.services/platform/conversions?api_key=${process.env.RD_STATION_TOKEN}`, ...)
+    // RD Station: registra o lead via API server-side
+    try {
+      const rdRes = await fetch(
+        `https://api.rd.services/platform/conversions?api_key=${process.env.RD_STATION_TOKEN}`,
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            event_type: 'CONVERSION',
+            event_family: 'CDP',
+            payload: {
+              conversion_identifier: 'Formulário de Contato - Site Teloos',
+              name,
+              email,
+              mobile_phone: phone,
+              cf_area_atuacao: restaurant,
+              cf_mensagem: message || '',
+            },
+          }),
+        }
+      )
+      console.log(`[RD STATION] Status: ${rdRes.status}`)
+    } catch (rdErr) {
+      console.error('[RD STATION] Erro ao registrar lead:', rdErr)
+    }
 
     await transporter.sendMail({
       from: `"Site Teloos" <${process.env.SMTP_FROM}>`,
