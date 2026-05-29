@@ -38,7 +38,7 @@ export async function POST(req: NextRequest) {
               name,
               email,
               mobile_phone: phone,
-              cf_area_atuacao: restaurant,
+              cf_area_de_atuacao: restaurant,
               cf_mensagem: message || '',
             },
           }),
