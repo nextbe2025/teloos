@@ -189,7 +189,7 @@ export default function ContatoPage() {
                 </div>
 
                 <div className="bg-brand-dark space-y-6 rounded-3xl p-8 text-white">
-                  <h3 className="text-xl font-bold">Redes Sociais</h3>
+                  <h3 className="text-xl font-bold text-white">Redes Sociais</h3>
                   <div className="flex gap-4">
                     {SOCIAL_LINKS.map((social) => (
                       <a
