@@ -111,7 +111,7 @@ function StackedImages() {
         initial={{ opacity: 0 }}
         aria-label="Ver próxima imagem"
       >
-        <span className="absolute right-4 bottom-4 flex items-center gap-1.5 rounded-full bg-black/40 px-3 py-1.5 text-[11px] font-bold tracking-wider text-white/90 uppercase backdrop-blur-sm">
+        <span className="bg-brand-orange absolute right-4 bottom-4 flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[11px] font-bold tracking-wider text-white uppercase shadow-lg">
           <span>ver mais</span>
           <span>→</span>
         </span>
