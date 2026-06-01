@@ -107,8 +107,6 @@ function StackedImages() {
         className="absolute inset-0 cursor-pointer rounded-[2rem]"
         style={{ zIndex: 5 }}
         onClick={advance}
-        whileHover={{ opacity: 1 }}
-        initial={{ opacity: 0 }}
         aria-label="Ver próxima imagem"
       >
         <span className="bg-brand-orange absolute right-4 bottom-4 flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[11px] font-bold tracking-wider text-white uppercase shadow-lg">
