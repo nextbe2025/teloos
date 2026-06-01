@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
@@ -50,6 +50,75 @@ const FEATURES = [
     icon: CreditCard,
   },
 ]
+
+const KDS_IMAGES = [
+  '/images/KDS (1).jpeg',
+  '/images/KDS 2 (1).jpeg',
+  '/images/KDS 3 (1).jpeg',
+  '/images/KDS 4 (1).jpeg',
+]
+
+const STACK_CONFIG = [
+  { rotate: 0, x: 0, y: 0, scale: 1, zIndex: 4 },
+  { rotate: 3, x: 10, y: -8, scale: 0.97, zIndex: 3 },
+  { rotate: 6, x: 20, y: -16, scale: 0.94, zIndex: 2 },
+  { rotate: 8, x: 28, y: -22, scale: 0.91, zIndex: 1 },
+]
+
+function StackedImages() {
+  const [order, setOrder] = useState([0, 1, 2, 3])
+
+  const advance = () => {
+    setOrder((prev) => {
+      const [first, ...rest] = prev
+      return [...rest, first]
+    })
+  }
+
+  return (
+    <div className="relative" style={{ paddingBottom: '78%' }}>
+      {order.map((imgIdx, stackPos) => {
+        const cfg = STACK_CONFIG[stackPos]
+        return (
+          <motion.div
+            key={imgIdx}
+            className="absolute inset-0"
+            animate={{
+              rotate: cfg.rotate,
+              x: cfg.x,
+              y: cfg.y,
+              scale: cfg.scale,
+            }}
+            style={{ zIndex: cfg.zIndex }}
+            transition={{ type: 'spring', stiffness: 260, damping: 26 }}
+            whileHover={stackPos === 0 ? { scale: 1.03, y: -6 } : {}}
+          >
+            <Image
+              src={KDS_IMAGES[imgIdx]}
+              alt={`KDS Teloos ${imgIdx + 1}`}
+              fill
+              className="rounded-[2rem] object-cover shadow-2xl"
+            />
+          </motion.div>
+        )
+      })}
+      {/* Click overlay on top card */}
+      <motion.button
+        className="absolute inset-0 cursor-pointer rounded-[2rem]"
+        style={{ zIndex: 5 }}
+        onClick={advance}
+        whileHover={{ opacity: 1 }}
+        initial={{ opacity: 0 }}
+        aria-label="Ver próxima imagem"
+      >
+        <span className="absolute right-4 bottom-4 flex items-center gap-1.5 rounded-full bg-black/40 px-3 py-1.5 text-[11px] font-bold tracking-wider text-white/90 uppercase backdrop-blur-sm">
+          <span>ver mais</span>
+          <span>→</span>
+        </span>
+      </motion.button>
+    </div>
+  )
+}
 
 export default function OperacaoAtendimentoPage() {
   useEffect(() => {
@@ -460,14 +529,8 @@ export default function OperacaoAtendimentoPage() {
               transition={{ duration: 0.8 }}
               className="order-2 lg:order-1"
             >
-              <div className="relative">
-                <Image
-                  src="/images/PDV mulher.png"
-                  alt="KDS Teloos"
-                  width={600}
-                  height={500}
-                  className="rounded-[2.5rem] shadow-2xl"
-                />
+              <div className="relative px-4 pt-6">
+                <StackedImages />
                 <motion.div
                   initial={{ scale: 0, rotate: -20 }}
                   whileInView={{ scale: 1, rotate: 0 }}
@@ -478,11 +541,11 @@ export default function OperacaoAtendimentoPage() {
                     damping: 20,
                     delay: 0.5,
                   }}
-                  className="bg-brand-blue absolute -top-8 -right-8 flex h-32 w-32 flex-col items-center justify-center rounded-full text-white shadow-xl"
+                  className="bg-brand-blue absolute -top-2 -left-2 z-10 flex h-28 w-28 flex-col items-center justify-center rounded-full text-white shadow-xl"
                 >
-                  <span className="text-2xl font-extrabold">Zero</span>
+                  <span className="text-xl font-extrabold">Zero</span>
                   <span className="text-[10px] font-bold tracking-widest uppercase">
-                    Papel na Cozinha
+                    Papel
                   </span>
                 </motion.div>
               </div>
