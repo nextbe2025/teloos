@@ -248,19 +248,58 @@ export function SiteHeader() {
             </button>
           </div>
 
-          <nav className="flex flex-col gap-2 p-4">
-            {NAV_LINKS.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className="text-brand-dark/80 hover:text-brand-blue hover:bg-brand-blue/5 rounded-xl px-3 py-2 text-[15px] font-semibold transition-colors"
-              >
-                {item.label}
-              </Link>
-            ))}
+          <nav className="flex flex-col gap-1 p-4">
+            {/* Início */}
+            <Link
+              href="/"
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-brand-dark/80 hover:text-brand-blue hover:bg-brand-blue/5 rounded-xl px-3 py-2 text-[15px] font-semibold transition-colors"
+            >
+              Início
+            </Link>
 
-            <div className="border-brand-blue/10 mt-2 border-t pt-2">
+            {/* Produtos */}
+            <div className="border-brand-blue/10 mt-1 border-t pt-1">
+              <p className="text-brand-dark/40 mb-1 px-3 pt-1 text-[11px] font-bold uppercase tracking-widest">
+                Produtos
+              </p>
+              {PRODUCT_SUBMENU.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="group hover:bg-brand-blue/5 flex items-center gap-3 rounded-xl px-3 py-2 transition-colors"
+                >
+                  <div className="bg-brand-blue/8 text-brand-blue flex h-8 w-8 shrink-0 items-center justify-center rounded-lg">
+                    <item.icon className="h-4 w-4" />
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="text-brand-dark/80 text-[14px] font-semibold leading-tight">
+                      {item.label}
+                    </span>
+                    <span className="text-brand-dark/40 text-[11px] leading-tight">
+                      {item.description}
+                    </span>
+                  </div>
+                </Link>
+              ))}
+            </div>
+
+            {/* Links principais */}
+            <div className="border-brand-blue/10 mt-1 border-t pt-1">
+              {NAV_LINKS.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="text-brand-dark/80 hover:text-brand-blue hover:bg-brand-blue/5 block rounded-xl px-3 py-2 text-[15px] font-semibold transition-colors"
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+
+            <div className="border-brand-blue/10 mt-1 border-t pt-2">
               <Link
                 href="/entrar"
                 onClick={() => setMobileMenuOpen(false)}
