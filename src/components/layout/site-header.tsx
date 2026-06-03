@@ -103,7 +103,7 @@ export function SiteHeader() {
             </Link>
 
             {/* Nav Central */}
-            <nav className="hidden items-center gap-10 lg:flex">
+            <nav className="hidden items-center gap-10">
               <Link
                 href="/"
                 className="text-brand-dark/70 hover:text-brand-blue text-[15px] font-medium transition-colors duration-200"
@@ -194,10 +194,10 @@ export function SiteHeader() {
                 <Link href="/contato">Solicitar demo</Link>
               </Button>
 
-              {/* Mobile menu button */}
+              {/* Menu button */}
               <button
                 type="button"
-                className="text-brand-dark/80 hover:text-brand-blue hover:bg-brand-blue/5 inline-flex items-center justify-center rounded-full p-2 transition-colors lg:hidden"
+                className="text-brand-dark/80 hover:text-brand-blue hover:bg-brand-blue/5 inline-flex items-center justify-center rounded-full p-2 transition-colors"
                 aria-label="Abrir menu"
                 onClick={() => setMobileMenuOpen(true)}
               >
@@ -211,7 +211,7 @@ export function SiteHeader() {
       {/* Mobile Panel */}
       <div
         className={cn(
-          'fixed inset-0 z-50 transition-opacity duration-700 lg:hidden',
+          'fixed inset-0 z-50 transition-opacity duration-700',
           mobileMenuOpen ? 'opacity-100' : 'pointer-events-none opacity-0'
         )}
         aria-hidden={!mobileMenuOpen}
@@ -237,7 +237,15 @@ export function SiteHeader() {
           aria-label="Menu mobile"
         >
           <div className="border-brand-blue/10 flex items-center justify-between border-b p-4">
-            <span className="text-brand-dark/80 text-sm font-bold">Menu</span>
+            <Link href="/" onClick={() => setMobileMenuOpen(false)}>
+              <Image
+                src="/brand/Logo Teloos.png"
+                alt={siteConfig.name}
+                width={220}
+                height={64}
+                className="h-10 w-auto"
+              />
+            </Link>
             <button
               type="button"
               className="text-brand-dark/80 hover:text-brand-blue hover:bg-brand-blue/5 inline-flex items-center justify-center rounded-full p-2 transition-colors"
