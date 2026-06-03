@@ -119,6 +119,9 @@ export function AnalyticsSection() {
             transition={{ duration: 0.8, ease: 'easeOut' }}
             className="relative"
           >
+            {/* Mobile scale wrapper: encolhe o dashboard para caber em telas pequenas */}
+            <div className="overflow-hidden rounded-[2.5rem] sm:overflow-visible sm:rounded-none">
+              <div className="w-[139%] origin-top-left scale-[0.72] sm:w-full sm:scale-100 sm:origin-center">
             <div className="rounded-[2.5rem] bg-white p-2 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.12)] ring-1 ring-black/5">
               <div className="overflow-hidden rounded-[2rem] bg-[#F8FAFF]">
                 {/* App Top Bar */}
@@ -352,6 +355,8 @@ export function AnalyticsSection() {
                 </div>
               </div>
             </div>
+              </div>{/* fecha scale wrapper */}
+            </div>{/* fecha overflow wrapper */}
 
             <div className="bg-brand-blue/5 absolute -top-8 -right-8 -z-10 h-64 w-64 rounded-full blur-3xl" />
             <div className="absolute -bottom-12 -left-12 -z-10 h-64 w-64 rounded-full bg-emerald-500/5 blur-3xl" />
