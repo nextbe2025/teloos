@@ -85,8 +85,8 @@ export function SiteHeader() {
             : 'bg-transparent'
         )}
       >
-        <div className="mx-auto max-w-7xl px-6 lg:px-10">
-          <div className="flex items-center justify-between">
+        <div className="mx-auto max-w-7xl px-1 lg:px-10">
+          <div className="flex items-center gap-4 lg:justify-between">
             {/* Logo */}
             <Link
               href="/"
