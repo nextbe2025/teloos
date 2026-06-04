@@ -8,7 +8,6 @@ import { siteConfig } from '@/config/site'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import {
-  Menu,
   UserRound,
   X,
   ChevronDown,
@@ -85,12 +84,12 @@ export function SiteHeader() {
             : 'bg-transparent'
         )}
       >
-        <div className="mx-auto max-w-7xl px-1 lg:px-10">
-          <div className="flex items-center gap-4 lg:justify-between">
+        <div className="mx-auto max-w-7xl px-6 lg:px-10">
+          <div className="flex items-center justify-between">
             {/* Logo */}
             <Link
               href="/"
-              className="shrink-0 transition-transform duration-300 hover:scale-[1.02]"
+              className="-ml-[21px] shrink-0 transition-transform duration-300 hover:scale-[1.02]"
             >
               <Image
                 src="/brand/Logo Teloos.png"
@@ -103,7 +102,7 @@ export function SiteHeader() {
             </Link>
 
             {/* Nav Central */}
-            <nav className="hidden items-center gap-10">
+            <nav className="hidden items-center gap-10 lg:flex">
               <Link
                 href="/"
                 className="text-brand-dark/70 hover:text-brand-blue text-[15px] font-medium transition-colors duration-200"
@@ -177,9 +176,10 @@ export function SiteHeader() {
 
             {/* Ações Direita */}
             <div className="flex items-center gap-3">
+              {/* Entrar — só desktop */}
               <Link
                 href="/entrar"
-                className="text-brand-dark/80 hover:text-brand-blue hidden text-[15px] font-semibold transition-colors sm:block"
+                className="text-brand-dark/80 hover:text-brand-blue hidden text-[15px] font-semibold transition-colors lg:block"
               >
                 <span className="inline-flex items-center gap-2">
                   <UserRound className="h-4 w-4" strokeWidth={2.5} />
@@ -187,21 +187,26 @@ export function SiteHeader() {
                 </span>
               </Link>
 
+              {/* Solicitar demo — só desktop */}
               <Button
                 asChild
-                className="bg-brand-blue hover:bg-brand-blue/90 shadow-brand-blue/20 h-11 rounded-full px-7 text-sm font-bold text-white shadow-lg transition-all hover:scale-[1.02] active:scale-[0.98]"
+                className="bg-brand-blue hover:bg-brand-blue/90 shadow-brand-blue/20 hidden h-11 rounded-full px-7 text-sm font-bold text-white shadow-lg transition-all hover:scale-[1.02] active:scale-[0.98] lg:inline-flex"
               >
                 <Link href="/contato">Solicitar demo</Link>
               </Button>
 
-              {/* Menu button */}
+              {/* Menu button — só mobile */}
               <button
                 type="button"
-                className="text-brand-dark/80 hover:text-brand-blue hover:bg-brand-blue/5 inline-flex items-center justify-center rounded-full p-2 transition-colors"
+                className="group border-brand-dark/10 hover:border-brand-blue/30 hover:bg-brand-blue/5 relative inline-flex h-11 w-11 items-center justify-center rounded-xl border bg-white/60 backdrop-blur-sm transition-all active:scale-95 lg:hidden"
                 aria-label="Abrir menu"
                 onClick={() => setMobileMenuOpen(true)}
               >
-                <Menu className="h-5 w-5" strokeWidth={2.5} />
+                <span className="flex flex-col items-end gap-[5px]">
+                  <span className="bg-brand-dark group-hover:bg-brand-blue h-[2px] w-5 rounded-full transition-all duration-300" />
+                  <span className="bg-brand-dark group-hover:bg-brand-blue h-[2px] w-3.5 rounded-full transition-all duration-300 group-hover:w-5" />
+                  <span className="bg-brand-dark group-hover:bg-brand-blue h-[2px] w-5 rounded-full transition-all duration-300" />
+                </span>
               </button>
             </div>
           </div>
@@ -211,14 +216,14 @@ export function SiteHeader() {
       {/* Mobile Panel */}
       <div
         className={cn(
-          'fixed inset-0 z-50 transition-opacity duration-700',
+          'fixed inset-0 z-50 transition-opacity duration-300 lg:hidden',
           mobileMenuOpen ? 'opacity-100' : 'pointer-events-none opacity-0'
         )}
         aria-hidden={!mobileMenuOpen}
       >
         <div
           className={cn(
-            'absolute inset-0 bg-black/40 transition-opacity duration-700',
+            'absolute inset-0 bg-black/40 transition-opacity duration-300',
             mobileMenuOpen ? 'opacity-100' : 'opacity-0'
           )}
           onClick={() => setMobileMenuOpen(false)}
@@ -227,10 +232,8 @@ export function SiteHeader() {
         <div
           className={cn(
             'border-brand-blue/10 absolute top-0 right-0 h-full w-[320px] max-w-[85vw] border-l bg-white shadow-2xl',
-            'transition-all duration-700',
-            mobileMenuOpen
-              ? 'translate-x-0 opacity-100'
-              : 'translate-x-4 opacity-0'
+            'transition-transform duration-300',
+            mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
           )}
           role="dialog"
           aria-modal="true"
@@ -315,6 +318,17 @@ export function SiteHeader() {
               >
                 <UserRound className="h-4 w-4" strokeWidth={2.5} />
                 Entrar
+              </Link>
+            </div>
+
+            {/* CTA */}
+            <div className="border-brand-blue/10 mt-3 border-t pt-4">
+              <Link
+                href="/contato"
+                onClick={() => setMobileMenuOpen(false)}
+                className="bg-brand-blue hover:bg-brand-blue/90 flex w-full items-center justify-center rounded-full py-3 text-[15px] font-bold text-white transition-colors"
+              >
+                Solicitar demo
               </Link>
             </div>
           </nav>
