@@ -5,6 +5,7 @@ import { ThemeProvider } from '@/components/theme-provider'
 import { Toaster } from '@/components/ui/sonner'
 import { ScrollToTop } from '@/components/ui/scroll-to-top'
 import { GTMProvider } from '@/components/shared/gtm-provider'
+import { ChunkErrorReload } from '@/components/shared/chunk-error-reload'
 import { siteConfig } from '@/config/site'
 import { GTM_ID } from '@/lib/gtm'
 import './globals.css'
@@ -93,6 +94,8 @@ export default function RootLayout({
             style={{ display: 'none', visibility: 'hidden' }}
           />
         </noscript>
+
+        <ChunkErrorReload />
 
         <ThemeProvider
           attribute="class"
