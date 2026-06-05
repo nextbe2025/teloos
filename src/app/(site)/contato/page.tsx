@@ -159,7 +159,7 @@ export default function ContatoPage() {
             <div className="grid items-start gap-12 lg:grid-cols-5">
               {/* Contact Info */}
               <motion.div
-                className="space-y-8 lg:col-span-2"
+                className="order-2 space-y-8 lg:order-1 lg:col-span-2"
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
@@ -208,7 +208,7 @@ export default function ContatoPage() {
 
               {/* Contact Form */}
               <motion.div
-                className="lg:col-span-3"
+                className="order-1 lg:order-2 lg:col-span-3"
                 initial={{ opacity: 0, x: 30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}

@@ -72,7 +72,7 @@ export default function SobrePage() {
               </div>
               <h1 className="text-brand-dark mx-auto max-w-4xl text-4xl leading-[1.1] font-black sm:text-5xl lg:text-7xl">
                 Tecnologia para <br className="block" />
-                <span className="text-brand-blue text-glow-blue whitespace-nowrap">
+                <span className="text-brand-blue text-glow-blue sm:whitespace-nowrap">
                   gestão de restaurantes
                 </span>
               </h1>
