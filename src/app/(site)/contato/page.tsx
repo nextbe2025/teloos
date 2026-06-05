@@ -45,7 +45,7 @@ const CONTACT_INFO = [
     method: 'whatsapp' as const,
     value: '(41) 93618-1651',
     // URL deve conter "whatsapp" para o trigger 32 do GTM disparar nativamente
-    href: 'https://api.whatsapp.com/send/?phone=5541936181651',
+    href: 'https://api.whatsapp.com/send/?phone=5541936181651&text=Ol%C3%A1%2C%20tenho%20interesse%20em%20conhecer%20melhor%20a%20solu%C3%A7%C3%A3o%20da%20Teloos%20para%20o%20meu%20neg%C3%B3cio.',
   },
   {
     icon: MapPin,
