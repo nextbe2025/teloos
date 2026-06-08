@@ -119,136 +119,14 @@ export default function AutoatendimentoPage() {
                 transition={{ duration: 1 }}
                 className="relative z-10 overflow-hidden rounded-[2.5rem] border-[8px] border-white bg-white shadow-2xl"
               >
-                <div className="aspect-[4/3] w-full overflow-hidden bg-[#F8FAFF]">
-                  <div className="flex items-center justify-between bg-[#1a70b0] px-4 py-1.5">
-                    <span className="truncate text-[8px] font-semibold text-white/80">
-                      SABOR &amp; CIA RESTAURANTES | 12.345.678/0001-90
-                    </span>
-                    <div className="flex h-4 w-4 items-center justify-center rounded-full bg-orange-500">
-                      <span className="text-[5px] font-bold text-white">
-                        MA
-                      </span>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-1 border-b border-gray-200 bg-white px-3 py-1">
-                    <div className="rounded px-2 py-0.5 text-[8px] whitespace-nowrap text-gray-400">
-                      Início ×
-                    </div>
-                    <div className="flex items-center gap-1 rounded border border-orange-200 bg-orange-50 px-2 py-0.5 text-[8px] font-semibold whitespace-nowrap text-orange-600">
-                      <span className="inline-block h-1.5 w-1.5 rounded-full bg-orange-500" />
-                      Autoatendimento ×
-                    </div>
-                  </div>
-                  <div className="flex flex-col gap-2 p-3">
-                    <div className="flex items-center justify-between">
-                      <h4 className="text-[11px] font-bold text-gray-700">
-                        Totem — Pedido #0147
-                      </h4>
-                      <span className="rounded-full bg-green-100 px-2 py-0.5 text-[7px] font-bold text-green-600">
-                        EM ANDAMENTO
-                      </span>
-                    </div>
-                    <div className="flex gap-1.5">
-                      {[
-                        { label: 'Lanches', active: false },
-                        { label: 'Combos', active: true },
-                        { label: 'Bebidas', active: false },
-                        { label: 'Extras', active: false },
-                      ].map((cat) => (
-                        <div
-                          key={cat.label}
-                          className={`rounded-full px-2.5 py-1 text-[7px] font-bold whitespace-nowrap ${
-                            cat.active
-                              ? 'bg-orange-500 text-white'
-                              : 'bg-gray-100 text-gray-400'
-                          }`}
-                        >
-                          {cat.label}
-                        </div>
-                      ))}
-                    </div>
-                    <div className="grid grid-cols-3 gap-2">
-                      {[
-                        {
-                          name: 'X-Burguer',
-                          price: 'R$ 24,90',
-                          color: 'bg-amber-100',
-                          border: 'border-amber-200',
-                          badge: false,
-                        },
-                        {
-                          name: 'X-Bacon',
-                          price: 'R$ 29,90',
-                          color: 'bg-red-100',
-                          border: 'border-red-200',
-                          badge: false,
-                        },
-                        {
-                          name: 'Combo Duplo',
-                          price: 'R$ 39,90',
-                          color: 'bg-orange-100',
-                          border: 'border-orange-200',
-                          badge: true,
-                        },
-                        {
-                          name: 'X-Veggie',
-                          price: 'R$ 22,90',
-                          color: 'bg-green-100',
-                          border: 'border-green-200',
-                          badge: false,
-                        },
-                        {
-                          name: 'X-Frango',
-                          price: 'R$ 26,90',
-                          color: 'bg-yellow-100',
-                          border: 'border-yellow-200',
-                          badge: false,
-                        },
-                        {
-                          name: 'Smash Cheddar',
-                          price: 'R$ 32,90',
-                          color: 'bg-purple-100',
-                          border: 'border-purple-200',
-                          badge: false,
-                        },
-                      ].map((item, i) => (
-                        <div
-                          key={i}
-                          className={`relative overflow-hidden rounded-xl border ${item.border} bg-white`}
-                        >
-                          <div className={`${item.color} h-10 w-full`} />
-                          {item.badge && (
-                            <div className="absolute top-1 left-1 rounded-sm bg-orange-500 px-1 py-0.5 text-[5px] font-black text-white">
-                              + PEDIDO
-                            </div>
-                          )}
-                          <div className="p-1.5">
-                            <p className="text-[7px] leading-tight font-bold text-gray-700">
-                              {item.name}
-                            </p>
-                            <p className="text-[8px] font-black text-orange-500">
-                              {item.price}
-                            </p>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                    <div className="flex items-center justify-between rounded-xl bg-orange-500 px-3 py-1.5">
-                      <div className="flex items-center gap-2">
-                        <div className="flex h-4 w-4 items-center justify-center rounded-full bg-white">
-                          <span className="text-[7px] font-black text-orange-500">
-                            2
-                          </span>
-                        </div>
-                        <span className="text-[7px] font-bold text-white">
-                          Itens no pedido
-                        </span>
-                      </div>
-                      <span className="text-[9px] font-black text-white">
-                        R$ 54,80 →
-                      </span>
-                    </div>
-                  </div>
+                <div className="relative aspect-[4/3] w-full overflow-hidden">
+                  <Image
+                    src="/images/Autoatendimento.jpg.jpeg"
+                    alt="Totem de autoatendimento Teloos em operação"
+                    fill
+                    priority
+                    className="object-cover"
+                  />
                 </div>
               </motion.div>
 

@@ -45,7 +45,7 @@ const REASONS: Reason[] = [
       'Faturamento e emissão fiscal integrados',
       'Conciliação de caixa e relatórios diários',
     ],
-    image: '/images/Automação de processos_image.jpg',
+    image: '/images/PDV & Mesas.jpeg',
     hotspots: [
       {
         id: 'h1',
@@ -82,7 +82,7 @@ const REASONS: Reason[] = [
       'Alertas de produção e prazo',
       'Histórico completo rastreável',
     ],
-    image: '/images/Controle operacional total_image.jpg',
+    image: '/images/Controle operacional total.jpg.jpeg',
     hotspots: [
       {
         id: 'h4',
@@ -119,7 +119,7 @@ const REASONS: Reason[] = [
       'APIs abertas para parceiros',
       'Integrações com principais marketplaces',
     ],
-    image: '/images/Integração tecnológica_image.jpg',
+    image: '/images/Integração tecnológica.jpg.jpeg',
     hotspots: [
       {
         id: 'h7',

@@ -28,7 +28,7 @@ const SOLUTIONS: Solution[] = [
     title: 'PDV e Mesas',
     description:
       'PDV, Mesas, Comandas e Cozinha (KDS). Controle pedidos, atendimento e fluxo do seu restaurante com mais agilidade.',
-    image: '/images/PDV.jpeg',
+    image: '/images/PDV e Mesas.jpg.jpeg',
     icon: UtensilsCrossed,
     cta: 'Ver mais soluções',
     href: '/solucoes/pdv-e-mesas',
@@ -37,7 +37,7 @@ const SOLUTIONS: Solution[] = [
     title: 'Delivery',
     description:
       'App próprio, Delivery Integrado iFood, Gestão dos seus pedidos em tempo real, tudo centralizado em um só sistema.',
-    image: '/images/Delivery Teloos.png',
+    image: '/images/Delivery Inicial.jpeg',
     icon: Bike,
     cta: 'Ver mais soluções',
     href: '/solucoes/delivery',
@@ -46,7 +46,7 @@ const SOLUTIONS: Solution[] = [
     title: 'Autoatendimento',
     description:
       'Totem Autoatendimento, Cardápio Digital. Seus clientes façam pedidos direto da mesa ou em terminais, reduzindo filas.',
-    image: '/images/totem.jpeg',
+    image: '/images/Autoatendimento.jpg.jpeg',
     icon: Smartphone,
     cta: 'Ver mais soluções',
     href: '/solucoes/autoatendimento',
@@ -55,7 +55,7 @@ const SOLUTIONS: Solution[] = [
     title: 'Relatórios',
     description:
       'Acompanha sua operação de vendas, financeiro e estoque com mais organização e controle total.',
-    image: '/images/Dashboard.jpeg',
+    image: '/images/Relatórios.jpg.jpeg',
     icon: PieChart,
     cta: 'Ver mais soluções',
     href: '/solucoes/relatorios',

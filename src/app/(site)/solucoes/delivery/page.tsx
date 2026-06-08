@@ -1,6 +1,7 @@
 ﻿'use client'
 
 import React, { useEffect } from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import {
@@ -97,143 +98,14 @@ export default function DeliveryVendasPage() {
               className="relative"
             >
               <div className="shadow-brand-blue/10 relative overflow-hidden rounded-[2.5rem] border-8 border-white bg-white shadow-2xl">
-                <div className="aspect-[4/3] w-full overflow-hidden bg-[#F8FAFF]">
-                  <div className="flex items-center justify-between bg-[#1a70b0] px-4 py-1.5">
-                    <span className="truncate text-[8px] font-semibold text-white/80">
-                      SABOR &amp; CIA RESTAURANTES | 12.345.678/0001-90
-                    </span>
-                    <div className="flex h-4 w-4 items-center justify-center rounded-full bg-orange-500">
-                      <span className="text-[5px] font-bold text-white">
-                        MA
-                      </span>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-1 border-b border-gray-200 bg-white px-3 py-1">
-                    <div className="rounded px-2 py-0.5 text-[8px] whitespace-nowrap text-gray-400">
-                      Dashboard ×
-                    </div>
-                    <div className="flex items-center gap-1 rounded border border-blue-200 bg-blue-50 px-2 py-0.5 text-[8px] font-semibold whitespace-nowrap text-blue-600">
-                      <span className="inline-block h-1.5 w-1.5 rounded-full bg-blue-500" />
-                      Delivery ×
-                    </div>
-                  </div>
-                  <div className="flex flex-col gap-2.5 p-3">
-                    <div className="flex items-center justify-between">
-                      <h4 className="text-[11px] font-bold text-gray-700">
-                        Pedidos em Andamento
-                      </h4>
-                      <span className="flex items-center gap-1 text-[7px] font-bold text-green-600">
-                        <span className="inline-block h-1.5 w-1.5 rounded-full bg-green-500" />
-                        Loja Aberta
-                      </span>
-                    </div>
-                    <div className="grid grid-cols-3 gap-2">
-                      {[
-                        { label: 'Hoje', value: 'R$ 4.240', bg: 'bg-blue-500' },
-                        { label: 'Pedidos', value: '38', bg: 'bg-green-500' },
-                        {
-                          label: 'Ticket Médio',
-                          value: 'R$ 111,58',
-                          bg: 'bg-purple-500',
-                        },
-                      ].map((tile) => (
-                        <div
-                          key={tile.label}
-                          className={`rounded-lg p-2 text-white ${tile.bg}`}
-                        >
-                          <div className="text-[6.5px] text-white/80">
-                            {tile.label}
-                          </div>
-                          <div className="text-[9px] leading-tight font-bold">
-                            {tile.value}
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                    <div className="rounded-xl border border-gray-100 bg-white shadow-sm">
-                      {[
-                        {
-                          num: '#4489',
-                          canal: 'iFood',
-                          value: 'R$ 142,50',
-                          status: 'EM ROTA',
-                          statusColor: 'bg-blue-100 text-blue-700',
-                        },
-                        {
-                          num: '#4488',
-                          canal: 'Site Próprio',
-                          value: 'R$ 89,90',
-                          status: 'PREPARO',
-                          statusColor: 'bg-yellow-100 text-yellow-700',
-                        },
-                        {
-                          num: '#4487',
-                          canal: 'WhatsApp',
-                          value: 'R$ 67,00',
-                          status: 'ENTREGUE',
-                          statusColor: 'bg-green-100 text-green-700',
-                        },
-                        {
-                          num: '#4486',
-                          canal: 'iFood',
-                          value: 'R$ 198,00',
-                          status: 'ENTREGUE',
-                          statusColor: 'bg-green-100 text-green-700',
-                        },
-                      ].map((order, i) => (
-                        <div
-                          key={order.num}
-                          className={`flex items-center justify-between px-3 py-2 ${i > 0 ? 'border-t border-gray-100' : ''}`}
-                        >
-                          <div className="flex items-center gap-2">
-                            <span className="text-[8px] font-extrabold text-gray-600">
-                              {order.num}
-                            </span>
-                            <span className="text-[6.5px] text-gray-400">
-                              {order.canal}
-                            </span>
-                          </div>
-                          <div className="flex items-center gap-2">
-                            <span className="text-[8px] font-bold text-gray-700">
-                              {order.value}
-                            </span>
-                            <span
-                              className={`rounded-full px-1.5 py-0.5 text-[6px] font-extrabold ${order.statusColor}`}
-                            >
-                              {order.status}
-                            </span>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                    <div className="flex gap-2">
-                      {[
-                        { label: 'iFood', pct: 65, color: 'bg-red-400' },
-                        {
-                          label: 'Site Próprio',
-                          pct: 25,
-                          color: 'bg-blue-400',
-                        },
-                        { label: 'WhatsApp', pct: 10, color: 'bg-green-400' },
-                      ].map((ch) => (
-                        <div key={ch.label} className="flex-1">
-                          <div className="mb-0.5 flex justify-between text-[6.5px]">
-                            <span className="text-gray-500">{ch.label}</span>
-                            <span className="text-gray-400">{ch.pct}%</span>
-                          </div>
-                          <div className="h-1.5 w-full rounded-full bg-gray-100">
-                            <motion.div
-                              initial={{ width: 0 }}
-                              whileInView={{ width: `${ch.pct}%` }}
-                              viewport={{ once: true }}
-                              transition={{ duration: 0.8 }}
-                              className={`h-full rounded-full ${ch.color}`}
-                            />
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
+                <div className="relative aspect-[4/3] w-full overflow-hidden">
+                  <Image
+                    src="/images/Delivery.jpg.jpeg"
+                    alt="Operação de delivery integrada Teloos"
+                    fill
+                    priority
+                    className="object-cover"
+                  />
                 </div>
               </div>
 
