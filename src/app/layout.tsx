@@ -5,6 +5,7 @@ import { ThemeProvider } from '@/components/theme-provider'
 import { Toaster } from '@/components/ui/sonner'
 import { ScrollToTop } from '@/components/ui/scroll-to-top'
 import { GTMProvider } from '@/components/shared/gtm-provider'
+import NextTopLoader from 'nextjs-toploader'
 import { siteConfig } from '@/config/site'
 import { GTM_ID } from '@/lib/gtm'
 import './globals.css'
@@ -84,6 +85,16 @@ export default function RootLayout({
         className={`${inter.variable} bg-background min-h-screen font-sans antialiased`}
         suppressHydrationWarning
       >
+        {/* Barra de progresso fina no topo durante navegação SPA do App Router */}
+        <NextTopLoader
+          color="#3f63e6"
+          height={3}
+          shadow="0 0 8px #3f63e6, 0 0 4px #3f63e6"
+          showSpinner={false}
+          easing="ease"
+          speed={400}
+        />
+
         {/* GTM noscript fallback */}
         <noscript>
           <iframe
