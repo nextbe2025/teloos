@@ -46,7 +46,7 @@ const SOLUTIONS: Solution[] = [
     title: 'Autoatendimento',
     description:
       'Totem Autoatendimento, Cardápio Digital. Seus clientes façam pedidos direto da mesa ou em terminais, reduzindo filas.',
-    image: '/images/Autoatendimento.jpg.jpeg',
+    image: '/images/Autoatendimento home.jpg.jpeg',
     icon: Smartphone,
     cta: 'Ver mais soluções',
     href: '/solucoes/autoatendimento',
@@ -55,7 +55,7 @@ const SOLUTIONS: Solution[] = [
     title: 'Relatórios',
     description:
       'Acompanha sua operação de vendas, financeiro e estoque com mais organização e controle total.',
-    image: '/images/Relatórios.jpg.jpeg',
+    image: '/images/Dashboard.jpeg',
     icon: PieChart,
     cta: 'Ver mais soluções',
     href: '/solucoes/relatorios',

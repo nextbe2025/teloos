@@ -346,10 +346,10 @@ export default function GestaoFinanceiroPage() {
                 className="relative z-10 overflow-hidden rounded-[3rem] border-8 border-slate-50 shadow-2xl"
               >
                 <Image
-                  src="/images/Relatório financeiro.jpeg"
+                  src="/images/Relatório.jpg.jpeg"
                   alt="Relatório financeiro Teloos"
-                  width={600}
-                  height={600}
+                  width={1600}
+                  height={1000}
                   className="w-full object-cover"
                 />
               </motion.div>

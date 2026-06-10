@@ -52,10 +52,10 @@ const FEATURES = [
 ]
 
 const KDS_IMAGES = [
+  '/images/KDS 4 (1).jpeg',
   '/images/KDS (1).jpeg',
   '/images/KDS 2 (1).jpeg',
   '/images/KDS 3 (1).jpeg',
-  '/images/KDS 4 (1).jpeg',
 ]
 
 const STACK_CONFIG = [
@@ -181,7 +181,7 @@ export default function OperacaoAtendimentoPage() {
               <div className="shadow-brand-blue/10 relative overflow-hidden rounded-[2.5rem] border-8 border-white bg-white shadow-2xl">
                 <div className="relative aspect-[4/3] w-full overflow-hidden">
                   <Image
-                    src="/images/PDV e Mesas.jpg.jpeg"
+                    src="/images/PDV.jpg.jpeg"
                     alt="Sistema Teloos de PDV e gestão de mesas em operação"
                     fill
                     priority
