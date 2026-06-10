@@ -180,7 +180,7 @@ export default function OperacaoAtendimentoPage() {
               <div className="shadow-brand-blue/10 relative overflow-hidden rounded-[2.5rem] border-8 border-white bg-white shadow-2xl">
                 <div className="relative aspect-[4/3] w-full overflow-hidden">
                   <Image
-                    src="/images/PDV.jpg.jpeg"
+                    src="/images/PDV e Mesas.jpg.jpeg"
                     alt="Sistema Teloos de PDV e gestão de mesas em operação"
                     fill
                     priority

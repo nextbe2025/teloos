@@ -28,7 +28,7 @@ const SOLUTIONS: Solution[] = [
     title: 'PDV e Mesas',
     description:
       'PDV, Mesas, Comandas e Cozinha (KDS). Controle pedidos, atendimento e fluxo do seu restaurante com mais agilidade.',
-    image: '/images/PDV e Mesas.jpg.jpeg',
+    image: '/images/PDV.jpg.jpeg',
     icon: UtensilsCrossed,
     cta: 'Ver mais soluções',
     href: '/solucoes/pdv-e-mesas',
