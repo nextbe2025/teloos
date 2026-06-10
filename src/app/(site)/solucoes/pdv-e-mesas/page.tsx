@@ -53,7 +53,6 @@ const FEATURES = [
 
 const KDS_IMAGES = [
   '/images/KDS 4 (1).jpeg',
-  '/images/KDS (1).jpeg',
   '/images/KDS 2 (1).jpeg',
   '/images/KDS 3 (1).jpeg',
 ]
@@ -66,7 +65,7 @@ const STACK_CONFIG = [
 ]
 
 function StackedImages() {
-  const [order, setOrder] = useState([0, 1, 2, 3])
+  const [order, setOrder] = useState([0, 1, 2])
 
   const advance = () => {
     setOrder((prev) => {
