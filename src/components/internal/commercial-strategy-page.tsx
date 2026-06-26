@@ -148,6 +148,9 @@ const parseNumber = (value: string) => Number(value.replace(/\D/g, '')) || 0
 
 const onlyDigits = (value: string) => value.replace(/\D/g, '')
 
+const formatPdfLabel = (value: string) =>
+  value.replace(/\s*→\s*/g, ' para ').replace(/\s+/g, ' ').trim()
+
 async function loadImageAsDataUrl(src: string) {
   const response = await fetch(src)
   const blob = await response.blob()
@@ -191,7 +194,6 @@ function RateControl({
   accent?: 'blue' | 'orange' | 'green'
 }) {
   const status = getStatus(rate.value, rate.min, rate.max)
-  const markerPosition = Math.min(100, Math.max(0, rate.value))
 
   return (
     <div
@@ -231,43 +233,34 @@ function RateControl({
           </span>
         </div>
       </div>
-      <input
-        id={`rate-${rate.id}`}
-        type="range"
-        min={1}
-        max={100}
-        value={rate.value}
-        onChange={(event) => onChange(Number(event.target.value))}
-        className={cn(
-          'h-2 w-full cursor-pointer appearance-none rounded-full bg-slate-200',
-          accent === 'orange' && 'accent-orange-500',
-          accent === 'green' && 'accent-emerald-600',
-          accent === 'blue' && 'accent-brand-blue'
-        )}
-      />
-      <div className="mt-3">
-        <div className="relative h-2 rounded-full bg-slate-200">
+      <div className="relative">
+        <div className="pointer-events-none absolute left-0 right-0 top-1/2 h-2 -translate-y-1/2 rounded-full bg-slate-200">
           <div
-            className="absolute top-0 h-2 rounded-full bg-brand-blue/20"
+            className="absolute top-0 h-2 rounded-full bg-brand-blue/25"
             style={{
               left: `${rate.min}%`,
               width: `${Math.max(0, rate.max - rate.min)}%`,
             }}
           />
-          <div
-            className={cn(
-              'absolute top-1/2 size-3 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-white shadow',
-              status.label === 'Abaixo' && 'bg-red-500',
-              status.label === 'Na média' && 'bg-brand-blue',
-              status.label === 'Acima' && 'bg-emerald-500'
-            )}
-            style={{ left: `${markerPosition}%` }}
-          />
         </div>
-        <div className="mt-1 flex justify-between text-[10px] font-bold text-slate-400">
-          <span>{rate.min}%</span>
-          <span>{rate.max}%</span>
-        </div>
+        <input
+          id={`rate-${rate.id}`}
+          type="range"
+          min={1}
+          max={100}
+          value={rate.value}
+          onChange={(event) => onChange(Number(event.target.value))}
+          className={cn(
+            'relative z-10 h-2 w-full cursor-pointer appearance-none rounded-full bg-transparent',
+            accent === 'orange' && 'accent-orange-500',
+            accent === 'green' && 'accent-emerald-600',
+            accent === 'blue' && 'accent-brand-blue'
+          )}
+        />
+      </div>
+      <div className="mt-1 flex justify-between text-[10px] font-bold text-slate-400">
+        <span>{rate.min}%</span>
+        <span>{rate.max}%</span>
       </div>
     </div>
   )
@@ -670,9 +663,12 @@ export function CommercialStrategyPage() {
       const generatedAt = new Date().toLocaleDateString('pt-BR')
       const fileDate = new Date().toISOString().slice(0, 10)
       const logo = await loadImageAsDataUrl('/brand/Logo Teloos.png')
-      const bottleneckText = bottleneckRate
-        ? `${bottleneckRate.label} (${bottleneckRate.value}%, mínimo saudável ${bottleneckRate.min}%)`
-        : bottleneck
+      const bottleneckTitle = formatPdfLabel(
+        bottleneckRate ? bottleneckRate.label : bottleneck
+      )
+      const bottleneckMeta = bottleneckRate
+        ? `Taxa atual: ${bottleneckRate.value}% | mínimo saudável: ${bottleneckRate.min}%`
+        : 'Sem taxa de referência definida.'
       const bottleneckExplanation = bottleneckAnalysis
         ? bottleneckAnalysis.isCritical
           ? `Esta passagem está ${Math.abs(
@@ -746,12 +742,23 @@ export function CommercialStrategyPage() {
       doc.setFont('helvetica', 'bold')
       doc.setFontSize(11)
       doc.setTextColor(17, 36, 95)
-      doc.text(doc.splitTextToSize(bottleneckText, 170), 22, 141)
+      doc.text(doc.splitTextToSize(bottleneckTitle, 158), 22, 141, {
+        maxWidth: 158,
+      })
+
+      doc.setFont('helvetica', 'bold')
+      doc.setFontSize(8.5)
+      doc.setTextColor(63, 99, 230)
+      doc.text(bottleneckMeta, 22, 148, {
+        maxWidth: 158,
+      })
 
       doc.setFont('helvetica', 'normal')
       doc.setFontSize(9.5)
       doc.setTextColor(71, 85, 105)
-      doc.text(doc.splitTextToSize(bottleneckExplanation, 170), 22, 153)
+      doc.text(doc.splitTextToSize(bottleneckExplanation, 158), 22, 157, {
+        maxWidth: 158,
+      })
 
       doc.setTextColor(17, 36, 95)
       doc.setFont('helvetica', 'bold')
@@ -778,7 +785,7 @@ export function CommercialStrategyPage() {
         doc.setFont('helvetica', 'bold')
         doc.setFontSize(10)
         doc.setTextColor(17, 36, 95)
-        doc.text(`${index + 1}. ${stage.label}`, 14, y)
+        doc.text(`${index + 1}. ${formatPdfLabel(stage.label)}`, 14, y)
 
         doc.setFont('helvetica', 'normal')
         doc.setTextColor(15, 23, 42)
