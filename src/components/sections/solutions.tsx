@@ -37,7 +37,7 @@ const SOLUTIONS: Solution[] = [
     title: 'Delivery',
     description:
       'App próprio, Delivery Integrado iFood, Gestão dos seus pedidos em tempo real, tudo centralizado em um só sistema.',
-    image: '/images/Delivery Inicial.jpeg',
+    image: '/images/Delivery.jpg',
     icon: Bike,
     cta: 'Ver mais soluções',
     href: '/solucoes/delivery',

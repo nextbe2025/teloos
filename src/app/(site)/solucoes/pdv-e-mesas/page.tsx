@@ -52,7 +52,7 @@ const FEATURES = [
 ]
 
 const KDS_IMAGES = [
-  '/images/KDS 4 (1).jpeg',
+  '/images/KDS 8.jpg',
   '/images/KDS 2 (1).jpeg',
   '/images/KDS 3 (1).jpeg',
 ]
