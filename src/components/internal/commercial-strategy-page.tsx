@@ -37,6 +37,13 @@ type FunnelRate = {
   value: number
 }
 
+type FunnelVolume = {
+  id: FunnelRateId
+  label: string
+  helper: string
+  value: string
+}
+
 type FunnelStage = {
   label: string
   value: number
@@ -135,8 +142,20 @@ const defaultRates: FunnelRate[] = [
   },
 ]
 
+const stageLabels = [
+  '1º abordagem',
+  '2º a 4º tentativa',
+  'Contato estabelecido',
+  'Levantamento de necessidade',
+  'Reunião agendada',
+  'Cliente em teste',
+  'Envio de proposta',
+  'Negociação',
+  'Venda',
+]
+
 const commercialRituals = [
-  'Atualizar taxas reais toda sexta-feira',
+  'Atualizar volumes reais do funil',
   'Comparar meta x leads necessários antes da pauta comercial',
   'Marcar gargalo principal do funil e dono da ação',
 ]
@@ -150,6 +169,24 @@ const onlyDigits = (value: string) => value.replace(/\D/g, '')
 
 const formatPdfLabel = (value: string) =>
   value.replace(/\s*→\s*/g, ' para ').replace(/\s+/g, ' ').trim()
+
+const clampRate = (value: number) => Math.min(100, Math.max(0, value))
+
+const calculateDefaultVolumes = (initialLeads: number) => {
+  let currentValue = initialLeads
+
+  return defaultRates.reduce(
+    (accumulator, rate) => {
+      currentValue *= rate.value / 100
+
+      return {
+        ...accumulator,
+        [rate.id]: String(Math.round(currentValue)),
+      }
+    },
+    {} as Record<FunnelRateId, string>
+  )
+}
 
 async function loadImageAsDataUrl(src: string) {
   const response = await fetch(src)
@@ -184,16 +221,21 @@ function getStatus(value: number, min: number, max: number) {
   }
 }
 
-function RateControl({
+function VolumeControl({
+  volume,
+  previousValue,
   rate,
   onChange,
   accent = 'blue',
 }: {
+  volume: FunnelVolume
+  previousValue: number
   rate: FunnelRate
-  onChange: (value: number) => void
+  onChange: (value: string) => void
   accent?: 'blue' | 'orange' | 'green'
 }) {
   const status = getStatus(rate.value, rate.min, rate.max)
+  const currentValue = parseNumber(volume.value)
 
   return (
     <div
@@ -206,11 +248,11 @@ function RateControl({
         <div>
           <label
             className="text-brand-dark block text-sm font-semibold"
-            htmlFor={`rate-${rate.id}`}
+            htmlFor={`volume-${volume.id}`}
           >
-            {rate.label}
+            {volume.label}
           </label>
-          <p className="text-xs text-slate-500">{rate.helper}</p>
+          <p className="text-xs text-slate-500">{volume.helper}</p>
         </div>
         <div className="flex items-center justify-between gap-3">
           <span
@@ -223,7 +265,7 @@ function RateControl({
           </span>
           <span
             className={cn(
-              'w-10 text-right text-sm font-bold',
+              'w-14 text-right text-sm font-bold',
               accent === 'orange' && 'text-orange-600',
               accent === 'green' && 'text-emerald-600',
               accent === 'blue' && 'text-brand-blue'
@@ -233,8 +275,39 @@ function RateControl({
           </span>
         </div>
       </div>
-      <div className="relative">
-        <div className="pointer-events-none absolute left-0 right-0 top-1/2 h-2 -translate-y-1/2 rounded-full bg-slate-200">
+      <div className="grid grid-cols-[1fr_auto] items-center gap-3">
+        <div className="relative">
+          <input
+            id={`volume-${volume.id}`}
+            type="number"
+            min={0}
+            max={Math.max(0, Math.round(previousValue))}
+            step={1}
+            value={volume.value}
+            onChange={(event) => onChange(onlyDigits(event.currentTarget.value))}
+            className={cn(
+              'w-full rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 pr-9 text-base font-black text-brand-dark outline-none transition [appearance:textfield] focus:border-brand-blue focus:bg-white focus:ring-2 focus:ring-brand-blue/20 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none',
+              accent === 'orange' && 'focus:border-orange-500 focus:ring-orange-500/20',
+              accent === 'green' && 'focus:border-emerald-600 focus:ring-emerald-600/20'
+            )}
+          />
+          {volume.value ? (
+            <button
+              aria-label={`Limpar ${volume.label}`}
+              className="absolute right-2 top-1/2 flex size-7 -translate-y-1/2 items-center justify-center rounded-full text-slate-400 transition hover:bg-slate-100 hover:text-slate-700"
+              onClick={() => onChange('')}
+              type="button"
+            >
+              <X className="size-4" />
+            </button>
+          ) : null}
+        </div>
+        <span className="text-xs font-bold text-slate-400">
+          de {formatNumber(previousValue)}
+        </span>
+      </div>
+      <div className="mt-3">
+        <div className="relative h-2 rounded-full bg-slate-200">
           <div
             className="absolute top-0 h-2 rounded-full bg-brand-blue/25"
             style={{
@@ -242,26 +315,26 @@ function RateControl({
               width: `${Math.max(0, rate.max - rate.min)}%`,
             }}
           />
+          <div
+            className={cn(
+              'absolute top-1/2 size-3 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-white shadow',
+              status.label === 'Abaixo' && 'bg-red-500',
+              status.label === 'Na média' && 'bg-brand-blue',
+              status.label === 'Acima' && 'bg-emerald-500'
+            )}
+            style={{ left: `${clampRate(rate.value)}%` }}
+          />
         </div>
-        <input
-          id={`rate-${rate.id}`}
-          type="range"
-          min={1}
-          max={100}
-          value={rate.value}
-          onChange={(event) => onChange(Number(event.target.value))}
-          className={cn(
-            'relative z-10 h-2 w-full cursor-pointer appearance-none rounded-full bg-transparent',
-            accent === 'orange' && 'accent-orange-500',
-            accent === 'green' && 'accent-emerald-600',
-            accent === 'blue' && 'accent-brand-blue'
-          )}
-        />
+        <div className="mt-1 flex justify-between text-[10px] font-bold text-slate-400">
+          <span>{rate.min}%</span>
+          <span>{rate.max}%</span>
+        </div>
       </div>
-      <div className="mt-1 flex justify-between text-[10px] font-bold text-slate-400">
-        <span>{rate.min}%</span>
-        <span>{rate.max}%</span>
-      </div>
+      <p className="mt-2 text-xs text-slate-500">
+        {formatNumber(currentValue)} de {formatNumber(previousValue)} =
+        {' '}
+        <strong className="text-brand-dark">{rate.value}%</strong>
+      </p>
     </div>
   )
 }
@@ -506,63 +579,56 @@ export function CommercialStrategyPage() {
   const [mode, setMode] = useState<FunnelMode>('leads')
   const [leadsInput, setLeadsInput] = useState('1000')
   const [goalInput, setGoalInput] = useState('50')
-  const [rates, setRates] = useState(defaultRates)
+  const [stageInputs, setStageInputs] = useState<Record<FunnelRateId, string>>(
+    () => calculateDefaultVolumes(1000)
+  )
   const [isGeneratingPdf, setIsGeneratingPdf] = useState(false)
+
+  const defaultTotalMultiplier = useMemo(
+    () =>
+      defaultRates.reduce(
+        (accumulator, rate) => accumulator * (rate.value / 100),
+        1
+      ),
+    []
+  )
+
+  const initialLeads = useMemo(() => {
+    if (mode === 'leads') return parseNumber(leadsInput)
+
+    const saleGoal = parseNumber(goalInput)
+    return defaultTotalMultiplier > 0 ? saleGoal / defaultTotalMultiplier : 0
+  }, [defaultTotalMultiplier, goalInput, leadsInput, mode])
+
+  const rates = useMemo(() => {
+    let previousValue = initialLeads
+
+    return defaultRates.map((rate) => {
+      const currentValue = parseNumber(stageInputs[rate.id] ?? '')
+      const calculatedRate =
+        previousValue > 0 ? Math.round((currentValue / previousValue) * 100) : 0
+
+      previousValue = currentValue
+
+      return {
+        ...rate,
+        value: calculatedRate,
+      }
+    })
+  }, [initialLeads, stageInputs])
 
   const cumulativeFormula = rates.map((rate) => `${rate.value}%`).join(' x ')
 
-  const rateMap = useMemo(
-    () =>
-      rates.reduce(
-        (accumulator, rate) => ({
-          ...accumulator,
-          [rate.id]: rate.value / 100,
-        }),
-        {} as Record<FunnelRateId, number>
-      ),
-    [rates]
-  )
-
   const funnel = useMemo(() => {
-    const multipliers = defaultRates.map((rate) => rateMap[rate.id])
-    const totalMultiplier = multipliers.reduce(
-      (accumulator, rate) => accumulator * rate,
-      1
-    )
-
-    let initialLeads = 0
-    let saleCount = 0
-
-    if (mode === 'leads') {
-      initialLeads = parseNumber(leadsInput)
-      saleCount = initialLeads * totalMultiplier
-    } else {
-      saleCount = parseNumber(goalInput)
-      initialLeads = totalMultiplier > 0 ? saleCount / totalMultiplier : 0
-    }
-
-    let currentValue = initialLeads
     const stages: FunnelStage[] = [
       {
         label: 'Sem contato',
-        value: currentValue,
+        value: initialLeads,
       },
     ]
 
-    const stageLabels = [
-      '1º abordagem',
-      '2º a 4º tentativa',
-      'Contato estabelecido',
-      'Levantamento de necessidade',
-      'Reunião agendada',
-      'Cliente em teste',
-      'Envio de proposta',
-      'Negociação',
-      'Venda',
-    ]
-
     defaultRates.forEach((rate, index) => {
-      currentValue *= rateMap[rate.id]
+      const currentValue = parseNumber(stageInputs[rate.id] ?? '')
       stages.push({
         label: stageLabels[index] ?? rate.label,
         value: currentValue,
@@ -571,6 +637,7 @@ export function CommercialStrategyPage() {
       })
     })
 
+    const saleCount = stages[stages.length - 1]?.value ?? 0
     const globalConversion =
       initialLeads > 0 ? (saleCount / initialLeads) * 100 : 0
 
@@ -580,7 +647,7 @@ export function CommercialStrategyPage() {
       stages,
       globalConversion,
     }
-  }, [goalInput, leadsInput, mode, rateMap, rates])
+  }, [initialLeads, rates, stageInputs])
 
   const bottleneckAnalysis = useMemo<BottleneckAnalysis | null>(() => {
     const transitions = funnel.stages
@@ -640,14 +707,50 @@ export function CommercialStrategyPage() {
     }
   }, [rates])
 
-  function updateRate(id: FunnelRate['id'], value: number) {
-    setRates((current) =>
-      current.map((rate) => (rate.id === id ? { ...rate, value } : rate))
-    )
+  function updateStageInput(id: FunnelRateId, value: string) {
+    setStageInputs((current) => ({
+      ...current,
+      [id]: value,
+    }))
+  }
+
+  function updateLeadsInput(value: string) {
+    const onlyNumbers = onlyDigits(value)
+    setLeadsInput(onlyNumbers)
+
+    if (mode === 'leads') {
+      setStageInputs(calculateDefaultVolumes(parseNumber(onlyNumbers)))
+    }
+  }
+
+  function updateGoalInput(value: string) {
+    const onlyNumbers = onlyDigits(value)
+    setGoalInput(onlyNumbers)
+
+    if (mode === 'goal') {
+      const saleGoal = parseNumber(onlyNumbers)
+      const requiredLeads =
+        defaultTotalMultiplier > 0 ? saleGoal / defaultTotalMultiplier : 0
+      setStageInputs(calculateDefaultVolumes(requiredLeads))
+    }
+  }
+
+  function changeMode(nextMode: FunnelMode) {
+    setMode(nextMode)
+
+    if (nextMode === 'leads') {
+      setStageInputs(calculateDefaultVolumes(parseNumber(leadsInput)))
+      return
+    }
+
+    const saleGoal = parseNumber(goalInput)
+    const requiredLeads =
+      defaultTotalMultiplier > 0 ? saleGoal / defaultTotalMultiplier : 0
+    setStageInputs(calculateDefaultVolumes(requiredLeads))
   }
 
   function resetBenchmarks() {
-    setRates(defaultRates)
+    setStageInputs(calculateDefaultVolumes(initialLeads))
   }
 
   async function downloadPdf() {
@@ -1015,7 +1118,7 @@ export function CommercialStrategyPage() {
                     ? 'bg-white text-brand-blue shadow-sm'
                     : 'text-slate-500 hover:text-slate-700'
                 )}
-                onClick={() => setMode('leads')}
+                onClick={() => changeMode('leads')}
                 type="button"
               >
                 A partir de leads
@@ -1027,7 +1130,7 @@ export function CommercialStrategyPage() {
                     ? 'bg-white text-brand-blue shadow-sm'
                     : 'text-slate-500 hover:text-slate-700'
                 )}
-                onClick={() => setMode('goal')}
+                onClick={() => changeMode('goal')}
                 type="button"
               >
                 A partir da meta
@@ -1038,7 +1141,7 @@ export function CommercialStrategyPage() {
               <NumberField
                 id="leads-input"
                 label="Leads/contatos que entraram no funil"
-                onChange={(value) => setLeadsInput(onlyDigits(value))}
+                onChange={updateLeadsInput}
                 placeholder="Ex: 1000"
                 tone="blue"
                 value={leadsInput}
@@ -1047,7 +1150,7 @@ export function CommercialStrategyPage() {
               <NumberField
                 id="goal-input"
                 label="Meta de vendas em clientes"
-                onChange={(value) => setGoalInput(onlyDigits(value))}
+                onChange={updateGoalInput}
                 placeholder="Ex: 50"
                 tone="green"
                 value={goalInput}
@@ -1056,20 +1159,34 @@ export function CommercialStrategyPage() {
 
             <div className="mb-4">
               <h3 className="text-sm font-bold uppercase tracking-[0.18em] text-slate-400">
-                Taxas de conversão
+                Volumes por etapa
               </h3>
               <p className="mt-1 text-xs leading-relaxed text-slate-500">
-                Preset inicial: cenário de mercado saudável. Ajuste
-                periodicamente conforme o preenchimento e a percepção do
-                comercial.
+                Preencha quantos leads chegaram em cada etapa. O simulador
+                calcula automaticamente a taxa de conversão e compara com o
+                esperado.
               </p>
             </div>
 
             <div className="space-y-4">
-              {rates.map((rate) => (
-                <RateControl
+              {rates.map((rate, index) => (
+                <VolumeControl
                   key={rate.id}
+                  previousValue={
+                    index === 0
+                      ? funnel.leads
+                      : parseNumber(stageInputs[defaultRates[index - 1].id] ?? '')
+                  }
                   rate={rate}
+                  volume={{
+                    id: rate.id,
+                    label: stageLabels[index] ?? rate.label,
+                    helper:
+                      index === 0
+                        ? 'Quantos leads receberam a primeira abordagem'
+                        : `Quantos avançaram depois de ${stageLabels[index - 1].toLowerCase()}`,
+                    value: stageInputs[rate.id] ?? '',
+                  }}
                   accent={
                     ['trial', 'proposal', 'negotiation'].includes(rate.id)
                       ? 'orange'
@@ -1077,7 +1194,7 @@ export function CommercialStrategyPage() {
                         ? 'green'
                         : 'blue'
                   }
-                  onChange={(value) => updateRate(rate.id, value)}
+                  onChange={(value) => updateStageInput(rate.id, value)}
                 />
               ))}
             </div>
@@ -1088,7 +1205,7 @@ export function CommercialStrategyPage() {
               type="button"
             >
               <RotateCcw className="size-4" />
-              Restaurar benchmarks
+              Recalcular pelo preset
             </button>
           </aside>
 
