@@ -34,7 +34,7 @@ const ALIMENTACAO = [
   { name: 'Bares', icon: Beer, color: 'bg-yellow-50 text-yellow-600' },
   { name: 'Cafeterias', icon: Coffee, color: 'bg-amber-50 text-amber-600' },
   {
-    name: 'Lanchonetes',
+    name: 'Restaurantes',
     icon: Utensils,
     color: 'bg-orange-50 text-orange-500',
   },
@@ -43,7 +43,7 @@ const ALIMENTACAO = [
   { name: 'Sorveterias', icon: IceCream, color: 'bg-pink-50 text-pink-600' },
   { name: 'Fast Food', icon: Store, color: 'bg-red-50 text-red-600' },
   { name: 'Food Truck', icon: Truck, color: 'bg-slate-50 text-slate-600' },
-  { name: 'Açougue', icon: Beef, color: 'bg-red-50 text-red-800' },
+  { name: 'Churrascarias', icon: Beef, color: 'bg-red-50 text-red-800' },
   { name: 'Wine Bars', icon: Wine, color: 'bg-purple-50 text-purple-600' },
 ]
 
