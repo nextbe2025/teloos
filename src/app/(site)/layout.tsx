@@ -1,5 +1,6 @@
 import { Footer } from '@/components/layout/footer'
 // import { WhatsAppButton } from '@/components/shared/whatsapp-button'
+import { AttributionTracker } from '@/components/shared/attribution-tracker'
 import { CookieBanner } from '@/components/shared/cookie-banner'
 
 /**
@@ -18,6 +19,7 @@ export default function SiteLayout({
       <Footer />
       {/* <WhatsAppButton /> */}
       <CookieBanner />
+      <AttributionTracker />
     </>
   )
 }

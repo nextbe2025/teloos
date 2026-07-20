@@ -29,6 +29,7 @@ import { Section } from '@/components/shared/section'
 import { Button } from '@/components/ui/button'
 import { SiteHeader } from '@/components/layout/site-header'
 import { toast } from 'sonner'
+import { getSavedAttribution } from '@/lib/attribution'
 import { trackLead, trackSocialClick } from '@/lib/gtm'
 
 const CONTACT_INFO = [
@@ -91,6 +92,7 @@ export default function ContatoPage() {
         .value,
       message: (form.elements.namedItem('message') as HTMLTextAreaElement)
         .value,
+      attribution: getSavedAttribution(),
     }
 
     try {

@@ -66,7 +66,7 @@ export function CookieBanner() {
             <div className="px-6 py-5">
               <p className="text-brand-dark/60 text-[14px] leading-relaxed">
                 Usamos cookies para melhorar sua navegação, analisar o uso do site e oferecer uma experiência personalizada. Ao clicar em{' '}
-                <strong className="text-brand-dark/80">"Aceitar"</strong>, você concorda com nossa{' '}
+                <strong className="text-brand-dark/80">&quot;Aceitar&quot;</strong>, você concorda com nossa{' '}
                 <Link
                   href="/privacidade"
                   className="text-brand-blue font-semibold underline underline-offset-2 hover:opacity-80 transition-opacity"
