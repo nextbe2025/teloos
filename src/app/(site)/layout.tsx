@@ -1,3 +1,4 @@
+import { Suspense } from 'react'
 import { Footer } from '@/components/layout/footer'
 // import { WhatsAppButton } from '@/components/shared/whatsapp-button'
 import { AttributionTracker } from '@/components/shared/attribution-tracker'
@@ -19,7 +20,9 @@ export default function SiteLayout({
       <Footer />
       {/* <WhatsAppButton /> */}
       <CookieBanner />
-      <AttributionTracker />
+      <Suspense fallback={null}>
+        <AttributionTracker />
+      </Suspense>
     </>
   )
 }
