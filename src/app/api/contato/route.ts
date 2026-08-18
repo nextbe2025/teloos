@@ -30,11 +30,35 @@ function escapeHtml(value: unknown) {
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json()
-    const { name, email, phone, restaurant, message } = body
+    const {
+      name,
+      email,
+      phone,
+      state,
+      segment,
+      units,
+      currentSystem,
+      improvements,
+      implementationTime,
+    } = body
     const attribution = (body.attribution ?? {}) as AttributionData
     const trafficSource = buildTrafficSource(attribution)
+    const improvementsText = Array.isArray(improvements)
+      ? improvements.join(', ')
+      : ''
+    const improvementsValue = Array.isArray(improvements) ? improvements : []
 
-    if (!name || !email || !phone || !restaurant) {
+    if (
+      !name ||
+      !email ||
+      !phone ||
+      !state ||
+      !segment ||
+      !units ||
+      !currentSystem ||
+      !improvementsText ||
+      !implementationTime
+    ) {
       return NextResponse.json(
         { error: 'Campos obrigatórios faltando.' },
         { status: 400 }
@@ -56,8 +80,13 @@ export async function POST(req: NextRequest) {
               name,
               email,
               mobile_phone: phone,
-              cf_area_de_atuacao: restaurant,
-              cf_mensagem: message || '',
+              cf_estados: state,
+              cf_qual_e_o_segmento_do_seu_negocio: segment,
+              cf_quantas_unidades_possui: units,
+              cf_voce_ja_utiliza_algum_sistema_pdv_se_sim_qual:
+                currentSystem || '',
+              cf_o_que_voce_busca_melhorar_na_sua_operacao: improvementsValue,
+              cf_em_quanto_tempo_pretende_implantar: implementationTime,
               traffic_source: trafficSource,
               cf_utm_source: attribution.utm_source,
               cf_utm_medium: attribution.utm_medium,
@@ -76,7 +105,11 @@ export async function POST(req: NextRequest) {
           }),
         }
       )
+      const rdText = await rdRes.text()
       console.log(`[RD STATION] Status: ${rdRes.status}`)
+      if (!rdRes.ok) {
+        console.error('[RD STATION] Resposta:', rdText)
+      }
     } catch (rdErr) {
       console.error('[RD STATION] Erro ao registrar lead:', rdErr)
     }
@@ -89,11 +122,15 @@ export async function POST(req: NextRequest) {
       html: `
         <h2 style="color:#1a1a2e;">Novo contato pelo site da Teloos</h2>
         <table style="width:100%;border-collapse:collapse;font-family:sans-serif;font-size:15px;">
-          <tr><td style="padding:8px 0;color:#666;width:180px;"><strong>Nome:</strong></td><td>${name}</td></tr>
-          <tr><td style="padding:8px 0;color:#666;"><strong>E-mail:</strong></td><td><a href="mailto:${email}">${email}</a></td></tr>
-          <tr><td style="padding:8px 0;color:#666;"><strong>Telefone:</strong></td><td>${phone}</td></tr>
-          <tr><td style="padding:8px 0;color:#666;"><strong>Área de atuação:</strong></td><td>${restaurant}</td></tr>
-          <tr><td style="padding:8px 0;color:#666;"><strong>Mensagem:</strong></td><td>${message || '(não informada)'}</td></tr>
+          <tr><td style="padding:8px 0;color:#666;width:220px;"><strong>Nome:</strong></td><td>${escapeHtml(name)}</td></tr>
+          <tr><td style="padding:8px 0;color:#666;"><strong>E-mail:</strong></td><td><a href="mailto:${escapeHtml(email)}">${escapeHtml(email)}</a></td></tr>
+          <tr><td style="padding:8px 0;color:#666;"><strong>WhatsApp:</strong></td><td>${escapeHtml(phone)}</td></tr>
+          <tr><td style="padding:8px 0;color:#666;"><strong>Estado:</strong></td><td>${escapeHtml(state)}</td></tr>
+          <tr><td style="padding:8px 0;color:#666;"><strong>Segmento:</strong></td><td>${escapeHtml(segment)}</td></tr>
+          <tr><td style="padding:8px 0;color:#666;"><strong>Unidades:</strong></td><td>${escapeHtml(units)}</td></tr>
+          <tr><td style="padding:8px 0;color:#666;"><strong>Sistema atual:</strong></td><td>${escapeHtml(currentSystem || '(não informado)')}</td></tr>
+          <tr><td style="padding:8px 0;color:#666;"><strong>Busca melhorar:</strong></td><td>${escapeHtml(improvementsText)}</td></tr>
+          <tr><td style="padding:8px 0;color:#666;"><strong>Prazo para implantar:</strong></td><td>${escapeHtml(implementationTime)}</td></tr>
           <tr><td style="padding:8px 0;color:#666;"><strong>Origem:</strong></td><td>${escapeHtml(trafficSource || '(não informada)')}</td></tr>
           <tr><td style="padding:8px 0;color:#666;"><strong>UTM Source:</strong></td><td>${escapeHtml(attribution.utm_source || '(não informada)')}</td></tr>
           <tr><td style="padding:8px 0;color:#666;"><strong>UTM Medium:</strong></td><td>${escapeHtml(attribution.utm_medium || '(não informada)')}</td></tr>

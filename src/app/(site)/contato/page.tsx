@@ -66,6 +66,51 @@ const SOCIAL_LINKS = [
   { icon: Linkedin, href: 'https://linkedin.com/company/teloos', label: 'LinkedIn' },
 ]
 
+const STATE_OPTIONS = ['PR', 'SC', 'RS', 'SP', 'MG', 'RJ', 'DF', 'GO', 'UF Demais']
+
+const SEGMENT_OPTIONS = [
+  'Açaiteria',
+  'Bar ou Pub',
+  'Bistrô',
+  'Churrascaria',
+  'Cafeteria',
+  'Delivery',
+  'Doceria',
+  'Food Truck',
+  'Hamburgueria',
+  'Lanchonete',
+  'Marmitaria',
+  'Padaria',
+  'Pastelaria',
+  'Pizzaria',
+  'Posto de Combustível',
+  'Restaurante',
+  'Rede/Franquia de Alimentação',
+  'Salgaderia',
+  'Sorveteria',
+  'Outros',
+]
+
+const UNIT_OPTIONS = ['1', '2 a 3', '4 a 10', '11 a 30', 'Mais de 30']
+
+const IMPROVEMENT_OPTIONS = [
+  'Atendimento',
+  'Pedidos',
+  'Caixa',
+  'Delivery',
+  'Gestão',
+  'Integrações',
+  'Controle de estoque',
+  'Trocar meu sistema atual',
+]
+
+const IMPLEMENTATION_TIME_OPTIONS = [
+  'Imediatamente',
+  'Nos próximos 30 dias',
+  'Em até 3 meses',
+  'Apenas pesquisando',
+]
+
 export default function ContatoPage() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isDone, setIsDone] = useState(false)
@@ -88,11 +133,26 @@ export default function ContatoPage() {
       name: (form.elements.namedItem('name') as HTMLInputElement).value,
       email: (form.elements.namedItem('email') as HTMLInputElement).value,
       phone: (form.elements.namedItem('phone') as HTMLInputElement).value,
-      restaurant: (form.elements.namedItem('restaurant') as HTMLSelectElement)
-        .value,
-      message: (form.elements.namedItem('message') as HTMLTextAreaElement)
+      state: (form.elements.namedItem('state') as HTMLSelectElement).value,
+      segment: (form.elements.namedItem('segment') as HTMLSelectElement).value,
+      units: (form.elements.namedItem('units') as HTMLSelectElement).value,
+      currentSystem: (
+        form.elements.namedItem('currentSystem') as HTMLInputElement
+      ).value,
+      improvements: Array.from(
+        form.querySelectorAll<HTMLInputElement>('input[name="improvements"]:checked')
+      ).map((input) => input.value),
+      implementationTime: (
+        form.elements.namedItem('implementationTime') as HTMLSelectElement
+      )
         .value,
       attribution: getSavedAttribution(),
+    }
+
+    if (!data.improvements.length) {
+      toast.error('Selecione ao menos uma melhoria para sua operação.')
+      setIsSubmitting(false)
+      return
     }
 
     try {
@@ -263,7 +323,7 @@ export default function ContatoPage() {
                             htmlFor="email"
                             className="text-brand-dark/60 ml-1 text-sm font-bold"
                           >
-                            E-mail Corporativo
+                            Email
                           </label>
                           <input
                             required
@@ -297,30 +357,68 @@ export default function ContatoPage() {
                         </div>
                         <div className="space-y-2">
                           <label
-                            htmlFor="restaurant"
+                            htmlFor="state"
                             className="text-brand-dark/60 ml-1 text-sm font-bold"
                           >
-                            Área de atuação
+                            De qual Estado você fala?
                           </label>
-                          <Select name="restaurant" required>
+                          <Select name="state" required>
                             <SelectTrigger size={undefined}
                               className="focus:border-brand-blue h-[58px] w-full rounded-2xl border-2 border-slate-100 px-6 font-medium transition-colors focus:outline-none focus:ring-0 data-[size=default]:h-[58px]">
                               <SelectValue placeholder="Selecione" />
                             </SelectTrigger>
                             <SelectContent className="rounded-2xl border border-slate-100 shadow-xl">
-                              <SelectItem value="restaurante">Restaurante</SelectItem>
-                              <SelectItem value="padaria">Padaria</SelectItem>
-                              <SelectItem value="cafeteria">Cafeteria / Doceria</SelectItem>
-                              <SelectItem value="hamburgueria">Hamburgueria</SelectItem>
-                              <SelectItem value="pizzaria">Pizzaria</SelectItem>
-                              <SelectItem value="bar">Bar / Pub</SelectItem>
-                              <SelectItem value="buffet">Buffet / Eventos</SelectItem>
-                              <SelectItem value="delivery-only">Apenas Delivery (Dark Kitchen)</SelectItem>
-                              <SelectItem value="loja-roupas">Loja de Roupas</SelectItem>
-                              <SelectItem value="calcados">Loja de Calçados</SelectItem>
-                              <SelectItem value="mercado">Mercado / Mercearia</SelectItem>
-                              <SelectItem value="pet">Pet Shop</SelectItem>
-                              <SelectItem value="outro">Outro</SelectItem>
+                              {STATE_OPTIONS.map((state) => (
+                                <SelectItem key={state} value={state}>
+                                  {state}
+                                </SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
+                        </div>
+                      </div>
+
+                      <div className="grid gap-6 sm:grid-cols-2">
+                        <div className="space-y-2">
+                          <label
+                            htmlFor="segment"
+                            className="text-brand-dark/60 ml-1 text-sm font-bold"
+                          >
+                            Qual seu segmento?
+                          </label>
+                          <Select name="segment" required>
+                            <SelectTrigger size={undefined}
+                              className="focus:border-brand-blue h-[58px] w-full rounded-2xl border-2 border-slate-100 px-6 font-medium transition-colors focus:outline-none focus:ring-0 data-[size=default]:h-[58px]">
+                              <SelectValue placeholder="Selecione" />
+                            </SelectTrigger>
+                            <SelectContent className="max-h-72 rounded-2xl border border-slate-100 shadow-xl">
+                              {SEGMENT_OPTIONS.map((segment) => (
+                                <SelectItem key={segment} value={segment}>
+                                  {segment}
+                                </SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
+                        </div>
+
+                        <div className="space-y-2">
+                          <label
+                            htmlFor="units"
+                            className="text-brand-dark/60 ml-1 text-sm font-bold"
+                          >
+                            Quantas unidades possui?
+                          </label>
+                          <Select name="units" required>
+                            <SelectTrigger size={undefined}
+                              className="focus:border-brand-blue h-[58px] w-full rounded-2xl border-2 border-slate-100 px-6 font-medium transition-colors focus:outline-none focus:ring-0 data-[size=default]:h-[58px]">
+                              <SelectValue placeholder="Selecione" />
+                            </SelectTrigger>
+                            <SelectContent className="rounded-2xl border border-slate-100 shadow-xl">
+                              {UNIT_OPTIONS.map((units) => (
+                                <SelectItem key={units} value={units}>
+                                  {units}
+                                </SelectItem>
+                              ))}
                             </SelectContent>
                           </Select>
                         </div>
@@ -328,17 +426,63 @@ export default function ContatoPage() {
 
                       <div className="space-y-2">
                         <label
-                          htmlFor="message"
+                          htmlFor="currentSystem"
                           className="text-brand-dark/60 ml-1 text-sm font-bold"
                         >
-                          Como podemos ajudar?
+                          Já utiliza sistema de gestão/PDV? Qual?
                         </label>
-                        <textarea
-                          id="message"
-                          rows={4}
-                          placeholder="Conte-nos um pouco sobre sua necessidade..."
-                          className="focus:border-brand-blue w-full resize-none rounded-2xl border-2 border-slate-100 px-6 py-4 font-medium transition-colors focus:outline-none"
+                        <input
+                          required
+                          id="currentSystem"
+                          name="currentSystem"
+                          type="text"
+                          placeholder="Ex.: sistema atual, planilha, nenhum..."
+                          className="focus:border-brand-blue h-[58px] w-full rounded-2xl border-2 border-slate-100 px-6 font-medium transition-colors focus:outline-none"
                         />
+                      </div>
+
+                      <fieldset className="space-y-3">
+                        <legend className="text-brand-dark/60 ml-1 text-sm font-bold">
+                          O que você busca melhorar na sua operação?
+                        </legend>
+                        <div className="grid gap-3 sm:grid-cols-2">
+                          {IMPROVEMENT_OPTIONS.map((option) => (
+                            <label
+                              key={option}
+                              className="border-slate-100 hover:border-brand-blue/30 hover:bg-brand-blue/5 flex items-center gap-3 rounded-2xl border-2 px-4 py-3 text-sm font-semibold text-brand-dark/70 transition-colors"
+                            >
+                              <input
+                                type="checkbox"
+                                name="improvements"
+                                value={option}
+                                className="border-brand-blue/30 text-brand-blue h-4 w-4 rounded accent-[#3f63e6]"
+                              />
+                              {option}
+                            </label>
+                          ))}
+                        </div>
+                      </fieldset>
+
+                      <div className="space-y-2">
+                        <label
+                          htmlFor="implementationTime"
+                          className="text-brand-dark/60 ml-1 text-sm font-bold"
+                        >
+                          Em quanto tempo pretende implantar?
+                        </label>
+                        <Select name="implementationTime" required>
+                          <SelectTrigger size={undefined}
+                            className="focus:border-brand-blue h-[58px] w-full rounded-2xl border-2 border-slate-100 px-6 font-medium transition-colors focus:outline-none focus:ring-0 data-[size=default]:h-[58px]">
+                            <SelectValue placeholder="Selecione" />
+                          </SelectTrigger>
+                          <SelectContent className="rounded-2xl border border-slate-100 shadow-xl">
+                            {IMPLEMENTATION_TIME_OPTIONS.map((time) => (
+                              <SelectItem key={time} value={time}>
+                                {time}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
                       </div>
 
                       <Button
